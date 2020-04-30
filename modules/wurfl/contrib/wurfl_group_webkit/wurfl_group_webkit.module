@@ -1,0 +1,53 @@
+<?php
+// $id:
+
+/**
+ * @file
+ *  Combines Mobile Tools and WURFL to create custom device groups. The module will provide two groups
+ *    - high end devices (webkit + screen >= 320 * 240)
+ *    - the rest
+ */
+
+function wurfl_group_webkit_boot(){
+
+}
+
+// Available device groups
+function wurfl_group_webkit_device_groups() {
+  return array('high_end' => 'High End', 'low_end' => 'Low End');
+}
+
+
+
+// Device detection. Implementaion of hook_is_mobile_device as implemented by Mobile Tools
+function wurfl_group_webkit_is_mobile_device(){
+  if(empty($_SERVER['HTTP_USER_AGENT'])) {
+    return array('group' => '', 'type' => 'desktop');
+  }
+  if(!function_exists("wurfl_get_requestingDevice")){
+     drupal_load('module', 'wurfl');  }
+  $requestingDevice = wurfl_get_requestingDevice();
+  $result['type'] = ($requestingDevice->getCapability("is_wireless_device") == 'true') ? 'mobile' : 'desktop'; // This is strange, return value is string, not boolean
+  $width = $requestingDevice->getCapability('resolution_width');
+  $height =  $requestingDevice->getCapability('resolution_height');
+  $browser = $requestingDevice->getCapability('mobile_browser');
+  if(!in_array($browser,array("Safari", "Android Webkit"))) {
+    $result['group'] = 'low_end';
+  }
+  elseif(($height < 320 && $width < 480) || ($height < 480 && $width < 320)){
+    $result['group'] = 'low_end';
+  }
+  else {
+    $result['group'] = 'high_end';
+  }
+  return $result;
+}
+
+/**
+ *  Implementation of hook_devicecapability as defined by 
+ *  the mobile_tools module 
+ */ 
+function wurfl_group_webkit__devicecapability($capability) {
+  $requestingDevice = wurfl_get_requestingDevice();
+  return $requetingDevice->getCapability($capability);
+}

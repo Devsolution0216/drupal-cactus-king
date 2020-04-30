@@ -1,0 +1,161 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_taxes.ca.inc,v 1.1.2.6 2008/11/21 21:17:25 islandusurper
+#  uc_taxes.module,v 1.12.2.6 2008/11/21 21:17:25 islandusurper
+#  uc_taxes.admin.inc,v 1.1.2.3 2008/11/21 21:17:25 islandusurper
+#  uc_taxes.install,v 1.10.2.3 2008/12/09 15:20:38 islandusurper
+#  uc_taxes.info,v 1.6.2.1 2008/10/15 14:47:36 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-13 22:58+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_taxes/uc_taxes.ca.inc:55
+msgid "Charge a tax"
+msgstr "Steuer erheben"
+
+#: uc_taxes/uc_taxes.module:47
+msgid "Edit tax rule"
+msgstr "Bearbeite Steuerregel"
+
+#: uc_taxes/uc_taxes.module:61
+msgid "Delete tax rule"
+msgstr "Entferne Steuerregel"
+
+#: uc_taxes/uc_taxes.admin.inc:21
+msgid "copy"
+msgstr "kopieren"
+
+#: uc_taxes/uc_taxes.admin.inc:50
+msgid "The tax rate as a percent or decimal. Examples: 6%, .06"
+msgstr "Steuerrate als Prozentwert oder Dezimalwert. Beispiele: 6%, .06"
+
+#: uc_taxes/uc_taxes.admin.inc:66
+msgid "Apply taxes to specific product types."
+msgstr "Steueren auf spezifische Produktarten erheben"
+
+#: uc_taxes/uc_taxes.admin.inc:113
+msgid "%name settings have been saved."
+msgstr "%name Einstellungen wurden gespeichert."
+
+#: uc_taxes/uc_taxes.admin.inc:161
+msgid "Tax rule deleted."
+msgstr "Steuerregel entfernt."
+
+#: uc_taxes/uc_taxes.module:29
+msgid "configure taxes"
+msgstr "Steuersätze bearbeiten"
+
+#: uc_taxes/uc_taxes.module:0
+msgid "uc_taxes"
+msgstr "uc_taxes"
+
+#: uc_taxes/uc_taxes.install:176
+msgid "Is in postal code area @code"
+msgstr "Befinde sich im Postleitzahlenbereich @code"
+
+#: uc_taxes/uc_taxes.install:185
+msgid "Is in @zone"
+msgstr "Ist in @zone"
+
+#: uc_taxes/uc_taxes.install:195
+msgid "Is in @country"
+msgstr "Ist in @country"
+
+#: uc_taxes/uc_taxes.info:0
+msgid ""
+"Define tax rates for customers' geographic locations and products "
+"sold."
+msgstr "Steuersätze  nach Wohnort des Kunden und der Produktart festlegen."
+
+#: uc_taxes/uc_taxes.module:143
+msgid "Changed %title to %amount."
+msgstr "%title in %amount geändert."
+
+#: uc_taxes/uc_taxes.module:152
+msgid "Removed %title."
+msgstr "%title entfernt."
+
+#: uc_taxes/uc_taxes.module:160
+msgid "Added %amount for %title."
+msgstr "%amount addiert für %title."
+
+#: uc_taxes/uc_taxes.admin.inc:15,62
+msgid "Taxed product types"
+msgstr "Besteuerte Warengruppen"
+
+#: uc_taxes/uc_taxes.admin.inc:15,75
+msgid "Taxed line items"
+msgstr "Besteuerte Positionen"
+
+#: uc_taxes/uc_taxes.admin.inc:79
+msgid ""
+"Adds the checked line item types to the total before applying this "
+"tax."
+msgstr ""
+"Fügt die ausgewählten Positionstypen zum Gesamtbetrag hinzu bevor "
+"die Steuer berechnet wird."
+
+#: uc_taxes/uc_taxes.admin.inc:84
+msgid ""
+"Lighter taxes are applied to an order first. This value is unimportant "
+"if there are no taxes on tax line items."
+msgstr ""
+"Leichter gewichtete Steuersätze werden zuerst angewendet. Diese "
+"Einstellung ist unwichtig wenn keine Steuern auf steuern erhoben "
+"werden."
+
+#: uc_taxes/uc_taxes.module:115,235,242
+msgid "Subtotal excluding taxes"
+msgstr "Zwischensumme ohne Steuern"
+
+#: uc_taxes/uc_taxes.module:39
+msgid "Tax rates and settings"
+msgstr "Steuersätze und Einstellungen"
+
+#: uc_taxes/uc_taxes.admin.inc:125
+msgid "Copy of @rule"
+msgstr ""
+
+#: uc_taxes/uc_taxes.admin.inc:21
+msgid "conditions"
+msgstr ""
+
+#: uc_taxes/uc_taxes.admin.inc:24
+msgid "Make a new tax rule."
+msgstr ""
+
+#: uc_taxes/uc_taxes.admin.inc:144
+msgid "Delete @rule?"
+msgstr ""
+
+#: uc_taxes/uc_taxes.ca.inc:34
+msgid "Calculate taxes"
+msgstr ""
+
+#: uc_taxes/uc_taxes.module:20
+msgid ""
+"Add tax rates through this page and then use the <a "
+"href=\"!url\">conditional actions interface</a> to add conditions to "
+"the taxes that limit which orders they are applied to. Especially "
+"important are the geographic area conditions for the delivery address. "
+" Use the conditions link to jump to a particular tax rate conditions "
+"configuration page."
+msgstr ""
+
+#: uc_taxes/uc_taxes.module:40
+msgid "Configure the tax rates and settings."
+msgstr ""
+
+#: uc_taxes/uc_taxes.install:32
+msgid "Serialized array of node types to be taxed."
+msgstr ""
+

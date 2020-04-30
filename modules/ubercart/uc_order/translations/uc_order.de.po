@@ -1,0 +1,1556 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_order.module,v 1.12.2.10 2008/12/09 15:20:36 islandusurper
+#  uc_order.order_pane.inc,v 1.1.2.5 2008/12/09 15:20:36 islandusurper
+#  uc_order.ca.inc,v 1.1.2.10 2008/12/09 15:20:36 islandusurper
+#  uc_order.admin.inc,v 1.1.2.6 2008/12/09 15:20:36 islandusurper
+#  uc_order.install,v 1.9.2.6 2008/12/09 15:20:36 islandusurper
+#  uc_order.info,v 1.6.2.2 2008/11/07 21:13:23 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-11-10 15:53+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_order/uc_order.module:745
+msgid "!title is !enabled."
+msgstr "!title ist !enabled."
+
+#: uc_order/uc_order.order_pane.inc:631
+msgid "Send e-mail notification on update."
+msgstr "Email Benachrichtigung senden bei Bearbeitung"
+
+#: uc_order/uc_order.module:676
+msgid ""
+"[order-first-name] [order-last-name],\n"
+"\n"
+"Your order number [order-link] at [store-name] has been updated.\n"
+"\n"
+"Order status: [order-status]\n"
+"\n"
+"Order comment:\n"
+"[order-last-comment]\n"
+"\n"
+"Browse to the following page to login to your account and view your "
+"order details:\n"
+"[site-login]\n"
+"\n"
+"\n"
+"Thanks again,\n"
+"\n"
+"[store-name]\n"
+"[site-slogan]"
+msgstr ""
+"[order-first-name] [order-last-name],\n"
+"\n"
+"Ihre Bestellung min der Nummer [order-link] bei [store-name] wurde "
+"aktualisiert.\n"
+"\n"
+"Bestellungs Status: [order-status]\n"
+"\n"
+"Bearbeiter Kommentar:\n"
+"[order-last-comment]\n"
+"\n"
+"Für weitere Information rund um Ihre Bestellung loggen Sie sich auf "
+"der folgenden Website ein:\n"
+"[site-login]\n"
+"\n"
+
+#: uc_order/uc_order.ca.inc:100
+msgid "Order #[order-id] Update"
+msgstr "Bestellung #[order-id] Aktualisierung"
+
+#: uc_order/uc_order.order_pane.inc:198
+msgid "Primary e-mail:"
+msgstr "Primäre E-Mail Adresse:"
+
+#: uc_order/uc_order.order_pane.inc:305
+msgid "Add blank line"
+msgstr "Leerzeile einfügen"
+
+#: uc_order/uc_order.order_pane.inc:382
+msgid "Select a type"
+msgstr "Wählen Sie einen Typ"
+
+#: uc_order/uc_order.order_pane.inc:387,479,481
+msgid "Add line"
+msgstr "Zeile hinzufügen"
+
+#: uc_order/uc_order.order_pane.inc:396
+msgid "Modify 'line items'"
+msgstr "Positionen Bearbeiten."
+
+#: uc_order/uc_order.order_pane.inc:415,416
+msgid "Remove line item."
+msgstr "Position entfernen."
+
+#: uc_order/uc_order.order_pane.inc:419
+msgid "Remove this line item?"
+msgstr "Diese Position entfernen?"
+
+#: uc_order/uc_order.order_pane.inc:474
+msgid "Line item removed."
+msgstr "Position wurde entfernt."
+
+#: uc_order/uc_order.order_pane.inc:502
+msgid "Order created."
+msgstr "Bestellung erzeugt."
+
+#: uc_order/uc_order.order_pane.inc:540,596
+msgid "Admin comments are only seen by store administrators."
+msgstr ""
+"Administrative Kommentare werden nur von den Shop Administratoren "
+"gesehen."
+
+#: uc_order/uc_order.order_pane.inc:552
+msgid "No admin comments have been entered for this order."
+msgstr "für diese Bestellung ist kein administrativer Kommentar vorhanden"
+
+#: uc_order/uc_order.order_pane.inc:579
+msgid "Add an order comment"
+msgstr "Der Bestellung einen Kommentar hinzufügen."
+
+#: uc_order/uc_order.order_pane.inc:585
+msgid "Order comments are used primarily to communicate with the customer."
+msgstr ""
+"Bestellungs kommentar dienen haupsächlich der Kommunikation mit dem "
+"Kunden."
+
+#: uc_order/uc_order.order_pane.inc:534,590
+msgid "Add an admin comment"
+msgstr "Einen Admin Kommentar Hinzufügen"
+
+#: uc_order/uc_order.order_pane.inc:673
+msgid "Order updated."
+msgstr "Bestellung aktualisiert."
+
+#: uc_order/uc_order.order_pane.inc:896
+msgid "Notified"
+msgstr "Benachrichtigt"
+
+#: uc_order/uc_order.order_pane.inc:937
+msgid "This order has no comments associated with it."
+msgstr "Diese Bestellung hat noch keine Kommentare."
+
+#: uc_order/uc_order.order_pane.inc:985
+msgid "This order has no admin comments associated with it."
+msgstr "Diese Bestellung hat noch keine administrativen Kommentare."
+
+#: uc_order/uc_order.ca.inc:34
+msgid "Order status gets updated"
+msgstr "Status der Bestellung wird aktualisiert."
+
+#: uc_order/uc_order.ca.inc:43
+msgid "Updated order"
+msgstr "Bestellung aktualisiert"
+
+#: uc_order/uc_order.ca.inc:120
+msgid "Check the order status"
+msgstr "Den status der Bestellung überprüfen."
+
+#: uc_order/uc_order.ca.inc:243
+msgid "Update the order status"
+msgstr "Den Status der Bestellung aktualisieren."
+
+#: uc_order/uc_order.ca.inc:377,448
+msgid ""
+"Specify a postal code or postal code pattern. Use \"*\" as a wild card "
+"to specify a range of postal codes.<br /><b>Example:</b> In the US, "
+"402* represents all areas from 40200 to 40299."
+msgstr ""
+"Legen Sie eine Postleitzahl oder ein Postleitzahlen Muster fest. "
+"Benutzen Sie  \"*\" als Wildcard um einen Bereich von Postleitzahlen "
+"abzudeken.<br /><b>Beispiel:</b>In den  USA, steht  402* für den "
+"Bereich von  40200 bis 40299."
+
+#: uc_order/uc_order.module:30,54
+msgid "Order settings"
+msgstr "Bestellungs Einstellungen"
+
+#: uc_order/uc_order.module:39
+msgid "View the order settings."
+msgstr "Sehen Sie die Bestellungs einstellungen an."
+
+#: uc_order/uc_order.module:45
+msgid "Edit the order settings."
+msgstr "Bearbeiten Sie die Bestellungs Einstellungen"
+
+#: uc_order/uc_order.module:55
+msgid "Edit the basic order settings."
+msgstr "Bearbeiten Sie die Grundlegenen Bestellungs Einstellungen."
+
+#: uc_order/uc_order.module:60
+msgid "Order workflow"
+msgstr "Bestellungs Arbeitsablauf"
+
+#: uc_order/uc_order.module:61
+msgid "Modify and configure order states and statuses."
+msgstr "Bestellungs Stati anpassen und ändern."
+
+#: uc_order/uc_order.module:70
+msgid "Order panes"
+msgstr "Bestellungs Abschnitte"
+
+#: uc_order/uc_order.module:71
+msgid "Edit the pane settings for order pages."
+msgstr "Die Abschnitts einstellungen für die Bestellungs seiten vornehemen."
+
+#: uc_order/uc_order.module:81
+msgid "Create an order status"
+msgstr "Einen Bestellungs status erzeugen."
+
+#: uc_order/uc_order.module:82
+msgid "Create a custom order status for your store."
+msgstr "Einen angepssten Bestellungs Status für ihren Shop erzeugen."
+
+#: uc_order/uc_order.module:102
+msgid "View and process the orders received through your website."
+msgstr ""
+"Die Bestellungen ansehen und bearbeiten die Sie über ihre Site "
+"erhalten haben."
+
+#: uc_order/uc_order.module:101
+msgid "View orders"
+msgstr "Bestellungen ansehen."
+
+#: uc_order/uc_order.module:119
+msgid "Create an empty new order."
+msgstr "Eine leere neue Bestellung erzeugen."
+
+#: uc_order/uc_order.module:127
+msgid "Search orders"
+msgstr "Bestellungen suchen"
+
+#: uc_order/uc_order.module:128
+msgid "Search existing orders."
+msgstr "Suchen Sie nach vorhandenen Bestellungen."
+
+#: uc_order/uc_order.module:136
+msgid "Select address"
+msgstr "Adresse wählen."
+
+#: uc_order/uc_order.module:143
+msgid "Select customer"
+msgstr "Kunde wählen."
+
+#: uc_order/uc_order.module:152
+msgid "View your order history."
+msgstr "Sehne Sie ihre Bestelll Historie"
+
+#: uc_order/uc_order.module:172,258
+msgid "View invoice"
+msgstr "Rechnung anzeigen"
+
+#: uc_order/uc_order.module:184
+msgid "Create an order for a customer."
+msgstr "Eine bestellung für einen Kunden erzeugen."
+
+#: uc_order/uc_order.module:263
+msgid "Printable invoice"
+msgstr "Duckbare Rechnung"
+
+#: uc_order/uc_order.module:377
+msgid "Standard delivery"
+msgstr "Standard Zustellung"
+
+#: uc_order/uc_order.module:389
+msgid "<i>No comments left.</i>"
+msgstr "<i>Kein kommentar hinterlassen.</i>"
+
+#: uc_order/uc_order.module:391
+msgid "<i>No comment found.</i>"
+msgstr "<i>Kein kommentar gefunden.</i>"
+
+#: uc_order/uc_order.module:406
+msgid "New username associated with an order if applicable."
+msgstr ""
+"Neuer Benutzernamen der mit der Bestellung verknüpft werden soll "
+"falls zutreffend."
+
+#: uc_order/uc_order.module:407
+msgid "New password associated with an order if applicable."
+msgstr ""
+"Neues Passwort das mit der Bestellung verknüpft werden soll falls "
+"zutreffend."
+
+#: uc_order/uc_order.module:410
+msgid "The URL to the order"
+msgstr "Die URL zur Bestellung"
+
+#: uc_order/uc_order.module:411
+msgid "A link to the order using the order ID."
+msgstr "Ein Link zur Bestellung der die Bestellungs ID nutzt"
+
+#: uc_order/uc_order.module:413
+msgid "A link to the order admin view page using the order ID."
+msgstr "Ein Link zur Bestellungs Admin Ansicht der die Bestellungs ID nutzt."
+
+#: uc_order/uc_order.module:414
+msgid "The subtotal of products on an order."
+msgstr "Die Zwischensumme der Artikel einer Bestellung"
+
+#: uc_order/uc_order.module:415
+msgid "The order total."
+msgstr "Die Gesamtsumme der Bestellung."
+
+#: uc_order/uc_order.module:416
+msgid "The primary e-mail address of the order."
+msgstr "Die primäre E-Mail adresse der Bestellung"
+
+#: uc_order/uc_order.module:417
+msgid "The order shipping address."
+msgstr "Die Lieferanschrift der Bestellung"
+
+#: uc_order/uc_order.module:419
+msgid "The order billing address."
+msgstr "Die Rechnungsanschrift der Bestellung"
+
+#: uc_order/uc_order.module:421
+msgid "The title of the first shipping line item."
+msgstr "Die Überschrift für die erste versandkosten Zeile"
+
+#: uc_order/uc_order.module:422
+msgid "The first name associated with the order."
+msgstr "Der Vorname der mit der Bestellung verknüpft ist."
+
+#: uc_order/uc_order.module:423
+msgid "The last name associated with the order."
+msgstr "Der Nachname, der mit der Bestellung verknüpft ist."
+
+#: uc_order/uc_order.module:424
+msgid "Comments left by the customer."
+msgstr "Kammentar die der Kunde hinterlassen hat."
+
+#: uc_order/uc_order.module:425
+msgid ""
+"Last order comment left by an administrator (not counting the order "
+"admin comments)."
+msgstr ""
+"Letzter Kommentar einer Bearbeiters (administrative Kommentare zählen "
+"nicht)"
+
+#: uc_order/uc_order.module:426
+msgid "The current order status."
+msgstr "Der aktuelle Status der Bestellung"
+
+#: uc_order/uc_order.module:471
+msgid "Click here to view your order history."
+msgstr ""
+"Klicken Sie hier um eine Übersicht ihrer bisherigen Bestellungen zu "
+"sehen."
+
+#: uc_order/uc_order.module:533
+msgid "Ship to"
+msgstr "Empfänger"
+
+#: uc_order/uc_order.module:534
+msgid "Manage the order's shipping address and contact information."
+msgstr "Verwalten der Kontakt und Versand Informationen der Bestellung"
+
+#: uc_order/uc_order.module:542
+msgid "Bill to"
+msgstr "Rechnung an"
+
+#: uc_order/uc_order.module:543
+msgid "Manage the order's billing address and contact information."
+msgstr ""
+"Die Rechnungs und Adresse und Kontaktinformationen der "
+"Bestellungebearbeiten."
+
+#: uc_order/uc_order.module:552
+msgid "Manage the information for the customer's user account."
+msgstr "Die Informationen rund um das Kunden Benutzerkonto verwalten."
+
+#: uc_order/uc_order.module:561
+msgid "Manage the products an order contains."
+msgstr "Die Artikel verwalten die eine Bestellung enthält."
+
+#: uc_order/uc_order.module:570
+msgid "View and modify an order's line items."
+msgstr "Die Positionen einer Bestellung ansehen und bearbeiten."
+
+#: uc_order/uc_order.module:579
+msgid "View the order comments, used for communicating with customers."
+msgstr ""
+"Die Bestellund kommentare ansehen, die der Kommunikation mit den "
+"Kunden dienen."
+
+#: uc_order/uc_order.module:588
+msgid ""
+"View the admin comments, used for administrative notes and "
+"instructions."
+msgstr ""
+"Die administrative Kommentare ansehen, die für Interne Notizen und "
+"anweisungen gedacht sind."
+
+#: uc_order/uc_order.module:597
+msgid "Update an order's status or add comments to an order."
+msgstr "Den Status einer bestellung anpassen oder Kommentare hinzufügen."
+
+#: uc_order/uc_order.module:624
+msgid "Post checkout"
+msgstr "Nach dem Checkout"
+
+#: uc_order/uc_order.admin.inc:130
+msgid "The following order statuses have been defined:"
+msgstr "Die folgenden Bestellungs Stati wurden definiert."
+
+#: uc_order/uc_order.admin.inc:316
+msgid "Order panes on !screen screen"
+msgstr "Bestell abschnitte auf !screen Seite"
+
+#: uc_order/uc_order.admin.inc:30
+msgid "Admin settings"
+msgstr "Administrator Einstellungen."
+
+#: uc_order/uc_order.admin.inc:41
+msgid "Number of orders on overview screen"
+msgstr "Anzahl der Bestellungen auf der Übersichtsseite."
+
+#: uc_order/uc_order.admin.inc:48
+msgid "Enable order logging"
+msgstr "Bestellung Protokollierung aktivieren."
+
+#: uc_order/uc_order.admin.inc:58
+msgid "Capitalize address on order screens"
+msgstr "Adressen auf den Bestellseiten In Großbuchstaben darstellen"
+
+#: uc_order/uc_order.admin.inc:69
+msgid "Use the uBrowser product select on order edit screens"
+msgstr ""
+"Nutzen Sie die uBrowser Artikel auswahl auf Bestelungs bearbeitungs "
+"Seiten."
+
+#: uc_order/uc_order.admin.inc:81
+msgid "Customer settings"
+msgstr "Kunden Einstellungen"
+
+#: uc_order/uc_order.admin.inc:88
+msgid "Allow customers to view order invoices from their accounts."
+msgstr "Kunden erlauben Rechnungen von Ihrem Konto aus einzusehen."
+
+#: uc_order/uc_order.admin.inc:99
+msgid "Select the invoice template to use for your site."
+msgstr ""
+"Wählen Sie die Rechnungsvorlage die für ihre Site benutzt werden "
+"soll."
+
+#: uc_order/uc_order.admin.inc:144
+msgid "Order states"
+msgstr "Bestellungs Stati"
+
+#: uc_order/uc_order.admin.inc:168
+msgid "- N/A -"
+msgstr "- N/A -"
+
+#: uc_order/uc_order.admin.inc:234,274
+msgid "Create new status"
+msgstr "Neuen Status erzeugen"
+
+#: uc_order/uc_order.admin.inc:254
+msgid "Order status %status removed."
+msgstr "Bestellungs Status %status gelöscht."
+
+#: uc_order/uc_order.admin.inc:272
+msgid "Order workflow information saved."
+msgstr "Bestellungs Arbeits ablauf Informationen gespeichert."
+
+#: uc_order/uc_order.module:689,703
+msgid "State"
+msgstr "Zustand"
+
+#: uc_order/uc_order.module:689
+msgid "Default order status"
+msgstr "Standard Bestellungs Status"
+
+#: uc_order/uc_order.admin.inc:331
+msgid "Order status ID"
+msgstr "Bestellungs Status ID"
+
+#: uc_order/uc_order.admin.inc:332
+msgid "Must be a unique ID with no spaces."
+msgstr "Muss eine eindeutige ID ohne Leerzeichen sein."
+
+#: uc_order/uc_order.admin.inc:342
+msgid "The order status title displayed to users."
+msgstr "Der Titel des Bestellstatus wie er Den Benutern angezeigt wird."
+
+#: uc_order/uc_order.admin.inc:356
+msgid "Order state"
+msgstr "Bestellungs Status"
+
+#: uc_order/uc_order.admin.inc:357
+msgid "Set which order state this status is for."
+msgstr "Legen Sie fest welcher Bestellungs status für steht"
+
+#: uc_order/uc_order.admin.inc:372
+msgid "Create"
+msgstr "Erstellen"
+
+#: uc_order/uc_order.admin.inc:384
+msgid "You have entered an invalid status ID."
+msgstr "Sie haben eine ungül"
+
+#: uc_order/uc_order.admin.inc:390
+msgid "This ID is already in use.  Please specify a unique ID."
+msgstr ""
+"Diese ID wird bereits verwendet. Bitte geben Sie eine eindeutige ID "
+"an."
+
+#: uc_order/uc_order.admin.inc:401
+msgid "Custom order status created."
+msgstr "Angepaster Bestll status wurde erzeugt."
+
+#: uc_order/uc_order.admin.inc:466
+msgid "User: none"
+msgstr "Benutzer: keiner"
+
+#: uc_order/uc_order.admin.inc:501
+msgid "Active orders"
+msgstr "Aktive Bestellungen"
+
+#: uc_order/uc_order.admin.inc:518
+msgid "View by status"
+msgstr "Nach Status anzeigen"
+
+#: uc_order/uc_order.admin.inc:578
+msgid "Order created by the administration."
+msgstr "Bestellung wurde in der verwaötungs oberfläche erzeugt."
+
+#: uc_order/uc_order.admin.inc:601
+msgid "New order customer"
+msgstr "Neuer Bestellungs Kunde"
+
+#: uc_order/uc_order.admin.inc:602
+msgid ""
+"Use the buttons above to have these fields filled in or just submit "
+"the form with the fields blank to create a blank order."
+msgstr ""
+"Benutzen Sie die Button oben um Diese felder ausgefüllt zu bekommen, "
+"oder übermitteln Sie das Formular mit leeren Feldern um eine leere "
+"Bestellung zu erhalten."
+
+#: uc_order/uc_order.module:767
+msgid ""
+"Search for customers based on any of the following fields.  Use * as a "
+"wildcard to match any character.<br/>For example, searching by last "
+"name for 's*' will return all customers whose last name starts with an "
+"s.<br/>(<em>Leave a field empty to ignore it in the search.</em>)"
+msgstr ""
+"Suche nach Kunden, basierend auf den folgenden Feldern. Benutzen Sie * "
+"als Wildcard um jedes Zeichen zu Treffen.<br>Zum Beispiel wird eine "
+"Suche nach Nachname 's* alle Kunden finden, deren Nachname mit s "
+"beginnt.<br/>(<em>Lassen Sie Felder leer, damit diese bei der Suche "
+"nicht beachtet werden.</em>)"
+
+#: uc_order/uc_order.module:774
+msgid "Billing first name"
+msgstr "Rechnungs Vorname"
+
+#: uc_order/uc_order.module:784
+msgid "Billing last name"
+msgstr "Rechnungs Nachname"
+
+#: uc_order/uc_order.module:794
+msgid "Billing company"
+msgstr "Rechnungs Firma"
+
+#: uc_order/uc_order.module:804
+msgid "Shipping first name"
+msgstr "Versand Vorname"
+
+#: uc_order/uc_order.module:814
+msgid "Shipping last name"
+msgstr "Versand Nachname"
+
+#: uc_order/uc_order.module:824
+msgid "Shipping company"
+msgstr "Versand Firma"
+
+#: uc_order/uc_order.module:834
+msgid "Search using date range."
+msgstr "Suchen mittels Zeitraum."
+
+#: uc_order/uc_order.admin.inc:927
+msgid "My order history"
+msgstr "Meine bisherigen Bestellungen"
+
+#: uc_order/uc_order.admin.inc:931
+msgid "Order #"
+msgstr "Bestellung #"
+
+#: uc_order/uc_order.admin.inc:965
+msgid "Order history"
+msgstr "Bestell historie"
+
+#: uc_order/uc_order.admin.inc:971
+msgid "Print invoice"
+msgstr "Rechnung drucken"
+
+#: uc_order/uc_order.admin.inc:972
+msgid "Close window"
+msgstr "Fester Schließen"
+
+#: uc_order/uc_order.admin.inc:997
+msgid "Click to open a window with a printable invoice."
+msgstr "Klicken um ein Fenster mit einer Druckbaren Rechnung anzuzeigen."
+
+#: uc_order/uc_order.admin.inc:1124
+msgid "Order changes saved."
+msgstr "Änderungen an der Bestellung wurden gespeichert."
+
+#: uc_order/uc_order.admin.inc:1284
+msgid "Remove this product."
+msgstr "Diesen Artikel entfernen."
+
+#: uc_order/uc_order.admin.inc:1285
+msgid "Remove product from order?"
+msgstr "Wollen Sie diesen Artikel aus der bestellung entfernen?"
+
+#: uc_order/uc_order.admin.inc:1387
+msgid "No products found."
+msgstr "Keine Artikel gefunden."
+
+#: uc_order/uc_order.admin.inc:1392
+msgid "Select a product"
+msgstr "Wählen Sie einen Artikel"
+
+#: uc_order/uc_order.admin.inc:1399
+msgid "Search by name or model/SKU (* is the wildcard)"
+msgstr "Suchen Sie nach Name oder Artikelnummer (* dient als Wildcard)"
+
+#: uc_order/uc_order.admin.inc:889,1404
+msgid "Select"
+msgstr "auswählen"
+
+#: uc_order/uc_order.admin.inc:732,913,1414
+msgid "Close"
+msgstr "Schließen"
+
+#: uc_order/uc_order.admin.inc:1470
+msgid "Recipient e-mail address"
+msgstr "Empfänger E-Mail adresse"
+
+#: uc_order/uc_order.admin.inc:790,1484
+msgid "Invalid e-mail address."
+msgstr "Ungültige E-Mail adresse"
+
+#: uc_order/uc_order.module:489
+msgid "Your Order Invoice"
+msgstr "Ihre"
+
+#: uc_order/uc_order.admin.inc:1509
+msgid "E-mail failed."
+msgstr "E-Mail fehlgeschlagen."
+
+#: uc_order/uc_order.admin.inc:1512
+msgid "Invoice e-mailed to @email."
+msgstr "Rechnung versand an @email."
+
+#: uc_order/uc_order.admin.inc:1530
+msgid "Changes"
+msgstr "Änderungen"
+
+#: uc_order/uc_order.admin.inc:719
+msgid ""
+"You must select a customer before address<br>information is "
+"available.<br>"
+msgstr ""
+"Sie müssen einen Kunden Auswählen <br>damit Adressinformationen "
+"verfügbar werden.<br>"
+
+#: uc_order/uc_order.admin.inc:722
+msgid "No addresses found for customer."
+msgstr "Keine Adressen zu diesem Kunden gefunden."
+
+#: uc_order/uc_order.admin.inc:725
+msgid "Select an address"
+msgstr "Eine Adresse auswählen."
+
+#: uc_order/uc_order.admin.inc:778
+msgid "Search returned no results."
+msgstr "Die Suche lieferte keine Ergebnisse zurück."
+
+#: uc_order/uc_order.admin.inc:782
+msgid "Search returned the following:"
+msgstr "Das folgende wurde gefunden."
+
+#: uc_order/uc_order.admin.inc:796,814
+msgid "User !uid - !mail"
+msgstr "Benutzer !uid - !mail"
+
+#: uc_order/uc_order.admin.inc:798,816
+msgid "Apply"
+msgstr "Übernehmen"
+
+#: uc_order/uc_order.admin.inc:829
+msgid "Search for a customer based on these fields."
+msgstr "Nach einem Kunden suchen basierend auf diesen Feldern."
+
+#: uc_order/uc_order.admin.inc:830
+msgid "Use * as a wildcard to match any character."
+msgstr "Benutzen Sie * als Wildcard die jeden Buchstaben trifft."
+
+#: uc_order/uc_order.admin.inc:831
+msgid "Leave a field empty to ignore it in the search."
+msgstr "Wird ein feld leer gelassen wird es bei der Suche nicht beachtet."
+
+#: uc_order/uc_order.admin.inc:859
+msgid "Select a customer"
+msgstr "Kunde auswählen."
+
+#: uc_order/uc_order.admin.inc:867
+msgid "Enter an e-mail address for the new customer."
+msgstr "E-Mail adresse für den neuen Kunden anlegen."
+
+#: uc_order/uc_order.admin.inc:1297
+msgid "Line Item Title"
+msgstr "Positions Titel"
+
+#: uc_order/uc_order.admin.inc:1298
+msgid "Display title of the line item."
+msgstr "Den Titel der Position anzeigen"
+
+#: uc_order/uc_order.admin.inc:1305
+msgid "Line Item Amount"
+msgstr "Possitions Betrag"
+
+#: uc_order/uc_order.admin.inc:1306
+msgid "Amount of the line item without a currency sign."
+msgstr "Betrag der Zeile ohne Währungs Symbol"
+
+#: uc_order/uc_order.admin.inc:1336
+msgid "Amount must be numeric."
+msgstr "Betrag muss numerisch sein."
+
+#: uc_order/uc_order.admin.inc:1349
+msgid "Line item added to order."
+msgstr "Position zur bestellung hinzufügen."
+
+#: uc_order/uc_order.module:1487
+msgid "Custom template"
+msgstr "Angepasste Vorlage"
+
+#: uc_order/uc_order.module:438
+msgid "view all orders"
+msgstr "Alle bestellungen anzeigen"
+
+#: uc_order/uc_order.module:438
+msgid "create orders"
+msgstr "Bestellungen erzeugen"
+
+#: uc_order/uc_order.module:438
+msgid "edit orders"
+msgstr "Bestellungen bearbeiten"
+
+#: uc_order/uc_order.module:438
+msgid "delete orders"
+msgstr "Bestellungen löschen"
+
+#: uc_order/uc_order.module:438
+msgid "delete any order"
+msgstr "Alle Bestellungen löschen"
+
+#: uc_order/uc_order.module:438
+msgid "administer order workflow"
+msgstr "Bestellungs ablauf verwalten."
+
+#: uc_order/uc_order.module:1127,0
+msgid "uc_order"
+msgstr "uc_order"
+
+#: uc_order/uc_order.install:561,667
+msgid "Pending"
+msgstr "Offen"
+
+#: uc_order/uc_order.install:562,668
+msgid "Processing"
+msgstr "In Bearbeitung"
+
+#: uc_order/uc_order.info:0
+msgid "REQUIRED. Receive and manage orders through your website."
+msgstr "BENÖTIGT. Bestellungen empfangen und bearbeiten über die Website."
+
+#: uc_order/uc_order.order_pane.inc:30
+msgid "Modify 'Ship to' information"
+msgstr "Lieferanschrift bearbeiten"
+
+#: uc_order/uc_order.order_pane.inc:115
+msgid "Modify 'Bill to' information"
+msgstr "Rechnungs Anschrift bearbeiten"
+
+#: uc_order/uc_order.order_pane.inc:159,160
+msgid "Select from address book."
+msgstr "Aus dem Adressbuch auswählen."
+
+#: uc_order/uc_order.order_pane.inc:163,164
+msgid "Copy shipping information."
+msgstr "Versandt Informationen Kopieren"
+
+#: uc_order/uc_order.order_pane.inc:205
+msgid "Modify 'Customer info'"
+msgstr "Kunden Informationen bearbeiten"
+
+#: uc_order/uc_order.order_pane.inc:280
+msgid ""
+"Loading product information... (<em>If nothing happens, make sure you "
+"have Javascript enabled.</em>)"
+msgstr ""
+"Artikel Informationen werden geladen... (<em>Sollte nichts passieren "
+"stellen Sie bitte sicher dass Sie javascript aktiviert haben.</em>)"
+
+#: uc_order/uc_order.ca.inc:130
+msgid "Check the order total"
+msgstr "Gesamtsumme der Bestellung prüfen"
+
+#: uc_order/uc_order.ca.inc:194
+msgid "Check an order's products"
+msgstr "Artikel der Bestellung überprüfen."
+
+#: uc_order/uc_order.ca.inc:196
+msgid ""
+"Returns TRUE if the order has any, all, or only the products in the "
+"list."
+msgstr ""
+"Gibt TRUE zurück solange eine Bestellung irgendwelche, alle oder nur "
+"die Artikel von der Liste enthält."
+
+#: uc_order/uc_order.ca.inc:203
+msgid "Check an order's number of products"
+msgstr "Prüft die Anzahl der Artikel in der Bestellung"
+
+#: uc_order/uc_order.ca.inc:221
+msgid "Check if an order can be shipped"
+msgstr "Prüfen obe eine Bestellung versand werden kann."
+
+#: uc_order/uc_order.ca.inc:223
+msgid "Returns TRUE if the order has any shippable products."
+msgstr "Giebt TRUE zurück wenn eine bestellung versendbare Artikel enthält."
+
+#: uc_order/uc_order.ca.inc:251
+msgid "Add a comment to the order"
+msgstr "Einen Kommentar zur Bestellung hinzufügen"
+
+#: uc_order/uc_order.ca.inc:330
+msgid "Order total value"
+msgstr "Gesamtsumme der Bestellung"
+
+#: uc_order/uc_order.ca.inc:331
+msgid "Specify a value to compare the order total against."
+msgstr ""
+"Geben Sie einen Wert an, mit dem die Gesamtsumme der Bestellung "
+"verglichen wird."
+
+#: uc_order/uc_order.ca.inc:339,617,703
+msgid "Total is less than specified value."
+msgstr "Summe ist kleiner als der angegebene Wert."
+
+#: uc_order/uc_order.ca.inc:340,618,704
+msgid "Total is less than or equal to specified value."
+msgstr "Summe ist kleiner gleich dem angegebenen Wert."
+
+#: uc_order/uc_order.ca.inc:341,619,705
+msgid "Total is equal to specified value."
+msgstr "Summe ist gleich dem angegebenen Wert."
+
+#: uc_order/uc_order.ca.inc:342,620,706
+msgid "Total is greater than or equal to specified value."
+msgstr "Summe ist größer gleich dem angegebenen Wert."
+
+#: uc_order/uc_order.ca.inc:343,621,707
+msgid "Total is greater than specified value."
+msgstr "Summe ist größer als der angegebene Wert."
+
+#: uc_order/uc_order.ca.inc:347
+msgid "Order total comparison type"
+msgstr "Bestellungs"
+
+#: uc_order/uc_order.ca.inc:531
+msgid "Order has any of these products."
+msgstr "Bestellunge enthält eines dieser Produkte."
+
+#: uc_order/uc_order.ca.inc:532
+msgid "Order has all of these products."
+msgstr "Bestellung enthält alle dies Produkte."
+
+#: uc_order/uc_order.ca.inc:539
+msgid "Order may have other products."
+msgstr "Bestellung enthält evtl andere Artikel."
+
+#: uc_order/uc_order.ca.inc:540
+msgid "Order has only these products."
+msgstr "Die Bestellung enthält nur diese Artikel"
+
+#: uc_order/uc_order.ca.inc:596,672
+msgid "<All products>"
+msgstr "<Alle Artikel>"
+
+#: uc_order/uc_order.ca.inc:605,681
+msgid ""
+"Selecting \"<All products>\" will override any other selections and "
+"returns the total number of products in the order."
+msgstr ""
+"Wenn Sie \"<Alle Artikel>\" wählen überschreibt das alle anderen "
+"auswahlen und Gibt die Gesamt anzahl der Artikel in der Bestellung "
+"zurück."
+
+#: uc_order/uc_order.ca.inc:610
+msgid "Product count value"
+msgstr "Artikel Anzahl wert"
+
+#: uc_order/uc_order.ca.inc:611
+msgid "Specify a value to compare the product count against."
+msgstr ""
+"Geben Sie bitten ein Wert an mit dem die Artikel anzahl verglichen "
+"wird."
+
+#: uc_order/uc_order.ca.inc:625,711
+msgid "Product count comparison type"
+msgstr "Artikel Anzahl vergleichs typ."
+
+#: uc_order/uc_order.ca.inc:775
+msgid "Select an order comment type"
+msgstr "Einen Bestellungs Kommentar Typ anlegen."
+
+#: uc_order/uc_order.ca.inc:777
+msgid "Enter this as an admin comment."
+msgstr "Dies als Administrativen Kommentar anlegen."
+
+#: uc_order/uc_order.ca.inc:778
+msgid "Enter this as a customer order comment."
+msgstr "Dies als Kunden bestellungs Kommentar eingeben."
+
+#: uc_order/uc_order.ca.inc:779
+msgid "Enter this as a customer order comment with a notified icon."
+msgstr "Dies als Kunden bestellungs Kommentar mit einem Hinweis Icon eingeben."
+
+#: uc_order/uc_order.ca.inc:786
+msgid ""
+"Enter the comment message. Uses <a href=\"!url\">order and global "
+"tokens</a>."
+msgstr ""
+"Kommentar eingeben. Sie können <a href=\"!url\">Bestellungs and "
+"Globale tokens</a> vervenden."
+
+#: uc_order/uc_order.module:31
+msgid "Configure the order settings."
+msgstr "Die Bestellungs Einstellungen bearbeiten"
+
+#: uc_order/uc_order.module:92
+msgid "View and process orders."
+msgstr "Bestellungen ansehen und bearbeiten."
+
+#: uc_order/uc_order.module:233
+msgid "Product select"
+msgstr "Artikel wählen."
+
+#: uc_order/uc_order.module:280
+msgid "Log"
+msgstr "Protokoll"
+
+#: uc_order/uc_order.module:412
+msgid "The URL to the admin view page using the order ID."
+msgstr "Die URL zur Admin ansicht unter einbezug der Bestellungs ID"
+
+#: uc_order/uc_order.module:551
+msgid "Customer info"
+msgstr "Kunden Information"
+
+#: uc_order/uc_order.module:569
+msgid "Line items"
+msgstr "Positionenen"
+
+#: uc_order/uc_order.module:587
+msgid "Admin comments"
+msgstr "Administrative Kommentare"
+
+#: uc_order/uc_order.module:596
+msgid "Update order"
+msgstr "Bestellung aktualisieren"
+
+#: uc_order/uc_order.module:652
+msgid "Empty line"
+msgstr "Leere Zeile"
+
+#: uc_order/uc_order.admin.inc:415
+msgid "Purchase date"
+msgstr "Kaufdatum"
+
+#: uc_order/uc_order.admin.inc:507
+msgid "All orders"
+msgstr "Alle Bestellungen"
+
+#: uc_order/uc_order.admin.inc:1437
+msgid "Add to order"
+msgstr "Zur Bestellung hinzufügen."
+
+#: uc_order/uc_order.admin.inc:794
+msgid "An account already exists for that e-mail."
+msgstr "Es Gibt bereits ein Benutzerkonto für diese Email adresse."
+
+#: uc_order/uc_order.admin.inc:795,813
+msgid "Use this account now?"
+msgstr "Dieses Konto jetzt benutzen?"
+
+#: uc_order/uc_order.admin.inc:902
+msgid "E-mail customer account details."
+msgstr "Zugangsdaten per E-Mail zustellen."
+
+#: uc_order/uc_order.module:1272
+msgid "@key changed from %old to %new."
+msgstr "@key geändert von %old nach %new."
+
+#: uc_order/uc_order.ca.inc:212
+msgid "Check an order's total weight"
+msgstr "Gesamtgewicht der Bestellung überprüfen."
+
+#: uc_order/uc_order.ca.inc:696
+msgid "Product weight value"
+msgstr "Artikel Gewicht"
+
+#: uc_order/uc_order.ca.inc:697
+msgid "Specify a value to compare the product weight against."
+msgstr "Legen Sie einen Wert fest mit dem das Artikelgewicht verglichen wird."
+
+#: uc_order/uc_order.module:418
+msgid "The phone number for the shipping address."
+msgstr "Die Telefonnummer zur Versandadresse."
+
+#: uc_order/uc_order.module:409
+msgid "The user ID of the order."
+msgstr "Die Benutzer ID zur Bestellung"
+
+#: uc_order/uc_order.module:427
+msgid "The date and time when the order was created."
+msgstr "Das Datum und die Zeit zu der die Bestellung erzeugt wurde."
+
+#: uc_order/uc_order.module:428
+msgid "The date and time when the order was last modified."
+msgstr ""
+"Das Datum und die Zeit  zu der die Bestellung zuletzt verändert "
+"wurde."
+
+#: uc_order/uc_order.ca.inc:140
+msgid "Check an order's shipping postal code"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:142
+msgid "Returns TRUE if the shipping postal code is in the specified area."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:141,150,159
+msgid "Order: Shipping address"
+msgstr "Bestellung: Versandadresse"
+
+#: uc_order/uc_order.ca.inc:158
+msgid "Check an order's shipping country"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:160
+msgid "Returns TRUE if the shipping country is in the specified list."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:167
+msgid "Check an order's billing postal code"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:169
+msgid "Returns TRUE if the billing postal code is in the specified area."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:168,177,186
+msgid "Order: Billing address"
+msgstr "Bestellung: Rechnungsadresse"
+
+#: uc_order/uc_order.ca.inc:185
+msgid "Check an order's billing country"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:187
+msgid "Returns TRUE if the billing country is in the specified list."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:529
+msgid "Require selected products"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:537
+msgid "Forbid other products"
+msgstr ""
+
+#: uc_order/uc_order.module:1664
+msgid "View order @order_id."
+msgstr "Zeige Bestellung @order_id."
+
+#: uc_order/uc_order.module:1694
+msgid "Delete order @order_id."
+msgstr "Lösche Bestellung @order_id."
+
+#: uc_order/uc_order.admin.inc:1552
+msgid "Are you sure you want to delete order @order_id?"
+msgstr "Sicher, dass Bestellung @order_id entfernt werden soll?"
+
+#: uc_order/uc_order.admin.inc:1560
+msgid "Order @order_id completely removed from the database."
+msgstr "Bestellung @order_id wurde komplett aus der Datenbank entfernt."
+
+#: uc_order/uc_order.module:1674
+msgid "Edit order @order_id."
+msgstr "Bearbeite Bestellung @order_id."
+
+#: uc_order/uc_order.ca.inc:205
+msgid ""
+"Determines if the order has the specified number of products, possibly "
+"of a certain type."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:214
+msgid ""
+"Determines if the order has the specified weight, possibly counting "
+"only a certain type of product."
+msgstr ""
+
+#: uc_order/uc_order.module:835
+msgid "Specify dates to the right if checked."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:1543
+msgid "It is not possible to delete order @id."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:149
+msgid "Check an order's shipping @zone"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:151
+msgid "Returns TRUE if the shipping @zone is in the specified list."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:176
+msgid "Check an order's billing @zone"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:178
+msgid "Returns TRUE if the billing @zone is in the specified list."
+msgstr ""
+
+#: uc_order/uc_order.module:1127
+msgid "Order @order_id deleted by user @uid."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:43
+msgid "Displaying @orders orders at a time on the admin overview"
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:51
+msgid "Order logging is enabled."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:52
+msgid "Order logging is disabled."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:61
+msgid "Addresses on order view pages are capitalized."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:62
+msgid "Addresses on order view pages are not capitalized."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:72
+msgid "You are using the uBrowser to add products to orders."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:73
+msgid "You are not using the uBrowser to add products to orders."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:91
+msgid "Customers are allowed to view order invoices from their accounts."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:92
+msgid "Customers are not allowed to view order invoices from their accounts."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:101
+msgid "You are using the %template order invoice template."
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:126
+msgid "@state"
+msgstr ""
+
+#: uc_order/uc_order.admin.inc:811
+msgid ""
+"Account details sent to e-mail provided.<br /><br "
+"/><strong>Username:</strong> !username<br /><strong>Password:</strong> "
+"!password"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:20
+msgid "Ubercart order object"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:39
+msgid "Original order"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:49
+msgid "E-mail requested for order status update"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:69
+msgid "E-mail an order update notification"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:70
+msgid "Notify the customer when the order status is changed."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:79
+msgid "If the order status is not still In Checkout."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:121
+msgid ""
+"Returns TRUE if the current order status matches the status specified "
+"below."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:131
+msgid ""
+"Returns TRUE if the current order total is within the parameters "
+"below."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:259
+msgid "Send an order email"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:267
+msgid "Email an order invoice"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:863
+msgid ""
+"You can make use of the replacement patterns in the e-mail from and "
+"recipients fields, the subject, and the message body."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:956
+msgid ""
+"You can make use of the replacement patterns in the recipients, the "
+"subject, and the template file."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:975
+msgid "Select the invoice template to use for this email."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:981
+msgid "Included information"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:983
+msgid "Show the business header and shipping method."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:984
+msgid ""
+"Show all of the above plus the help text, email text, and store "
+"footer."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:985
+msgid "Show all of the above plus the \"thank you\" message."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:917
+msgid "Attempted to e-mail an invoice with no recipient."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:926
+msgid "Attempt to e-mail invoice for order @order_id to @email failed."
+msgstr ""
+
+#: uc_order/uc_order.order_pane.inc:197
+msgid "Customer number: !user_link"
+msgstr ""
+
+#: uc_order/uc_order.module:707
+msgid "Use this button to create a custom order status: !create_form"
+msgstr ""
+
+#: uc_order/uc_order.module:749
+msgid "Order panes on %screen screen:"
+msgstr ""
+
+#: uc_order/uc_order.module:438
+msgid "view own orders"
+msgstr ""
+
+#: uc_order/uc_order.module:111
+msgid "View orders with a particular order status."
+msgstr ""
+
+#: uc_order/uc_order.module:163
+msgid "View order."
+msgstr ""
+
+#: uc_order/uc_order.module:173
+msgid "View order invoice."
+msgstr ""
+
+#: uc_order/uc_order.module:289
+msgid "Delete an order"
+msgstr ""
+
+#: uc_order/uc_order.install:16
+msgid "Main orders table."
+msgstr ""
+
+#: uc_order/uc_order.install:25
+msgid "The ID of the user that placed the order."
+msgstr ""
+
+#: uc_order/uc_order.install:32
+msgid "The order status."
+msgstr ""
+
+#: uc_order/uc_order.install:39
+msgid "The total amount to be paid for the order."
+msgstr ""
+
+#: uc_order/uc_order.install:47
+msgid "The email address of the customer."
+msgstr ""
+
+#: uc_order/uc_order.install:54
+msgid "The first name of the person receiving shipment."
+msgstr ""
+
+#: uc_order/uc_order.install:61
+msgid "The last name of the person receiving shipment."
+msgstr ""
+
+#: uc_order/uc_order.install:68
+msgid "The phone number at the delivery location."
+msgstr ""
+
+#: uc_order/uc_order.install:75
+msgid "The company at the delivery location."
+msgstr ""
+
+#: uc_order/uc_order.install:82
+msgid "The street address of the delivery location."
+msgstr ""
+
+#: uc_order/uc_order.install:89,161
+msgid "The second line of the street address."
+msgstr ""
+
+#: uc_order/uc_order.install:96
+msgid "The city of the delivery location."
+msgstr ""
+
+#: uc_order/uc_order.install:103
+msgid "The state/zone/province id of the delivery location."
+msgstr ""
+
+#: uc_order/uc_order.install:111
+msgid "The postal code of the delivery location."
+msgstr ""
+
+#: uc_order/uc_order.install:118
+msgid "The country ID of the delivery location."
+msgstr ""
+
+#: uc_order/uc_order.install:126
+msgid "The first name of the person paying for the order."
+msgstr ""
+
+#: uc_order/uc_order.install:133
+msgid "The last name of the person paying for the order."
+msgstr ""
+
+#: uc_order/uc_order.install:147
+msgid "The company of the billing address."
+msgstr ""
+
+#: uc_order/uc_order.install:154
+msgid "The street address where the bill will be sent."
+msgstr ""
+
+#: uc_order/uc_order.install:168
+msgid "The city where the bill will be sent."
+msgstr ""
+
+#: uc_order/uc_order.install:175
+msgid "The state/zone/province ID where the bill will be sent."
+msgstr ""
+
+#: uc_order/uc_order.install:183
+msgid "The postal code where the bill will be sent."
+msgstr ""
+
+#: uc_order/uc_order.install:190
+msgid "The country ID where the bill will be sent."
+msgstr ""
+
+#: uc_order/uc_order.install:198
+msgid "The method of payment."
+msgstr ""
+
+#: uc_order/uc_order.install:209
+msgid "Timestamp of when the order was created."
+msgstr ""
+
+#: uc_order/uc_order.install:215
+msgid "Timestamp of when the order was last modified."
+msgstr ""
+
+#: uc_order/uc_order.install:221,846
+msgid "Host IP address of the person paying for the order."
+msgstr ""
+
+#: uc_order/uc_order.install:236
+msgid "Comments on orders that only administrators can see."
+msgstr ""
+
+#: uc_order/uc_order.install:239,279
+msgid "The comment ID."
+msgstr ""
+
+#: uc_order/uc_order.install:252,292
+msgid "The user ID who made the comment."
+msgstr ""
+
+#: uc_order/uc_order.install:259
+msgid "The comment body."
+msgstr ""
+
+#: uc_order/uc_order.install:263,313
+msgid "Timestamp of when the comment was created."
+msgstr ""
+
+#: uc_order/uc_order.install:276
+msgid "Comments on the order that the customer can see."
+msgstr ""
+
+#: uc_order/uc_order.install:299
+msgid "The status the order had when the comment was made."
+msgstr ""
+
+#: uc_order/uc_order.install:306
+msgid "Boolean flag; if set, the comment was emailed to the customer."
+msgstr ""
+
+#: uc_order/uc_order.install:329
+msgid "Order line items other than products."
+msgstr ""
+
+#: uc_order/uc_order.install:332
+msgid "The line item ID."
+msgstr ""
+
+#: uc_order/uc_order.install:345
+msgid "The line item type."
+msgstr ""
+
+#: uc_order/uc_order.install:352
+msgid "The label of the line item."
+msgstr ""
+
+#: uc_order/uc_order.install:359
+msgid "The amount of the line item in the store's currency."
+msgstr ""
+
+#: uc_order/uc_order.install:367
+msgid "The sort criteria of line items."
+msgstr ""
+
+#: uc_order/uc_order.install:381
+msgid "Record of changes made to an order."
+msgstr ""
+
+#: uc_order/uc_order.install:384
+msgid "The log entry ID."
+msgstr ""
+
+#: uc_order/uc_order.install:397
+msgid "The user ID who made the changes."
+msgstr ""
+
+#: uc_order/uc_order.install:404
+msgid "Description of what was changed."
+msgstr ""
+
+#: uc_order/uc_order.install:408
+msgid "Timestamp of when the change was made."
+msgstr ""
+
+#: uc_order/uc_order.install:421
+msgid "The products that have been ordered."
+msgstr ""
+
+#: uc_order/uc_order.install:424
+msgid "The ordered product ID."
+msgstr ""
+
+#: uc_order/uc_order.install:444
+msgid "The product title."
+msgstr ""
+
+#: uc_order/uc_order.install:451
+msgid "The product manufacturer. (Deprecated)"
+msgstr ""
+
+#: uc_order/uc_order.install:458
+msgid "The product model/SKU."
+msgstr ""
+
+#: uc_order/uc_order.install:465
+msgid "The number of the same product ordered."
+msgstr ""
+
+#: uc_order/uc_order.install:473
+msgid "The cost to the store for the product."
+msgstr ""
+
+#: uc_order/uc_order.install:481
+msgid "The price paid for the ordered product."
+msgstr ""
+
+#: uc_order/uc_order.install:507
+msgid "Statuses the order can be in during its lifecycle."
+msgstr ""
+
+#: uc_order/uc_order.install:510
+msgid "The order status ID."
+msgstr ""
+
+#: uc_order/uc_order.install:517
+msgid "The status title."
+msgstr ""
+
+#: uc_order/uc_order.install:524
+msgid "The base order state the status is associated with."
+msgstr ""
+
+#: uc_order/uc_order.install:531
+msgid "The sort criteria for statuses."
+msgstr ""
+
+#: uc_order/uc_order.install:538
+msgid "Boolean flag; if set, users can not delete the status."
+msgstr ""
+

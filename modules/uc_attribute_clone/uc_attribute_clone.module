@@ -1,0 +1,53 @@
+<?php
+// $Id: uc_attribute_clone.module,v 1.2 2009/07/13 17:54:39 longwave Exp $
+
+/**
+ * Implementation of hook_help().
+ */
+function uc_attribute_clone_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#uc_attribute_clone':
+      $output = '<p>'. t('Attribute clone works with the node clone and Ubercart attribute modules to copy product attributes and options when a node is cloned.') .'</p>';
+      return $output;
+  }
+}
+
+/**
+* Implementation of hook_clone_node_alter().
+*/
+function uc_attribute_clone_clone_node_alter(&$node, $original_node, $method) {
+  if (in_array($node->type, module_invoke_all('product_types'))) {
+    if ($method == 'prepopulate') {
+      $node->uc_attribute_clone = $original_node->nid;
+      if (empty($_POST['op'])) {
+        drupal_set_message(t('Product attributes and options will be copied when you submit.'));
+      }
+    }
+  }
+}
+
+/**
+* Implementation of hook_form_alter().
+*/
+function uc_attribute_clone_form_alter(&$form, $form_state, $form_id) {
+  if (isset($form['type']['#value']) && $form['type']['#value'] .'_node_form' == $form_id) {
+    if (isset($form['#node']->uc_attribute_clone)) {
+      $form['uc_attribute_clone'] = array(
+        '#type' => 'hidden',
+        '#value' => $form['#node']->uc_attribute_clone,
+      );
+    }
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function uc_attribute_clone_nodeapi(&$node, $op) {
+  if ($op == 'insert' && isset($node->uc_attribute_clone)) {
+    db_query("DELETE FROM {uc_product_attributes} WHERE nid = %d", $node->nid);
+    db_query("DELETE FROM {uc_product_options} WHERE nid = %d", $node->nid);
+    db_query("INSERT INTO {uc_product_attributes} (nid, aid, ordering, required, display, default_option) SELECT %d, aid, ordering, required, display, default_option FROM {uc_product_attributes} WHERE nid = %d", $node->nid, $node->uc_attribute_clone);
+    db_query("INSERT INTO {uc_product_options} (nid, oid, cost, price, weight, ordering) SELECT %d, oid, cost, price, weight, ordering FROM {uc_product_options} WHERE nid = %d", $node->nid, $node->uc_attribute_clone);
+  }
+}

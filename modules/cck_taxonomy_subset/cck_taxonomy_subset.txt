@@ -1,0 +1,64 @@
+// $Id: cck_taxonomy_subset.txt,v 1.1 2009/03/05 17:13:30 bwong Exp $
+
+CCK Taxonomy Subset
+-------------------
+To install, place the entire folder into your modules directory.
+Go to administer -> site building -> modules and enable it.
+
+
+Description
+-----------
+This module defines a CCK field that allows filtering of the taxonomy
+terms select field for a vocabulary in the same node type that
+contains the field. Each field has one vocabulary associated with it.
+This CCK field is designed to work with vocabularies that
+are not hierarchical, that have a single value and are not free tags.
+
+This allows terms from a common vocabulary to be used with a set
+of node types where each type may use a subset of the terms.
+
+A subset of a single term will force that value.
+
+A subset can be specified by a selected set of values or
+the inverse. The latter allows a field definition that
+handles new term additions to the vocabulary.
+
+Multiple fields for different vocabularies can be included
+in a single node type. Multiple fields for the same vocabulary
+may have unintended results and is not support.
+
+Subset specifications can overlap and are under control of
+the person defining the field.
+
+
+Operation
+---------
+1. Create a vocabulary to be filtered.
+   * Select the node types to be affected.
+   * Add terms to the vocabulary.
+2. Create a new cck_taxonomy_subset field in each node type.
+   * Select the matching vocabulary
+   * Select the operating mode (show or hide)
+   * Select the terms to filter
+
+The field does not display in either the create/edit form
+or when the node is displayed. It simply provides the filtering
+mechanism in the create/edit form.
+
+Selected terms may need to be edited if terms are added or
+deleted from the vocabulary. Deleted terms are ignored.
+
+The field has no affect if the vocabulary is not associated 
+with the node type or if it is not displayed as a select field.
+
+Removing the cck field enables selection of all terms but
+does not affect existing nodes. The same is true when
+adding the field. 
+
+
+
+Note:
+-----
+This approach is dependent on how the taxonomy module
+renders and themes the vocabulary selection.
+

@@ -1,0 +1,322 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  ca.ca.inc,v 1.1.2.2 2008/11/07 21:13:20 islandusurper
+#  ca.admin.inc,v 1.1.2.8 2008/11/07 21:13:20 islandusurper
+#  ca.module,v 1.1.2.9 2008/11/21 21:17:30 islandusurper
+#  ca.info,v 1.1.2.5 2008/11/07 21:13:20 islandusurper
+#  ca.js,v 1.1.2.2 2008/11/07 21:13:20 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-03-12 00:39+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: ca/ca.ca.inc:42
+msgid "Drupal"
+msgstr "Drupal"
+
+#: ca/ca.admin.inc:399
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: ca/ca.module:71
+msgid "Conditions"
+msgstr "Bedingungen"
+
+#: ca/ca.admin.inc:64,401,407
+msgid "reset"
+msgstr "Zurücksetzen"
+
+#: ca/ca.admin.inc:48,297
+msgid "Class"
+msgstr ""
+
+#: ca/ca.admin.inc:84,273
+msgid "Trigger"
+msgstr ""
+
+#: ca/ca.admin.inc:99
+msgid "TODO: Fill this page out. :)"
+msgstr ""
+
+#: ca/ca.admin.inc:245,383
+msgid "That predicate does not exist."
+msgstr ""
+
+#: ca/ca.admin.inc:260
+msgid "Enter a title used for display on the overview tables."
+msgstr ""
+
+#: ca/ca.admin.inc:274
+msgid ""
+"Select the trigger for this predicate.<br />Cannot be modified if the "
+"predicate has conditions or actions."
+msgstr ""
+
+#: ca/ca.admin.inc:284
+msgid ""
+"Enter a description that summarizes the use and intent of the "
+"predicate."
+msgstr ""
+
+#: ca/ca.admin.inc:298
+msgid ""
+"Classes let you categorize your predicates based on the type of "
+"functionality they provide."
+msgstr ""
+
+#: ca/ca.admin.inc:313
+msgid ""
+"Disabled predicates will not be processed when their trigger is "
+"pulled."
+msgstr ""
+
+#: ca/ca.admin.inc:324
+msgid "Predicates will be sorted by weight and processed sequentially."
+msgstr ""
+
+#: ca/ca.admin.inc:330
+msgid "Save predicate"
+msgstr ""
+
+#: ca/ca.admin.inc:374
+msgid "Predicate meta data saved."
+msgstr ""
+
+#: ca/ca.admin.inc:401
+msgid "Are you sure you want to !op this predicate?"
+msgstr ""
+
+#: ca/ca.admin.inc:407
+msgid "Predicate %title !op."
+msgstr ""
+
+#: ca/ca.admin.inc:407
+msgid "deleted"
+msgstr ""
+
+#: ca/ca.admin.inc:453
+msgid ""
+"These actions will be performed in order when this predicate passes "
+"the conditions evaluation."
+msgstr ""
+
+#: ca/ca.admin.inc:467
+msgid "Action: @title"
+msgstr ""
+
+#: ca/ca.admin.inc:486,824
+msgid "Arguments"
+msgstr ""
+
+#: ca/ca.admin.inc:487
+msgid ""
+"Some triggers pass in multiple options for arguments related to a "
+"particular action, so you must specify which options to use in the "
+"fields below."
+msgstr ""
+
+#: ca/ca.admin.inc:523
+msgid "Remove this action"
+msgstr "Diese Aktion entfernen"
+
+#: ca/ca.admin.inc:538
+msgid "Available actions"
+msgstr "Verfügbare Aktionen"
+
+#: ca/ca.admin.inc:544
+msgid "Add action"
+msgstr "Aktion hinzufügen"
+
+#: ca/ca.admin.inc:565
+msgid "Action removed."
+msgstr "Aktion entfernt."
+
+#: ca/ca.admin.inc:579
+msgid "Action added."
+msgstr "Aktion hinzugefügt."
+
+#: ca/ca.admin.inc:587
+msgid "Actions saved."
+msgstr "Aktionen gespeichert."
+
+#: ca/ca.admin.inc:684
+msgid "Condition groups"
+msgstr ""
+
+#: ca/ca.admin.inc:689
+msgid "AND. If all of these condition groups are TRUE."
+msgstr ""
+
+#: ca/ca.admin.inc:690
+msgid "OR. If any of these condition groups are TRUE."
+msgstr ""
+
+#: ca/ca.admin.inc:708
+msgid "Add condition group"
+msgstr ""
+
+#: ca/ca.admin.inc:733
+msgid "Conditions group"
+msgstr ""
+
+#: ca/ca.admin.inc:740
+msgid "Operator"
+msgstr ""
+
+#: ca/ca.admin.inc:742
+msgid "AND. If all of these conditions are TRUE."
+msgstr ""
+
+#: ca/ca.admin.inc:743
+msgid "OR. If any of these conditions are TRUE."
+msgstr ""
+
+#: ca/ca.admin.inc:761
+msgid "Available conditions"
+msgstr "Verfügbare Bedingungen"
+
+#: ca/ca.admin.inc:766
+msgid "Add condition"
+msgstr "Bedingung hinzufügen"
+
+#: ca/ca.admin.inc:772
+msgid "Remove group"
+msgstr "Gruppe entfernen"
+
+#: ca/ca.admin.inc:789
+msgid "Condition: @title"
+msgstr "Bedingung: @title"
+
+#: ca/ca.admin.inc:790
+msgid "@description"
+msgstr "@description"
+
+#: ca/ca.admin.inc:825
+msgid ""
+"Some triggers pass in multiple options for arguments related to a "
+"particular condition, so you must specify which options to use in the "
+"fields below."
+msgstr ""
+
+#: ca/ca.admin.inc:855
+msgid "Negate this condition."
+msgstr ""
+
+#: ca/ca.admin.inc:856
+msgid "Return FALSE if the condition is TRUE and vice versa."
+msgstr ""
+
+#: ca/ca.admin.inc:870
+msgid "Remove this condition"
+msgstr "Diese Bedingung entfernen"
+
+#: ca/ca.admin.inc:888
+msgid "Condition group added."
+msgstr ""
+
+#: ca/ca.admin.inc:910,941
+msgid "An error occurred when trying to add the condition.  Please try again."
+msgstr ""
+
+#: ca/ca.admin.inc:917
+msgid "Condition group removed."
+msgstr ""
+
+#: ca/ca.admin.inc:951
+msgid "%title condition added."
+msgstr "Bedingung %title hinzugefügt."
+
+#: ca/ca.admin.inc:987
+msgid ""
+"An error occurred when trying to remove the condition.  Please try "
+"again."
+msgstr ""
+"Beim Entfernen dieser Bedingung ist ein Fehler aufgetreten. Bitte "
+"später erneut versuchen."
+
+#: ca/ca.admin.inc:993
+msgid "Condition removed."
+msgstr "Bedingung entfernt."
+
+#: ca/ca.admin.inc:1007
+msgid "Conditions saved."
+msgstr "Bedingungen gespeichert."
+
+#: ca/ca.ca.inc:23
+msgid "Drupal user"
+msgstr "Drupal Benutzer"
+
+#: ca/ca.ca.inc:41
+msgid "Display a message to the user"
+msgstr ""
+
+#: ca/ca.module:114
+msgid "administer conditional actions"
+msgstr ""
+
+#: ca/ca.module:22
+msgid "Conditional actions"
+msgstr ""
+
+#: ca/ca.module:23
+msgid "Administer the predicates setup to automate your store."
+msgstr ""
+
+#: ca/ca.module:43
+msgid "Allows an administrator to create a new predicate."
+msgstr ""
+
+#: ca/ca.module:52
+msgid "Edit predicate"
+msgstr ""
+
+#: ca/ca.module:53
+msgid "Edit a predicate's meta data, conditions, and actions."
+msgstr ""
+
+#: ca/ca.module:61
+msgid "Meta data"
+msgstr ""
+
+#: ca/ca.module:62
+msgid "Edit the meta data for a predicate like title, trigger, etc."
+msgstr ""
+
+#: ca/ca.module:72
+msgid "Edit the conditions for a predicate."
+msgstr ""
+
+#: ca/ca.module:82
+msgid "Edit the actions for a predicate."
+msgstr ""
+
+#: ca/ca.module:91
+msgid "Reset a predicate"
+msgstr ""
+
+#: ca/ca.module:99
+msgid "Delete a predicate"
+msgstr ""
+
+#: ca/ca.info:0
+msgid "Conditional Actions"
+msgstr ""
+
+#: ca/ca.info:0
+msgid ""
+"REQUIRED. Create conditional action configurations for taxes, "
+"shipping, and more!"
+msgstr ""
+
+#: ca/ca.js:0
+msgid "Are you sure you want to remove this item?"
+msgstr "Sicher, dass dieser Eintrag gelöscht werden soll?"
+

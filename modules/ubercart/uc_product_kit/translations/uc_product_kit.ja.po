@@ -1,0 +1,175 @@
+# $Id: uc_product_kit.ja.po,v 1.1.2.1 2009/11/26 06:39:21 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  uc_product_kit.admin.inc,v 1.1.2.5 2009/07/21 14:37:20 islandusurper
+#  uc_product_kit.module,v 1.11.2.27 2009/10/21 19:40:27 islandusurper
+#  uc_product_kit.install,v 1.11.2.9 2009/07/21 14:37:20 islandusurper
+#  uc_product_kit.info,v 1.5.4.3 2008/11/07 21:13:26 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-11-06 18:09+0900\n"
+"PO-Revision-Date: 2009-11-26 15:34+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_product_kit.admin.inc:19
+msgid "Product kit cart display"
+msgstr "カートでの組み合わせ商品の表示方法"
+
+#: uc_product_kit.admin.inc:21
+#: uc_product_kit.module:515
+msgid "As a unit. Customers may only change how many kits they are buying. Do not list component products."
+msgstr "ひと固まりとして。顧客は組み合わせ商品のセット数しか変更できません。含まれている商品を表示しません。"
+
+#: uc_product_kit.admin.inc:22
+#: uc_product_kit.module:516
+msgid "As a unit. Customers may only change how many kits they are buying. List component products."
+msgstr "ひと固まりとして。顧客は組み合わせ商品のセット数しか変更できません。含まれている商品を表示します。"
+
+#: uc_product_kit.admin.inc:23
+#: uc_product_kit.module:517
+msgid "As individual products. Customers may add or remove kit components at will. Discounts entered below are not applied to the kit price"
+msgstr "個別の商品として。顧客は組み合わせ商品に含まれている商品を自由に追加したり削除することができます。下記で入力された割引は組み合わせ商品の価格には適用されません。"
+
+#: uc_product_kit.module:150
+msgid "Product kit"
+msgstr "組み合わせ商品"
+
+#: uc_product_kit.module:152
+msgid "This node represents two or more products that have been listed together. This presents a logical and convenient grouping of items to the customer."
+msgstr "このノードは、一緒に並べられる二つ以上の商品を表します。商品の合理的で便利なグループを顧客へ提供することができます。"
+
+#: uc_product_kit.module:153;475
+msgid "Name"
+msgstr "名前"
+
+#: uc_product_kit.module:154;482
+msgid "Description"
+msgstr "説明"
+
+#: uc_product_kit.module:325
+msgid "Product kit discounts are not applied because the customer can remove components from their cart."
+msgstr "組み合わせ商品に含まれている商品を顧客が取り除くことができるので、組み合わせ商品の割引は適用されません。"
+
+#: uc_product_kit.module:479
+msgid "Name of the product kit"
+msgstr "組み合わせ商品の名前"
+
+#: uc_product_kit.module:486
+msgid "Explain these whatchamacallits."
+msgstr "この何とかを説明してください。"
+
+#: uc_product_kit.module:506
+msgid "Product Information"
+msgstr "商品情報"
+
+#: uc_product_kit.module:513
+msgid "How is this product kit handled by the cart?"
+msgstr "組み合わせ商品をカートでどのように扱いますか？"
+
+#: uc_product_kit.module:524
+msgid "Products"
+msgstr "商品"
+
+#: uc_product_kit.module:545;773
+msgid "Quantity"
+msgstr "数量"
+
+#: uc_product_kit.module:550;606
+msgid "List position"
+msgstr "リスト位置"
+
+#: uc_product_kit.module:559
+msgid "Discount"
+msgstr "割引"
+
+#: uc_product_kit.module:560
+msgid "Enter a positive or negative value to raise or lower the item price by that amount. This change is applied to each %product in the kit."
+msgstr "正または負の値を入力して、アイテムの価格を上下することができます。この変更は組み合わせ商品に含まれているそれぞれの%productに適用されます。"
+
+#: uc_product_kit.module:561
+msgid "@price + "
+msgstr ""
+
+#: uc_product_kit.module:587
+msgid "Total price"
+msgstr "合計価格"
+
+#: uc_product_kit.module:589
+msgid "If this field is set, the discounts of the individual products will be recalculated to equal this value. Currently, the total sell price is %price."
+msgstr "このフィールドが設定されると、その値に等しくなるように個々の商品の割引額が再計算されます。現在、販売価格の総額は %price です。"
+
+#: uc_product_kit.module:598
+msgid "Default quantity to add to cart"
+msgstr "「カートに入れる」のデフォルトの数量"
+
+#: uc_product_kit.module:600
+msgid "Leave blank or zero to disable the quantity field in the add to cart form."
+msgstr "「カートに入れる」フォームの数量フィールドを無効にするには、空欄にするかゼロを入力してください。"
+
+#: uc_product_kit.module:741
+msgid "Click to add to cart."
+msgstr "クリックしてカートに入れる。"
+
+#: uc_product_kit.module:784;838
+msgid "Add to cart"
+msgstr "カートに入れる"
+
+#: uc_product_kit.module:808
+msgid "<strong>@product-title</strong> added to <a href=\"!url\">your shopping cart</a>."
+msgstr "<strong>@product-title</strong> を<a href=\"!url\">ショッピングカート</a>に入れました。"
+
+#: uc_product_kit.module:862;878;886
+msgid "This product has options that need to be selected before purchase. Please select them in the form below."
+msgstr "この商品には、購入の際にお選びいただくオプションがあります。下記のフォームから選択してください。"
+
+#: uc_product_kit.module:922
+msgid "Images"
+msgstr "画像"
+
+#: uc_product_kit.module:922
+msgid "Product kits do not have an image field. You may add a %field_name at the <a href=\"!add_url\">Add field page</a> and make sure it is set as the Ubercart image in the <a href=\"!edit_url\">content type settings</a> under the Ubercart product settings fieldset."
+msgstr "組み合わせ商品には画像フィールドがありません。<a href=\"!add_url\">フィールドの追加ページ</a>で %field_name を追加することができますので、<a href=\"!edit_url\">コンテンツタイプの設定</a>にある商品設定のフィールドセットでUbercartの画像として設定されているか確認してください。"
+
+#: uc_product_kit.module:111
+msgid "There is 1 product kit that consists of only this product. It will be deleted as well."
+msgid_plural "There are @count product kits that consist of only this products. They will be deleted as well."
+msgstr[0] "この商品だけしか含まれていない組み合わせ商品がひとつあります。その商品も同じく削除されます。"
+msgstr[1] "この商品だけしか含まれていない組み合わせ商品が @count 点あります。その商品も同じく削除されます。"
+
+#: uc_product_kit.module:43
+msgid "administer product kits"
+msgstr "組み合わせ商品の管理"
+
+#: uc_product_kit.module:26
+msgid "Product kits"
+msgstr "組み合わせ商品"
+
+#: uc_product_kit.module:27
+msgid "Configure the product kit settings."
+msgstr "組み合わせ商品の設定を行います。"
+
+#: (duplicate) uc_product_kit.install:187
+msgid "field_image_cache set as the Ubercart image for product kits."
+msgstr "field_image_cache を組み合わせ商品の画像として設定しました。"
+
+#: uc_product_kit.info:0
+msgid "Product Kit"
+msgstr "組み合わせ商品"
+
+#: uc_product_kit.info:0
+msgid "This node module represents two or more products that have been listed together. This presents a logical and convenient grouping of items to the customer."
+msgstr "このノードモジュールは、一緒に並べられる二つ以上の商品を表します。商品の合理的で便利なグループを顧客へ提供することができます。"
+
+#: uc_product_kit.info:0
+msgid "Ubercart - extra"
+msgstr ""
+

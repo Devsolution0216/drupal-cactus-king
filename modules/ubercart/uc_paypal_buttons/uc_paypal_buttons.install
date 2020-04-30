@@ -1,0 +1,54 @@
+<?php
+// $Id: uc_paypal_buttons.install,v 1.2 2009/06/16 18:49:39 detour Exp $
+
+/**
+ * @file
+ * Installation routines for uc_paypal_buttons module.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function uc_paypal_buttons_schema() {
+  $schema = array();
+  $schema['uc_paypal_buttons'] = array(
+    'description' => t('Table for UC PayPal Buttons data.'),
+    'fields' => array(
+      'invoice_id' => array(
+        'description' => t('Primary identifier that corresponds to the Ubercart order id and PayPal invoice id.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'options' => array(
+        'description' => t('Product options for this particular instance.'),
+        'type' => 'text',
+      ),
+      'ipn' => array(
+        'description' => t('IPN received from PayPal.'),
+        'type' => 'text',
+      ),
+      'data' => array(
+        'description' => t('Additional post-checkout product data.'),
+        'type' => 'text',
+      ),
+    ),
+    'primary key' => array('invoice_id'),
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function uc_paypal_buttons_install() {
+  drupal_install_schema('uc_paypal_buttons');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function uc_paypal_buttons_uninstall() {
+  drupal_uninstall_schema('uc_paypal_buttons');
+  variable_del('uc_paypal_buttons_products');
+}

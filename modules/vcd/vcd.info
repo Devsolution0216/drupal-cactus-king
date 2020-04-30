@@ -1,0 +1,14 @@
+name = "Views Context Displays"
+dependencies[] = "context"
+dependencies[] = "views"
+dependencies[] = "ds"
+description = "This module allows Views to switch DS Build modes based on the active context"
+package = "Display suite"
+core = "6.x"
+
+; Information added by drupal.org packaging script on 2011-04-13
+version = "6.x-1.0"
+core = "6.x"
+project = "vcd"
+datestamp = "1302726117"
+

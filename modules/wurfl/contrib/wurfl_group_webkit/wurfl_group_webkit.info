@@ -1,0 +1,13 @@
+; id:
+name = WURFL Group Webkit
+description = "Creates a high end Webkit and low end other device group"
+package = Mobile
+core = 6.x
+dependencies[] = wurfl
+dependencies[] = mobile_tools
+; Information added by drupal.org packaging script on 2010-09-26
+version = "6.x-1.0"
+core = "6.x"
+project = "wurfl"
+datestamp = "1285514766"
+

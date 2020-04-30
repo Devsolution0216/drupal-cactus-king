@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal Module Porrmanscron v4.6.0 French Translation\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2005-09-17 18:00+0100\n"
+"Last-Translator: Ludovic Dias http://www.flashtranslation.com <admin@flashtranslation.com>\n"
+"Language-Team: flashtranslation.com <admin@flashtranslation.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+
+#: poormanscron.module:17
+msgid "Runs Drupal cron jobs without the cron application."
+msgstr "Permet de lancer des tâches Cron sans l'application Cron"
+
+#: poormanscron.module:63
+msgid "Minimum number of minutes between cron runs. Cron will actually execute during the first page request after the interval has elapsed."
+msgstr "Nombre minimum de minutes entre deux tâches Cron. En réalité Cron se lancera lors de la première demande de page suivant la fin de cet intervalle."
+
+#: poormanscron.module:65
+msgid "The number of minutes to wait after a cron run error before retrying."
+msgstr "Nombre de minutes d'attentes avant de relancer Cron après une erreur dans une tâche."
+
+#: poormanscron.module:67
+msgid "If you want to log successful cron runs to the Drupal watchdog, say Yes here. If those messages annoy you, disable them by selecting No."
+msgstr "Si vous voulez que les tâches Cron correctement effectuées soient inscrites dans Drupal Watchdog, écrivez Oui. Si ces messages vous ennuient, il est préférable de les annuler en sélectionnant l'option Non."
+
+#: poormanscron.module:71
+msgid "Cron runs interval"
+msgstr "Intervalle entre deux tâches Cron"
+
+#: poormanscron.module:75
+msgid "Retry interval"
+msgstr "Intervalle entre deux essais"
+
+#: poormanscron.module:78
+msgid "Time intervals"
+msgstr "Intervalle de temps"
+
+#: poormanscron.module:80
+msgid "Log successful cron runs"
+msgstr "Inscrire dans le journal les tâches Cron réussies"
+
+#: poormanscron.module:83
+msgid "Yes"
+msgstr "Oui"
+
+#: poormanscron.module:83
+msgid "No"
+msgstr "Non"
+
+#: poormanscron.module:85
+msgid "Logging"
+msgstr "Logging"
+
+#: poormanscron.module:50
+msgid "regular"
+msgstr "régulièrement"
+
+#: poormanscron.module:0
+msgid "poormanscron"
+msgstr "Le Cron du pauvre"
+

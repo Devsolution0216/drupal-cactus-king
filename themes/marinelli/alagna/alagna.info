@@ -1,0 +1,25 @@
+name = Alagna
+
+description = Marinelli theme alternative graphics
+
+version = VERSION
+
+core = 6.x
+
+engine = phptemplate
+
+stylesheets[all][] = typography.css
+stylesheets[all][] = graphics.css
+stylesheets[all][] = typography.css
+stylesheets[all][] = links.css
+stylesheets[all][] = layout.css
+
+base theme = marinelli
+
+
+; Information added by drupal.org packaging script on 2009-03-18
+version = "6.x-2.92"
+core = "6.x"
+project = "marinelli"
+datestamp = "1237377339"
+

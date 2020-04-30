@@ -1,0 +1,239 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the uc_google_checkout module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function uc_google_checkout_requirements($phase) {
+  $t = get_t();
+
+  $has_simplexml = class_exists('SimpleXMLElement');
+  $requirements['uc_gc_simplexml'] = array(
+    'title' => $t('SimpleXML'),
+    'value' => $has_simplexml ? $t('Enabled') : $t('Not found'),
+  );
+  if (!$has_simplexml) {
+    $requirements['uc_gc_simplexml']['severity'] = REQUIREMENT_ERROR;
+    $requirements['uc_gc_simplexml']['description'] = $t('Google Checkout requires the PHP <a href="!simplexml_url">SimpleXML</a> library.', array('!simplexml_url' => 'http://php.net/manual/en/simplexml.setup.php'));
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_schema().
+ */
+function uc_google_checkout_schema() {
+  $schema = array();
+
+  $schema['uc_gc_products'] = array(
+    'description' => 'Stores Google Checkout information for products.',
+    'fields' => array(
+      'vid' => array(
+        'description' => 'The {uc_products}.vid.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'nid' => array(
+        'description' => 'The {uc_products}.nid.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'gc_salable' => array(
+        'description' => 'A flag indicating whether the product can be sold with Google Checkout. 1 => Yes. 0 => No.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 1,
+      ),
+    ),
+    'primary key' => array('vid'),
+  );
+
+  $schema['uc_gc_orders'] = array(
+    'description' => 'Stores Google Checkout orders information.',
+    'fields' => array(
+      'order_id' => array(
+        'description' => 'The {uc_orders}.order_id.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'gc_order_number' => array(
+        'description' => 'The Google Checkout order number.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '0',
+      ),
+      'financial_state' => array(
+        'description' => 'The order financial state.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => 'REVIEWING',
+      ),
+      'fulfillment_state' => array(
+        'description' => 'The order fulfillment state.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => 'NEW',
+      ),
+      'gc_total' => array(
+        'description' => 'The order total according to Google Checkout.',
+        'type' => 'numeric',
+        'precision' => 16,
+        'scale' => 5,
+        'not null' => TRUE,
+        'default' => 0.0,
+      ),
+    ),
+    'indexes' => array(
+      'gc_order_number' => array(array('gc_order_number', 20)),
+    ),
+    'primary key' => array('order_id'),
+  );
+
+  $schema['uc_gc_taxes'] = array(
+    'description' => 'Stores tax information for Google Checkout.',
+    'fields' => array(
+      'zone' => array(
+        'description' => 'The 2-letter state abberviation.',
+        'type' => 'varchar',
+        'length' => 2,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'rate' => array(
+        'description' => 'The tax rate.',
+        'type' => 'float',
+        'not null' => TRUE,
+        'default' => 0.0,
+      ),
+      'tax_shipping' => array(
+        'description' => 'A flag indicating whether shipping costs are taxed.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('zone'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function uc_google_checkout_install() {
+  drupal_install_schema('uc_google_checkout');
+
+  $t = get_t();
+  db_query("INSERT INTO {uc_order_statuses} (order_status_id, title, state, weight, locked) VALUES ('in_google_checkout', '". $t('In Google Checkout') ."', 'in_checkout', -7, 1);");
+  db_query("INSERT INTO {uc_order_statuses} (order_status_id, title, state, weight, locked) VALUES ('chargeable', '". $t('Chargeable') ."', 'post_checkout', 2, 1);");
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function uc_google_checkout_uninstall() {
+  drupal_uninstall_schema('uc_google_checkout');
+
+  db_query("UPDATE {uc_order_statuses} SET locked = 0 WHERE order_status_id = 'in_google_checkout' OR order_status_id = 'chargeable'");
+  db_query("DELETE FROM {variable} WHERE name LIKE 'uc_google_checkout_%%'");
+}
+
+/**
+ * Implements hook_update_last_removed().
+ */
+function uc_google_checkout_update_last_removed() {
+  return 1;
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function uc_google_checkout_update_6000() {
+  $ret = array();
+
+  db_drop_primary_key($ret, 'uc_gc_products');
+  db_change_field($ret, 'uc_gc_products', 'vid', 'vid', array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0), array('primary key' => array('vid')));
+  db_change_field($ret, 'uc_gc_products', 'nid', 'nid', array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0));
+  db_change_field($ret, 'uc_gc_products', 'gc_salable', 'gc_salable', array('type' => 'int', 'unsigned' => TRUE, 'size' => 'tiny', 'not null' => TRUE, 'default' => 1));
+
+  db_drop_primary_key($ret, 'uc_gc_orders');
+  db_change_field($ret, 'uc_gc_orders', 'order_id', 'order_id', array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0), array('primary key' => array('order_id')));
+
+  // Postgres 8.3 supports ENUM types, but not everybody uses that.
+  // Change to VARCHAR since it's just as good.
+  db_change_field($ret, 'uc_gc_orders', 'financial_state', 'financial_state',
+    array(
+      'type' => 'varchar',
+      'length' => 255,
+      'not null' => TRUE,
+      'default' => 'REVIEWING',
+    ));
+  db_change_field($ret, 'uc_gc_orders', 'fulfillment_state', 'fulfillment_state',
+    array(
+      'type' => 'varchar',
+      'length' => 255,
+      'not null' => TRUE,
+      'default' => 'NEW',
+    ));
+
+  return $ret;
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function uc_google_checkout_update_6001() {
+  variable_set('uc_google_checkout_merchant_id' , variable_get('uc_google_merchant_id' , ''));
+  variable_del('uc_google_merchant_id');
+
+  variable_set('uc_google_checkout_merchant_key', variable_get('uc_google_merchant_key', ''));
+  variable_del('uc_google_merchant_key');
+
+  return array();
+}
+
+// Removed obsolete update 6002.
+
+/**
+ * Implements hook_update_N().
+ *
+ * Changes currency fields to numeric(16,5).
+ */
+function uc_google_checkout_update_6003() {
+  $ret = array();
+
+  db_change_field($ret, 'uc_gc_orders', 'gc_total', 'gc_total', array('type' => 'numeric', 'precision' => 16, 'scale' => 5, 'not null' => TRUE, 'default' => 0.0));
+
+  return $ret;
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Deletes old shipping settings.
+ */
+function uc_google_checkout_update_6004() {
+  $ret = array();
+
+  $ret[] = update_sql("DELETE FROM {variable} WHERE name LIKE 'uc_google_checkout_shipping_%%'");
+
+  return $ret;
+}

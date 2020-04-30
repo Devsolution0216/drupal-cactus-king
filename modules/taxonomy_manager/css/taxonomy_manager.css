@@ -1,0 +1,276 @@
+
+
+#taxonomy-manager-form {
+}
+
+/**
+ * Taxonomy Manager Tree formating
+ */
+#taxonomy-manager-tree-outer-div {
+  height: 550px;	
+  overflow: auto;
+}
+
+#taxonomy-manager-tree-outer-div fieldset {
+  margin: 0;
+  padding: 5px;
+}
+
+.treeview, .treeview ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.treeview .form-item {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.treeview li { 
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+	
+.hitArea {
+  float: left;
+  height: 15px;
+  width: 15px;
+  margin-left: -15px;
+  cursor: pointer;
+  _background: #fff;
+  _filter: alpha(opacity=0);
+  _display: inline;
+}
+
+.treeview li { background: url(../images/tv-item.gif) 0 0 no-repeat; }
+.treeview .collapsable { background-image: url(../images/tv-collapsable.gif); }
+.treeview .expandable { background-image: url(../images/tv-expandable.gif); }
+.treeview .last { background-image: url(../images/tv-item-last.gif); }
+.treeview .lastCollapsable { background-image: url(../images/tv-collapsable-last.gif); }
+.treeview .lastExpandable { background-image: url(../images/tv-expandable-last.gif); }
+
+.term-line {
+  display: inline;
+}
+
+.term-item {
+  display: inline;
+}
+
+.term-has-more-siblings {
+  float: right;
+  height: 38px;
+  cursor: pointer;
+}
+
+.term-next-count {
+  float: left;
+  padding-top: 10px;
+  color: #4ca108;
+}
+
+.term-downarrow-img {
+}
+
+.term-operations {
+  display: inline;
+}
+
+.term-operations img.term-up,
+.term-operations img.term-down,
+.term-operations a img {
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+.term-operations a:link,
+.term-operations a:visited,
+.term-operations a:hover,
+.term-operations a:active {
+  text-decoration: none;
+}
+
+/**
+ * Taxonomy Manger Toolbar
+ */
+#taxonomy-manager-toolbar{
+}
+
+#taxonomy-manager-toolbar-throbber {
+  float: right;
+  margin: 0px;
+  padding: 0px;
+}
+
+#taxonomy-manager-toolbar-buttons {
+  height: 33px;
+  float:left;
+}
+
+input.taxonomy-manager-buttons {
+  border: thin solid;
+  border-color: #cccccc #555555 #555555 #cccccc;
+  background-color: #f2f2f2;
+  background-repeat: no-repeat;
+  background-position:3px;
+  padding-left: 25px;
+  padding-bottom: 3px;
+  height: 28px;
+}
+
+input.add {
+  background-image: url(../images/list-add.png);
+}
+
+input#edit-weight-up {
+  background-image: url(../images/go-up.png);
+}
+
+input#edit-weight-down {
+  background-image: url(../images/go-down.png);
+}
+
+input.delete {
+  background-image: url(../images/list-remove.png);
+}
+
+input.move {
+  background-image: url(../images/move.png);
+}
+
+input.merge {
+  background-image: url(../images/merge.png);
+}
+
+input.cancel {
+  background-image: url(../images/dialog-cancel.png);
+}
+
+input.search {
+  background-image: url(../images/edit-find.png);
+}
+
+input.export {
+  background-image: url(../images/csv.png);
+}
+
+input.save {
+  background-image: url(../images/document-save.png);
+}
+
+
+/**
+ * Taxonomy Manager Search
+ */
+#taxonomy-manager-search .fieldset-wrapper {
+  overflow: visible; /*fixes hidden autocomplete result in FF*/
+}
+
+#edit-search-button {
+  margin-top: 15px;
+  margin-left: 10px;
+  float: left;
+}
+
+#edit-find-field {
+  float: left;
+  line-height: 150%;
+}
+
+#edit-find-field .form-item {
+  padding: 0;
+  margin: 0;
+}
+
+
+/**
+ * Term Data Form
+ */
+
+
+#taxonomy-term-data .resizable-textarea {
+  width: 100%;
+}
+
+#taxonomy-term-data-fieldset {
+  margin-top: 0;
+}
+
+.taxonomy-term-data-table {
+}
+
+.taxonomy-term-data-name {
+}
+
+.taxonomy-term-data-operations {
+  cursor: pointer;
+}
+
+.taxonomy-term-data-table td {
+}
+.taxonomy-term-data-table th {
+}
+
+
+.term-data-autocomplete {
+  display: inline;
+}
+.term-data-autocomplete-add {
+  display: inline;
+  cursor: pointer;
+}
+.term-data-autocomplete-add img {
+  vertical-align: bottom;
+}
+
+#term-data-name-save {
+  padding-top: 23px;
+  padding-left: 10px;
+  float: left;
+  cursor: pointer;
+}
+
+#term-data-name-field {
+  float: left;
+}
+
+#edit-term-data-name {
+  width: 100%;
+}
+
+#term-data-description {
+  height: 130px;
+}
+
+#term-data-description-save {
+  padding-top: 105px;
+  padding-left: 10px;
+  float: left;
+  cursor: pointer;
+}
+
+#term-data-description-field {
+  float: left;
+}
+
+#term-data-description-field .resizable-textarea {
+}
+
+#term-data-description-field .form-item {
+}
+
+#term-data-description-field textarea {
+}
+
+#edit-term-data-description textarea {
+}
+
+#edit-term-data-description {
+}
+
+
+.clear {
+  clear: both;
+}	

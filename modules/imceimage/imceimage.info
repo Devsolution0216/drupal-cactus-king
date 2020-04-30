@@ -1,0 +1,16 @@
+; $Id: imceimage.info,v 1.1.2.1 2008/05/07 20:49:36 panis Exp $
+name = IMCE Image
+description = Defines an IMCE image field type.
+dependencies[] = imce
+dependencies[] = content
+package = CCK
+core = 6.x
+
+
+
+; Information added by drupal.org packaging script on 2009-03-27
+version = "6.x-1.0-beta2"
+core = "6.x"
+project = "imceimage"
+datestamp = "1238175966"
+

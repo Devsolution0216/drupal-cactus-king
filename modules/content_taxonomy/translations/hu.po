@@ -1,0 +1,404 @@
+# Hungarian translation of content_taxonomy (6.x-1.x-dev)
+# Copyright (c) 2009 by the Hungarian translation team
+# Generated from files:
+#  content_taxonomy_tree.module,v 1.1.2.4 2008/08/20 16:54:36 mh86
+#  content_taxonomy.module,v 1.2.2.15.2.13 2008/09/17 14:23:54 mh86
+#  content_taxonomy_autocomplete.module,v 1.2.2.4.2.7 2008/08/20 16:54:36 mh86
+#  content_taxonomy/includes/content_taxonomy.token.inc: n/a
+#  content_taxonomy.info,v 1.1.2.2.2.1 2008/04/30 08:05:19 mh86
+#  content_taxonomy_autocomplete.info,v 1.1.2.4.2.1 2008/04/30 08:05:19 mh86
+#  content_taxonomy_options.info,v 1.1.2.5.2.1 2008/04/30 08:05:19 mh86
+#  content_taxonomy_tree.info,v 1.1.2.1 2008/04/30 08:05:19 mh86
+#  content_taxonomy_options.module,v 1.1.4.7.2.3 2008/08/20 16:54:36 mh86
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: content_taxonomy (6.x-1.x-dev)\n"
+"POT-Creation-Date: 2009-01-12 07:38-0600\n"
+"PO-Revision-Date: 2008-11-23 07:36-0600\n"
+"Last-Translator: Balogh Zoltán\n"
+"Language-Team: Hungarian http://forditas.mindworks.hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: content_taxonomy_tree.module:153
+msgid "!name field is required."
+msgstr "„!name” mező nincs kitöltve."
+
+#: content_taxonomy.module:332,340
+msgid "content"
+msgstr "tartalom"
+
+#: content_taxonomy_autocomplete.module:150
+msgid "Preview"
+msgstr "Előnézet"
+
+#: includes/content_taxonomy.token.inc:10
+msgid "Name of top taxonomy term"
+msgstr "Legelső taxonómiakifejezés neve"
+
+#: includes/content_taxonomy.token.inc:11
+msgid "ID of top taxonomy term"
+msgstr "A legelső taxonómiakifejezés azonosítója"
+
+#: content_taxonomy.module:123
+msgid "Advanced settings"
+msgstr "Haladó beállítások"
+
+#: content_taxonomy.module:80
+msgid "Vocabulary"
+msgstr "Szótár"
+
+#: content_taxonomy_autocomplete.module:26
+msgid "Autocomplete"
+msgstr "Automatikus kiegészítés"
+
+#: content_taxonomy.info:0; content_taxonomy_autocomplete.info:0; content_taxonomy_options.info:0; content_taxonomy_tree.info:0
+msgid "CCK"
+msgstr "CCK"
+
+#: content_taxonomy.module:16
+msgid ""
+"Defines a CCK field type for referencing taxonomy terms. The fields "
+"are independent from vocabulary settings and can be configured through "
+"the CCK admin field pages. The Content Taxonomy Module provides "
+"different widget types, at the moment including Option Widgets (Radios "
+"/ Checkboxes, Selects), Autocompletes, Tree). The widget modules have "
+"to be enabled separately."
+msgstr ""
+"Egy CCK mezőtípust ad, mely taxonómia kifejezésekre hivatkozik. A "
+"mezők függetlenek a szótárbeállításoktól, a CCK "
+"adminisztrációs oldalain lehet ezeket beállítani. A tartalom "
+"taxonómia modul különböző felületi elemeket szolgáltat, "
+"jelenleg választógombok, jelölőnégyzetek, legördülő listák, "
+"automatikusan kiegészülő mezőkés  fák állnak rendelkezésre. A "
+"felületi elem modulokat külön kell engedélyezni."
+
+#: content_taxonomy.module:49
+msgid "Content Taxonomy Fields"
+msgstr "Tartalom taxonómia mezők"
+
+#: content_taxonomy.module:50
+msgid "Stores terms for nodes in the database."
+msgstr "A kifejezések tárolása a tartalomhoz az adatbázisban."
+
+#: content_taxonomy.module:69
+msgid ""
+"Save values additionally to the core taxonomy system (into the "
+"'term_node' table)."
+msgstr ""
+"Az értékek mentése az alap taxonómia rendszerbe is (a "
+"„term_node” táblába)."
+
+#: content_taxonomy.module:71
+msgid ""
+"If this option is set, saving of terms is additionally handled by the "
+"taxonomy module. So saved terms from Content Taxonomy fields will "
+"appear as any other terms saved by the core taxonomy module. Set this "
+"option if you are using any other taxonomy application, like "
+"tagadelic. Otherwise terms are only saved in the cck tables and can "
+"only be accessed via the node or a view"
+msgstr ""
+"Ha ez a lehetőség be van kapcsolva, a mentett kifejezések "
+"hozzáadódnak a taxonómia modulhoz is. Így a tartalom taxonómia "
+"mezőkben elmentett kifejezések ugyanúgy fognak viselkedni, mint az "
+"alap taxonómia modullal elmentett bármelyik másik kifejezés. Be "
+"kell kapcsolni, ha bármilyen egyéb taxonómia alkalmazás is "
+"használatban van, mint például a <em>tagadelic</em>. Ellenkező "
+"esetben a kifejezések csak a CCK tábláiba lesznek elmentve, így "
+"ezeket csak a tartalommal vagy egy nézettel lehet elérni."
+
+#: content_taxonomy.module:84
+msgid "Terms of the selected vocabulary get exposed to the field"
+msgstr "A kiválasztott szótár kifejezései megjelennek a mezőben"
+
+#: content_taxonomy.module:89
+msgid "Advanced settings for hierarchical vocabularies"
+msgstr "Haladó beállítások hierarhikus szótáraknak"
+
+#: content_taxonomy.module:94
+msgid "Parent Term"
+msgstr "Szülő kifejezés"
+
+#: content_taxonomy.module:98
+msgid ""
+"If any term is selected here, only child terms of the selected are "
+"going to be exposed the field. Otherwise the whole vocabulary selected "
+"above"
+msgstr ""
+"Ha itt bármilyen kifejezés ki van választva, akkor csak ennek a "
+"gyermekei fognak megjelenni a mezőben. Egyébként a feljebb "
+"kiválasztott teljes szótár."
+
+#: content_taxonomy.module:102
+msgid "Advanced PHP code"
+msgstr "Haladó PHP kód"
+
+#: content_taxonomy.module:107
+msgid "PHP Code for selecting the parent term"
+msgstr "PHP kód a szülő kifejezés kiválasztásához"
+
+#: content_taxonomy.module:111
+msgid ""
+"Advanced usage only: PHP code that returns the parent term ID. Should "
+"not include &lt;?php ?&gt; delimiters. If this field is filled out, "
+"the ID returned by this code will override the selected parent above."
+msgstr ""
+"Csak haladóknak: PHP kód, ami visszaadja a szülő kifejezés "
+"azonosítóját. Nem szükséges &lt;?php ?&gt; elemek közé zárni. "
+"Ha ez a mező ki van töltve, akkor a kód által visszaadott "
+"azonosító felülír minden fentebb kiválasztott szülő értéket."
+
+#: content_taxonomy.module:116
+msgid "Depth of taxonomy tree"
+msgstr "A taxonómia fa mélysége"
+
+#: content_taxonomy.module:118
+msgid ""
+"By setting a numeric value, the depth of the hierarchy shown can be "
+"limited. Leave this field blank to show the whole hierarchy."
+msgstr ""
+"Egy numerikus értéket megadva a megjelenő hierarhia mélysége "
+"korlátozható. Üresen hagyva megjelenik a teljes hierarhia."
+
+#: content_taxonomy.module:129
+msgid "Hide default taxonomy fields on the node form"
+msgstr ""
+"Az alapértelmezett taxonómia mezők elrejtése a tartalom beküldő "
+"űrlapon"
+
+#: content_taxonomy.module:131
+msgid ""
+"If this option is set for at least one Content Taxonomy Field per "
+"Content Type, default fields from the core Taxonomy module get hidden."
+msgstr ""
+"Ha ez a lehetőség ki van választva legalább egy tartalom "
+"taxonómia mezőre tartalom típusonként, akkor az alap taxonómia "
+"modul alapértelmezett mezői el lesznek rejtve."
+
+#: content_taxonomy.module:185
+msgid "As Text"
+msgstr "Mint szöveg"
+
+#: content_taxonomy.module:190
+msgid "As Link"
+msgstr "Mint hivatkozás"
+
+#: content_taxonomy.module:332
+msgid "Deleted field %field_name and its data."
+msgstr "%field_name mező az adataival együtt törölve."
+
+#: content_taxonomy.module:340
+msgid ""
+"Entries with term id = %tid have been deleted out of %table for field "
+"%field_name."
+msgstr ""
+"%tid azonosítójú bejegyzések törölve lettek (Tábla: %table, "
+"mezőnév: %field_name)."
+
+#: content_taxonomy.module:0
+msgid "content_taxonomy"
+msgstr "content_taxonomy"
+
+#: content_taxonomy_autocomplete.module:40
+msgid "Autocomplete (Freetagging)"
+msgstr "Automatikus kiegészítés (szabadszavas cimkézés)"
+
+#: content_taxonomy_autocomplete.module:59
+msgid "Settings for Autocompletes"
+msgstr "Beállítások az automatikus kiegészítéshez"
+
+#: content_taxonomy_autocomplete.module:65
+msgid "Freetagging settings"
+msgstr "Szabadszavas cimkézés beállítások"
+
+#: content_taxonomy_autocomplete.module:67
+msgid "Allow and insert new terms by the user into the vocabulary"
+msgstr ""
+"Engedélyezi, hogy felhasználók új kifejezéseket adjanak a "
+"szótárhoz"
+
+#: content_taxonomy_autocomplete.module:68
+msgid "Deny any new terms"
+msgstr "Új kifejezések tiltása"
+
+#: content_taxonomy_autocomplete.module:73
+msgid "Extra Parent for new terms"
+msgstr "Extra szülő az új kifejezéseknek"
+
+#: content_taxonomy_autocomplete.module:76
+msgid ""
+"This setting is only relevant if you have selected \"Allow and insert "
+"new terms by the user into the vocabulary\". If you select any term "
+"here, new terms will get children of the selected one, otherwise new "
+"terms get children of the parent term (root, if no parent selected) "
+"selected in the global settings."
+msgstr ""
+"Ez a beállítás csak akkor hatásos, ha az „Engedélyezi, hogy "
+"felhasználók új kifejezéseket adjanak a szótárhoz” lehetőség "
+"van kiválasztva. Ha itt bármilyen kifejezés ki van választva, "
+"akkor az új kifejezések a kiválasztott kifejezés gyermekei "
+"lesznek, ellenkező esetben a szülőt az általános beállítások "
+"határozzák meg. Ha nincs szülő kiválasztva, akkor a gyökér lesz "
+"az."
+
+#: content_taxonomy_autocomplete.module:81
+msgid "Maximum length of autocomplete"
+msgstr "Az automatikus kiegészítés maximális hossza"
+
+#: content_taxonomy_autocomplete.module:85
+msgid ""
+"Defines how many characters can be typed into the autocomplete field. "
+"For values higher than 255, remember that one term name can not be "
+"longer than 255 (would be cutted), nevertheless it's not a problem for "
+"multiple values, separated by commas."
+msgstr ""
+"Megadható, hogy hány karaktert lehessen begépelni az automatikusan "
+"kiegészülő mezőbe. 255-nél nagyobb érték megadásakor tudni "
+"kell, hogy a kifejezés nem lehet 255 karakternél hosszabb (le lesz "
+"vágva). Azonban ez nem jelent problémát a vesszővel elválasztott, "
+"többszörös értékek esetén."
+
+#: content_taxonomy_autocomplete.module:97
+msgid "\"Maximum length\" must be a positive integer."
+msgstr "A „maximális hossz” értéknek pozitív egésznek kell lennie."
+
+#: content_taxonomy_autocomplete.module:182
+msgid "You can provide only one value"
+msgstr "Csak egy értéket lehet megadni"
+
+#: content_taxonomy_autocomplete.module:187
+msgid "New tags are not allowed"
+msgstr "Az új elemek nem engedélyezettek"
+
+#: content_taxonomy_autocomplete.module:0
+msgid "content_taxonomy_autocomplete"
+msgstr "content_taxonomy_autocomplete"
+
+#: content_taxonomy_options.module:17
+msgid "Checkboxes/Radios"
+msgstr "Jelölőnégyzetek/választógombok"
+
+#: content_taxonomy_options.module:25
+msgid "Select List"
+msgstr "Legördülő lista"
+
+#: content_taxonomy_options.module:44
+msgid "Settings for Options"
+msgstr "Lehetőségek beállítása"
+
+#: content_taxonomy_options.module:50
+msgid "Indent child terms with ' - ' signs"
+msgstr "Gyermek kifejezések bekezdése „ - ” jelekkel"
+
+#: content_taxonomy_options.module:52
+msgid ""
+"If this option is checked, a hierarchy gets visualized by indenting "
+"child terms, otherwise it's a flat list"
+msgstr ""
+"Ha ez a lehetőség be van kapcsolva, a hierarhia megjelenítésekor a "
+"gyermek kifejezések bekezdve jelennek meg, ellenkező esetben csak "
+"egyszerű lista lesz."
+
+#: content_taxonomy_options.module:55
+msgid "Parent term for OptGroups in select fields"
+msgstr ""
+"Szülő kifejezés az <em>OptGroups</em> számára a legördülő "
+"listákban"
+
+#: content_taxonomy_options.module:59
+msgid ""
+"This settings applies only for select fields. Select a parent term "
+"containg the grouping terms. Grouping terms should be parents of the "
+"selected terms (from the Global Settings)."
+msgstr ""
+"Ezek a beállítások csak a legördülő listákra vonatkoznak. Ki "
+"lehet választani egy szülő kifejezést a kifejezések "
+"csoportosításához. A kifejezések csoportosításához kellenek "
+"szülők a kiválasztott kifejezéseknek (az általános "
+"beállításokból)."
+
+#: content_taxonomy_options.module:0
+msgid "content_taxonomy_options"
+msgstr "content_taxonomy_options"
+
+#: content_taxonomy_tree.module:24
+msgid "Tree"
+msgstr "Fa"
+
+#: content_taxonomy_tree.module:43
+msgid "Settings for Trees"
+msgstr "Fa beállítások"
+
+#: content_taxonomy_tree.module:49
+msgid "Expand whole tree by default"
+msgstr "Alapértelmezésben kibontja a teljes fát"
+
+#: content_taxonomy_tree.module:51
+msgid ""
+"Otherwise only branches, where a term is selected get expanded by "
+"default"
+msgstr ""
+"Különben csak azok a csoportok nyílnak ki alapértelmezéseben, "
+"ahol a kifejezés ki van választva"
+
+#: content_taxonomy_tree.module:0
+msgid "content_taxonomy_tree"
+msgstr "content_taxonomy_tree"
+
+#: content_taxonomy.info:0
+msgid "Content Taxonomy"
+msgstr "Tartalom taxonómia"
+
+#: content_taxonomy.info:0
+msgid "Defines a field type for taxonomy terms"
+msgstr "Mezőtípust ad a taxonómia kifejezéseknek"
+
+#: content_taxonomy_autocomplete.info:0
+msgid "Content Taxonomy Autocomplete"
+msgstr "Tartalom taxonómia automatikus kiegészítéssel"
+
+#: content_taxonomy_autocomplete.info:0
+msgid "Defines a autocomplete widget type for content_taxonomy"
+msgstr ""
+"Automatikusan kiegészülő mező felületi elemet ad a tartalom "
+"taxonómiának"
+
+#: content_taxonomy_options.info:0
+msgid "Content Taxonomy Options"
+msgstr "Tartalom taxonómia lehetőségek"
+
+#: content_taxonomy_options.info:0
+msgid ""
+"Defines a option widget type for content_taxonomy for selects, "
+"radios/checkboxes"
+msgstr ""
+"Legördülő lista, választógomb és jelölőnégyzet felületi "
+"elemeket ad a tartalom taxonómiának"
+
+#: content_taxonomy_tree.info:0
+msgid "Content Taxonomy Tree"
+msgstr "Tartalom taxonómia fa"
+
+#: content_taxonomy_tree.info:0
+msgid "Defines a dynamic tree widget for Content Taxonomy"
+msgstr "Dinamikus fa felületi elemet ad a tartalom taxonómiának"
+
+#: includes/content_taxonomy.token.inc:12
+msgid "Names of all taxonomy terms separated by commas"
+msgstr "Minden taxonómiakifejezés neve, vesszőkkel elválasztva"
+
+#: includes/content_taxonomy.token.inc:13
+msgid "IDs of all taxonomy terms separated by commas"
+msgstr "Minden taxonómiakifejezés azonosítója, vesszőkkel elválasztva"
+
+#: includes/content_taxonomy.token.inc:14
+msgid "Name of terms vocabulary"
+msgstr "A kifejezések szótárának neve"
+
+#: includes/content_taxonomy.token.inc:15
+msgid "ID of terms vocabulary"
+msgstr "A kifejezések szótárának azonosítója"
+

@@ -1,0 +1,1125 @@
+# $Id: uc_cart.fr.po,v 1.1.2.1 2009/11/19 08:57:54 slybud Exp $
+#
+# French translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_cart.admin.inc,v 1.1.2.16 2009/09/23 15:45:56 islandusurper
+#  uc_cart.module,v 1.15.2.29 2009/09/23 15:45:56 islandusurper
+#  uc_cart.ca.inc,v 1.1.2.14 2009/07/21 14:37:20 islandusurper
+#  uc_cart.info,v 1.7.2.2 2008/11/07 21:13:22 islandusurper
+#  uc_cart.pages.inc,v 1.1.2.19 2009/09/23 20:28:05 islandusurper
+#  uc_cart_checkout_pane.inc,v 1.5.2.10 2009/08/17 21:27:55 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Ubercart - uc_cart - French Translation for drupal6 module\n"
+"POT-Creation-Date: 2009-10-08 12:18+0200\n"
+"PO-Revision-Date: 2009-11-19 09:46+0100\n"
+"Last-Translator: Sylvain Moreau <sylvain.moreau@ows.fr>\n"
+"Language-Team: Julien Agopian, OWS <julien@ows.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: uc_cart.admin.inc:18
+msgid "Help text is shown in block:"
+msgstr "Le texte d'aide est affiché dans le bloc : "
+
+#: uc_cart.admin.inc:19
+#: uc_cart.module:472;575
+msgid "Click title to display cart contents."
+msgstr "Cliquer sur le titre pour afficher le contenu du panier."
+
+#: uc_cart.admin.inc:22
+msgid "Help text is not shown in block."
+msgstr "Le texte d'aide n'est pas affiché dans un bloc."
+
+#: uc_cart.admin.inc:27
+#: uc_cart.module:69
+msgid "Cart block"
+msgstr "Bloc panier"
+
+#: uc_cart.admin.inc:29
+msgid "Cart block is !option when empty."
+msgstr "Le bloc panier est !option lorsqu'il est vide."
+
+#: uc_cart.admin.inc:29
+msgid "hidden"
+msgstr "caché"
+
+#: uc_cart.admin.inc:29
+msgid "shown"
+msgstr "affiché"
+
+#: uc_cart.admin.inc:30
+msgid "Cart block is !option by default."
+msgstr "Le bloc panier est !option par défaut."
+
+#: uc_cart.admin.inc:30
+msgid "expanded"
+msgstr "deroulé"
+
+#: uc_cart.admin.inc:30
+msgid "collapsed"
+msgstr "replié"
+
+#: uc_cart.admin.inc:48
+msgid "General cart settings"
+msgstr "Paramètres généraux du panier"
+
+#: uc_cart.admin.inc:53
+msgid "Display an update message when an item is added to the cart through an add to cart form."
+msgstr "Afficher un message de mise à jour lorsqu'un article est ajouté au panier par l'intermédiaire d'un formulaire d'ajout au panier. "
+
+#: uc_cart.admin.inc:58
+msgid "Add to cart redirect"
+msgstr "Redirection pour l'ajout au panier"
+
+#: uc_cart.admin.inc:59
+msgid "Enter the Drupal page to redirect to when a customer adds an item to their cart.<br />Enter &lt;none&gt; for no redirect."
+msgstr "Saisir la page Drupal vers laquelle les utilisateurs seront redirigés après avoir ajouté un article à leur panier.<br />Saisir &lt;none&gt; pour aucune redirection."
+
+#: uc_cart.admin.inc:60
+msgid "Add to cart is redirecting to <br /><a href=\"!url\">!url</a>"
+msgstr "Ajouter au panier redirige vers <br /><a href=\"!url\">!url</a>"
+
+#: uc_cart.admin.inc:72
+msgid "Minimum order subtotal"
+msgstr "Sous-total minimum pour une commande"
+
+#: uc_cart.admin.inc:73
+msgid "Optionally specify a minimum allowed subtotal for a cart to proceed to checkout."
+msgstr "Spécifier optionnellement un sous-total minimum autorisé pour qu'un panier passe en finalisation de commande."
+
+#: uc_cart.admin.inc:74
+msgid "The minimum subtotal is @subtotal"
+msgstr "Le sous-total minimum est @subtotal"
+
+#: uc_cart.admin.inc:83
+msgid "minute"
+msgstr "minute"
+
+#: uc_cart.admin.inc:84
+msgid "hour"
+msgstr "heure"
+
+#: uc_cart.admin.inc:85
+msgid "day"
+msgstr "jour"
+
+#: uc_cart.admin.inc:86
+msgid "week"
+msgstr "semaine"
+
+#: uc_cart.admin.inc:87
+msgid "year"
+msgstr "année"
+
+#: uc_cart.admin.inc:90
+msgid "minutes"
+msgstr "minutes"
+
+#: uc_cart.admin.inc:91
+msgid "hours"
+msgstr "heures"
+
+#: uc_cart.admin.inc:92
+msgid "days"
+msgstr "jours"
+
+#: uc_cart.admin.inc:93
+msgid "weeks"
+msgstr "semaines"
+
+#: uc_cart.admin.inc:94
+msgid "years"
+msgstr "années"
+
+#: uc_cart.admin.inc:100
+msgid "Anonymous cart duration"
+msgstr "Durée du panier pour les utilisateurs anonymes "
+
+#: uc_cart.admin.inc:101
+msgid "Set the length of time products remain in the cart for customers who <strong>have not</strong> logged in."
+msgstr "Definir la durée pendant laquelle les produits restent dans le panier pour les clients qui <strong>ne se sont pas</strong> authentifiés."
+
+#: uc_cart.admin.inc:106;135
+msgid "Duration"
+msgstr "Durée"
+
+#: uc_cart.admin.inc:114;143
+msgid "Unit of time"
+msgstr "Unité de temps "
+
+#: uc_cart.admin.inc:116
+msgid "Minute(s)"
+msgstr "Minute(s)"
+
+#: uc_cart.admin.inc:117;145
+msgid "Hour(s)"
+msgstr "Heure(s)"
+
+#: uc_cart.admin.inc:118;146
+msgid "Day(s)"
+msgstr "Jour(s)"
+
+#: uc_cart.admin.inc:119;147
+msgid "Week(s)"
+msgstr "Semaine(s)"
+
+#: uc_cart.admin.inc:120;148
+msgid "Year(s)"
+msgstr "Année(s)"
+
+#: uc_cart.admin.inc:129
+msgid "Authenticated cart duration"
+msgstr "Durée du panier pour les utilisateurs authentifiés"
+
+#: uc_cart.admin.inc:130
+msgid "Set the length of time products remain in the cart for customers who <strong>have</strong> logged in."
+msgstr "Definir la durée pendant laquelle les produits restent dans le panier pour les clients qui <strong>se sont</strong> authentifiés."
+
+#: uc_cart.admin.inc:157
+msgid "Continue shopping element"
+msgstr "Elément Continuer vos achats"
+
+#: uc_cart.admin.inc:158
+msgid "Ubercart will add a continue shopping to the cart page based on the settings below."
+msgstr "Ubercart ajoutera sur les pages de panier un élément continuer vos achats basé sur les paramètres ci-dessous."
+
+#: uc_cart.admin.inc:159
+msgid "Continue shopping !type is: <br />!link"
+msgstr "Le !type Continuer vos achats est : <br />!link"
+
+#: uc_cart.admin.inc:159
+msgid "link"
+msgstr "lien"
+
+#: uc_cart.admin.inc:159
+msgid "button"
+msgstr "bouton"
+
+#: uc_cart.admin.inc:159
+#: uc_cart.module:968
+msgid "Continue shopping"
+msgstr "Continuer vos achats"
+
+#: uc_cart.admin.inc:163
+msgid "Continue shopping element display"
+msgstr "Affichage de l'élément continuer vos achats "
+
+#: uc_cart.admin.inc:165
+msgid "Text link"
+msgstr "Lien texte"
+
+#: uc_cart.admin.inc:166
+msgid "Button"
+msgstr "Bouton"
+
+#: uc_cart.admin.inc:167
+msgid "None"
+msgstr "Aucun"
+
+#: uc_cart.admin.inc:173
+msgid "Make the continue shopping link send customers back to product pages after adding items to the cart."
+msgstr "Faire en sorte que le lien continuer vos achats renvoie les utilisateurs sur les pages produit après avoir ajouté l'article au panier."
+
+#: uc_cart.admin.inc:174
+msgid "If this is disabled, the URL specified below will always be used."
+msgstr "Si cette option est désactivée, l'URL spécifiée ci-dessous sera toujours utilisée."
+
+#: uc_cart.admin.inc:179
+msgid "Default continue shopping link URL"
+msgstr "URL par défaut du lien continuer vos achats"
+
+#: uc_cart.admin.inc:180
+msgid "Enter the Drupal page for the link to continue shopping from the cart view page."
+msgstr "Saisir la page Drupal pour le lien continuer vos achats de la page de visualisation du panier."
+
+#: uc_cart.admin.inc:187
+msgid "Custom continue shopping link text"
+msgstr "Texte personnalisé du lien continuer vos achats"
+
+#: uc_cart.admin.inc:188
+msgid "Enter custom text for the continue shopping link."
+msgstr "Saisir un texte personnalisé pour le lien continuer vos achats."
+
+#: uc_cart.admin.inc:194
+msgid "Cart breadcrumb"
+msgstr "Fil d'Ariane du panier"
+
+#: uc_cart.admin.inc:195
+msgid "Drupal automatically adds a Home breadcrumb to the cart page.  You can use these settings to specify a custom breadcrumb to use on the cart page instead.  If a custom text is not supplied, the default Home breadcrumb will be displayed."
+msgstr "Drupal ajoute automatiquement un fil d'Ariane Accueil sur la page du panier. Vous pouvez utiliser ces paramètres pour specifier un fil d'Ariane personnalisé de remplacement à utiliser sur la page du panier. Si aucun texte personnalisé n'est fourni, le fil d'Ariane Accueil par défaut sera affiché. "
+
+#: uc_cart.admin.inc:196
+msgid "Custom cart breadcrumb is: <br />!breadcrumb"
+msgstr "Le fil d'Ariane personnalisé du panier est : <br />!breadcrumb"
+
+#: uc_cart.admin.inc:196
+msgid "Not using a custom cart breadcrumb."
+msgstr "Pas de fil d'Ariane personnalisé pour le panier."
+
+#: uc_cart.admin.inc:200
+msgid "Custom cart breadcrumb text"
+msgstr "Texte personnalisé pour le fil d'Ariane du panier"
+
+#: uc_cart.admin.inc:201
+msgid "Enter the text for the custom breadcrumb on the cart page."
+msgstr "Saisir le texte du fil d'Ariane personnalisé sur la page de panier."
+
+#: uc_cart.admin.inc:206
+msgid "Custom cart breadcrumb URL"
+msgstr "URL du fil d'Ariane personnalisé pour le panier"
+
+#: uc_cart.admin.inc:207
+msgid "Enter the Drupal page linked to in the custom breadcrumb on the cart view page."
+msgstr "Saisir la page Drupal liée au fil d'Ariane personnalisé de la page de visualisation du panier."
+
+#: uc_cart.admin.inc:221
+msgid "Minimum order subtotal should be a non-negative number."
+msgstr "Le sous-total minimum de commande ne devrait pas être un nombre négatif."
+
+#: uc_cart.admin.inc:261
+msgid "Drupal handles all the block settings forms automatically."
+msgstr "Drupal gère tous les formulaires de paramètre de bloc automatiquement."
+
+#: uc_cart.admin.inc:262
+msgid "<a href=\"!url\">Click here</a> to goto the shopping cart block configuration page."
+msgstr "<a href=\"!url\">Cliquer ici</a> pour aller à la page de configuration du bloc panier."
+
+#: uc_cart.admin.inc:284
+msgid "General checkout settings"
+msgstr "Paramètres généraux de finalisation de commande"
+
+#: uc_cart.admin.inc:289
+msgid "Enable checkout (disable to only use third party checkout service like PayPal Express Checkout)."
+msgstr "Activer la finalisation de commande (Désactiver pour n'utiliser qu'un service de finalisation de commande tiers comme PayPal Express Checkout)."
+
+#: uc_cart.admin.inc:292
+msgid "Ubercart checkout is enabled."
+msgstr "La finalisation de commande Ubercart est activée."
+
+#: uc_cart.admin.inc:293
+msgid "Ubercart checkout is disabled."
+msgstr "La finalisation de commande Ubercart est désactivée."
+
+#: uc_cart.admin.inc:299
+msgid "Enable anonymous checkout (users can checkout without logging in)."
+msgstr "Activer la finalisation de commande anonyme (les utilisateurs peuvent finaliser leurs commandes sans être authentifiés)."
+
+#: uc_cart.admin.inc:302
+msgid "Anonymous checkout is enabled."
+msgstr "La finalisation de commande anonyme est activée."
+
+#: uc_cart.admin.inc:303
+msgid "Anonymous checkout is disabled."
+msgstr "La finalisation de commande anonyme est désactivée."
+
+#: uc_cart.admin.inc:309
+msgid "Hide shipping information when possible for carts with no shippable items."
+msgstr "Masquer les informations d'expedition lorsque c'est possible pour les paniers ne contenant pas d'article expédiable. "
+
+#: uc_cart.admin.inc:312
+msgid "Shipping fields are hidden when applicable."
+msgstr "Les champs d'expédition sont cachés lorsque c'est possible."
+
+#: uc_cart.admin.inc:313
+msgid "Shipping fields are always shown."
+msgstr "Les champs d'expéditions sont toujours affichés."
+
+#: uc_cart.admin.inc:320
+msgid "Checkout pane display options"
+msgstr "Options d'affichage du panneau de finalisation de commande"
+
+#: uc_cart.admin.inc:325
+msgid "Use collapsing checkout panes with next buttons during checkout."
+msgstr "Utiliser des panneaux de finalisation de commande repliable avec boutons \"suivant\" durant la finalisation de commande."
+
+#: uc_cart.admin.inc:328
+msgid "Checkout panes are collapsed with next buttons."
+msgstr "Les panneaux de finalisation de commande sont repliés avec les boutons \"suivant\"."
+
+#: uc_cart.admin.inc:329
+msgid "Checkout panes are expanded by default."
+msgstr "Les panneaux de finalisation de commande sont dépliés par défaut."
+
+#: uc_cart.admin.inc:335
+msgid "Collapse a pane when its next button is clicked."
+msgstr "Replier un panneau lorsque l'on clique sur son bouton \"suivant\"."
+
+#: uc_cart.admin.inc:338
+msgid "Collapsible panes will collapse when their next buttons are clicked."
+msgstr "Les panneaux repliables seront repliés au clic sur leurs boutons \"suivant\"."
+
+#: uc_cart.admin.inc:339
+msgid "Collapsible panes will not collapse when their next buttons are clicked."
+msgstr "Les panneaux repliables ne seront pas repliés au cliqc sur leurs boutons \"suivant\"."
+
+#: uc_cart.admin.inc:346
+msgid "Checkout completion settings"
+msgstr "Paramètres d'achèvement de la finalisation de commande."
+
+#: uc_cart.admin.inc:351
+msgid "Send new customers a separate e-mail with their account details."
+msgstr "Envoyer aux nouveaux clients un e-mail séparé avec les details de leur compte."
+
+#: uc_cart.admin.inc:354
+msgid "New customers receive an e-mail with their account details."
+msgstr "Les nouveaux clients recoivent un e-mail avec les détails de leur compte."
+
+#: uc_cart.admin.inc:355
+msgid "New customers will only see their details in their initial order e-mail."
+msgstr "Les nouveaux clients ne verront leurs détails que dans le mail de la commande initiale. "
+
+#: uc_cart.admin.inc:361
+msgid "Login users when new customer accounts are created at checkout."
+msgstr "Connecter les utilisateurs lorsque les nouveaux comptes client sont créés à la finalisation de commande."
+
+#: uc_cart.admin.inc:367
+msgid "New customer accounts will be set to active."
+msgstr "Les comptes des nouveaux utilisateurs seront définis comme actifs."
+
+#: uc_cart.admin.inc:368
+msgid "Uncheck to create new accounts but make them blocked."
+msgstr "Décocher pour créer de nouveaux comptes, mais en les rendant bloqués."
+
+#: uc_cart.admin.inc:371
+msgid "New customer account status will be active."
+msgstr "Le compte des nouveaux utilisateurs sera en statut actif."
+
+#: uc_cart.admin.inc:372
+msgid "New customer account status will be blocked."
+msgstr "Le compte des nouveaux utilisateurs sera en statut bloqué."
+
+#: uc_cart.admin.inc:378
+msgid "Alternate checkout completion page"
+msgstr "Page alternative pour l'achèvement de finalisation de commande"
+
+#: uc_cart.admin.inc:379
+msgid "Leave blank to use the default completion page (recommended)."
+msgstr "Laisser vide pour utiliser la page d'achèvement de commande par défaut (recommandé)."
+
+#: uc_cart.admin.inc:380
+msgid "Checkout completion page has been set to <a href=\"!url\">!url</a>."
+msgstr "La page d'achèvement de finalisation de commande a été definie à <a href=\"!url\">!url</a>."
+
+#: uc_cart.admin.inc:380
+msgid "Checkout completion page will be the default page."
+msgstr "La page d'achèvement de finalisation de commande sera celle par défaut."
+
+#: uc_cart.admin.inc:406
+msgid "@title is @enabled."
+msgstr "@title est @enabled."
+
+#: uc_cart.admin.inc:406
+msgid "enabled"
+msgstr "activé"
+
+#: uc_cart.admin.inc:406
+msgid "disabled"
+msgstr "désactivé"
+
+#: uc_cart.admin.inc:445
+msgid "!pane settings"
+msgstr "paramètres de !pane"
+
+#: uc_cart.admin.inc:464
+msgid "Checkout instructions"
+msgstr "Instructions de finalisation de commande"
+
+#: uc_cart.admin.inc:465
+msgid "Provide instructions for customers at the top of the checkout screen."
+msgstr "Affiche des instructions pour les clients en haut de l'écran de finalisation de commande."
+
+#: uc_cart.admin.inc:466
+msgid "Checkout instructions are set."
+msgstr "Les instructions de finalisation de commande sont définis."
+
+#: uc_cart.admin.inc:466
+msgid "Checkout instructions are not set."
+msgstr "Les instructions de finalisation de commande ne sont pas définies."
+
+#: uc_cart.admin.inc:474
+msgid "Checkout review instructions"
+msgstr "Instructions de verification de finalisation de commande"
+
+#: uc_cart.admin.inc:475
+msgid "Provide instructions for customers at the top of the checkout review screen."
+msgstr "Affiche des instructions pour les clients en haut de l'écran de vérification de finalisation de commande."
+
+#: uc_cart.admin.inc:477
+msgid "Review instructions are set."
+msgstr "Les instructions de vérification sont définies."
+
+#: uc_cart.admin.inc:478
+msgid "Review instructions are not set."
+msgstr "Les instructions de vérification ne sont pas définies."
+
+#: uc_cart.admin.inc:486
+msgid "Checkout completion message header"
+msgstr "En-tête du message d'achèvement de finalisation de commande"
+
+#: uc_cart.admin.inc:487
+msgid "Header for message displayed after a user checks out. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr "En-tête pour le message affiché après la finalisation de commande d'un client. <a href=\"!url\">Utilise les jetons (<em>tokens</em>) globaux et ceux de commande</a>."
+
+#: uc_cart.admin.inc:489
+msgid "Completion message is set."
+msgstr "Le message d'achèvement de commande est défini. "
+
+#: uc_cart.admin.inc:490
+msgid "Completion message is not set."
+msgstr "Le message d'achèvement de commande n'est pas défini. "
+
+#: uc_cart.admin.inc:498
+msgid "Checkout completion message body"
+msgstr "Corps du message d'achèvement de finalisation de commande"
+
+#: uc_cart.admin.inc:499
+msgid "In the following three boxes, you may use the special tokens !new_username for the username of a newly created account and !new_password for that account's password."
+msgstr "Vous pouvez utiliser dans les trois prochains champs les jetons (<em>tokens</em>) spéciaux !new_username pour le nom d'utilisateur d'un compte nouvellement créé et !new_password pour le mot de passe du compte."
+
+#: uc_cart.admin.inc:505
+msgid "Checkout completion for logged-in users"
+msgstr "Achèvement de finalisation de commande pour les utilisateurs authentifiés"
+
+#: uc_cart.admin.inc:506
+msgid "Message displayed upon checkout for a user who has logged in. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr "Message affiché durant la finalisation de commande pour un utilisateur authentifié. <a href=\"!url\">Utilise les jetons (<em>tokens</em>) globaux et de commande</a>."
+
+#: uc_cart.admin.inc:508
+msgid "Completion text for logged in users is set."
+msgstr "Le texte d'achèvement de commande pour les utilisateurs authentifiés est défini."
+
+#: uc_cart.admin.inc:509
+msgid "Completion text for logged in users is not set."
+msgstr "Le texte d'achèvement de commande pour les utilisateurs authentifiés n'est pas défini."
+
+#: uc_cart.admin.inc:517
+msgid "Checkout completion for existing users"
+msgstr "Achèvement de finalisation de commande pour les utilisateurs existants"
+
+#: uc_cart.admin.inc:518
+msgid "Message displayed upon checkout for a user who has an account but wasn't logged in. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr "Message affiché durant la finalisation de commande pour un utilisateur qui possède un compte mais qui ne s'est pas authentifié. <a href=\"!url\">Utilise les jetons (<em>tokens</em>) globaux et de commande</a>."
+
+#: uc_cart.admin.inc:520
+msgid "Completion text for users who aren't logged in is set."
+msgstr "Le texte d'achèvement de commande pour les utilisateurs non logués est défini."
+
+#: uc_cart.admin.inc:521
+msgid "Completion text for users who aren't logged in is not set."
+msgstr "Le texte d'achèvement de commande pour les utilisateurs non logués n'est pas défini."
+
+#: uc_cart.admin.inc:530
+msgid "Checkout completion for new users"
+msgstr "Achèvement de finalisation de commande pour les nouveaux utilisateurs"
+
+#: uc_cart.admin.inc:531
+msgid "Message displayed upon checkout for a new user whose account was just created. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr "Message affiché durant la finalisation de commande pour un utilisateur dont le compte viens juste d'être créé. <a href=\"!url\">Utilise les jetons (<em>tokens</em>) globaux et de commande</a>."
+
+#: uc_cart.admin.inc:533
+msgid "Completion text for new users is set."
+msgstr "Le texte d'achèvement de commande pour les nouveaux utilisateurs est défini."
+
+#: uc_cart.admin.inc:534
+msgid "Completion text for new users is not set."
+msgstr "Le texte d'achèvement de commande pour les nouveaux utilisateurs n'est pas défini."
+
+#: uc_cart.admin.inc:542
+msgid "Continue shopping message"
+msgstr "Message de finalisation de commande"
+
+#: uc_cart.admin.inc:543
+msgid "Message displayed upon checkout to direct customers to another part of your site. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr "Message affiché durant la finalisation de commande pour diriger les clients vers un autre endroit du site. <a href=\"!url\">Utilise les jetons (<em>tokens</em>) globaux et de commande.</a>."
+
+#: uc_cart.admin.inc:545
+msgid "Continue shopping text is set."
+msgstr "Le texte de finalisation de commande est défini."
+
+#: uc_cart.admin.inc:546
+msgid "Continue shopping text is not set."
+msgstr "Le texte de finalisation de commande n'est pas défini."
+
+#: uc_cart.admin.inc:102
+msgid "Anonymous cart duration is 1 @unit."
+msgid_plural "Anonymous cart duration is @count @units."
+msgstr[0] "La durée du panier des utilisateurs anonymes est de 1 @unit."
+msgstr[1] "La durée du panier des utilisateurs anonymes est de @count @units."
+
+#: uc_cart.admin.inc:131
+msgid "Authenticated cart duration is 1 @unit."
+msgid_plural "Authenticated cart duration is @count @units."
+msgstr[0] "La durée du panier des utilisateurs authentifiés est de 1 @unit."
+msgstr[1] "La durée du panier des utilisateurs authentifiés est de @count @units."
+
+#: uc_cart.ca.inc:19
+msgid "Order has a product of a particular class"
+msgstr "Commander en tant que produit d'une classe particulière"
+
+#: uc_cart.ca.inc:20
+msgid "Order: Product"
+msgstr "Commande : Produit"
+
+#: uc_cart.ca.inc:25;43
+msgid "Order"
+msgstr "Commande"
+
+#: uc_cart.ca.inc:38
+msgid "Customer completes checkout"
+msgstr "Le client achève sa validation de commande"
+
+#: uc_cart.ca.inc:39
+#: uc_cart.info:0
+msgid "Cart"
+msgstr "Panier"
+
+#: uc_cart.ca.inc:47
+msgid "Customer user account"
+msgstr "Compte utilisateur du client"
+
+#: uc_cart.ca.inc:63
+msgid "E-mail customer checkout notification"
+msgstr "Envoyer une alerte par e-mail au client pour les finalisations de commande"
+
+#: uc_cart.ca.inc:64
+msgid "E-mail the customer an invoice from their recent order."
+msgstr "Envoyer par e-mail au client une facture des commandes récentes."
+
+#: uc_cart.ca.inc:71
+msgid "Send an e-mail to the customer"
+msgstr "Envoyer un e-mail au client"
+
+#: uc_cart.ca.inc:78
+msgid "Your Order at [store-name]"
+msgstr "Votre commande sur [store-name]"
+
+#: uc_cart.ca.inc:88
+msgid "E-mail admin checkout notification"
+msgstr "Envoyer une alerte par e-mail à l'admin pour les finalisations de commande"
+
+#: uc_cart.ca.inc:89
+msgid "E-mail a short order summary to an administrator when a customer checks out."
+msgstr "Envoyer un court résumé de la commande par e-mail à un administrateur lorsqu'un client lance la finalisation de commande."
+
+#: uc_cart.ca.inc:96
+msgid "Send an e-mail to the administrator(s)"
+msgstr "Envoyer un e-mail aux administrateurs"
+
+#: uc_cart.ca.inc:103
+msgid "New Order at [store-name]"
+msgstr "Nouvelle commande sur [store-name]"
+
+#: uc_cart.ca.inc:155
+msgid "Product class"
+msgstr "Classe de produit"
+
+#: uc_cart.pages.inc:84
+msgid "The minimum order subtotal for checkout is !min."
+msgstr "Le sous-total minimum pour la finalistation d'une commande est !min."
+
+#: uc_cart.pages.inc:91
+msgid "You must login before you can proceed to checkout."
+msgstr "Vous devez vous authentifier avant de pouvoir lancer la finalisation de commande."
+
+#: uc_cart.pages.inc:93
+msgid "If you do not have an account yet, you should <a href=\"!url\">register now</a>."
+msgstr "Si vous n'avez pas encore de compte vous devriez <a href=\"!url\">vous inscrire maintenant</a>."
+
+#: uc_cart.pages.inc:129;227
+msgid "Cancel"
+msgstr "Annuler"
+
+#: uc_cart.pages.inc:131
+msgid "Customer cancelled this order from the checkout form."
+msgstr "Le client a annulé sa commande depuis le formulaire de finalisation de commande."
+
+#: uc_cart.pages.inc:203
+msgid "Next"
+msgstr "Suivant"
+
+#: uc_cart.pages.inc:232
+#: uc_cart.module:158
+msgid "Review order"
+msgstr "Vérifier la commande"
+
+#: uc_cart.pages.inc:456;462
+msgid "Back"
+msgstr "Retour"
+
+#: uc_cart.pages.inc:467
+msgid "Submit order"
+msgstr "Soumettre la commande"
+
+#: uc_cart.pages.inc:535
+msgid "We're sorry.  An error occurred while processing your order that prevents us from completing it at this time. Please contact us and we will resolve the issue as soon as possible."
+msgstr "Nous sommes désolés. Une erreur est survenue durant votre commande, nous empêchant de la compléter pour le moment. Veuillez nous contacter et nous réglerons ce problème aussi rapidement que possible."
+
+#: uc_cart.pages.inc:543
+msgid "Order created through website."
+msgstr "Commande créée par l'intermédiaire du site web."
+
+#: uc_cart.pages.inc:536
+msgid "uc_cart"
+msgstr "uc_cart"
+
+#: uc_cart.pages.inc:536
+msgid "An empty order made it to checkout! Cart order ID: @cart_order"
+msgstr "Une commande vide est passée en finalisation de commande! ID de la commande du panier : @cart_order"
+
+#: uc_cart_checkout_pane.inc:67
+msgid "Order information will be sent to your account e-mail listed below."
+msgstr "Les informations de commandes seront envoyées à l'adresse e-mail de votre compte listée ci-dessous."
+
+#: uc_cart_checkout_pane.inc:70
+msgid "<b>E-mail address:</b> @email (<a href=\"!url\">edit</a>)"
+msgstr "<b>Adresse e-mail :</b> @email (<a href=\"!url\">Editer</a>)"
+
+#: uc_cart_checkout_pane.inc:74
+msgid "Enter a valid email address for this order or <a href=\"!url\">click here</a> to login with an existing account and return to checkout."
+msgstr "Saisir une adresse e-mail valide pour cette commande ou <a href=\"!url\">cliquer ici</a> pour vous authentifier avec un compte existant et retourner vers la finalisation de commande. "
+
+#: uc_cart_checkout_pane.inc:75
+msgid "E-mail address"
+msgstr "Adresse e-mail"
+
+#: uc_cart_checkout_pane.inc:79
+msgid "Confirm e-mail address"
+msgstr "Confirmer l'adresse e-mail"
+
+#: uc_cart_checkout_pane.inc:92
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: uc_cart_checkout_pane.inc:101
+msgid "Password"
+msgstr "Mot de passe"
+
+#: uc_cart_checkout_pane.inc:107
+msgid "Confirm password"
+msgstr "Confirmer le mot de passe"
+
+#: uc_cart_checkout_pane.inc:108
+msgid "Passwords must match to proceed."
+msgstr "Les mots de passe doivent correspondre pour continuer le traitement."
+
+#: uc_cart_checkout_pane.inc:117
+msgid "New account details"
+msgstr "Détails du nouveau compte"
+
+#: uc_cart_checkout_pane.inc:118;215
+msgid "<b>Optional.</b> New customers may supply custom account details.<br />We will create these for you if no values are entered."
+msgstr "<b>Optionnel.</b> Les nouveaux clients peuvent fournir des informations personnalisées pour leur compte.<br />Nous les créérons pour vous si aucune valeur n'est saisie."
+
+#: uc_cart_checkout_pane.inc:139
+msgid "You must enter a valid e-mail address."
+msgstr "Vous devez entrer une adresse e-mail valide."
+
+#: uc_cart_checkout_pane.inc:147
+msgid "The e-mail address did not match."
+msgstr "L'adresse e-mail ne correspond pas."
+
+#: uc_cart_checkout_pane.inc:159
+msgid "An account already exists for your e-mail address. The new account details you entered will be disregarded."
+msgstr "Un compte existe deja pour votre adresse e-mail. Les détails du nouveau compte que vous venez de saisir ne seront pas pris en compte."
+
+#: uc_cart_checkout_pane.inc:170
+msgid "The username %name is already taken. Please enter a different name or leave the field blank for your username to be your e-mail address."
+msgstr "Le nom d'utilisateur %name est déja pris. Veuillez saisir un nom different, ou laisser le champ vide pour que votre nom d'utilisateur soit votre adresse e-mail. "
+
+#: uc_cart_checkout_pane.inc:178
+msgid "The passwords you entered did not match. Please try again."
+msgstr "Les mots de passe que que vous avez saisi ne correspondent pas. Veuillez réessayer."
+
+#: uc_cart_checkout_pane.inc:192
+msgid "E-mail"
+msgstr "E-mail"
+
+#: uc_cart_checkout_pane.inc:198
+msgid "Require e-mail confirmation in checkout for anonymous customers."
+msgstr "Exiger une confirmation par e-mail pour la finalisation de commande des clients anonymes."
+
+#: uc_cart_checkout_pane.inc:203
+msgid "Allow anonymous customers to specify a new user account name."
+msgstr "Autoriser les clients anonymes à specifier un nouveau nom de compte utlisateur."
+
+#: uc_cart_checkout_pane.inc:208
+msgid "Allow anonymous customers to specify a new user account password."
+msgstr "Autoriser les nouveaux clients à spécifier un nouveau mot de passe de compte utilisateur."
+
+#: uc_cart_checkout_pane.inc:213
+msgid "New account details help message"
+msgstr "Message d'aide pour les détails de nouveau compte."
+
+#: uc_cart_checkout_pane.inc:214
+msgid "Enter the help message displayed in the new account details fieldset when shown."
+msgstr "Saisir le message d'aide affiché dans le groupe de champs des details du nouveau compte lorsqu'il apparait."
+
+#: uc_cart_checkout_pane.inc:229
+msgid "Enter your delivery address and information here."
+msgstr "Saisir votre adresse de livraison et vos informations ici."
+
+#: uc_cart_checkout_pane.inc:236
+msgid "My delivery information is the same as my billing information."
+msgstr "Mes informations de livraison sont les même que mes informations de facturation."
+
+#: uc_cart_checkout_pane.inc:242;333
+msgid "Saved addresses"
+msgstr "Adresses sauvegardées"
+
+#: uc_cart_checkout_pane.inc:304;394
+msgid "Address"
+msgstr "Adresse"
+
+#: uc_cart_checkout_pane.inc:306;396
+msgid "Phone"
+msgstr "Téléphone"
+
+#: uc_cart_checkout_pane.inc:320
+msgid "Enter your billing address and information here."
+msgstr "Saisir l'adresse et les informations de facturation ici."
+
+#: uc_cart_checkout_pane.inc:327
+msgid "My billing information is the same as my delivery information."
+msgstr "Mes informations de facturation sont les mêmes que mes informations de livraison. "
+
+#: uc_cart_checkout_pane.inc:408
+msgid "Use this area for special instructions or questions regarding your order."
+msgstr "Utiliser cet espace pour les instructions spéciales ou les questions concernant votre commande. "
+
+#: uc_cart_checkout_pane.inc:415
+#: uc_cart.module:849
+msgid "Order comments"
+msgstr "Commentaires de la commande"
+
+#: uc_cart_checkout_pane.inc:431
+msgid "Comment"
+msgstr "Commentaire"
+
+#: uc_cart_checkout_pane.inc:574
+msgid "Qty"
+msgstr "Qté"
+
+#: uc_cart_checkout_pane.inc:575
+#: uc_cart.module:1100
+msgid "Products"
+msgstr "Produits"
+
+#: uc_cart_checkout_pane.inc:576
+msgid "Price"
+msgstr "Prix"
+
+#: uc_cart_checkout_pane.inc:607
+#: uc_cart.module:487
+msgid "@qty&times;"
+msgstr "@qty&times;"
+
+#: uc_cart_checkout_pane.inc:620
+#: uc_cart.module:1134
+msgid "Subtotal:"
+msgstr "Sous-total :"
+
+#: uc_cart.module:383;454;142
+msgid "Shopping cart"
+msgstr "Panier"
+
+#: uc_cart.module:504
+msgid "View cart"
+msgstr "Voir le panier"
+
+#: uc_cart.module:513;998;1032;150
+msgid "Checkout"
+msgstr "Finalisation de commande"
+
+#: uc_cart.module:542
+msgid "Hide block if cart is empty."
+msgstr "Cacher le bloc si le panier est vide."
+
+#: uc_cart.module:547
+msgid "Display the shopping cart icon in the block title."
+msgstr "Afficher l'icône  du panier dans le titre du bloc."
+
+#: uc_cart.module:552
+msgid "Cart name"
+msgstr "Nom du panier"
+
+#: uc_cart.module:553
+msgid "This name will be displayed when using the default block title.<br />Leaving this blank defaults to the translatable name \"Shopping Cart.\""
+msgstr "Ce nom sera affiché lorsque l'on utilise le titre du bloc par défaut.<br />Laisser ce champs vide pour utiliser la valeur par défaut qui est le nom traduisible  \"Shopping Cart.\""
+
+#: uc_cart.module:558
+msgid "Make the shopping cart block collapsible by clicking the name or arrow."
+msgstr "Rendre le bloc du panier repliable en cliquant sur le nom ou la flèche."
+
+#: uc_cart.module:563
+msgid "Display the shopping cart block collapsed by default."
+msgstr "Afficher le bloc du panier replié par défaut."
+
+#: uc_cart.module:568
+msgid "Display small help text in the shopping cart block."
+msgstr "Afficher un petit texte d'aide dans le bloc du panier."
+
+#: uc_cart.module:573
+msgid "Cart help text"
+msgstr "Texte d'aide du panier"
+
+#: uc_cart.module:574
+msgid "Displayed if the above box is checked."
+msgstr "Affiché si la case au dessus est cochée."
+
+#: uc_cart.module:619
+msgid "Show/hide shopping cart contents."
+msgstr "Afficher/masquer le contenu du panier."
+
+#: uc_cart.module:636
+msgid "View your shopping cart."
+msgstr "Voir votre panier."
+
+#: uc_cart.module:645
+msgid "<a href=\"!url\">View</a> your shopping cart."
+msgstr "<a href=\"!url\">Voir</a> votre panier."
+
+#: uc_cart.module:732;909
+msgid "There are no products in your shopping cart."
+msgstr "Il n'y a aucun produit dans votre panier. "
+
+#: uc_cart.module:759
+msgid "Total:"
+msgstr "Total :"
+
+#: uc_cart.module:786
+msgid "Your order is almost complete. Please review the details below and click 'Submit order' if all the information is correct.  You may use the 'Back' button to make changes to your order if necessary."
+msgstr "Votre commande est presque terminée. Veuillez vérifier les détails ci-dessous et cliquer sur le bouton 'Valider ma commande' si toutes les informations sont correctes. Vous pouvez utiliser le bouton 'Retour' pour effectuer des changements sur votre commande si besoin."
+
+#: uc_cart.module:787
+msgid "Your order is complete! Your order number is [order-id]."
+msgstr "Votre commande est complète! Votre numéro de commande est [order-id]."
+
+#: uc_cart.module:788
+msgid "Thank you for shopping at [store-name]. While logged in, you may continue shopping or <a href=\"[order-url]\">view your current order status</a> and order history."
+msgstr "Merci pour vos achats sur [store-name]. Tant que vous êtes connecté, vous pouvez continuer à effectuer des achats ou <a href=\"[order-url]\">voir le statut de votre commande actuelle</a> et l'historique de vos commandes."
+
+#: uc_cart.module:789
+msgid ""
+"Thank you for shopping at [store-name]. Your current order has been attached to the account we found matching your e-mail address.\n"
+"\n"
+"<a href=\"!user_url\">Login</a> to view your current order status and order history. Remember to login when you make your next purchase for a faster checkout experience!"
+msgstr ""
+"Merci pour vos achats sur [store-name]. Votre commande actuelle à été rattachée au compte qui correspond à votre adresse e-mail.\n"
+"\n"
+"<a href=\"!user_url\">Se connecter</a> pour voir le statut actuel de votre commande et l'historique de vos commandes. Pensez à vous connecter pour vos prochains achats pour bénéficier d'un processus de commande plus rapide !"
+
+#: uc_cart.module:790
+msgid ""
+"Thank you for shopping at [store-name]. A new account has been created for you here that you may use to view your current order status.\n"
+"\n"
+"<a href=\"!user_url\">Login</a> to your new account using the following information:\n"
+"\n"
+"<strong>Username:</strong> !new_username\n"
+"<strong>Password:</strong> !new_password"
+msgstr ""
+"Merci pour vos achats sur [store-name]. Un nouveau compte client à été créé pour vous, vous pouvez vous en servir pour voir le statut actuel de votre commande.\n"
+"\n"
+"<a href=\"!user_url\">Se connecter</a> à votre nouveau compte en utilisant les informations suivantes :\n"
+"\n"
+"<strong>Identifiant :</strong> !new_username\n"
+"<strong>Mot de passe :</strong> !new_password"
+
+#: uc_cart.module:791
+msgid "<a href=\"[site-url]\">Return to the front page.</a>"
+msgstr "<a href=\"[site-url]\">Retourner à la page d'accueil.</a>"
+
+#: uc_cart.module:802
+msgid "Default cart form"
+msgstr "Le formulaire par défaut du panier"
+
+#: uc_cart.module:818
+msgid "Cart contents"
+msgstr "Contenu du panier"
+
+#: uc_cart.module:819
+msgid "Display the contents of a customer's shopping cart."
+msgstr "Afficher les contenus du panier d'un client."
+
+#: uc_cart.module:827
+msgid "Customer information"
+msgstr "Informations du client"
+
+#: uc_cart.module:828
+msgid "Get the necessary information to create a customer on the site."
+msgstr "Obtenir les informations nécessaires pour créer un nouveau client sur le site."
+
+#: uc_cart.module:834
+msgid "Delivery information"
+msgstr "Informations de livraison"
+
+#: uc_cart.module:835
+msgid "Get the information for where the order needs to ship."
+msgstr "Obtenir les informations sur où la commande doit être livrée."
+
+#: uc_cart.module:842
+msgid "Billing information"
+msgstr "Informations de facturation"
+
+#: uc_cart.module:843
+msgid "Get basic information needed to collect payment."
+msgstr "Obtenir les informations de bases nécessaires pour collecter le paiement."
+
+#: uc_cart.module:850
+msgid "Allow a customer to put comments on an order."
+msgstr "Autoriser un client à mettre un commentaire sur une commande."
+
+#: uc_cart.module:992;1026
+msgid "Update cart"
+msgstr "Mettre à jour le panier"
+
+#: uc_cart.module:1028
+msgid "Your cart has been updated."
+msgstr "Votre panier a été mis à jour."
+
+#: uc_cart.module:1096
+msgid "Remove"
+msgstr "Enlever"
+
+#: uc_cart.module:1108
+msgid "Qty."
+msgstr "Qté."
+
+#: uc_cart.module:1112
+msgid "Total"
+msgstr "Total"
+
+#: uc_cart.module:1461
+msgid "@title is not a product. Unable to add to cart."
+msgstr "@title n'est pas un produit. Impossible de l'ajouter au panier."
+
+#: uc_cart.module:1473
+msgid "Sorry, that item is not available for purchase at this time."
+msgstr "Désolé, cet article n'est pas disponible à la vente pour le moment.  "
+
+#: uc_cart.module:1504
+msgid "<strong>@product-title</strong> added to <a href=\"!url\">your shopping cart</a>."
+msgstr "<strong>@product-title</strong> ajouté à <a href=\"!url\">votre panier</a>."
+
+#: uc_cart.module:1510
+msgid "Your item(s) have been updated."
+msgstr "Votre/vos article(s) ont été mis à jour."
+
+#: uc_cart.module:500
+msgid "<span class=\"num-items\">@count</span> Item"
+msgid_plural "<span class=\"num-items\">@count</span> Items"
+msgstr[0] "<span class=\"num-items\">@count</span> Article"
+msgstr[1] "<span class=\"num-items\">@count</span> Articles"
+
+#: uc_cart.module:28;52
+msgid "Cart settings"
+msgstr "Paramètres du panier"
+
+#: uc_cart.module:29
+msgid "Configure the cart settings."
+msgstr "Configurer les paramètres du panier."
+
+#: uc_cart.module:35;86
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+#: uc_cart.module:36
+msgid "View the cart settings."
+msgstr "Voir les paramètres du panier."
+
+#: uc_cart.module:42;94
+msgid "Edit"
+msgstr "Modifier"
+
+#: uc_cart.module:43;95
+msgid "Edit the cart settings."
+msgstr "Editer les paramètres du panier."
+
+#: uc_cart.module:53
+msgid "Edit the basic cart settings."
+msgstr "Editer les paramètres de base du panier."
+
+#: uc_cart.module:59
+msgid "Cart panes"
+msgstr "Panneaux du panier"
+
+#: uc_cart.module:60
+msgid "Edit the pane settings for the cart view page."
+msgstr "Editer les paramètres du panneau panier pour la page de visualisation du panier."
+
+#: uc_cart.module:70
+msgid "Edit the settings for the shopping cart block."
+msgstr "Editer les paramètres du bloc panier."
+
+#: uc_cart.module:79;104
+msgid "Checkout settings"
+msgstr "Paramètres de finalisation de commande"
+
+#: uc_cart.module:80
+msgid "Configure the checkout settings."
+msgstr "Configurer les paramètres de finalisation de commande."
+
+#: uc_cart.module:87
+msgid "View the checkout settings."
+msgstr "Voir les paramètres de finalisations de commande."
+
+#: uc_cart.module:105
+msgid "Edit the basic checkout settings."
+msgstr "Editer les paramètres de base de la finalisation de commande."
+
+#: uc_cart.module:111
+msgid "Checkout panes"
+msgstr "Panneaux de finalisation de commande"
+
+#: uc_cart.module:112
+msgid "Edit the pane settings for the checkout page."
+msgstr "Editer les paramètres du panneau pour la page de finalisation de commande."
+
+#: uc_cart.module:121
+msgid "Checkout messages"
+msgstr "Messages de  finalisation de commande"
+
+#: uc_cart.module:122
+msgid "Edit the messages for the checkout completion page."
+msgstr "Editer les messages pour la page d'achèvement de finalisation de commande."
+
+#: uc_cart.module:131
+msgid "Address fields"
+msgstr "Champs d'adresse"
+
+#: uc_cart.module:132
+msgid "Edit the address field settings."
+msgstr "Editer les paramètres du champ adresse."
+
+#: uc_cart.module:143
+msgid "View/modify the contents of your shopping cart or proceed to checkout."
+msgstr "Voir/modifier le contenu de votre panier ou lancer  la finalisation de commande"
+
+#: uc_cart.module:151
+msgid "Purchase the items in your shopping cart."
+msgstr "Acheter les articles dans votre panier."
+
+#: uc_cart.module:159
+msgid "Review an order before final submission."
+msgstr "Verifier une commande avant la soumission finale."
+
+#: uc_cart.module:166
+msgid "Order complete"
+msgstr "Commande complétée"
+
+#: uc_cart.module:167
+msgid "Display information upon completion of an order."
+msgstr "Afficher les informations à l'achèvement d'une commande."
+
+#: uc_cart.info:0
+msgid "REQUIRED. Controls the shopping cart for an Ubercart e-commerce site."
+msgstr "REQUIS. Contrôle le panier pour un site d'e-commerce Ubercart."
+
+#: uc_cart.info:0
+msgid "Ubercart - core"
+msgstr "Ubercart - core"
+

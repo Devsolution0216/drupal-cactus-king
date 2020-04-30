@@ -1,0 +1,206 @@
+# $Id: ja.po,v 1.1.2.1 2008/11/18 07:56:58 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_payment_pack.admin.inc,v 1.1.2.3 2008/11/07 21:13:27 islandusurper
+#  uc_payment_pack.module,v 1.6.2.5 2008/11/07 21:13:27 islandusurper
+#  uc_payment_pack.info,v 1.2.2.5 2008/11/07 21:13:27 islandusurper
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2008-11-18 16:02+0900\n"
+"PO-Revision-Date: 2008-11-18 16:02+0900\n"
+"Last-Translator: PineRay <matsudaterutaka@gmail.com>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_payment_pack.admin.inc:22
+msgid "Check has already been received."
+msgstr "小切手は受取済みです。"
+
+#: uc_payment_pack.admin.inc:27
+msgid "Amount"
+msgstr "金額"
+
+#: uc_payment_pack.admin.inc:35
+msgid "Comment"
+msgstr "コメント"
+
+#: uc_payment_pack.admin.inc:36
+msgid "Any notes about the check, like type or check number."
+msgstr "タイプや番号など、小切手に関するあらゆることのメモ。"
+
+#: uc_payment_pack.admin.inc:42
+msgid "Expected clear date"
+msgstr "予定決済日時"
+
+#: uc_payment_pack.admin.inc:54
+msgid "Receive check"
+msgstr "小切手を受領"
+
+#: uc_payment_pack.admin.inc:63
+msgid "Use the form to enter the check into the payments system and set the expected clear date."
+msgstr "小切手の情報を決済システムに入力し、予定決済日時を設定するのにフォームを使用。"
+
+#: uc_payment_pack.admin.inc:64
+msgid "Order balance:"
+msgstr "注文残高:"
+
+#: uc_payment_pack.admin.inc:73
+msgid "The amount must be a number."
+msgstr "値を数字で指定してください。"
+
+#: uc_payment_pack.admin.inc:86
+msgid "Check received, expected clear date of @date."
+msgstr "小切手受領済。決済予定日は @date です。"
+
+#: uc_payment_pack.module:43
+msgid "Check"
+msgstr "小切手"
+
+#: uc_payment_pack.module:44
+msgid "Check or money order"
+msgstr "小切手または為替"
+
+#: uc_payment_pack.module:45
+msgid "Pay by mailing a check or money order."
+msgstr "小切手または為替を郵送して支払い。"
+
+#: uc_payment_pack.module:53
+msgid "COD"
+msgstr "代金引換"
+
+#: uc_payment_pack.module:54
+msgid "Cash on delivery"
+msgstr "代金引換"
+
+#: uc_payment_pack.module:55
+msgid "Pay cash on delivery on pick-up."
+msgstr "商品到着時に代金をお支払い頂きます。"
+
+#: uc_payment_pack.module:63;64
+msgid "Other"
+msgstr "その他"
+
+#: uc_payment_pack.module:65
+msgid "A generic payment method type."
+msgstr "一般的な決済方法。"
+
+#: uc_payment_pack.module:85;88
+msgid "Type:"
+msgstr "タイプ:"
+
+#: uc_payment_pack.module:88
+msgid "Unknown"
+msgstr "不明"
+
+#: uc_payment_pack.module:132
+msgid "Description:"
+msgstr "説明:"
+
+#: uc_payment_pack.module:144
+msgid "Full payment is expected upon delivery or prior to pick-up."
+msgstr "完全な決済は、配達または出荷と同時に行われる予定です。"
+
+#: uc_payment_pack.module:146
+msgid "Orders totalling more than !number are <b>not eligible</b> for COD."
+msgstr "!numberより大きな金額は代金引換で<strong>決済できません</strong>。"
+
+#: uc_payment_pack.module:166
+msgid "Delivery Date"
+msgstr "お届け日"
+
+#: uc_payment_pack.module:173
+msgid "Desired delivery date:"
+msgstr "希望お届け日:"
+
+#: uc_payment_pack.module:214
+msgid "Your final order total exceeds the maximum for COD payment.  Please go back and select a different method of payment."
+msgstr "最終的な注文合計金額が代金引換の限度額を超えています。戻って別の決済方法を選択してください。"
+
+#: uc_payment_pack.module:233
+msgid "Maximum order total eligible for COD"
+msgstr "代金引換で領収可能な注文合計の限度額"
+
+#: uc_payment_pack.module:235
+msgid "Set to 0 for no maximum order limit."
+msgstr "0を入力すると無制限となります。"
+
+#: uc_payment_pack.module:239
+msgid "Let customers enter a desired delivery date."
+msgstr "顧客が希望お届け日を入力できるようにする。"
+
+#: uc_payment_pack.module:247
+msgid "Enter a desired delivery date:"
+msgstr "希望お届け日を入力:"
+
+#: uc_payment_pack.module:268;281
+msgid "Checks should be made out to:"
+msgstr "小切手振出先:"
+
+#: uc_payment_pack.module:297;309
+msgid "Mail to"
+msgstr "宛先:"
+
+#: uc_payment_pack.module:329
+msgid "Clear Date:"
+msgstr "決済日時:"
+
+#: uc_payment_pack.module:332;14
+msgid "Receive Check"
+msgstr "小切手受取"
+
+#: uc_payment_pack.module:344
+msgid "Check received"
+msgstr "小切手受領済"
+
+#: uc_payment_pack.module:345
+msgid "Expected clear date:"
+msgstr "予定決済日時:"
+
+#: uc_payment_pack.module:351
+msgid "Set the mailing address to display to customers who choose this payment method during checkout."
+msgstr "購入手続きにおいてこの決済方法を選択した顧客に表示する郵送先住所を設定します。"
+
+#: uc_payment_pack.module:354
+msgid "Contact"
+msgstr "コンタクト"
+
+#: uc_payment_pack.module:354
+msgid "Direct checks to a person or department."
+msgstr "宛先に記す人物や部署。"
+
+#: uc_payment_pack.module:369
+msgid "Check payment policy"
+msgstr "決済の規約を確認"
+
+#: uc_payment_pack.module:370
+msgid "Instructions for customers on the checkout page."
+msgstr "決済ページに表示する顧客への案内。"
+
+#: uc_payment_pack.module:371
+msgid "Personal and business checks will be held for up to 10 business days to ensure payment clears before an order is shipped."
+msgstr "個人およびビジネスの小切手によるお支払いの場合は、小切手を受け取ってからご注文の商品を発送するまで、最長で10営業日を要することがあります。"
+
+#: uc_payment_pack.module:0
+msgid "uc_payment_pack"
+msgstr "uc_payment_pack"
+
+#: uc_payment_pack.info:0
+msgid "Payment Method Pack"
+msgstr "決済方法パック"
+
+#: uc_payment_pack.info:0
+msgid "Provides the check/money order, COD, and 'other' payment methods."
+msgstr "小切手/為替または代金引換、「その他」の決済方法を提供します。"
+
+#: uc_payment_pack.info:0
+msgid "Ubercart - payment"
+msgstr "Ubercart - 決済"
+

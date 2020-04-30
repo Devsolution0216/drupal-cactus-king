@@ -1,0 +1,290 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_cart_links.module,v 1.2.2.6 2008/11/07 21:13:24 islandusurper
+#  uc_cart_links.admin.inc,v 1.1.2.2 2008/11/07 21:13:24 islandusurper
+#  uc_cart_links.info,v 1.2.2.5 2008/11/07 21:13:24 islandusurper
+#  uc_cart_links.install,v 1.2.2.5 2008/11/07 21:13:24 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-03-04 00:35+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_cart_links/uc_cart_links.module:22
+msgid "Cart links settings"
+msgstr "Warenkorblinks Einstellungen"
+
+#: uc_cart_links/uc_cart_links.module:23
+msgid "Configure and craft special product add to cart links."
+msgstr ""
+"Einstellung und Erzeugung von speziellen Links die Artikel in den "
+"Warenkorb legen."
+
+#: uc_cart_links/uc_cart_links.module:31
+msgid "Cart links clicks"
+msgstr "Klicks auf Warenkorblinks"
+
+#: uc_cart_links/uc_cart_links.module:32
+msgid "Track clicks through cart links."
+msgstr "Zeichne Klicks auf, die per Warenkorb-Link eingehen."
+
+#: uc_cart_links/uc_cart_links.admin.inc:100
+msgid "The cart link should be /cart/add/cart_link_content."
+msgstr ""
+"Die warenkorb links sollten wie flogt lauten "
+"/cart/add/cart_link_content."
+
+#: uc_cart_links/uc_cart_links.admin.inc:101
+msgid "Chain together as many actions as you want with dashes."
+msgstr "Verknüpfen Sie beliebige Aktionen mit Bindestrichen."
+
+#: uc_cart_links/uc_cart_links.admin.inc:102
+msgid "Do not put any spaces or use dashes in any action arguments."
+msgstr ""
+"Fügen Sie keine Leerzeichen oder Bindestriche in Aktions "
+"Aufrufparameter ein."
+
+#: uc_cart_links/uc_cart_links.admin.inc:103
+msgid "Use the table below to learn about actions and their arguments."
+msgstr ""
+"Benutzen Sie die Tabelle unten um Informationen über Aktionen und "
+"ihre Aufrufparameter zu erhalten."
+
+#: uc_cart_links/uc_cart_links.admin.inc:104
+msgid "Arguments come directly after their action letters."
+msgstr "Die Aufrufparamter kommen dierekt hinter Ihre Aktions Buchstaben."
+
+#: uc_cart_links/uc_cart_links.admin.inc:105
+msgid ""
+"Specify the redirection by adding ?destination=url where url is the "
+"page to go to."
+msgstr ""
+"Legen Sie die weiteretung fest in dem Sie ?destination=url anfügen. "
+"Url ist die Seite zu der weitergeleitet wird."
+
+#: uc_cart_links/uc_cart_links.admin.inc:107
+msgid "Argument"
+msgstr "Aufrufparameter"
+
+#: uc_cart_links/uc_cart_links.admin.inc:109
+msgid "Sets the ID of the cart link."
+msgstr "Legt die ID des Warenkorb Links fest."
+
+#: uc_cart_links/uc_cart_links.admin.inc:109
+msgid "A custom text ID for the link."
+msgstr "Eine angepasste Text ID für den Link"
+
+#: uc_cart_links/uc_cart_links.admin.inc:110
+msgid "Empties the customer's cart."
+msgstr "Leert den Warenkorb des Kunden."
+
+#: uc_cart_links/uc_cart_links.admin.inc:110
+msgid "None."
+msgstr "Keine."
+
+#: uc_cart_links/uc_cart_links.admin.inc:111
+msgid "Displays a preset message to the customer."
+msgstr "Dem Kunden eine vorbereitete Nachricht anzeigen."
+
+#: uc_cart_links/uc_cart_links.admin.inc:111
+msgid "A message ID."
+msgstr "Eine Nachrichten ID"
+
+#: uc_cart_links/uc_cart_links.admin.inc:112
+msgid "Adds a product to the cart."
+msgstr "Fügt einen Artkel zum Warenkorb hinzu"
+
+#: uc_cart_links/uc_cart_links.admin.inc:112
+msgid "A product string using the rules below..."
+msgstr "Ein Artikelstring verwendent die untenstehenden Regeln."
+
+#: uc_cart_links/uc_cart_links.admin.inc:115
+msgid "You must at least specify a node ID immediately after the 'p'."
+msgstr "Sie müssen die Node ID direkt nach dem 'p' angeben."
+
+#: uc_cart_links/uc_cart_links.admin.inc:116
+msgid "Add additional specifications separated by underscores."
+msgstr "Weitere Spezifikationen getrennt durch Unterstriche hinzufügen."
+
+#: uc_cart_links/uc_cart_links.admin.inc:117
+msgid "Specify the quantity with q followed by the number to add."
+msgstr ""
+"Die Anzahl können Sie mit 'q' festlegen gefolgt von der Anzahl als "
+"Zahl."
+
+#: uc_cart_links/uc_cart_links.admin.inc:118
+msgid ""
+"Specify attributes/options using a#o#, replacing # with the ID of the "
+"attribute and option."
+msgstr ""
+"Bestimmen Sie Attribute/Optionen durch Verwendung von #a#o, die ID des "
+"Attributs ersetzt: #"
+
+#: uc_cart_links/uc_cart_links.admin.inc:119
+msgid "Turn off the add to cart message with m0."
+msgstr "Die \"zum Warenkorb hinzugefügt Nachricht\" abschalten mit 'm0'."
+
+#: uc_cart_links/uc_cart_links.admin.inc:122
+msgid ""
+"There is currently no user interface for creating cart links, but this "
+"section includes some basic instructions.<br />Cart links are simple "
+"to form using a few actions and arguments with the following rules:"
+msgstr ""
+"Derzeit existiert leider kein Benutzer-Interface, um Warenkorb-Links "
+"zu bearbeiten. Dieser Bereich enthält einige grundsätzliche "
+"Informationen.<br />Warenkorb-Links lassen einfach nach folgenden "
+"Regeln erstellen:"
+
+#: uc_cart_links/uc_cart_links.admin.inc:23
+msgid ""
+"Display the cart link product action when you add a product to your "
+"cart."
+msgstr ""
+"Zeige mögliche  Warenkorb-Aktionen an, wenn ein Artikel zum Warenkorb "
+"hinzugefügt wurde."
+
+#: uc_cart_links/uc_cart_links.admin.inc:28
+msgid "Track clicks through cart links that specify tracking IDs."
+msgstr "Zeichne Klicks auf Warenkorb Links auf, die Tracking ID's beinhalten."
+
+#: uc_cart_links/uc_cart_links.admin.inc:33
+msgid "Cart links messages"
+msgstr "Warenkorb Links Nachrichten"
+
+#: uc_cart_links/uc_cart_links.admin.inc:34
+msgid ""
+"Enter in messages available to the cart links API for display through "
+"a link. Separate messages with a line break.<br />Messages should have "
+"a numeric key and text value. Example: 1337|Message text."
+msgstr ""
+"Geben Sie Nachrichen an die Sie der Warenkorb-Links API zur Verfügung "
+"stellen wollen. Diese können dann in Links eingebaut werden.<br "
+"/>Nachrichten sollten einen Numerischen Schlüssel haben und einen "
+"Textwert. Beispiel: 1337|Nachrichten Text."
+
+#: uc_cart_links/uc_cart_links.admin.inc:39
+msgid "Allow cart links to empty customer carts."
+msgstr "Links auf leere Warenkörbe erlauben."
+
+#: uc_cart_links/uc_cart_links.admin.inc:44
+msgid "Cart links restrictions"
+msgstr "Warenkorb Links Beschränkungen"
+
+#: uc_cart_links/uc_cart_links.admin.inc:50
+msgid "Invalid link redirect page"
+msgstr "Ungültige Link Weiterleitungs Seite"
+
+#: uc_cart_links/uc_cart_links.admin.inc:51
+msgid "Enter the URL to redirect to when an invalid cart link is used."
+msgstr "Bei ungültigem Warenkorb Link zu dieser URL weiterleiten"
+
+#: uc_cart_links/uc_cart_links.admin.inc:69
+msgid "Clicks"
+msgstr "Klicks"
+
+#: uc_cart_links/uc_cart_links.admin.inc:70
+msgid "Last click"
+msgstr "Letzter Klick"
+
+#: uc_cart_links/uc_cart_links.admin.inc:85
+msgid "No cart links have been tracked yet."
+msgstr "Es wurden noch keine Warenkorb Links protokoliert."
+
+#: uc_cart_links/uc_cart_links.module:62
+msgid "administer cart links"
+msgstr "Warenkorb Links verwalten"
+
+#: uc_cart_links/uc_cart_links.module:62
+msgid "view cart links report"
+msgstr "Statistik der Warenkorb Links anzeigen"
+
+#: uc_cart_links/uc_cart_links.module:0
+msgid "uc_cart_links"
+msgstr "uc_cart_links"
+
+#: uc_cart_links/uc_cart_links.info:0
+msgid "Cart Links"
+msgstr "Warenkorb Links"
+
+#: uc_cart_links/uc_cart_links.info:0
+msgid "Create specialized links to purchase products from other nodes."
+msgstr ""
+"Erzeugen Sie spezielle Links die das Kaufen von Artikeln von anderen "
+"Seiten aus ermöglichen."
+
+#: uc_cart_links/uc_cart_links.module:39
+msgid "Creating cart links"
+msgstr "Warenkorb Links erzeugen"
+
+#: uc_cart_links/uc_cart_links.module:40
+msgid "Learn how to create cart links for your products."
+msgstr "Lernen Sie wie Sie Warenkorb Links für Ihre Artikel erzeugen können."
+
+#: uc_cart_links/uc_cart_links.admin.inc:18
+msgid ""
+"<a href=\"!url\">View the help page</a> to learn how to create cart "
+"links."
+msgstr ""
+"<a href=\"!url\">Schauen Sie auf die Hilfe Seite</a>um zu lernen wie "
+"Sie Warenkorb Links erzeugen."
+
+#: uc_cart_links/uc_cart_links.admin.inc:45
+msgid ""
+"To restrict what cart links may be used on your site, enter valid cart "
+"links in this textbox.  Separate links with a line break. Leave blank "
+"to permit any cart link."
+msgstr ""
+"Um zu beschränken welche Warenkorb Links für ihre Site gültig sind "
+"fügen Sie diese in die Textbox ein. Lassen Sie die Box Leer um alle "
+"Warenkorblinks zu erlauben."
+
+#: uc_cart_links/uc_cart_links.admin.inc:123
+msgid ""
+"<b>Example:</b> /cart/add/e-p1_q5-imonday_special?destination=cart<br "
+"/><br />This example will empty the cart, add 5 of product 1 to the "
+"cart, track clicks with the ID \"monday_special\", and redirect the "
+"user to the cart. To use this on your site, simply create an HTML link "
+"to the URL you create:"
+msgstr ""
+"<b>Beispiel:</b> /cart/add/e-p1_q5-imonday_special?destination=cart<br "
+"/><br />Dieses Beispiel wird ihren Warenkorb leeren,  5 stück des "
+"Artikels 1 zum warenkorb hinzufügen, die Klicks unter der ID "
+"\"monday_special\" protokolieren, und den Benutzer zum Warenkorb "
+"weiterleiten. Um dies auf ihrer Site zu nutzen erzeugen Sie eine HTML "
+"Link auf folgender Url:"
+
+#: uc_cart_links/uc_cart_links.admin.inc:124
+msgid "Link text."
+msgstr "URL Text."
+
+#: uc_cart_links/uc_cart_links.module:77
+msgid "Cart link product action: @cart_link"
+msgstr ""
+
+#: uc_cart_links/uc_cart_links.install:17
+msgid ""
+"A table containing tracking information for cart links, including the "
+"number of times they were clicked and the time of the last click."
+msgstr ""
+
+#: uc_cart_links/uc_cart_links.install:24
+msgid "The cart link identifier."
+msgstr ""
+
+#: uc_cart_links/uc_cart_links.install:30
+msgid "The number of times this cart link was clicked."
+msgstr ""
+
+#: uc_cart_links/uc_cart_links.install:36
+msgid ""
+"The time of the last click on this cart link, stored as a UNIX "
+"timestamp."
+msgstr ""
+

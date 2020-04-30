@@ -1,0 +1,73 @@
+// $Id: INSTALL-mobileplugin.txt,v 1.1 2010/01/28 16:18:08 atrasatti Exp $
+
+CONTENTS OF THIS FILE
+---------------------
+
+ * Pre-requisites
+ * Installation
+ * More Information
+
+PRE-REQUISITES
+--------------
+The theme might work with Drupal 5 or limited changes might be required, but
+it was tested only on Drupal 6.*. It is therefore recommended to use the most
+recent Drupal 6 version available.
+The use of the Mobile Plugin is recommended, but NOT a requirement. See below
+for more details.
+
+
+INSTALLATION
+------------
+
+1. Get your Drupal 6 installed
+2. Download and install the Mobile Plugin http://drupal.org/project/mobileplugin
+		WARNING: hosted sites might have trouble with the generation of WURFL cache
+3. Update WURFL before you complete the mobile plugin install OR force a WURFL
+	cache refresh
+4. Install nokia_mobile theme in sites/all/themes (See below for more details)
+5. Go to Site building > Themes and enable (NOT as default) the nokia_mobile
+	theme
+6. Go to Site Building > Mobile Plugin > Device groups
+7. Click on "Edit group" for the group "mobile"
+	Theme: nokia_mobile
+	-SAVE-
+8. Click on "add new group"
+	Name: nokia low-end
+	Theme: nokia_mobile
+	-SAVE-
+9. Click on "add new group"
+	Name: nokia high-end
+	Theme: nokia_mobile
+	-SAVE-
+10. Click on "add new group"
+	Name: nokia high-end with touch
+	Theme: nokia_mobile
+	-SAVE-
+11. Click on "Filter group css and js" for the "nokia low-end" group
+12. Add the following line in the JS textarea:
+	sites/all/themes/nokia_mobile/scripts/low/
+	-SAVE-
+13. Do the same for the "nokia high-end" and "nokia high-end with touch" groups,
+	but add the line:
+	sites/all/themes/nokia_mobile/scripts/high/
+	-SAVE-
+14. Go to "Detection rules"
+15. Edit the last detection rule, the one that sets the device to the group
+	"mobile". Change the group to "nokia low-end".
+16. Go to Site building > Themes > Configure and choose nokia_mobile. At the
+	bottom of the page make sure you have checked "Detect devices based on
+	Nokia rules (default)." and pick a color for the buttons, "Blue" if you go
+	with the standard Drupal color, for example. Click "Save configuration".
+
+Everything should be setup now. Use your mobile device to access your site and
+you should magically get a different presentation. The theme will be different
+based on the device you are using, there is a low-end presentation that should
+work with all browsers and devices and a high-end design that will work with
+almost all Symbian devices and with devices such as the iPhone, the Palm Pre
+and Android.
+
+MORE INFORMATION
+----------------
+You can find more details in the README.txt file or on the drupal.org site at
+http://drupal.org/project/nokia_mobile
+

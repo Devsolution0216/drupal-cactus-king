@@ -1,0 +1,36 @@
+<?php
+// $Id: cck_teaser_field.module,v 1.5 2008/03/10 23:02:18 nedjo Exp $
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function cck_teaser_field_form_alter(&$form, $form_state, $form_id) {
+  if ($form_id == 'node_type_form' && isset($form['identity']['type'])) {
+    $type = content_types($form['#node_type']->type);
+    // Only enable if there are CCK field attached to this content type.
+    if (isset($type['fields']) && !empty($type['fields'])) {
+      $form['workflow']['teaser_field'] = array(
+        '#type' => 'radios',
+        '#title' => t('Construct teaser only from teaser fields'),
+        '#default_value' => variable_get('teaser_field_'. $form['#node_type']->type, 0),
+        '#options' => array(t('Disabled'), t('Enabled')),
+        '#description' => t('Enable this option if you want to have a custom teaser for this content type that doesn\'t include the standard body content. When this option is enabled, teasers for this content type will include only fields specified for teaser display.'),
+      );
+    }
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function cck_teaser_field_nodeapi(&$node, $op, $teaser = NULL, $page = NULL) {
+  if ($op == 'view' && $teaser && variable_get('teaser_field_'. $node->type, 0)) {
+    // Unset body and teaser data to allow content.module to start
+    // from scratch.
+    $node->teaser = '';
+    $node->body = '';
+    $node->content['body']['#value'] = '';
+    // Since we're suppressing the body, always show a read more link.
+    $node->readmore = TRUE;
+  }
+}

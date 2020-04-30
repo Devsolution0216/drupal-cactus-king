@@ -1,0 +1,35 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_googleanalytics.module,v 1.6.2.4 2008/11/07 21:13:29 islandusurper
+#  uc_googleanalytics.info,v 1.4.4.3 2008/11/07 21:13:29 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-01-31 18:26+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_googleanalytics/uc_googleanalytics.module:85,143
+msgid "No category"
+msgstr "Keine Kategorie"
+
+#: uc_googleanalytics/uc_googleanalytics.module:0
+msgid "uc_googleanalytics"
+msgstr "uc_googleanalytics"
+
+#: uc_googleanalytics/uc_googleanalytics.info:0
+msgid "Google Analytics for Ubercart"
+msgstr "Google Analytics für Ubercart"
+
+#: uc_googleanalytics/uc_googleanalytics.info:0
+msgid "Adds e-commerce tracking for UberCart to the Google Analytics module."
+msgstr ""
+"Fügt dem Google Analytics modul E-commerce-tracking-funktionen für "
+"UberCart hinzu."
+

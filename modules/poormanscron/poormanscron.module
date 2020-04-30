@@ -1,0 +1,124 @@
+<?php
+// $Id: poormanscron.module,v 1.22.2.8 2010/01/17 00:23:12 davereid Exp $
+
+/**
+ * @file
+ * A module which runs Drupal cron jobs without the cron application.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function poormanscron_menu() {
+  $items['poormanscron/run-cron-check'] = array(
+    'page callback' => 'poormanscron_run_cron_check',
+    'access callback' => 'poormanscron_run_cron_check_access',
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_init().
+ */
+function poormanscron_init() {
+  if (poormanscron_run_cron_check_access()) {
+    drupal_add_js(drupal_get_path('module', 'poormanscron') . '/poormanscron.js');
+    $settings = array(
+      'basePath' => url('poormanscron'),
+      'runNext' => variable_get('cron_last', 0) + variable_get('cron_safe_threshold', 10800),
+    );
+    drupal_add_js(array('cron' => $settings), 'setting');
+  }
+}
+
+/**
+ * Checks if the feature to automatically run cron is enabled.
+ *
+ * Also used as a menu access callback for this feature.
+ *
+ * @return
+ *   TRUE if cron threshold is enabled, FALSE otherwise.
+ *
+ * @see poormanscron_run_cron_check()
+ */
+function poormanscron_run_cron_check_access() {
+  return variable_get('cron_safe_threshold', 10800) > 0;
+}
+
+/**
+ * Menu callback; executes cron via an image callback.
+ *
+ * This callback runs cron in a separate HTTP request to prevent "mysterious"
+ * slow-downs of regular HTTP requests. It is invoked via an AJAX request
+ * (if the client's browser supports JavaScript).
+ *
+ * @see poormanscron_run_cron_check_access()
+ */
+function poormanscron_run_cron_check() {
+  $time = time();
+  $cron_run = FALSE;
+  $cron_threshold = variable_get('cron_safe_threshold', 10800);
+
+  // Cron threshold semaphore is used to avoid errors every time the image
+  // callback is displayed when a previous cron is still running.
+  $threshold_semaphore = variable_get('cron_threshold_semaphore', FALSE);
+  if ($threshold_semaphore) {
+    if ($time - $threshold_semaphore > 3600) {
+      // Either cron has been running for more than an hour or the semaphore
+      // was not reset due to a database error.
+      watchdog('cron', 'Cron has been running for more than an hour and is most likely stuck.', array(), WATCHDOG_ERROR);
+
+      // Release the cron threshold semaphore.
+      variable_del('cron_threshold_semaphore');
+    }
+  }
+  else {
+    // Run cron automatically if it has never run or threshold was crossed.
+    $cron_last = variable_get('cron_last', 0);
+    if ($time - $cron_last > $cron_threshold) {
+      // Lock cron threshold semaphore.
+      variable_set('cron_threshold_semaphore', $time);
+      $cron_run = drupal_cron_run();
+      // Release the cron threshold semaphore.
+      variable_del('cron_threshold_semaphore');
+
+      if ($cron_run) {
+        // Truncate the page cache so that cached pages get a new timestamp for
+        // the next cron run.
+        cache_clear_all('*', 'cache_page', TRUE);
+      }
+    }
+  }
+
+  $cron_last = variable_get('cron_last', 0);
+  drupal_set_header('Expires: ' . gmdate('D, d M Y H:i:s O', $cron_last + $cron_threshold));
+
+  drupal_json(array('cron_run' => $cron_run));
+  // @todo Should we allow this to be cached?
+  exit;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function poormanscron_form_system_site_information_settings_alter(&$form, &$form_state) {
+  $form['cron_safe_threshold'] = array(
+    '#type' => 'select',
+    '#title' => t('Automatically run cron'),
+    '#default_value' => variable_get('cron_safe_threshold', 10800),
+    '#options' => array(0 => t('Never')) + drupal_map_assoc(array(3600, 10800, 21600, 43200, 86400, 604800), 'format_interval'),
+    '#description' => t('When enabled, the site will check whether cron has been run in the configured interval and automatically run it upon the next page request. For more information visit the <a href="@status-report-url">status report page</a>.', array('@status-report-url' => url('admin/reports/status'))),
+  );
+  $form['buttons'] += array('#weight' => 100);
+  array_unshift($form['#submit'], 'poormanscron_site_information_settings_submit');
+}
+
+/**
+ * Form submit callback; clears the page cache if cron settings were changed.
+ */
+function poormanscron_site_information_settings_submit($form, $form_state) {
+  if (variable_get('cron_safe_threshold', 10800) != $form_state['values']['cron_safe_threshold']) {
+    cache_clear_all('*', 'cache_page', TRUE);
+  }
+}

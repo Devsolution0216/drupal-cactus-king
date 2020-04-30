@@ -1,0 +1,89 @@
+/* $Id: views_gallery.css,v 1.8 2009/10/31 13:34:45 karens Exp $ */
+
+div.view-gallery div.views-field-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+div.view-gallery div.views-field-field-gallery-image-fid img {
+  border: 1px solid #666;
+}
+
+div.view-gallery div.views-field-field-gallery-image-fid a:hover {
+  background-color:#ffc;
+  display:block;
+}
+
+div.view-gallery table {
+  margin:0;
+  padding:0;
+  width:auto;
+}
+
+div.view-gallery table.views-view-grid img {
+  padding:5px;
+  margin:0;
+}
+
+div.view-gallery table.views-view-grid td {
+  padding-bottom:15px;
+}
+
+div.block div.view-gallery table.views-view-grid td {
+  padding-bottom:0;
+}
+
+div.view-gallery div.views-field-created {
+  font-size: .8em;
+  font-style: italic;
+}
+
+div.view-display-id-node_content_2 {
+  float: left;
+  padding-right: 10px;
+}
+
+div.view-display-id-node_content_2 div.view-empty {
+  border: 1px solid black;
+  font-size: 0.9em;
+  padding: 5px;
+  text-align: center;
+  width: 140px;
+}
+
+ul.links li.image_field_gallery  {
+  float: right;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  font-weight: bold;
+}
+
+/* Force the table grid to equal column
+ widths no matter what is in them.*/
+div.view-gallery table.views-view-grid {
+  table-layout:fixed;
+}
+
+/* Views slideshow themes */
+
+.views_slideshow_singleframe_pager {
+  height:2em;
+}
+.views_slideshow_singleframe_pager a {
+  border:1px transparent solid;
+  padding:0;
+  margin:0;
+  width:2em;
+  display:block;
+  float:left;
+  text-align:center;
+}
+.views_slideshow_singleframe_pager a:hover,
+.views_slideshow_singleframe_pager a.activeSlide {
+  background-color:#ffc;
+  text-decoration:none;
+}
+
+.views_slideshow_slide {
+  overflow:hidden;
+}

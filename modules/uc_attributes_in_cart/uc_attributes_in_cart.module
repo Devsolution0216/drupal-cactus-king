@@ -1,0 +1,505 @@
+<?php
+// $Id: uc_attributes_in_cart.module,v 1.1.2.14 2010/07/26 07:50:41 Fanyalla Exp $
+
+/**
+ * @file
+ * Alters the tapir table of the Ubercart cart.
+ * Show attribute's forms of products in the cart view form.
+ * Optionally filter out attributes that are no longer in stock (only available when uc_stock is enabled).
+ */
+
+/**
+ * Implementation of hook_tapir_table_alter().
+ */
+function uc_attributes_in_cart_tapir_table_alter($table, $table_id) {
+  // Modify the display of the cart table.
+  if ($table_id == 'uc_cart_view_table') {
+    // New column in the cart table.
+    $table['#columns']['attributes_in_cart'] = array(
+      'cell' => t('Attributes'),
+      'weight' => 3
+    );
+
+    // Step on the right for these two columns.
+    $table['#columns']['qty']['weight'] = 4;
+    $table['#columns']['total']['weight'] = 5;
+
+    // Get the items in the current cart.
+    $items = uc_cart_get_contents();
+
+    // List of keys that are already used.
+    $already_marked = array();
+
+    // For each product or product kit line of the cart.
+    foreach ($table as $key => &$value) {
+      if (is_numeric($key) && isset($value['nid'])) {
+        // Set an empty area.
+        $value['attributes_in_cart'] = NULL;
+
+        // For product lines, we must mark the cart_item_id that belongs to this line.
+        if ($value['module']['#value'] == 'uc_product') {
+          foreach ($items as $item_key => $item_value) {
+            if (!in_array($item_key, $already_marked) && $value['nid']['#value'] == $item_value->nid && $item_value->module == 'uc_product') {
+              $value['#cart_item_id'] = $item_value->cart_item_id;
+              $already_marked[$item_key] = $item_key;
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function uc_attributes_in_cart_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'uc_cart_view_form') {
+    // Get the items in the current cart.
+    $items = uc_cart_get_contents();
+
+    // For each product or product kit line of the cart.
+    foreach ($form['items'] as $key => &$value) {
+      if (is_numeric($key) && isset($value['nid'])) {
+        //Load the product.
+        $product = node_load($value['nid']['#value']);
+
+        // Product kit.
+        if (isset($product->products)) {
+          foreach ($product->products as $sub_product) {
+            //Check if the current user has access to the product.
+            if (node_access('view', $sub_product)) {
+              foreach ($items as $key => $item) {
+                // For products that belong to a kit, we must find which $form element they belong to.
+                if (is_numeric($key) && $item->module == 'uc_product_kit') {
+                  foreach (@unserialize($value['data']['#value']) as $sub_product_key => $sub_product_item) {
+                    if ($sub_product->nid == $sub_product_item->nid && $sub_product_item->cart_item_id == $item->cart_item_id) {
+                      $sub_product_item_id = $key;
+                    }
+                  }
+                }
+              }
+
+              // Get the attributes' forms.
+              $value['attributes_in_cart'][$sub_product->nid]['attribute_form'] = _uc_attribute_alter_form($sub_product);
+
+              // Check if the product has attributes.
+              if ($value['attributes_in_cart'][$sub_product->nid]['attribute_form'] != NULL) {
+                // For each attribute.
+                foreach ($value['attributes_in_cart'][$sub_product->nid]['attribute_form'] as $aid => &$attribute_form) {
+                  if (is_numeric($aid)) {
+                    // Filter out attributes that are no longer in stock.
+                    if (module_exists('uc_stock') && variable_get('uc_attributes_in_cart_filter', 0)) uc_attributes_in_cart_check_stocks($attribute_form, $sub_product->nid);
+
+                    // Get from the database how the user wants this attribute to be displayed.
+                    $display_attribute_settings = db_fetch_array(db_query_range("SELECT show_form, show_title, enclose_fieldset FROM {uc_attributes_in_cart} WHERE aid = '%d'", $aid, 0, 1));
+
+                    // Show the attribute's form.
+                    if (!isset($display_attribute_settings['show_form']) || $display_attribute_settings['show_form']) {
+                      // Set the default value(s).
+                      $attribute_form['#default_value'] = $items[$sub_product_item_id]->data['attributes'][$aid];
+
+                      // Add the product title to the attribute title.
+                      $attribute_form['#title'] .= ' (' . $sub_product->title . ')';
+
+                      // Do not display the title (by default it is displayed).
+                      if (isset($display_attribute_settings['show_title']) && !$display_attribute_settings['show_title']) {
+                        $attribute_form['#title'] = '';
+                      }
+
+                      // Display the attribute's form inside a fieldset?
+                      if (isset($display_attribute_settings['enclose_fieldset']) && $display_attribute_settings['enclose_fieldset']) {
+                        // Backup the attribute's form.
+                        $temp = $attribute_form;
+
+                        // Get the title to display in the fieldset.
+                        if ($attribute_form['#title'] != '') {
+                          $title = $attribute_form['#title'];
+                        }
+
+                        else {
+                          $label = db_result(db_query_range("SELECT label FROM {uc_attributes} WHERE aid = '%d'", $aid, 0, 1));
+
+                          if (!empty($label)) {
+                            $title = $label;
+                          }
+
+                          else {
+                            $title = db_result(db_query_range("SELECT name FROM {uc_attributes} WHERE aid = '%d'", $aid, 0, 1));
+                          }
+                        }
+
+                        // Define a container fieldset.
+                        $attribute_form = array(
+                          '#type' => 'fieldset',
+                          '#title' => t('@title', array('@title' => $title)),
+                          '#collapsible' => TRUE,
+                          '#collapsed' => TRUE
+                        );
+
+                        // Put back the attribute's form.
+                        $attribute_form['attribute_form'] = $temp;
+                      }
+                    }
+
+                    // Do not show the attribute form.
+                    else {
+                      $attribute_form['#access'] = FALSE;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        else {
+          // This allows the cart item id to be accessible by $form_state when updating the cart.
+          $value['cart_item_id'] = array('#type' => 'hidden', '#value' => $value['#cart_item_id']);
+
+          //Check if the current user has access to the product.
+          if (node_access('view', $product)) {
+            foreach ($items as $key => $item) {
+              // For products that do not belong to a kit, we must find which $form element they belong to.
+              if (is_numeric($key)) {
+                if ($value['#cart_item_id'] == $item->cart_item_id) {
+                  $item_id = $key;
+                }
+              }
+            }
+
+            // Get the attributes' forms.
+            $value['attributes_in_cart'] = _uc_attribute_alter_form($product);
+
+            // Check if the product has attributes.
+            if ($value['attributes_in_cart'] != NULL) {
+              // For each attribute.
+              foreach ($value['attributes_in_cart'] as $aid => &$attribute_form) {
+                if (is_numeric($aid)) {
+                  // Filter out attributes that are no longer in stock.
+                  if (module_exists('uc_stock') && variable_get('uc_attributes_in_cart_filter', 0)) uc_attributes_in_cart_check_stocks($attribute_form, $product->nid);
+
+                  // Get from the database how the user wants this attribute to be displayed.
+                  $display_attribute_settings = db_fetch_array(db_query_range("SELECT show_form, show_title, enclose_fieldset FROM {uc_attributes_in_cart} WHERE aid = '%d'", $aid, 0, 1));
+
+                  // Show the attribute's form.
+                  if (!isset($display_attribute_settings['show_form']) || $display_attribute_settings['show_form']) {
+                    // Set the default value(s).
+                    $attribute_form['#default_value'] = $items[$item_id]->data['attributes'][$aid];
+
+                    // Do not display the title (by default it is displayed).
+                    if (isset($display_attribute_settings['show_title']) && !$display_attribute_settings['show_title']) {
+                      $attribute_form['#title'] = '';
+                    }
+
+                    // Display the attribute's form inside a fieldset?
+                    if (isset($display_attribute_settings['enclose_fieldset']) && $display_attribute_settings['enclose_fieldset']) {
+                      // Backup the attribute's form.
+                      $temp = $attribute_form;
+
+                      // Get the title to display in the fieldset.
+                      if ($attribute_form['#title'] != '') {
+                        $title = $attribute_form['#title'];
+                      }
+
+                      else {
+                        $label = db_result(db_query_range("SELECT label FROM {uc_attributes} WHERE aid = '%d'", $aid, 0, 1));
+
+                        if (!empty($label)) {
+                          $title = $label;
+                        }
+
+                        else {
+                          $title = db_result(db_query_range("SELECT name FROM {uc_attributes} WHERE aid = '%d'", $aid, 0, 1));
+                        }
+                      }
+
+                      // Define a container fieldset.
+                      $attribute_form = array(
+                        '#type' => 'fieldset',
+                        '#title' => t('@title', array('@title' => $title)),
+                        '#collapsible' => TRUE,
+                        '#collapsed' => TRUE
+                      );
+
+                      // Put back the attribute's form.
+                      $attribute_form['attribute_form'] = $temp;
+                    }
+                  }
+
+                  // Do not show the attribute form.
+                  else {
+                    $attribute_form['#access'] = FALSE;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Make the 'update cart' and 'checkout' buttons process our submit function.
+    $form['#submit'][] = 'uc_attributes_in_cart_cart_view_form_submit';
+    $form['update']['#submit'][] = 'uc_attributes_in_cart_cart_view_form_submit';
+    //$form['checkout']['#submit'][] = 'uc_attributes_in_cart_cart_view_form_submit';
+  }
+}
+
+/**
+ * Filter out attributes that are no longer in stock.
+ * All credits go to the uc_attribute_stock_filter module for providing the function.
+ *
+ * @param $attribute_form
+ *   The attributes' form of the product.
+ *
+ * @param $nid
+ *   The nid of the product.
+ */
+function uc_attributes_in_cart_check_stocks(&$attribute_form, $nid) {
+  // Does the product have attributes?
+  $product_attributes = db_fetch_object( db_query("SELECT COUNT(nid) as count FROM {uc_product_adjustments} WHERE nid = %d", $nid));
+
+  if ($product_attributes->count > 0) {
+    $result = db_query("SELECT a.combination AS combination, s.stock AS stock, s.active FROM {uc_product_adjustments} a LEFT JOIN {uc_product_stock} s ON a.model = s.sku WHERE a.nid = %d", $nid);
+
+    // This builds an array containing the available options.
+    $available = array();
+
+    while ($data = db_fetch_object($result)) {
+      $combo = unserialize($data->combination);
+
+      // Stock is available or stock tracking is NOT active.
+      if ($data->stock > 0 || !$data->active) {
+        // Merge value into array.
+        $available = array_merge($available, array_values($combo));
+      }
+    }
+
+    // If this attribute has no option, kill it.
+    if (count($available) == 0) {
+      $attribute_form['#access'] = FALSE;
+    }
+
+    // Otherwise, traverse through $attribute_form and unset any options that are not on the list.
+    // Check that it is not a textfield.
+    elseif ($attribute_form['#type'] != 'textfield') {
+      foreach ($attribute_form['#options'] as $opt_key => $option) {
+        // Make sure it's numeric, don't kill the "Select..." option.
+        if (is_numeric($opt_key) && !in_array($opt_key, $available)) {
+          unset($attribute_form['#options'][$opt_key]);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Save the new attributes values modified by the user.
+ */
+function uc_attributes_in_cart_cart_view_form_submit($form, &$form_state) {
+  //Get the items in the current cart.
+  $items = uc_cart_get_contents();
+
+  foreach ($form_state['values']['items'] as $key => $item) {
+    // Check that we have to update attributes values.
+    if (isset($item['attributes_in_cart'])) {
+      if ($item['module'] == 'uc_product_kit') {
+        foreach ($items as $cart_item) {
+          if (isset($cart_item->data['attributes']) && count($cart_item->data['attributes']) > 0) {
+            $data = @unserialize($item['data']);
+
+            foreach ($data as $sub_product_item) {
+              if ($cart_item->cart_item_id == $sub_product_item->cart_item_id && $cart_item->module == 'uc_product_kit') {
+                // Update the value of the attributes for each items.
+                foreach ($item['attributes_in_cart'][$cart_item->nid]['attribute_form'] as $aid => $option) {
+
+                  // Check if the attribute's form was enclosed in a fieldset.
+                  if (is_array($option) && array_key_exists('attribute_form', $option)) {
+                    $cart_item->data['attributes'][$aid] = $option['attribute_form'];
+                  }
+
+                  else {
+                    $cart_item->data['attributes'][$aid] = $option;
+                  }
+                }
+
+                // Add useless data to the item to avoid same products to be treated as one.
+                $cart_item->data['uc_attributes_in_cart'] = $cart_item->cart_item_id;
+
+                uc_cart_update_item($cart_item);
+              }
+            }
+          }
+        }
+      }
+
+      else {
+        foreach ($items as $cart_item) {
+          if ($item['cart_item_id'] == $cart_item->cart_item_id && $cart_item->module == 'uc_product') {
+            // Update the value of the attributes for each items.
+            foreach ($item['attributes_in_cart'] as $aid => $option) {
+              // Check if the attribute's form was enclosed in a fieldset.
+              if (is_array($option) && array_key_exists('attribute_form', $option)) {
+                // Enclosed.
+                $cart_item->data['attributes'][$aid] = $option['attribute_form'];
+              }
+
+              else {
+                // Not enclosed.
+                $cart_item->data['attributes'][$aid] = $option;
+              }
+
+            }
+            // Add useless data to the item to avoid same products to be treated as one.
+            $cart_item->data['uc_attributes_in_cart'] = $cart_item->cart_item_id;
+
+            uc_cart_update_item($cart_item);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function uc_attributes_in_cart_menu() {
+  $items = array();
+
+  // Administrative page of this module.
+  $items['admin/store/settings/attributes/settings'] = array(
+    'title' => 'Attribute settings',
+    'type' => MENU_DEFAULT_LOCAL_TASK
+  );
+
+  // Administrative page of this module.
+  $items['admin/store/settings/attributes/in-cart'] = array(
+    'title' => 'Attributes in cart settings',
+    'description' => 'Configure display of attributes in cart.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('uc_attributes_in_cart_settings'),
+    'access arguments' => array('administer attributes in cart settings'),
+    'type' => MENU_LOCAL_TASK
+  );
+
+  return $items;
+}
+
+/**
+ * Administrative page of this module.
+ */
+function uc_attributes_in_cart_settings() {
+  // Get the list of all attributes.
+  $attributes = db_query("SELECT ua.aid, ua.name, ua.label, uaic.show_form, uaic.show_title, uaic.enclose_fieldset FROM {uc_attributes} ua LEFT JOIN {uc_attributes_in_cart} uaic ON ua.aid = uaic.aid");
+
+  // Main fieldset.
+  $form['list'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Attributes'),
+    '#description' => t('Here are listed the attributes you have defined in your store administration.')
+  );
+
+  // Filter out attributes that are no longer in stock.
+  if (module_exists('uc_stock')) {
+    $form['list']['filter'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Filter out attributes that are no longer in stock'),
+      '#description' => t('Check this box if you want to filter out attributes that are no longer in stock when viewing the cart page.'),
+      '#default_value' => variable_get('uc_attributes_in_cart_filter', 0)
+    );
+  }
+
+  // For each attribute, display options.
+  while ($attribute = db_fetch_array($attributes)) {
+    $form['list']['attribute_' . $attribute['aid']] = array(
+      '#type' => 'fieldset',
+      '#title' => empty($attribute['label']) ? $attribute['name'] : $attribute['name'],
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE
+    );
+
+    $form['list']['attribute_' . $attribute['aid']]['attribute_' . $attribute['aid'] . '_show_form'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Show attribute form in cart'),
+      '#description' => t('Check this box if you want this attribute form to be displayed in cart.'),
+      '#default_value' => !isset($attribute['show_form']) ? 1 : $attribute['show_form']
+    );
+
+    $form['list']['attribute_' . $attribute['aid']]['attribute_' . $attribute['aid'] . '_show_title'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Show attribute title in cart'),
+      '#description' => t('Check this box if you want this attribute form to have a title in cart.'),
+      '#default_value' => !isset($attribute['show_title']) ? 1 : $attribute['show_title']
+    );
+
+    $form['list']['attribute_' . $attribute['aid']]['attribute_' . $attribute['aid'] . '_enclose_fieldset'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Enclose the attribute\'s form in a fieldset'),
+      '#description' => t('Check this box if you want this attribute\'s form to be enclosed in a fieldset (when you have for example a long list of options).'),
+      '#default_value' => !isset($attribute['enclose_fieldset']) ? 0 : $attribute['enclose_fieldset']
+    );
+  }
+
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Save'));
+
+  return $form;
+}
+
+/**
+ * Save the user settings for this module.
+ */
+function uc_attributes_in_cart_settings_submit($form, &$form_state) {
+  // INSERT/UPDATE the settings in the database according to the user settings.
+  foreach ($form_state['values'] as $key => $value) {
+    $label = explode('_', $key);
+
+    // Check that it is a checkbox value.
+    if ($label[0] == 'attribute' && is_numeric($label[1])) {
+      // $label[1] is the attribute id (aid).
+      $aid = $label[1];
+
+      // $label[2] . '_' . $label[3] is the database column name where to insert the value.
+      $column = $label[2] . '_' . $label[3];
+
+      // Check if there is already a record in the database for this attribute.
+      $test = db_result(db_query_range("SELECT aid FROM {uc_attributes_in_cart} WHERE aid = '%d'", $aid, 0, 1));
+
+      // There is already a record for this attribute, UPDATE the database.
+      if ($test) {
+        db_query("UPDATE {uc_attributes_in_cart} SET `%s` = '%d' WHERE aid = '%d'", $column, $value, $aid);
+      }
+
+      // There is no record for this attribute, INSERT in the database.
+      else {
+        db_query("INSERT INTO {uc_attributes_in_cart} (aid, `%s`) VALUES ('%d', '%d')", $column, $aid, $value);
+      }
+    }
+  }
+
+  // Update the value of the filter.
+  if (module_exists('uc_stock')) variable_set('uc_attributes_in_cart_filter', $form_state['values']['filter']);
+
+  // Display a confirmation message to the user.
+  drupal_set_message(t('The settings have been saved.'));
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function uc_attributes_in_cart_perm() {
+  return array('administer attributes in cart settings');
+}
+
+
+
+
+
+
+
+
+
+
+

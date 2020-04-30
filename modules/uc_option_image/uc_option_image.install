@@ -1,0 +1,20 @@
+<?php
+
+function uc_option_image_install($no_image=NULL) {
+  if (empty($no_image)) {
+    return uc_option_image_install(drupal_get_path('module', 'uc_option_image') .'/no_image.png');
+  }
+  $info = image_get_info($no_image);
+  if ($info) {
+    $file = (object) array(
+      'uid' => 1,
+      'filename' => 'option_image_0_0_0';
+      'filepath' => $no_image,
+      'filemime' => $info['file_mime'],
+      'filesize' => $info['file_size'],
+      'status' => FILE_STATUS_PERMANENT
+    );
+    db_query("DELETE FROM {files} WHERE filename = 'option_image_0_0_0'");
+    drupal_write_record('files', $file);
+  }
+}

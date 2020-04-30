@@ -1,0 +1,59 @@
+<?php
+// $Id: poormanscron.test,v 1.1.2.2 2010/01/17 16:53:37 davereid Exp $
+
+/**
+ * @file
+ * Unit tests for the poormanscron module.
+ */
+
+class PoormanscronUnitTest extends DrupalWebTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'Poormanscron functionality',
+      'description' => 'Tests the poormanscron module.',
+      'group' => 'Poormanscron',
+    );
+  }
+
+  function setUp() {
+    parent::setUp('poormanscron');
+    $this->admin_user = $this->drupalCreateUser(array('administer site configuration'));
+  }
+
+  /**
+   * Ensure that the cron image callback to run it automatically is working.
+   */
+  function testCronThreshold() {
+    // Ensure cron does not run when the cron threshold is enabled and was
+    // not passed.
+    $cron_last = time();
+    $cron_safe_threshold = 100;
+    variable_set('cron_last', $cron_last);
+    variable_set('cron_safe_threshold', $cron_safe_threshold);
+    $this->drupalGet('');
+    $this->assertRaw('"runNext": ' . ($cron_last + $cron_safe_threshold));
+    $this->drupalGet('poormanscron/run-cron-check');
+    $this->assertTrue($cron_last == variable_get('cron_last', NULL), t('Cron does not run when the cron threshold is not passed.'));
+
+    // Test if cron runs when the cron threshold was passed.
+    $cron_last = time() - 200;
+    variable_set('cron_last', $cron_last);
+    $this->drupalGet('');
+    $this->assertRaw('"runNext": ' . ($cron_last + $cron_safe_threshold));
+    $this->drupalGet('poormanscron/run-cron-check');
+    $this->assertTrue($cron_last < variable_get('cron_last', NULL), t('Cron runs when the cron threshold is passed.'));
+
+    // Disable the cron threshold through the interface.
+    $this->drupalLogin($this->admin_user);
+    $this->drupalPost('admin/settings/site-information', array('cron_safe_threshold' => 0), t('Save configuration'));
+    $this->assertText(t('The configuration options have been saved.'));
+
+    // Test if cron does not run when the cron threshold is disabled.
+    $cron_last = time() - 200;
+    variable_set('cron_last', $cron_last);
+    $this->drupalGet('');
+    $this->assertNoRaw('runNext');
+    $this->drupalGet('poormanscron/run-cron-check');
+    $this->assertTrue($cron_last == variable_get('cron_last', NULL), t('Cron does not run when the cron threshold is disabled.'));
+  }
+}

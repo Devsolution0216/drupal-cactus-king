@@ -1,0 +1,20 @@
+name = CCK Taxonomy Subset
+description = Allows you to define CCK fields to use as a teaser
+dependencies[] = content
+dependencies[] = taxonomy
+package = CCK
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-01-13
+version = "6.x-1.x"
+core = "6.x"
+project = "cck_taxonomy_subset"
+datestamp = "1231848185"
+
+
+; Information added by drupal.org packaging script on 2009-03-05
+version = "6.x-1.0"
+core = "6.x"
+project = "cck_taxonomy_subset"
+datestamp = "1236274813"
+

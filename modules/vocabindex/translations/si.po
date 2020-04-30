@@ -1,0 +1,289 @@
+# $Id: si.po,v 1.1.2.1 2008/11/06 13:04:02 xano Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright 2008 Alex Zorko <info@nicjasno.com>
+# Generated from files:
+#  vocabindex.admin.inc,v 1.1.2.3.2.53 2008/11/03 22:02:23 xano
+#  vocabindex.module: n/a
+#  vocabindex.view.inc,v 1.1.2.2.2.71 2008/11/03 22:02:23 xano
+#  vocabindex.info: n/a
+#  vocabindex.install: n/a
+#  vocabindex_admin_vi_form.tpl.php,v 1.1.2.8 2008/10/19 10:52:59 xano
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2008-11-05 13:53+0100\n"
+"PO-Revision-Date: 2008-11-05 HH:MM+ZZZZ\n"
+"Last-Translator: Alex Zorko <info@nicjasno.com>\n"
+"Language-Team: SLOVENIAN <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: vocabindex.admin.inc:17 vocabindex.module:317
+msgid "Character transliteration"
+msgstr "Transliteracija črk"
+
+#: vocabindex.admin.inc:18
+msgid "Group terms by the <a href=\"!wiki_latin_alphabet\">modern Latin</a> equivalent of their first letter for alphabetical views. <a href=\"!transliteration_info\">More information</a>."
+msgstr "Skupinski termini <a href=\"!wiki_latin_alphabet\">moderne latinščine</a> enakovredni svoji prvi črki v abecednem pogledu. <a href=\"!transliteration_info\">Več informacij</a>."
+
+#: vocabindex.admin.inc:24
+msgid "Terms per page"
+msgstr "Terminov na stran"
+
+#: vocabindex.admin.inc:25
+msgid "The amount of terms to display per page for browsable and alphabetical views. Use 0 to disable paging."
+msgstr "Število terminov na stran, ki se prikažejo za poglede ki jih lahko gledamo in brskamo. Uporabi 0 da onemogočiš klicanje."
+
+#: vocabindex.admin.inc:34
+msgid "Caching"
+msgstr "Predpomnjenje"
+
+#: vocabindex.admin.inc:39
+msgid "Cache lifetime"
+msgstr "Življenjska doba predpomnjenja"
+
+#: vocabindex.admin.inc:40
+msgid "Specified in minutes. Use 0 to disable caching or if you are using a taxonomy access control module."
+msgstr "Navedeno v minutah. Uporabi 0 da onemogočiš predpomnjenje ali če uporabljaš modul za dostop do upravljanja taksonomije."
+
+#: vocabindex.admin.inc:49
+msgid "Clear cache"
+msgstr "Počisti predpomnilnik"
+
+#: vocabindex.admin.inc:70
+msgid "The cache has been cleared."
+msgstr "Predpomnilnik je bil očiščen."
+
+#: vocabindex.admin.inc:82
+msgid "%element_title may only contain numbers."
+msgstr "%element_title lahko vsebuje le številke."
+
+#: vocabindex.admin.inc:107
+msgid "Paths may not contain a percentage sign."
+msgstr "Poti ne smejo vsebovati znaka za odstotke."
+
+#: vocabindex.admin.inc:118
+msgid "Path is already used by a menu link."
+msgstr "Pot že uporablja povezava v meniju."
+
+#: vocabindex.admin.inc:122
+msgid "Path is already used as an alias."
+msgstr "Pot že uporablja kot vzdevek."
+
+#: vocabindex.admin.inc:141
+msgid "You haven't yet got any vocabularies to enable an index for; you may create them at <a href=\"!link\">the Taxonomy page</a>."
+msgstr "Nimate še vokabularijev, za katere bi lahko omogočili indeks; lahko jih ustvarite na <a href=\"!link\">strani taksonomije</a>."
+
+#: vocabindex.admin.inc:171
+msgid "Currently located at !location."
+msgstr "Se trenutno nahaja na !location."
+
+#: vocabindex.admin.inc:174
+msgid "There is no index page set for this vocabulary."
+msgstr "Za ta vokabularij če ni nastavljena indeksna stran."
+
+#: vocabindex.admin.inc:194
+msgid "Tree"
+msgstr "Drevo"
+
+#: vocabindex.admin.inc:196
+msgid "Browsable"
+msgstr "Z možnostjo brskanja"
+
+#: vocabindex.admin.inc:197
+msgid "Alphabetical"
+msgstr "Po abecedi"
+
+#: vocabindex.admin.inc:200
+msgid "Flat"
+msgstr "Plosko"
+
+#: vocabindex.admin.inc:221
+msgid "Save configuration"
+msgstr "Shrani nastavitev"
+
+#: vocabindex.admin.inc:246
+msgid "The configuration options have been saved."
+msgstr "Nastavitve so bile shranjene."
+
+#: vocabindex.view.inc:284
+msgid "There are currently no terms in this vocabulary."
+msgstr "V tem vokabulariju trenutno ni terminov."
+
+#: vocabindex.module:62
+msgid "Please proceed to !update.php to update your database to Vocabulary Index 2."
+msgstr "Pojdi na !update.php za posodobitev podatkovne baze v Vocabulary index 2."
+
+#: vocabindex.module:173
+msgid "@vocabulary (Vocabulary Index)"
+msgstr "@vocabulary (Vocabulary Index)"
+
+#: vocabindex.module:265
+msgid "Vocabulary Index provides several ways to list all terms inside a specified vocabulary. For each vocabulary you may enable a <a href=\"!url_pages\">page</a> and/or a <a href=\"!url_blocks\">block</a> that will view its terms in the way you think suits best. This way may be a tree, a flat, browsable index, or an index where you can filter terms by letter. Next to that you can choose to display node counts for each term. Term descriptions will be displayed along with the term names if provided."
+msgstr "Vocabulary Index omogoča več načinov, kako prikazati termine znotraj specifičnega vokabularija. Za vsak vokabularij lahko omogočite <a href=\"!url_pages\">stran</a> in/ali <a href=\"!url_blocks\">blok</a>, ki bo prikazal termine v obliki ki vam najbolje ustreza. To je lahko v obliki drevesnega, brskalnega ali ploskega indeksa ali indeksa v katerem lahko filtrirate termine po začetnicah. Poleg tega lahko izberete tudi prikaz števila prispevkov znotraj vsakega termina. Opisi terminov bodo prikazani poleg imena termina, če so podani."
+
+#: vocabindex.module:269
+msgid "You may want to execute the following steps to configure Vocabulary Index."
+msgstr "Za konfiguracijo Vocabulary Indeksa bi mogoče želeli izvesti sledeče korake."
+
+#: vocabindex.module:272
+msgid "Set up <a href=\"!permissions\">permissions</a>."
+msgstr "Nastavi <a href=\"!permissions\">Dovoljenja</a>."
+
+#: vocabindex.module:276
+msgid "Create <a href=\"!index_pages\">index pages</a>."
+msgstr "Ustvari <a href=\"!index_pages\">indeksne strani</a>."
+
+#: vocabindex.module:280
+msgid "Create <a href=\"!index_blocks\">index blocks</a>."
+msgstr "Ustvari <a href=\"!index_blocks\">indeksne bloke</a>."
+
+#: vocabindex.module:290
+msgid "Configuration step not completed."
+msgstr "Nastavitveni korak ni zaključen."
+
+#: vocabindex.module:295
+msgid "Example screenshot of a tree view."
+msgstr "Primer zaslonskega posnetka drevesnega"
+
+#: vocabindex.module:296
+msgid "Example screenshot of a browsable view."
+msgstr "Primer zaslonskega posnetka brskalnega pogleda."
+
+#: vocabindex.module:297
+msgid "Example screenshot of an alphabetical view."
+msgstr "Primer zaslonskega posnetka abecednega pogleda."
+
+#: vocabindex.module:301
+msgid "The <strong>tree view</strong> displays all terms in a nested tree. If visitors of your site have JavaScript enabled, parent terms will be collapsed by default, but they will expand when clicked on. Since tree view displays all terms on a single page, terms with multiple parents are displayed more than once: once beneath every parent."
+msgstr "<strong>Drevesni pogled</strong> prikaže vse termine v gnezdenem drevesu. Če imajo obiskovalci vače strani vklopljen JavaScript, bodo starševski termini privzeto sesedeni, ampak se bodo razširili, če bodo nanje kliknili. Zato ker drevesni pogled prikaže vse temnine na eni sami strani, bodo termini z več kot enim starševskim elementom prikazani večkrat: enkrat pod vsakim staršem."
+
+#: vocabindex.module:305
+msgid "The <strong>browsable view</strong> lets visitors browse a vocabulary much like they would browse through directories on their hard drive. Taxonomy pages of parent terms do not list the nodes within those terms, but the child terms it contains. Since blocks cannot span multiple pages, they can be displayed using a flat view. This is exactly the same as the browsable view apart from that it is not browsable. Browsable index pages are <a href=\"!settings_page\">pageable</a>."
+msgstr "<strong>Brskalni pogled</strong> omogoča, da obiskovalci brskajo po vokabulariju, kot da bi brskali po upravljalcu z datotekami na svojem trdem disku. Strani taksonomije starševskih elementov ne navedejo svojih prispevkov v teh terminih, ampak otroške termine, ki jih  vsebujejo. Ker se bloki ne morejo raztezati preko več strani, so lahko prikazani s pomočjo ploskega pogleda. Ta je enak kot brskalni pogled, samo da po njem ne moremo brskati. Brskalne indeksne strani lahko <a href=\"!settings_page\">kličemo</a>."
+
+#: vocabindex.module:309
+msgid "The <strong>alphabetical view</strong> sorts terms by first letter. Optionally <a href=\"#transliteration\">character transliteration</a> may be enabled. Alphabetically viewed index pages are <a href=\"!settings_page\">pageable</a>."
+msgstr "<strong>Abecedni pogled</strong> uredi termine po prvi črki. Po izbiri lahko omogočimo <a href=\"#transliteration\">transliteracijo črk</a>. Indeksne strani, ki jih gledamo v abecednem redu lahko <a href=\"!settings_page\">kličemo</a>."
+
+#: vocabindex.module:314
+msgid "For more extensive information on configuring Vocabulary Index or on development, please visit <a href=\"!handbook_page\">the on-line handbook</a>."
+msgstr "Za podrobnejše informacije kako nastaviti Vokabularni indeks ali o razvoju, prosim obiščite <a href=\"!handbook_page\">spletni priročnik</a>."
+
+#: vocabindex.module:319
+msgid "Character transliteration groups terms by the <a href=\"!wiki_latin_alphabet\">modern Latin</a> equivalent of their first letter for the alphabetical view. This way terms like <em>Ångström</em> and <em>Ampère</em> will both be grouped under the letter A, for instance. If you would like to modify the <a href=\"!default_file\">default transliteration file</a>, copy the file to <em>i18n-ascii-custom.txt</em> and use this file instead to override the values from i18n-ascii.txt or to add new values."
+msgstr "Transliteracija črk združi termine v <a href=\"!wiki_latin_alphabet\">moderno latinski</a>" ekvivalent njihove začetnice za abecedni pogled. Na ta način bosta termina kot npr. <em>Ångström</em> in <em>Ampère</em> oba grupirana pod črko A. V kolikor bi želeli spremeniti <a href=\"!default_file\">privzeto transliteracijsko datoteko</a>, skopirajte datoteko v <em>i18n-ascii-custom.txt</em> in uporabite to datoteko, da povozite vrednosti iz i18n-ascii.txt ali dodate nove vrednosti.
+
+#: vocabindex.module:322
+msgid "Other contributed modules"
+msgstr "Ostali prispevani moduli"
+
+#: vocabindex.module:323
+msgid "Some other modules, like <a href=\"!pathauto_project_page\">Pathauto</a>, complement Vocabulary Index. For instructions on setting up these modules to work with Vocabulary Index, please visit <a href=\"!handbook_complementary_modules\">the on-line handbook</a>."
+msgstr "Nekateri drugi moduli, kot npr. <a href=\"!pathauto_project_page\">Pathauto</a>, dopolnjujejo Vocabulary Index. Za navodila kako nastaviti te module da delujejo z Vocabulary Index, prosim obiščite <a href=\"!handbook_complementary_modules\">spletni priročnik</a>."
+
+#: vocabindex.module:329
+msgid "Index pages list the terms inside a vocabulary. They are accessible by a path of their own and they are enabled as soon as you enter one."
+msgstr "Indeksne strani prikažejo termine znotraj vokabularija. Dostopne so preko svoje lastne poti in so omogočene takoj, ko vnesete pot."
+
+#: vocabindex.module:332
+msgid "Index blocks list the terms inside a vocabulary. Enabled blocks can be configured at the <a href=\"!blocks\">blocks settings page</a>. Flat index blocks are similar to browsable pages, they only differ in that they are not browsable and therefore don't display nested terms."
+msgstr "Indeksni bloki prikažejo termine znotraj vokabularija. Omogočene bloke lahko nastavimo na <a href=\"!blocks\">strani za nastavitev blokov</a>. Ploski indeksni bloki so podobni brskalnim stranem, razlikujejo se le v tem, da po njih ne moremo brskati in zato ne prikazujejo vgnezdenih terminov."
+
+#: vocabindex.module:53
+msgid "view vocabulary index"
+msgstr "poglej indeks vokabularija"
+
+#: vocabindex.module:53
+msgid "administer vocabulary index"
+msgstr "uredi indeks vokabularija"
+
+#: vocabindex.module:75 vocabindex.info:0
+msgid "Vocabulary Index"
+msgstr "Indeks vokabularija"
+
+#: vocabindex.module:76
+msgid "Enable index pages for vocabularies."
+msgstr "Omogoči indeksne strani za vokabularije."
+
+#: vocabindex.module:84
+msgid "Pages"
+msgstr "Strani"
+
+#: vocabindex.module:92
+msgid "Blocks"
+msgstr "Bloki"
+
+#: vocabindex.module:93
+msgid "Enable index blocks for vocabularies."
+msgstr "Omogoči indeksne bloke za vokabularije."
+
+#: vocabindex.module:103
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: vocabindex.module:104
+msgid "General settings."
+msgstr "Splošne nastavitve."
+
+#: vocabindex.module:0
+msgid "vocabindex"
+msgstr "vocabindeks"
+
+#: vocabindex.install:16
+msgid "The table in which the settings for Vocabulary Index are stored."
+msgstr "Tabela v kateri so shranjene nastavitve Vokabularnega indeksa."
+
+#: vocabindex.install:19
+msgid "The VID associated with this index."
+msgstr "VID ki sovpada s tem indeksom."
+
+#: vocabindex.install:25
+msgid "The path to a Vocabulary Index page."
+msgstr "Pot do strani indeksa vokabularija"
+
+#: vocabindex.install:31
+msgid "The view, a tree or a flat list for instance."
+msgstr "Pogled, drevo ali ploski seznam naprimer."
+
+#: vocabindex.install:37
+msgid "Whether to count nodes per term."
+msgstr "Ali naj prešteje vse prispevke v terminu."
+
+#: vocabindex.install:43
+msgid "Index page or index block."
+msgstr "Indeksna stran indeksnega bloka."
+
+#: vocabindex.install:49
+msgid "Indicates whether this index is enabled or not."
+msgstr "Nakazuje ali je ta indeks omogočen ali ne."
+
+#: vocabindex.info:0
+msgid "Easily browse through taxonomy. Display vocabularies like trees, a directory index or sort their terms alphabetically."
+msgstr "Enostavno brskanje po taksonomiji. Prikaži vokabularije kot drevesa, indeks direktorijev ali jih razvrsti po abecedi."
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "Vocabulary"
+msgstr "Vokabularij"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "View"
+msgstr "Pogled"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "Node counts"
+msgstr "Štetje prispevkov"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:34
+msgid "Path"
+msgstr "Pot"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:37
+msgid "Enabled"
+msgstr "Omogočeno"
+

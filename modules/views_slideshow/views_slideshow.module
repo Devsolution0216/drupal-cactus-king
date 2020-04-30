@@ -1,0 +1,95 @@
+<?php
+// $Id: views_slideshow.module,v 1.11.2.1 2009/03/30 20:46:42 aaron Exp $
+
+/**
+ *  @file
+ *  Provides Slideshow style options for Views.
+ */
+
+define('VIEWS_SLIDESHOW_MODE_SINGLE_FRAME', 'single_frame');  // this will rotate through all slideshows in a single div element
+define('VIEWS_SLIDESHOW_MODE_THUMBNAIL_HOVER', 'thumbnail_hover');  // this will create thumbnails of all the node teasers, with a mouse-over triggering a larger div full node view
+define('VIEWS_SLIDESHOW_MODE_JCAROUSEL', 'jcarousel');  // this uses the jcarousel jquery plugin, if the jcarousel module is installed
+define('VIEWS_SLIDESHOW_DEFAULT_MODE', VIEWS_SLIDESHOW_MODE_SINGLE_FRAME);
+
+define('VIEWS_SLIDESHOW_JCAROUSEL_SKIN_TANGO', 'tango'); // the tango skin is included, and is a css class used on the list
+define('VIEWS_SLIDESHOW_JCAROUSEL_SKIN_DEFAULT', VIEWS_SLIDESHOW_JCAROUSEL_SKIN_TANGO);
+define('VIEWS_SLIDESHOW_JCAROUSEL_VERTICAL_DEFAULT', FALSE);
+
+define('VIEWS_SLIDESHOW_HOVER_BREAKOUT_TEASER', 'teaser');  // this will cause the breakout element of the 'thumbnail_hover' mode to display the larger element as a teaser. it is ignored by 'single_frame' mode.
+define('VIEWS_SLIDESHOW_HOVER_BREAKOUT_FULL', 'full');  // this will cause the breakout element of the 'thumbnail_hover' mode to display the larger element as a full node. it is ignored by 'single_frame' mode.
+define('VIEWS_SLIDESHOW_DEFAULT_HOVER_BREAKOUT', VIEWS_SLIDESHOW_HOVER_BREAKOUT_TEASER);
+
+define('VIEWS_SLIDESHOW_DEFAULT_CONTROL_DISPLAY', FALSE);
+
+define('VIEWS_SLIDESHOW_DEFAULT_TIMER_DELAY', 5000);
+
+define('VIEWS_SLIDESHOW_SORT_FORWARD', 1);
+define('VIEWS_SLIDESHOW_SORT_RANDOM', 0);
+define('VIEWS_SLIDESHOW_SORT_REVERSE', -1);
+define('VIEWS_SLIDESHOW_DEFAULT_SORT_ORDER', VIEWS_SLIDESHOW_SORT_FORWARD);
+
+define('VIEWS_SLIDESHOW_FADE_SPEED_SLOW', 'slow');
+define('VIEWS_SLIDESHOW_FADE_SPEED_NORMAL', 'normal');
+define('VIEWS_SLIDESHOW_FADE_SPEED_FAST', 'fast');
+define('VIEWS_SLIDESHOW_DEFAULT_FADE_SPEED', VIEWS_SLIDESHOW_FADE_SPEED_SLOW);
+
+define('VIEWS_SLIDESHOW_DEFAULT_FADE_VALUE', 0.25);
+
+define('VIEWS_SLIDESHOW_DEFAULT_FADE', TRUE);
+
+define('VIEWS_SLIDESHOW_DEFAULT_TEASERS_LAST', TRUE); // when the mode is thumbnail hover, this determines whether to print the teasers first or second
+
+/**
+ *  Implement hook_theme().
+ */
+function views_slideshow_theme($existing, $type, $theme, $path) {
+  return array(
+    'views_slideshow_single_frame' =>  array(
+      'arguments' => array('view' => NULL, 'options' => array(), 'rows' => array(), 'title' => ''),
+      'template' => 'views-slideshow-single-frame',
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_thumbnail_hover' => array(
+      'arguments' => array('view' => NULL, 'options' => array(), 'rows' => array(), 'title' => ''),
+      'template' => 'views-slideshow-thumbnail-hover',
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_div_js' => array(
+      'arguments' => array('rows' => NULL, 'options' => NULL, 'id' => NULL),
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_breakout_teaser_js' => array(
+      'arguments' => array('id' => NULL, 'count' => NULL),
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_main_section' => array(
+      'arguments' => array('id' => NULL, 'hidden_elements' => NULL),
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_breakout_teaser' => array(
+      'arguments' => array('item' => NULL, 'id' => NULL, 'count' => NULL),
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_no_display_section' => array(
+      'arguments' => array('view' => NULL, 'rows' => NULL, 'id' => NULL, 'mode' => NULL, 'teaser' => TRUE),
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_no_display_teaser' => array(
+      'arguments' => array('item' => NULL, 'id' => NULL, 'count' => NULL),
+      'file' => 'views_slideshow.theme.inc',
+    ),
+    'views_slideshow_breakout_teasers' => array(
+      'arguments' => array('items' => NULL, 'id' => NULL),
+      'file' => 'views_slideshow.theme.inc',
+    ),
+  );
+}
+
+/**
+ *  Implements hook_views_api().
+ */
+function views_slideshow_views_api() {
+  return array(
+    'api' => 2.0,
+  );
+}

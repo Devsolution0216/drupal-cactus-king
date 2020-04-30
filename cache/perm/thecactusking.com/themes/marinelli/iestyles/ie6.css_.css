@@ -1,0 +1,53 @@
+/*- Marinelli styles for IE6 v0.3 - Drupal6x - 21/11/08
+author:singalkuppe: www.signalkuppe.com
+ */
+
+#utilities form{bottom:7px;}
+#utilities input.form-submit{padding:0px;}	
+#utilities input.form-text {padding:1px 1px 3px 1px;}
+
+div.admin .left {
+margin-left:0.2em;
+}
+
+.item-list .pager li{
+margin:0px 1px 0 1px;
+}
+
+.item-list .pager li.pager-current{
+padding:2px 2px 3px 4px;
+}
+
+.lsidebar{
+
+margin-left:15px;
+margin-right:0px;
+}
+
+.rsidebar{
+
+margin-left:13px;
+margin-right:0px;
+}
+	
+.wrapper{margin:14px 13px 13px 13px;}
+
+#utilities #plinks {/*- Primary links in Header */
+left:-7px;
+}
+
+/*don't use png shadows in ie6*/
+ul.primosottolivello, ul.sottolivello{
+padding:0px;
+}
+
+
+ul.primosottolivello{
+background:#054b81;
+top:29px;
+}
+
+
+ul.sottolivello{
+background:#054b81;
+}

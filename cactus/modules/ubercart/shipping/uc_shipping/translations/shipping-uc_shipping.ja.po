@@ -1,0 +1,556 @@
+# $Id: shipping-uc_shipping.ja.po,v 1.1.2.1 2009/11/25 09:59:07 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  uc_shipping.admin.inc,v 1.1.2.11 2009/08/17 21:27:56 islandusurper
+#  uc_shipping.module,v 1.6.2.12 2009/08/17 21:27:56 islandusurper
+#  uc_shipping.ca.inc,v 1.1.2.1 2009/08/17 21:27:56 islandusurper
+#  uc_shipping.install,v 1.4.2.10 2009/09/23 15:45:56 islandusurper
+#  uc_shipping.info,v 1.4.2.2 2008/11/07 21:13:25 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-11-01 00:03+0900\n"
+"PO-Revision-Date: 2009-11-25 18:52+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_shipping.admin.inc:13
+msgid "Package ID"
+msgstr "パッケージID"
+
+#: uc_shipping.admin.inc:13;517
+msgid "Products"
+msgstr "商品"
+
+#: uc_shipping.admin.inc:13;277
+msgid "Shipping type"
+msgstr "配送タイプ"
+
+#: uc_shipping.admin.inc:13;662
+msgid "Package type"
+msgstr "パッケージタイプ"
+
+#: uc_shipping.admin.inc:13;395
+msgid "Shipment ID"
+msgstr "配送ID"
+
+#: uc_shipping.admin.inc:13;395;708;737
+msgid "Tracking number"
+msgstr "トラッキングナンバー"
+
+#: uc_shipping.admin.inc:13
+msgid "Labels"
+msgstr "ラベル"
+
+#: uc_shipping.admin.inc:13;395
+msgid "Actions"
+msgstr "アクション"
+
+#: uc_shipping.admin.inc:32;32
+msgid "Shipping Label"
+msgstr "配送ラベル"
+
+#: uc_shipping.admin.inc:33;407
+msgid "edit"
+msgstr "編集"
+
+#: uc_shipping.admin.inc:34;408
+msgid "delete"
+msgstr "削除"
+
+#: uc_shipping.admin.inc:36
+msgid "cancel shipment"
+msgstr "配送のキャンセル"
+
+#: uc_shipping.admin.inc:45
+msgid "This order's products have not been organized into packages."
+msgstr "この注文の商品はパッケージにまとめられていません。"
+
+#: uc_shipping.admin.inc:50
+msgid "Create packages."
+msgstr "パッケージの作成。"
+
+#: uc_shipping.admin.inc:66;230;437;563
+msgid "Administer"
+msgstr "管理セクション"
+
+#: uc_shipping.admin.inc:67;231;438;564
+msgid "Store administration"
+msgstr "店舗管理"
+
+#: uc_shipping.admin.inc:68;232;439;565
+msgid "Orders"
+msgstr "注文"
+
+#: uc_shipping.admin.inc:69;233;440;566
+msgid "Order @id"
+msgstr "注文 @id"
+
+#: uc_shipping.admin.inc:70;234
+#: uc_shipping.module:24
+msgid "Packages"
+msgstr "パッケージ"
+
+#: uc_shipping.admin.inc:74
+msgid ""
+"Organize products into packages.\n"
+" Package numbers in multiple shipping types are of the first shipping type they appear in. All\n"
+" packages are given a unique ID when they are saved. Choose the default package \"Sep.\" to\n"
+" automatically create a package for each of the selected quantity of products in that row."
+msgstr ""
+"商品をパッケージにまとめます。\n"
+"複数の配送タイプのパッケージナンバーは、最初の配送タイプのものとなります。\n"
+"パッケージには保存する際にユニークなIDが割り振られます。\n"
+"各商品を選択した個数に分けて自動的にパッケージを作成するには、デフォルトのパッケージ「分割」を選択してください。"
+
+#: uc_shipping.admin.inc:112
+msgid "Sep."
+msgstr "分割"
+
+#: uc_shipping.admin.inc:124
+msgid "Make packages"
+msgstr "パッケージを作成（複数）"
+
+#: uc_shipping.admin.inc:125;185
+msgid "Create one package"
+msgstr "パッケージを作成（ひとつ）"
+
+#: uc_shipping.admin.inc:126;160;180;375;851
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: uc_shipping.admin.inc:138;296
+msgid "SKU"
+msgstr ""
+
+#: uc_shipping.admin.inc:138;296
+msgid "Title"
+msgstr "タイトル"
+
+#: uc_shipping.admin.inc:138;296
+msgid "Qty"
+msgstr "数量"
+
+#: uc_shipping.admin.inc:138;517
+#: uc_shipping.module:213
+msgid "Package"
+msgstr "パッケージ"
+
+#: uc_shipping.admin.inc:171
+msgid "Packages should have at least one product in them."
+msgstr "パッケージには少なくとも商品をひとつ含ませてください。"
+
+#: uc_shipping.admin.inc:283
+msgid "Save"
+msgstr "保存"
+
+#: uc_shipping.admin.inc:339
+msgid "Are you sure you want to cancel the shipment of this package?"
+msgstr "このパッケージの配送を本当にキャンセルしますか？"
+
+#: uc_shipping.admin.inc:340
+msgid "It will be available for reshipment."
+msgstr "再配送可能です。"
+
+#: uc_shipping.admin.inc:340
+msgid "Cancel shipment"
+msgstr "配送をキャンセル"
+
+#: uc_shipping.admin.inc:340
+msgid "Nevermind"
+msgstr "何でもない"
+
+#: uc_shipping.admin.inc:374
+msgid "Are you sure you want to delete this package?"
+msgstr "このパッケージを本当に削除しますか？"
+
+#: uc_shipping.admin.inc:375
+msgid "The products it contains will be available for repackaging."
+msgstr "含まれている商品は再度パッケージにすることができます。"
+
+#: uc_shipping.admin.inc:375;851
+msgid "Delete"
+msgstr "削除"
+
+#: uc_shipping.admin.inc:395
+msgid "Name"
+msgstr "名前"
+
+#: uc_shipping.admin.inc:395
+msgid "Company"
+msgstr "会社"
+
+#: uc_shipping.admin.inc:395
+msgid "Destination"
+msgstr "配送先"
+
+#: uc_shipping.admin.inc:395;754
+msgid "Ship date"
+msgstr "配送日"
+
+#: uc_shipping.admin.inc:395
+msgid "Estimated delivery"
+msgstr "送料見積"
+
+#: uc_shipping.admin.inc:405
+#: uc_shipping.module:268
+msgid "n/a"
+msgstr "N/A"
+
+#: uc_shipping.admin.inc:406
+msgid "view"
+msgstr "表示"
+
+#: uc_shipping.admin.inc:412
+msgid "No shipments have been made for this order."
+msgstr "この注文には配送がありません。"
+
+#: uc_shipping.admin.inc:417
+msgid "Make a new shipment"
+msgstr "新しい配送を作成"
+
+#: uc_shipping.admin.inc:422
+msgid "Put products into packages to make shipments."
+msgstr "商品をパッケージして配送を作成。"
+
+#: uc_shipping.admin.inc:441;567
+#: uc_shipping.module:70
+msgid "Shipments"
+msgstr "配送"
+
+#: uc_shipping.admin.inc:496
+msgid "Ship Manually"
+msgstr "手動で配送"
+
+#: uc_shipping.admin.inc:498
+msgid "Shipping method"
+msgstr "配送方法"
+
+#: uc_shipping.admin.inc:503
+#: uc_shipping.module:122
+msgid "Ship packages"
+msgstr "パッケージを配送"
+
+#: uc_shipping.admin.inc:517
+msgid "Weight"
+msgstr "ウェイト"
+
+#: uc_shipping.admin.inc:574
+msgid "Pickup Address:"
+msgstr "配送元住所:"
+
+#: uc_shipping.admin.inc:575
+msgid "Delivery Address:"
+msgstr "配送先住所:"
+
+#: uc_shipping.admin.inc:576
+msgid "Schedule:"
+msgstr "スケジュール:"
+
+#: uc_shipping.admin.inc:578
+msgid "Ship date:"
+msgstr "配送日:"
+
+#: uc_shipping.admin.inc:579
+msgid "Expected delivery:"
+msgstr "配送の予定:"
+
+#: uc_shipping.admin.inc:582
+msgid "Shipment Details:"
+msgstr "配送詳細:"
+
+#: uc_shipping.admin.inc:584
+msgid "Carrier:"
+msgstr "配送業者:"
+
+#: uc_shipping.admin.inc:586
+msgid "Transaction ID:"
+msgstr "トランザクションID:"
+
+#: uc_shipping.admin.inc:589
+msgid "Tracking Number:"
+msgstr "トラッキングナンバー:"
+
+#: uc_shipping.admin.inc:594;597
+msgid "Services:"
+msgstr "サービス:"
+
+#: uc_shipping.admin.inc:603
+msgid "Cost:"
+msgstr "費用:"
+
+#: uc_shipping.admin.inc:657
+msgid "Package @id"
+msgstr "パッケージ @id"
+
+#: uc_shipping.admin.inc:664
+msgid "E.g.: Box, pallet, tube, treasure chest, cocoon, etc."
+msgstr "例： 箱、パレット、チューブ、宝箱、コクーン、等"
+
+#: uc_shipping.admin.inc:672
+msgid "Dimensions"
+msgstr "寸法"
+
+#: uc_shipping.admin.inc:673
+msgid "Physical dimensions of the packaged product."
+msgstr "梱包した商品の物理的な寸法。"
+
+#: uc_shipping.admin.inc:677
+msgid "Units of measurement"
+msgstr "単位"
+
+#: uc_shipping.admin.inc:679
+msgid "Inches"
+msgstr "インチ"
+
+#: uc_shipping.admin.inc:680
+msgid "Feet"
+msgstr "フィート"
+
+#: uc_shipping.admin.inc:681
+msgid "Centimeters"
+msgstr "センチメートル"
+
+#: uc_shipping.admin.inc:682
+msgid "Millimeters"
+msgstr "ミリメートル"
+
+#: uc_shipping.admin.inc:687
+msgid "Length"
+msgstr "長さ"
+
+#: uc_shipping.admin.inc:692
+msgid "Width"
+msgstr "横幅"
+
+#: uc_shipping.admin.inc:697
+msgid "Height"
+msgstr "高さ"
+
+#: uc_shipping.admin.inc:702
+msgid "Declared value"
+msgstr "公示価格"
+
+#: uc_shipping.admin.inc:716
+msgid "Shipment data"
+msgstr "配送データ"
+
+#: uc_shipping.admin.inc:724
+msgid "Carrier"
+msgstr "配送業者"
+
+#: uc_shipping.admin.inc:728
+msgid "Shipment options"
+msgstr "配送オプション"
+
+#: uc_shipping.admin.inc:730
+msgid "Short notes about the shipment, e.g. residential, overnight, etc."
+msgstr "配送についての短い注意書き。例） アパート、夜間、等"
+
+#: uc_shipping.admin.inc:733
+msgid "Transaction ID"
+msgstr "トランザクションID"
+
+#: uc_shipping.admin.inc:758
+msgid "Expected delivery"
+msgstr "配送の予定"
+
+#: uc_shipping.admin.inc:762
+msgid "Shipping cost"
+msgstr "配送費用"
+
+#: uc_shipping.admin.inc:770
+msgid "Save shipment"
+msgstr "配送を保存"
+
+#: uc_shipping.admin.inc:786
+msgid "@property must be a positive number. No commas and only one decimal point."
+msgstr "@property には正の値を入力してください。カンマは入力せず、小数点はひとつだけです。"
+
+#: uc_shipping.admin.inc:850
+msgid "Are you sure you want to delete this shipment?"
+msgstr "この配送を本当に削除しますか？"
+
+#: uc_shipping.admin.inc:851
+msgid "The shipment will be canceled and the packages it contains will be available for reshipment."
+msgstr "配送はキャンセルされ、配送に含まれているパッケージは再配送することができます。"
+
+#: uc_shipping.admin.inc:867
+msgid "The shipment %tracking could not be canceled with %carrier. To delete it anyway, remove the tracking number and try again."
+msgstr "配送 %tracking を %carrier でキャンセルすることができません。どうしても削除する場合は、トラッキングナンバーを取り除いてから再度お試しください。"
+
+#: uc_shipping.admin.inc:904
+msgid "There is no sense in making a shipment with no packages on it, right?"
+msgstr "パッケージが含まれていない配送を作成しても意味がありませんね？"
+
+#: uc_shipping.ca.inc:11
+msgid "Ubercart shipment object"
+msgstr "Ubercart配送オブジェクト"
+
+#: uc_shipping.ca.inc:22
+msgid "A shipment is saved"
+msgstr "配送を保存しました"
+
+#: uc_shipping.ca.inc:23
+msgid "Fulfillment"
+msgstr "処理"
+
+#: uc_shipping.ca.inc:27
+msgid "Order"
+msgstr "注文"
+
+#: uc_shipping.ca.inc:31
+msgid "Shipment"
+msgstr "配送"
+
+#: uc_shipping.module:138
+msgid "Shipment !id"
+msgstr "配送 !id"
+
+#: uc_shipping.module:192
+msgid "Tracking numbers"
+msgstr "トラッキングナンバー"
+
+#: uc_shipping.module:193
+msgid "Display tracking numbers of shipped packages."
+msgstr "配送済みパッケージのトラッキングナンバーを表示。"
+
+#: uc_shipping.module:211
+msgid "Package order !order_id products."
+msgstr "注文 !order_id の商品をパッケージ。"
+
+#: uc_shipping.module:220
+msgid "Ship order !order_id packages."
+msgstr "注文 !order_id のパッケージを配送。"
+
+#: uc_shipping.module:222
+msgid "Ship"
+msgstr "配送"
+
+#: uc_shipping.module:245
+msgid "Package %id:"
+msgstr "パッケージ %id:"
+
+#: uc_shipping.module:246
+msgid "Contents:"
+msgstr "コンテンツ:"
+
+#: uc_shipping.module:252
+msgid "Package type:"
+msgstr "パッケージタイプ:"
+
+#: uc_shipping.module:254
+msgid "Dimensions:"
+msgstr "寸法:"
+
+#: uc_shipping.module:254
+msgid "!l x !w x !h"
+msgstr ""
+
+#: uc_shipping.module:260
+msgid "Insured value:"
+msgstr "保険価額:"
+
+#: uc_shipping.module:262
+msgid "Tracking number:"
+msgstr "トラッキングナンバー:"
+
+#: uc_shipping.module:265;268
+msgid "Label:"
+msgstr "ラベル:"
+
+#: uc_shipping.module:265
+msgid "Click to view."
+msgstr "クリックして表示。"
+
+#: uc_shipping.module:443
+msgid "Package @id has been deleted."
+msgstr "パッケージ @id を削除しました。"
+
+#: uc_shipping.module:584
+msgid "- Reset fields -"
+msgstr "- フィールドをリセット -"
+
+#: uc_shipping.module:591
+msgid "Address book"
+msgstr "アドレスブック"
+
+#: uc_shipping.module:610
+msgid "Origin address"
+msgstr "元の住所"
+
+#: uc_shipping.module:617
+msgid "Saved Addresses"
+msgstr "保存済み住所"
+
+#: uc_shipping.module:642
+msgid "Destination Address"
+msgstr "配送先住所"
+
+#: uc_shipping.module:152
+msgid "fulfill orders"
+msgstr "注文の処理"
+
+#: uc_shipping.module:34
+msgid "New packages"
+msgstr "新しいパッケージ"
+
+#: uc_shipping.module:43
+msgid "Edit package"
+msgstr "パッケージを編集"
+
+#: uc_shipping.module:52
+msgid "Cancel package shipment"
+msgstr "パッケージ配送をキャンセル"
+
+#: uc_shipping.module:61
+msgid "Delete package"
+msgstr "パッケージを削除"
+
+#: uc_shipping.module:80
+msgid "New shipment"
+msgstr "新しい配送"
+
+#: uc_shipping.module:99
+msgid "View"
+msgstr "表示"
+
+#: uc_shipping.module:104
+msgid "Edit"
+msgstr "編集"
+
+#: uc_shipping.module:113
+msgid "Delete shipment"
+msgstr "配送を削除"
+
+#: uc_shipping.install:386
+msgid "Physical length of the packaging."
+msgstr "パッケージの物理的な長さ。"
+
+#: uc_shipping.install:387
+msgid "Physical width of the packaging."
+msgstr "パッケージの物理的な幅。"
+
+#: uc_shipping.install:388
+msgid "Physical height of the packaging."
+msgstr "パッケージの物理的な高さ。"
+
+#: uc_shipping.info:0
+msgid "Shipping"
+msgstr "配送"
+
+#: uc_shipping.info:0
+msgid "Gets products ready for physical shipment."
+msgstr "商品を配送可能な状態にします。"
+
+#: uc_shipping.info:0
+msgid "Ubercart - core (optional)"
+msgstr ""
+

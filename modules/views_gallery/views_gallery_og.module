@@ -1,0 +1,209 @@
+<?php
+// $Id: views_gallery_og.module,v 1.5 2009/12/01 19:41:49 karens Exp $
+
+/**
+ * @file
+ * Adapts photo gallery feature for Organic Groups.
+ */
+
+/**
+ * Implementation of hook_link_alter().
+ * 
+ * Append the group id to the 'Add Photo' link
+ * on the gallery so the image will automatically
+ * be added to the right group.
+ */
+function views_gallery_og_link_alter(&$links, &$node) { 
+  $fields = content_fields(NULL, $node->type);
+  foreach ($fields as $field_name => $field) {
+    foreach(_nodereference_url_field_instances($field_name) as $target_type => $instance) {
+      if (array_key_exists($target_type .'_'. $field_name, $links)) {
+        $add = 'gids[]='. array_shift(array_keys($node->og_groups));
+        if (empty($links[$target_type .'_'. $field_name]['query'])) {
+          $links[$target_type .'_'. $field_name]['query'] = $add;
+        }
+        else {
+          $links[$target_type .'_'. $field_name]['query'] .= '&'. $add;
+        }
+      }
+    }
+  }
+  return $links;
+}
+
+/**
+ * Implementation of hook_form_alter().
+ * 
+ * Pre-select a default value from all group galleries
+ * if we have any group context available in the form.
+ */
+function views_gallery_og_form_alter($form, &$form_state, $form_id) {
+  if ($form['#id'] == 'node-form' && empty($form['#node']->nid) && 
+  $form['#node']->type == views_gallery_image_type()) {
+    $group = og_determine_context();
+    if (!empty($group)) {
+      $form['field_gallery']['#default_value'] = views_gallery_og_get_galleries($group->nid);
+    }
+  }
+}
+
+/**
+ * Helper function to find galleries
+ * associated with a given group.
+ */
+function views_gallery_og_get_galleries($gid) {
+  $values = array();
+  $result = db_query("SELECT og.nid FROM {og_ancestry} og INNER JOIN {node} n ON og.nid=n.nid WHERE group_nid=%d AND n.type='%s'", $gid, views_gallery_gallery_type());
+  while ($arr = db_fetch_object($result)) {
+    $values[] = array('nid' => $arr->nid);
+  }
+  return $values;
+}
+
+/**
+ * Implementation of hook_menu(). Defines menu items and page callbacks.
+ */
+function views_gallery_og_menu() {
+  $items = array();
+  $items['admin/settings/views_gallery_og'] = array(
+    'title' => 'Views Gallery OG',
+    'description' => 'Settings for Views gallery OG',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('views_gallery_og_settings_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer organic groups'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+  * Views Gallery OG settings.
+  */
+function views_gallery_og_settings_form() {
+  $form['views_gallery_og'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Create Views Galleries'),
+    '#description' => t('Auto-create a Views gallery for every group. Use the syntax [token] if you want to insert a replacement pattern.'),
+  );
+    
+  $form['views_gallery_og']['title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pattern for the title'),
+    '#default_value' => t('[ogname] Photo Gallery'),
+  );
+  $form['views_gallery_og']['body'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Pattern for the body'),
+    '#default_value' => t('A photo gallery for [ogname].'),
+  );
+  $form['views_gallery_og']['public'] = array(
+    '#type' => 'select',
+    '#title' => t('Make galleries public?'),
+    '#default_value' => 0,
+    '#options' => array(0 => t('No'), 1 => t('Yes')),
+  );
+  $form['views_gallery_og']['unique'] = array(
+    '#type' => 'select',
+    '#title' => t('Unique galleries?'),
+    '#default_value' => 1,
+    '#options' => array(0 => t('No'), 1 => t('Yes')),
+    '#description' => t("If set to 'yes', no new gallery will be created for any group that already has a gallery. If set to 'no', this form will create a new gallery for every group, even if that group already has another gallery.")
+  );
+
+  $form['views_gallery_og']['token_help'] = array(
+    '#title' => t('Replacement patterns'),
+    '#type' => 'fieldset',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#description' => t('Use raw-text replacements for text to avoid problems with HTML entities.'),
+  );
+  $form['views_gallery_og']['token_help']['help'] = array(
+    '#value' => theme('token_help', 'node'),
+  );
+ 
+  $form['views_gallery_og']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Create galleries'),
+    );
+  return $form;
+}
+
+function views_gallery_og_settings_form_submit($form, &$form_state) {
+  $values = $form_state['values'];
+  $params = array();
+  $params['title'] = $values['title'];
+  $params['body'] = $values['body'];
+  views_gallery_og_create_all($values['public'], $values['unique'], $params);
+}
+
+/**
+ * A function to create a gallery for every
+ * existing group.
+ * 
+ * @param $public: 
+ *   Should the gallery be public?
+ * @param $unique: 
+ *   Should there only be one gallery per group?
+ * @param $params: 
+ *   Array of key=>value override values for the gallery 
+ *   node, which can use token replacements from the
+ *   group node.
+ */
+function views_gallery_og_create_all($public = FALSE, $unique = TRUE, $params = array()) {
+  $groups = og_all_groups_options();
+  foreach ($groups as $gid => $name) {
+    $gname = t('@name Photo Gallery', array('@name' => $name));
+    if ($unique) {
+      $result = db_result(db_query("SELECT group_nid FROM {og_ancestry} og INNER JOIN {node} n ON og.nid=n.nid WHERE n.type='%s' AND og.group_nid=%d", views_gallery_gallery_type(), $gid));
+      if (empty($result)) {
+        views_gallery_og_create($gid, $gname, $public, $params);
+      }
+    }
+    else {
+      views_gallery_og_create($gid, $gname, $public, $params);
+    }
+  }
+}
+
+/**
+ * A function to create a gallery for a group.
+ * 
+ * @param $gid: 
+ *   The group id.
+ * @param $name: 
+ *   The group name.
+ * @param $public: 
+ *   Should the gallery be public?
+ * @param $params: 
+ *   Array of key=>value override values for the gallery 
+ *   node, which can use token replacements from the
+ *   group node.
+ */
+function views_gallery_og_create($gid, $name, $public = FALSE, $params = array()) {
+  global $user;
+  
+  $node = new stdClass();
+  $node->type = views_gallery_gallery_type();
+  $node->title = $name;
+  $node->uid = $user->uid;
+  $node->name = $user->name;
+  $node->status = 1;
+  $node->comment = 0;
+  $node->promote = 1;
+  $node->sticky = 1;
+  $node->revision = 1;
+  $node->format = 1;
+  $node->comment = COMMENT_NODE_DISABLED;
+  $node->og_groups = array($gid => $gid);
+  $node->og_groups_both = array($gid => $name);
+  $node->og_public = $public;
+  
+  foreach ($params as $key => $param) {
+    // Allow for token replacements.
+    $node->$key = token_replace($param, 'node', $node);
+  }
+  node_save($node);
+  drupal_set_message(t('Gallery node !namelink created.', array('!namelink' => l($name, 'node/'. $node->nid))));
+  return $node;
+}

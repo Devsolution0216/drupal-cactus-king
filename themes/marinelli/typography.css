@@ -1,0 +1,314 @@
+/*- Marinelli styles - Drupal6x - 17/03/09 @ author:signalkuppe: www.signalkuppe.com */
+
+
+/* ########## Typography ########## */
+/* ########## In the css you will find everything about template's typography (fonts, line-height, letter-spacing ecc..) ######### */
+
+
+body {
+	font-family: "Lucida Grande","Lucida Sans Unicode", helvetica, verdana, arial, sans-serif;
+	line-height:1.125em;/*18px*/
+	font-size:76%;/*set regular font size*/
+	letter-spacing:normal;
+	text-align: center;
+	}
+	
+#page {
+	text-align: left;
+	}
+	
+#submenu { /*secondary links*/
+	font-size:1.0em;
+	text-align:left;
+	letter-spacing: 1px;
+	}
+
+.path  p span {
+	font: bold 0.75em Georgia, "Times New Roman", Times, serif;
+	text-transform:uppercase;
+	}
+	
+#primary .singlepage .path  p {
+    font-size:1.1em;
+	letter-spacing:0px;
+	line-height:1.8em;
+	}	
+		
+#primary .singlepage p, .defaultblock .blockcontent{ /*set typography in content and blocks*/
+	font-size:1.1em;
+	line-height:1.6em;
+	}
+	
+
+#header h1, #header p.sitetitle { /* site title */
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size: 4em;
+	line-height:62%;
+	font-weight: lighter;
+	letter-spacing: -1px;
+	text-transform: none;
+	}	
+	
+
+#header p.slogan{ /*site slogan */
+    font-family:Georgia, "Times New Roman", Times, serif;
+	font-size: 1.4em;
+	line-height:0.6em;
+	font-weight: lighter;
+	letter-spacing: -0.3px;
+	}
+
+#header h1, #header p{font-family:Georgia, "Times New Roman", Times, serif;} /*both tile and slogan*/
+
+#utilities input.form-submit{
+	font-size: 1em; 
+}
+
+#utilities input.form-text {
+	font-size:1em;
+	}
+	
+#utilities #plinks {/*- Primary links in Header */
+font-size:1.1em;
+		}
+		
+		
+
+#primary #sitemission p{
+font-family:Georgia, "Times New Roman", Times, serif;
+font-size:1.7em;
+font-style:italic;
+line-height:120%;
+text-align:center;
+}		
+		
+		
+/*block styles*/
+
+		
+.loginblock{font-size:1em;}
+form#user-login-form{text-align:left;line-height:0.9em;}
+
+.defaultblock h2{
+	font: 1.0em  Georgia, "Times New Roman", Times, serif;
+	font-weight:bold;
+	text-transform:uppercase;
+	}
+	
+.loginblock h2{
+	font: 1.1em  Georgia, "Times New Roman", Times, serif;
+	font-weight:bold;
+	}
+
+	
+	
+/*- Primary Contents */
+
+		
+/*content headings */
+
+#primary .singlepage h1,
+#primary .singlepage h2,
+#primary .singlepage h3,
+#primary .singlepage h4,
+#primary .singlepage h5,
+#primary .singlepage h6{ 
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-weight:lighter;
+	letter-spacing: 0px;
+	text-align: left;
+	text-transform: none;
+}
+
+
+#primary .singlepage h2.nodeTitle a { /*links in front page*/
+	font:1.1em Georgia, "Times New Roman", Times, serif; /*14px*/
+}
+
+
+#primary .singlepage h1{font-size:2.1em;line-height:1.2em;}
+#primary .singlepage h2{font-size:1.7em;line-height:1.2em;}
+#primary .singlepage h3{font-size:1.4em;line-height:1.2em;}
+#primary .singlepage h4{font-size:1.2em;line-height:1.2em;}
+#primary .singlepage h5{font-size:1em;line-height:1.2em;}
+#primary .singlepage h6{font-size:0.9em;line-height:1.2em;}
+
+
+#primary .singlepage p.small { font: 1em/1.5em 'Lucida Grande', Verdana, Arial, Sans-Serif;}
+
+
+#footer {
+    text-align: center;
+	font-size:1em;
+	font-weight:bold;
+	}
+	
+	
+/*admin panel styles*/
+
+#primary .singlepage form{font-size:0.95em;line-height:1.3em;}
+
+/*admin by module*/
+div.bymodule ul li{font-size:1.1em;}	
+
+
+/*lists in content*/
+
+#primary .singlepage .node .content ul li{ /*lists in node content*/
+font-size:105%;
+line-height:1.45em;
+}
+
+#primary .singlepage .node .content ol li{ /*ordered lists in node content*/
+font-size:105%;
+line-height:1.45em;
+}
+
+
+
+/*---------------tables---------------*/
+
+table tr td{font-size:1.1em;}
+
+.view table /*view table in fe*/{font-size:105%;}
+
+thead th{
+    font-weight:bold;
+	text-align:left;
+}
+
+table tr td{text-align:left;}
+
+td.region,td.module,td.container{font-weight:bold;}
+.sticky-table {font-size:90%;} /*fix report tab*/
+
+dl dt {font-size:1.1em;}
+dl dd {font-size:1.1em; line-height:1.3em;}
+
+
+#primary .content blockquote{font-style:italic;font-size:100%;}
+#primary .messages{font-size:1em;line-height:1.3em;}
+#primary .singlepage .help p{font-size:1em;line-height:1.3em;}
+
+	
+#primary .admin-dependencies, #primary .admin-required {
+     font-size:100%;
+	 font-style:italic;
+	}	
+
+
+/*comments & links*/
+#comments{font-size:1em;}
+
+#comments .box h2{
+font-size:1.3em;
+}
+
+.commentTitle{
+font-size:1.6em;
+line-height:1.1em;
+font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+.submitted{
+font-style:italic;
+font-size:1em;
+}
+
+.links{font-size:1.0em;}
+
+
+/*taxonomy terms in node*/
+
+.taxonomy{font-size:1em;}
+.taxonomyteaser{font-size:1em;}
+.taxonomy span{font-weight:bold;}
+p span.tagsteaser{font-weight:bold;}
+
+
+/*meta in nodes*/
+
+.metanode{
+font:0.85em Georgia, "Times New Roman", Times, serif;
+font-style:italic;
+}
+
+.metanode span.author,
+.metanode span.date
+{font-weight:bold;}
+
+
+/*pager*/
+.item-list ul.pager{
+text-align:left;
+font-size:1em;
+}
+
+/*signature in 6x */
+
+.firma{
+font-style:italic;
+font-weight:normal;
+font-family:Georgia, "Times New Roman", Times, serif;
+font-size:1em;
+letter-spacing:1px;
+}
+
+
+
+/*forums*/
+#primary .singlepage #forum ul.links li.forum{font-size:1em;}
+.singlepage #forum{font-size:1em;}
+.singlepage #forum .name{font-size:1.1em;}
+
+
+/*profile*/
+.profile{font-size:1em;}
+.profile dl{font-size:1em;}
+.profile dl dt{font-size:1em;}
+.profile dl dd{font-size:1em;}
+.profile dd{font-size:1em;}
+.profile h3{font-size:1.2em;}
+
+/*book & forum navigation*/
+
+.book-navigation, .forum-topic-navigation{font-size:0.9em;}
+
+.book-navigation a, .forum-topic-navigation a{font-weight:normal;}
+
+/*attachments */
+#page table#attachments tr td a{font-weight:normal;}
+
+/*pools*/
+
+.poll .title{font-weight:bold;}
+#page .poll .vote-form{text-align:left;}
+#page .poll .total{text-align:left;}
+
+/*search results*/
+#primary .singlepage .search-results p.search-info{font-style:italic;}	
+	
+/*aggregator styles*/
+
+#primary .singlepage .feedcontainer h2{font-size:1.6em;}
+#primary .singlepage #aggregator h2{font-size:1.6em;}
+#primary .singlepage #aggregator li { /*aggregator list*/font-size:0.8em;}
+
+/*taxonomy term page */
+
+.terminfo{ font-family:Georgia, "Times New Roman", Times, serif;}
+
+#primary .terminfo p{
+font-size:1.5em;
+font-style:italic;
+line-height:1.3em;
+text-align:center;
+font-weight:lighter;
+}
+
+/*forms*/
+
+
+.form-submit{
+font-size:1.0em;
+}

@@ -1,0 +1,15 @@
+; $Id: nd_webform.info,v 1.1.2.1 2010/09/24 13:44:42 swentel Exp $
+name = ND Webform
+description = Webform support for Node Displays
+core = "6.x"
+dependencies[] = nd
+dependencies[] = webform
+package = "Display suite"
+
+
+; Information added by drupal.org packaging script on 2010-12-16
+version = "6.x-2.4"
+core = "6.x"
+project = "nd_contrib"
+datestamp = "1292540634"
+

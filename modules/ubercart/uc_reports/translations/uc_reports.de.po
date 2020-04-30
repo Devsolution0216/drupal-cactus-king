@@ -1,0 +1,343 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_reports.module,v 1.11.2.7 2008/11/07 21:13:28 islandusurper
+#  uc_reports.admin.inc,v 1.1.2.1 2008/10/15 14:48:02 islandusurper
+#  uc_reports.info,v 1.2.2.5 2008/11/07 21:13:28 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-12-10 10:41+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_reports/uc_reports.module:35
+msgid ""
+"The following are total orders, products, sales, and average order "
+"totals for each store customer. Clicking on the header links will "
+"toggle a descending or ascending order for that column. Clicking on a "
+"customer's name will take you to a detailed list of orders that "
+"customer has made. Clicking on a customers username will take you to "
+"their account page."
+msgstr ""
+"Im folgenden wird die Anzahl an Bestellungen, Artikel, Erlöse, und "
+"durchnittlische Bestellsumme für jeden Kunden angezeigt. Klicken auf "
+"die Spalten überschrift sortiert nach der spalte. Klicken auf den "
+"Namen des Kunden wird Sie auf eine Seite mit detials zu bestellungen "
+"dieses Kunde bringen. Wenn Sie auf den Benutzernamen des kunden "
+"klicken kommen die zur Kontenseite des Kunden."
+
+#: uc_reports/uc_reports.module:39
+msgid ""
+"These are the sales for the last two days, average sales for the "
+"month, and the projected sales for the rest of the month. Further down "
+"the list you will see other sales statistics."
+msgstr ""
+"Dies sind die Verkäufe der letzten 2 Tage, durchschnittliche "
+"verkäufe für den Monat, und erwartete Umsätze für den Rest des "
+"Monats. Weiter unten in der Liste finden Sie noch weitere "
+"Verkaufsstatistiken."
+
+#: uc_reports/uc_reports.module:59
+msgid "Report settings"
+msgstr "Auswertungs Einstellungen"
+
+#: uc_reports/uc_reports.module:60
+msgid "View the report settings."
+msgstr "Die Einstellungen zum Bereich auswertungen anzeigen."
+
+#: uc_reports/uc_reports.module:68
+msgid "Customer reports"
+msgstr "Kunden Auswertungen"
+
+#: uc_reports/uc_reports.module:69
+msgid "View reports for store customers"
+msgstr "Auswertungen für Shop Kunden anzeigen."
+
+#: uc_reports/uc_reports.module:76
+msgid "Product reports"
+msgstr "Artikel Auswertungen"
+
+#: uc_reports/uc_reports.module:84
+msgid "Sales reports"
+msgstr "Verkaufs Auswertungen"
+
+#: uc_reports/uc_reports.module:92
+msgid "Sales summary"
+msgstr "Verkaufs Zusammenfassung"
+
+#: uc_reports/uc_reports.module:93
+msgid "View summary of all store sales"
+msgstr "Zusammenfassung allerShop verkäufe anzeigen."
+
+#: uc_reports/uc_reports.module:99
+msgid "Sales per year"
+msgstr "Verkäufe pro Jahr"
+
+#: uc_reports/uc_reports.module:100
+msgid "View store sales for a particular year"
+msgstr "Verkäufe für eine bestimmtes jahr anzeigen."
+
+#: uc_reports/uc_reports.module:108
+msgid "Custom sales summary"
+msgstr "Angepasste Verkaufszusammenfassung"
+
+#: uc_reports/uc_reports.module:109
+msgid "View a customized sales summary"
+msgstr "Eine angepasste verkaufs Zusammenfassung anzeigen."
+
+#: uc_reports/uc_reports.admin.inc:49,57,126,133,148,154
+msgid "#"
+msgstr "#"
+
+#: uc_reports/uc_reports.admin.inc:55,57
+msgid "Average"
+msgstr "Durchschnitt"
+
+#: uc_reports/uc_reports.admin.inc:97
+msgid "No customers found"
+msgstr "Keine Kunden gefunden"
+
+#: uc_reports/uc_reports.admin.inc:128,133
+msgid "Views"
+msgstr "Ansichten"
+
+#: uc_reports/uc_reports.admin.inc:129,133,150,154
+msgid "Sold"
+msgstr "Verkauft"
+
+#: uc_reports/uc_reports.admin.inc:130,133,151,154
+msgid "Revenue"
+msgstr "Gewinn"
+
+#: uc_reports/uc_reports.admin.inc:231
+msgid "No products found"
+msgstr "Keine Artikel gefunden"
+
+#: uc_reports/uc_reports.admin.inc:327
+msgid "Grand total sales"
+msgstr "Summe der Verkäufe"
+
+#: uc_reports/uc_reports.admin.inc:328
+msgid "Customers total"
+msgstr "Anzahl Kunden"
+
+#: uc_reports/uc_reports.admin.inc:329
+msgid "New customers today"
+msgstr "Neue Kunden heute"
+
+#: uc_reports/uc_reports.admin.inc:330
+msgid "Online customers"
+msgstr "Online Kunden"
+
+#: uc_reports/uc_reports.admin.inc:470
+msgid "Sales year"
+msgstr "Verkaufs Jahr"
+
+#: uc_reports/uc_reports.admin.inc:662
+msgid "daily"
+msgstr "Täglich"
+
+#: uc_reports/uc_reports.admin.inc:663
+msgid "weekly"
+msgstr "Wöchentlich"
+
+#: uc_reports/uc_reports.admin.inc:664
+msgid "monthly"
+msgstr "Monatlich"
+
+#: uc_reports/uc_reports.admin.inc:665
+msgid "yearly"
+msgstr "Jährlich"
+
+#: uc_reports/uc_reports.admin.inc:705
+msgid "You must select at least one order status."
+msgstr "Sie müssen mindestens einen Bestell Status auswählen"
+
+#: uc_reports/uc_reports.admin.inc:14
+msgid "Paged table size"
+msgstr "Größe mehrseitiger Tabellen"
+
+#: uc_reports/uc_reports.admin.inc:26
+msgid "Reported statuses"
+msgstr "Gemedete Stati"
+
+#: uc_reports/uc_reports.module:139
+msgid "view reports"
+msgstr "Auswertungen ansehen"
+
+#: uc_reports/uc_reports.module:0
+msgid "uc_reports"
+msgstr "uc_reports"
+
+#: uc_reports/uc_reports.info:0
+msgid "View reports about your store's sales, customers, and products."
+msgstr ""
+"Sehen Sie auswertungen zu den Verkäufen, Kunden und Artikeln ihres "
+"Shops"
+
+#: uc_reports/uc_reports.module:77
+msgid "View reports for store products"
+msgstr "Auswertung für Artikel im Shop anzeigen."
+
+#: uc_reports/uc_reports.module:85
+msgid "View reports for store sales"
+msgstr "Auswertungen zu den Shop verkäufen anzeigen."
+
+#: uc_reports/uc_reports.module:189
+msgid ""
+"The CSV data could not be retreived. It's possible the data might have "
+"expired. Refresh the report page and try to retrieve the CSV file "
+"again."
+msgstr ""
+"Die CSV daten konnten nicht abgerufen. Möglicher weise sind die daten "
+"nich mehr aktuell. Aktualisieren Sie der report Seite und versuchen "
+"Sie die CSV datei noch einmal zu laden."
+
+#: uc_reports/uc_reports.admin.inc:131,133,152,154
+msgid "Gross"
+msgstr "Brutto"
+
+#: uc_reports/uc_reports.module:31
+msgid "<b>Order statuses used:</b> @statuses"
+msgstr "<b>Genutzte Bestellstati:</b> @statuses"
+
+#: uc_reports/uc_reports.module:37
+msgid ""
+"The table lists each product listed in the store, its amount sold, how "
+"many times it has been viewed, revenue it has produced, and gross "
+"profit it has generated. If you do not see the number of views you "
+"must enable the Statistics module on the <a href=\"!url\">module "
+"administration page</a>."
+msgstr ""
+
+#: uc_reports/uc_reports.module:46
+msgid ""
+"This is the monthly break down of sales for the year @year. Clicking "
+"on each link will take you to a list of orders during that month."
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:238
+msgid ""
+"Make sure %setting_name is set to %state in the <a "
+"href=\"!url\">access log settings page</a> to enable views column."
+msgstr ""
+
+#: uc_reports/uc_reports.module:41
+msgid ""
+"Expand the fieldset below to customize the date range of this report, "
+"the statuses of orders displayed, and product display options."
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:103,237,461,623
+msgid "Export to CSV file."
+msgstr "Als CSV Datei exportieren."
+
+#: uc_reports/uc_reports.admin.inc:256
+msgid "Sales data"
+msgstr "Verkaufsdaten"
+
+#: uc_reports/uc_reports.admin.inc:256,385,388,526,529
+msgid "Number of orders"
+msgstr "Anzahl Bestellungen"
+
+#: uc_reports/uc_reports.admin.inc:256,385,388,526,529
+msgid "Total revenue"
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:256,385,388
+msgid "Average order"
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:262
+msgid "Today, !date"
+msgstr "Heute, !date"
+
+#: uc_reports/uc_reports.admin.inc:272
+msgid "Yesterday, !date"
+msgstr "Gestern, !date"
+
+#: uc_reports/uc_reports.admin.inc:303
+msgid "Daily average for @month"
+msgstr "Tagesdurchschnitt für @month"
+
+#: uc_reports/uc_reports.admin.inc:314
+msgid "Projected totals for @date"
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:324
+msgid "Statistics"
+msgstr "Statistiken"
+
+#: uc_reports/uc_reports.admin.inc:337
+msgid "Total orders by status"
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:360
+msgid "Unknown status"
+msgstr "Unbekannter Status"
+
+#: uc_reports/uc_reports.admin.inc:441,449
+msgid "Total @year"
+msgstr "Gesamt @year"
+
+#: uc_reports/uc_reports.admin.inc:526,529
+msgid "Products sold"
+msgstr "Verkaufte Produkte"
+
+#: uc_reports/uc_reports.admin.inc:555
+msgid "!count - @title"
+msgstr "!count - @title"
+
+#: uc_reports/uc_reports.admin.inc:632
+msgid "Customize sales report parameters"
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:633
+msgid ""
+"Adjust these values and update the report to build your custom sales "
+"summary. Once submitted, the report may be bookmarked for easy "
+"reference in the future."
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:659
+msgid "Results breakdown"
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:660
+msgid "Large daily reports may take a long time to display."
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:682
+msgid "Only orders with selected statuses will be included in the report."
+msgstr "Im Bericht werden nur Bestellungen mit den gewählten Stati angezeigt."
+
+#: uc_reports/uc_reports.admin.inc:682
+msgid "Hold Ctrl + click to select multiple statuses."
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:691
+msgid "Show a detailed list of products ordered."
+msgstr "Zeige eine detaillierte Liste der bestellten Artikel."
+
+#: uc_reports/uc_reports.admin.inc:697
+msgid "Update report"
+msgstr "Bericht aktualisieren"
+
+#: uc_reports/uc_reports.admin.inc:15
+msgid "The maximum number of rows displayed on one page for a report table."
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:27
+msgid "Only orders with selected statuses will be included in reports."
+msgstr ""
+
+#: uc_reports/uc_reports.admin.inc:284
+msgid "Month-to-date, @month"
+msgstr ""
+

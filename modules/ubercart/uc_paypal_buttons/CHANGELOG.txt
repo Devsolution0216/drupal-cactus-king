@@ -1,0 +1,43 @@
+/**
+ * Revisions log for Ubercart PayPal Buttons module
+ */
+
+version 2009/06/16 (release 6.x-1.0)
+-- ported 5.x-1.0 version to Drupal 6/Ubercart 2, removed integration
+  with the uc_subscribe module (not available for D6/U2), and
+  replaced support for Workflow-ng with Rules
+
+version 2009/04/24 (release 5.x-1.0)
+-- first release of uc_paypal_buttons on drupal.org
+-- added option for requiring that the user is logged in/registered
+  before checking out with PayPal (thanks to todda00)
+-- changed default return URL for successful payment or cancellation
+  to $base_url to fix a bug (thanks to todda00)
+-- fixed handling of free (zero amount/no payment) trial periods
+  for subscriptions (thanks to catch)
+-- PayPal Subscription IDs are recorded as order comments
+  when a sign-up IPN is received
+-- added product feature option for Buy Now items of whether
+  to include the note field on the PayPal confirmation page
+-- added validation for any PayPal Buttons IPNs to ensure that
+  purchase data returns (with the IPN) as it was sent by the
+  initial redirection
+-- added Workflow-ng events for when a Buy Now item is purchased,
+  and when a Subscription item is registered, renewed, or expires,
+  and also for subscription cancellation, failure, and modification
+-- added verification that Ubercart PayPal module is configured 
+  properly (PayPal server and e-mail are set)
+-- added currency sign prefix to monetary fields on settings pages
+-- merged changes in uc_paypal.module (from Ubercart version 5.x-1.7)
+  to uc_paypal_buttons_ipn 
+-- uc_subscribe integration and other post-payment handling is now
+  invoked after uc_cart_complete_sale
+-- uc_paypal_buttons does not need to create users, because 
+  uc_cart_complete_sale does this when the order is for an anonymous
+  user and no existing user matches the order's primary e-mail address
+-- removed check in uc_paypal_buttons_ipn for a duplicate txn_id 
+  because subscriptions use the same txn_id for payments
+-- improved compliance with Drupal coding standards
+
+version 2008/04/11
+-- first release of uc_paypal_buttons on ubercart.org

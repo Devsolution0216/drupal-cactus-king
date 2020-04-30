@@ -1,0 +1,26 @@
+; $Id: giordani.info,v 1.1 2008/06/20 08:42:56 lioz Exp $
+
+name = Giordani
+
+description = Marinelli theme with left sidebar first
+
+version = VERSION
+
+core = 6.x
+
+engine = phptemplate
+
+stylesheets[all][] = giordani.css
+
+base theme = marinelli
+
+
+
+
+
+; Information added by drupal.org packaging script on 2009-03-18
+version = "6.x-2.92"
+core = "6.x"
+project = "marinelli"
+datestamp = "1237377339"
+

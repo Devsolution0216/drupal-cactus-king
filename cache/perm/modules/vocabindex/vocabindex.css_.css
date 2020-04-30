@@ -1,0 +1,41 @@
+/*
+** General stuff.
+*/
+.vocabindex a, .vocabindex span.description {
+  display: block;
+}
+
+/*
+** Flat and alphabetical VIs.
+*/
+ul.vocabindex.flat li, ul.vocabindex.alphabetical li {
+  background-image: none;
+  border-bottom: 1px solid #ddd;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.vocabindex.flat .first, ul.vocabindex.alphabetical .first {
+  border-top: 1px solid #ddd;
+}
+.vocabindex.flat a, .vocabindex.alphabetical a {
+  padding: 3px 10px;
+  text-decoration: none;
+}
+.vocabindex.flat li.even, .vocabindex.alphabetical li.even {
+  background-color: #fafafa;
+}
+
+/*
+** Pager.
+*/
+.vocabindex-pager {
+  text-align: center;
+}
+.vocabindex-pager a {
+  margin: 0 0.3em;
+}
+.vocabindex-pager a.active {
+  color: #000;
+  font-weight: bold;
+}

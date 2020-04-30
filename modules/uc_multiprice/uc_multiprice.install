@@ -1,0 +1,68 @@
+<?php
+// $Id: uc_multiprice.install,v 1.2 2009/06/09 07:24:52 docc Exp $
+
+/**
+ * @file
+ * Install hooks for uc_multiprice.module
+ */
+
+function uc_multiprice_schema() {
+  $schema = array();
+  
+  $schema['uc_multiprice'] = array(
+    'fields' => array(
+      'nid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'country_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'list_price' => array(
+        'description' => t('Suggested retail price.'),
+        'type' => 'numeric',
+        'precision' => 15,
+        'scale' => 3,
+        'not null' => TRUE,
+        'default' => 0.0,
+      ),
+      'cost' => array(
+        'description' => t('The amount the store pays to sell the product.'),
+        'type' => 'numeric',
+        'precision' => 15,
+        'scale' => 3,
+        'not null' => TRUE,
+        'default' => 0.0,
+      ),
+      'sell_price' => array(
+        'description' => t('The amount the customer pays for the product.'),
+        'type' => 'numeric',
+        'precision' => 15,
+        'scale' => 3,
+        'not null' => TRUE,
+        'default' => 0.0,
+      ),
+    ),
+  );
+  
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function uc_multiprice_install() {
+  drupal_install_schema('uc_multiprice');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function uc_multiprice_uninstall() {
+  drupal_uninstall_schema('uc_multiprice');
+}

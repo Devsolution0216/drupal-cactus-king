@@ -1,0 +1,112 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Database Optimization.
+ */
+
+/**
+ * Database Drivers with which works module.
+ *
+ * @return array
+ *   List drivers.
+ */
+function optimizedb_available_db_drivers() {
+  return array(
+    'mysql',
+    'mysqli',
+    'pgsql',
+  );
+}
+
+/**
+ * Implements hook_enable().
+ */
+function optimizedb_enable() {
+  // Update information on the size of tables.
+  _optimizedb_tables_list();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function optimizedb_uninstall() {
+  variable_del('optimizedb_clear_period');
+  variable_del('optimizedb_last_clear');
+  variable_del('optimizedb_optimization_period');
+  variable_del('optimizedb_last_optimization');
+  variable_del('optimizedb_notify_optimize');
+  variable_del('optimizedb_tables_size');
+  variable_del('optimizedb_clear_type');
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function optimizedb_requirements($phase) {
+  global $db_type;
+
+  $requirements = array();
+  // Ensure translations don't break during installation.
+  $t = get_t();
+
+  if ($phase == 'runtime') {
+    // Check, if necessary optimization.
+    $notify_optimize = variable_get('optimizedb_notify_optimize', FALSE);
+
+    if ($notify_optimize) {
+      // The last time optimization in Unix format.
+      $last_optimization = variable_get('optimizedb_last_optimization', 0);
+
+      // If optimization is not carried out earlier
+      // must display an appropriate message.
+      if ((bool) $last_optimization !== FALSE) {
+        $time_optimization = $t('Last run: @date ago.', array(
+          '@date' => _optimizedb_date($last_optimization),
+        ));
+      }
+      else {
+        $time_optimization = $t('Optimization yet was not run.');
+      }
+
+      $requirements['optimizedb'] = array(
+        'title' => $t('Database Optimization'),
+        'description' => $t('You must perform <a href="@optimize_link">database optimization</a>. <a href="@hide_link">Hide notification</a>', array(
+          '@optimize_link' => url('admin/settings/optimizedb'),
+          '@hide_link' => url('admin/settings/optimizedb/hide'),
+        )),
+        'severity' => REQUIREMENT_ERROR,
+        'value' => $time_optimization,
+      );
+    }
+  }
+
+  if ($phase == 'install') {
+    $db_drivers_list = optimizedb_available_db_drivers();
+
+    if (!in_array($db_type, $db_drivers_list)) {
+      $requirements['optimizedb'] = array(
+        'title' => $t('Database Optimization'),
+        'description' => $t('The module Optimizedb does not work with db driver "@name".', array(
+          '@name' => $db_type,
+        )),
+        'severity' => REQUIREMENT_ERROR,
+      );
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Rename variable "optimize_clear_type" to "optimizedb_clear_type".
+ */
+function optimizedb_update_6000() {
+  $ret = array();
+
+  $clear_type = variable_get('optimize_clear_type', 0);
+  variable_set('optimizedb_clear_type', $clear_type);
+  variable_del('optimize_clear_type');
+
+  return $ret;
+}

@@ -1,0 +1,389 @@
+# $Id: uc_reports.ja.po,v 1.1.2.2 2009/11/26 06:39:21 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  uc_reports.admin.inc,v 1.1.2.14 2009/10/20 20:58:07 islandusurper
+#  uc_reports.module,v 1.11.2.12 2009/09/23 15:45:57 islandusurper
+#  uc_reports.info,v 1.2.2.5 2008/11/07 21:13:28 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-11-06 00:12+0900\n"
+"PO-Revision-Date: 2009-11-26 14:45+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_reports.admin.inc:17
+msgid "Paged table size"
+msgstr "1ページあたりのテーブルサイズ"
+
+#: uc_reports.admin.inc:18
+msgid "The maximum number of rows displayed on one page for a report table."
+msgstr "レポートテーブルの1ページに表示する最大行数。"
+
+#: uc_reports.admin.inc:29
+msgid "Reported statuses"
+msgstr "レポートに含む状態"
+
+#: uc_reports.admin.inc:30
+msgid "Only orders with selected statuses will be included in reports."
+msgstr "選択したステータスの注文だけがレポートに含まれます。"
+
+#: uc_reports.admin.inc:52;60;149;155;350;357;372;378
+msgid "#"
+msgstr "No."
+
+#: uc_reports.admin.inc:53;60
+msgid "Customer"
+msgstr "顧客"
+
+#: uc_reports.admin.inc:54;60
+msgid "Username"
+msgstr "ユーザ名"
+
+#: uc_reports.admin.inc:55;60
+msgid "Orders"
+msgstr "注文"
+
+#: uc_reports.admin.inc:56;60
+msgid "Products"
+msgstr "商品"
+
+#: uc_reports.admin.inc:57;60;1032;1040
+msgid "Total"
+msgstr "合計"
+
+#: uc_reports.admin.inc:58;60
+msgid "Average"
+msgstr "平均"
+
+#: uc_reports.admin.inc:105
+msgid "No customers found"
+msgstr "顧客がいません"
+
+#: uc_reports.admin.inc:111;272;458;874;1052
+msgid "Export to CSV file."
+msgstr "CSVファイルでエクスポート。"
+
+#: uc_reports.admin.inc:111;272
+msgid "Show paged records"
+msgstr "ページ分けされたレコードを表示"
+
+#: uc_reports.admin.inc:111;272
+msgid "Show all records"
+msgstr "全レコードを表示"
+
+#: uc_reports.admin.inc:150;155;351;357;373;378
+msgid "Product"
+msgstr "商品"
+
+#: uc_reports.admin.inc:151;155;353;357;374;378
+msgid "Sold"
+msgstr "売上"
+
+#: uc_reports.admin.inc:152;155;354;357;375;378
+msgid "Revenue"
+msgstr "収益"
+
+#: uc_reports.admin.inc:153;155;355;357;376;378
+msgid "Gross"
+msgstr "総計"
+
+#: uc_reports.admin.inc:158;159;352;357
+msgid "Views"
+msgstr "表示"
+
+#: uc_reports.admin.inc:266;451
+msgid "No products found"
+msgstr "商品がありません"
+
+#: uc_reports.admin.inc:273;461
+msgid "Make sure %setting_name is set to %state in the <a href=\"!url\">access log settings page</a> to enable views column."
+msgstr "列を表示できるようにするには、<a href=\"!url\">アクセスログの設定ページ</a>で%setting_nameが%stateに設定されているかを確認してください。"
+
+#: uc_reports.admin.inc:472
+msgid "Customize product report parameters"
+msgstr "商品レポートのパラメーターをカスタマイズ"
+
+#: uc_reports.admin.inc:473
+msgid "Adjust these values and update the report to build your custom product report. Once submitted, the report may be bookmarked for easy reference in the future."
+msgstr "カスタム商品レポートを作成するには、これらの値を調整してレポートを更新してください。一度送信すると、レポートをブックマークして簡単に参照することができます。"
+
+#: uc_reports.admin.inc:480;1076
+msgid "Start date"
+msgstr "開始日"
+
+#: uc_reports.admin.inc:489;1085
+msgid "End date"
+msgstr "終了日"
+
+#: uc_reports.admin.inc:508;1117
+msgid "Order statuses"
+msgstr "注文ステータス"
+
+#: uc_reports.admin.inc:509;1118
+msgid "Only orders with selected statuses will be included in the report."
+msgstr "選択したステータスの注文だけがレポートに含まれます。"
+
+#: uc_reports.admin.inc:509;1118
+msgid "Hold Ctrl + click to select multiple statuses."
+msgstr "複数選択する場合はCtrlを押しながらクリックしてください。"
+
+#: uc_reports.admin.inc:518;1133
+msgid "Update report"
+msgstr "レポートを更新"
+
+#: uc_reports.admin.inc:526;1146
+msgid "You must select at least one order status."
+msgstr "少なくとも1つの注文ステータスを選択してください。"
+
+#: uc_reports.admin.inc:657
+msgid "Sales data"
+msgstr "売上データ"
+
+#: uc_reports.admin.inc:657;793;796;950;953
+msgid "Number of orders"
+msgstr "注文数"
+
+#: uc_reports.admin.inc:657;793;796;950;953
+msgid "Total revenue"
+msgstr "総収入"
+
+#: uc_reports.admin.inc:657;793;796
+msgid "Average order"
+msgstr "注文平均"
+
+#: uc_reports.admin.inc:668
+msgid "Today, !date"
+msgstr "本日 !date"
+
+#: uc_reports.admin.inc:678
+msgid "Yesterday, !date"
+msgstr "昨日 !date"
+
+#: uc_reports.admin.inc:690
+msgid "Month-to-date, @month"
+msgstr "今月 (@month)"
+
+#: uc_reports.admin.inc:709
+msgid "Daily average for @month"
+msgstr "@monthの日別平均"
+
+#: uc_reports.admin.inc:720
+msgid "Projected totals for @date"
+msgstr "@dateの推計"
+
+#: uc_reports.admin.inc:730
+msgid "Statistics"
+msgstr "統計"
+
+#: uc_reports.admin.inc:733
+msgid "Grand total sales"
+msgstr "総売上"
+
+#: uc_reports.admin.inc:734
+msgid "Customers total"
+msgstr "顧客合計"
+
+#: uc_reports.admin.inc:735
+msgid "New customers today"
+msgstr "本日の新規顧客"
+
+#: uc_reports.admin.inc:736
+msgid "Online customers"
+msgstr "オンラインの顧客"
+
+#: uc_reports.admin.inc:743
+msgid "Total orders by status"
+msgstr "ステータス別注文合計"
+
+#: uc_reports.admin.inc:766
+msgid "Unknown status"
+msgstr "不明なステータス"
+
+#: uc_reports.admin.inc:793;796
+msgid "Month"
+msgstr "月"
+
+#: uc_reports.admin.inc:854;862
+msgid "Total @year"
+msgstr "@year 総計"
+
+#: uc_reports.admin.inc:888
+msgid "Sales year"
+msgstr "売上年"
+
+#: uc_reports.admin.inc:898
+msgid "View"
+msgstr "表示"
+
+#: uc_reports.admin.inc:950;953
+msgid "Date"
+msgstr "日付"
+
+#: uc_reports.admin.inc:950;953
+msgid "Products sold"
+msgstr "商品販売数"
+
+#: uc_reports.admin.inc:984
+msgid "!count - @title"
+msgstr "!count - @title"
+
+#: uc_reports.admin.inc:1068
+msgid "Customize sales report parameters"
+msgstr "売上レポートのパラメーターをカスタマイズ"
+
+#: uc_reports.admin.inc:1069
+msgid "Adjust these values and update the report to build your custom sales summary. Once submitted, the report may be bookmarked for easy reference in the future."
+msgstr "カスタム売上サマリーを作成するには、これらの値を調整してレポートを更新してください。一度送信すると、レポートをブックマークして簡単に参照することができます。"
+
+#: uc_reports.admin.inc:1095
+msgid "Results breakdown"
+msgstr "結果の区分"
+
+#: uc_reports.admin.inc:1096
+msgid "Large daily reports may take a long time to display."
+msgstr "大きな日別レポートは表示までに時間がかかります。"
+
+#: uc_reports.admin.inc:1098
+msgid "daily"
+msgstr "日別"
+
+#: uc_reports.admin.inc:1099
+msgid "weekly"
+msgstr "週別"
+
+#: uc_reports.admin.inc:1100
+msgid "monthly"
+msgstr "月別"
+
+#: uc_reports.admin.inc:1101
+msgid "yearly"
+msgstr "年別"
+
+#: uc_reports.admin.inc:1127
+msgid "Show a detailed list of products ordered."
+msgstr "注文を受けた商品の詳細なリストを表示。"
+
+#: uc_reports.module:55
+msgid "The following are total orders, products, sales, and average order totals for each store customer. Clicking on the header links will toggle a descending or ascending order for that column. Clicking on a customer's name will take you to a detailed list of orders that customer has made. Clicking on a customers username will take you to their account page."
+msgstr "注文と商品と売上の合計および顧客の注文合計の平均額です。ヘッダのリンクをクリックすると、その列の昇順と降順を切り替えることができます。顧客名をクリックすると、その顧客からの注文のリストを表示します。顧客のユーザ名をクリックすると、そのユーザのアカウントページを表示します。"
+
+#: uc_reports.module:58
+msgid "The table lists each product listed in the store, its amount sold, how many times it has been viewed, revenue it has produced, and gross profit it has generated. If you do not see the number of views you must enable the Statistics module on the <a href=\"!url\">module administration page</a>."
+msgstr "テーブルには店舗にある各商品が表示され、それぞれ商品ごとの販売数、閲覧数、売上、純利益が表示されています。閲覧数が表示されていなければ、<a href=\"!url\">モジュール管理ページ</a>でStatisticsモジュールを有効にしなくてはなりません。"
+
+#: uc_reports.module:61
+msgid "These are the sales for the last two days, average sales for the month, and the projected sales for the rest of the month. Further down the list you will see other sales statistics."
+msgstr "最近2日間の売上および月の平均売上、そして月の残りで予測される売上です。さらに下の一覧には、その他の売上統計があります。"
+
+#: uc_reports.module:64
+msgid "Expand the fieldset below to customize the date range of this report, the statuses of orders displayed, and product display options."
+msgstr "レポートの期間や表示する注文のステータス、商品の表示オプションをカスタマイズするには、下記のフィールドセットを展開してください。"
+
+#: uc_reports.module:69
+msgid "This is the monthly break down of sales for the year @year. Clicking on each link will take you to a list of orders during that month."
+msgstr "これは、@year年の売上を月別に区分けしたものです。各リンクをクリックすると、その月に受けた注文のリストへ移動します。"
+
+#: uc_reports.module:75
+msgid "All sales reports are <b>GMT !offset</b> (Default site timezone)"
+msgstr "すべての売上レポートは <strong>GMT !offset</strong> (サイトのデフォルトタイムゾーン)"
+
+#: uc_reports.module:82
+msgid "<b>Order statuses used:</b> @statuses"
+msgstr "<strong>統計に使用した注文ステータス:</strong> @statuses"
+
+#: uc_reports.module:251
+msgid "The CSV data could not be retreived. It's possible the data might have expired. Refresh the report page and try to retrieve the CSV file again."
+msgstr "CSVデータを検索できませんでした。データが期限切れの可能性があります。レポートページを読み込みしなおしてから、再びCSVファイルを検索してください。"
+
+#: uc_reports.module:205
+msgid "view reports"
+msgstr "レポートを表示"
+
+#: uc_reports.module:98
+msgid "Report settings"
+msgstr "レポートの設定"
+
+#: uc_reports.module:99
+msgid "View the report settings."
+msgstr "レポートの設定を表示。"
+
+#: uc_reports.module:107
+msgid "Customer reports"
+msgstr "顧客レポート"
+
+#: uc_reports.module:108
+msgid "View reports for store customers"
+msgstr "顧客のレポートを表示。"
+
+#: uc_reports.module:115
+msgid "Product reports"
+msgstr "商品レポート"
+
+#: uc_reports.module:116
+msgid "View reports for store products"
+msgstr "商品のレポートを表示。"
+
+#: uc_reports.module:123
+msgid "Product report"
+msgstr "商品レポート"
+
+#: uc_reports.module:130
+msgid "Custom product report"
+msgstr "カスタム商品レポート"
+
+#: uc_reports.module:131
+msgid "View a customized product report"
+msgstr "カスタマイズした商品レポートを表示"
+
+#: uc_reports.module:139
+msgid "Sales reports"
+msgstr "売上レポート"
+
+#: uc_reports.module:140
+msgid "View reports for store sales"
+msgstr "売上のレポートを表示。"
+
+#: uc_reports.module:147
+msgid "Sales summary"
+msgstr "売上サマリー"
+
+#: uc_reports.module:148
+msgid "View summary of all store sales"
+msgstr "全売上のサマリーを表示"
+
+#: uc_reports.module:154
+msgid "Sales per year"
+msgstr "年次売上"
+
+#: uc_reports.module:155
+msgid "View store sales for a particular year"
+msgstr "特定の年の売上を表示"
+
+#: uc_reports.module:163
+msgid "Custom sales summary"
+msgstr "カスタム売上サマリー"
+
+#: uc_reports.module:164
+msgid "View a customized sales summary"
+msgstr "カスタマイズした売上サマリーを表示"
+
+#: uc_reports.info:0
+msgid "Reports"
+msgstr "レポート"
+
+#: uc_reports.info:0
+msgid "View reports about your store's sales, customers, and products."
+msgstr "店舗の売上および顧客、商品に関するレポートを表示します。"
+
+#: uc_reports.info:0
+msgid "Ubercart - core (optional)"
+msgstr ""
+

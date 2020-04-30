@@ -1,0 +1,37 @@
+<?php
+// $Id: poormanscron.install,v 1.2.2.6 2010/01/17 00:23:12 davereid Exp $
+
+/**
+ * @file
+ * Install, update and uninstall functions for the poormanscron module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function poormanscron_uninstall() {
+  variable_del('poormanscron_interval');
+  variable_del('poormanscron_retry_interval');
+  variable_del('poormanscron_log_cron_runs');
+  variable_del('cron_safe_threshold');
+  variable_del('cron_threshold_semaphore');
+}
+
+/**
+ * Upgrade to the D7 variable names for easy transition.
+ */
+function poormanscron_update_6200() {
+  $interval = variable_get('poormanscron_interval', 60) * 60;
+  variable_set('cron_safe_threshold', max($interval, 3600));
+  variable_del('poormanscron_interval');
+  variable_del('poormanscron_retry_interval');
+  variable_del('poormanscron_log_cron_runs');
+  return array();
+}
+
+/**
+ * JavaScript variable names have changed.
+ */
+function poormanscron_update_6201() {
+  return array();
+}

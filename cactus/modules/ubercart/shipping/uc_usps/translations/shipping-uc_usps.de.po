@@ -1,0 +1,224 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_usps.admin.inc,v 1.1.2.2 2008/11/07 21:13:23 islandusurper
+#  uc_usps.module,v 1.6.2.8 2008/12/11 15:53:50 islandusurper
+#  uc_usps.info,v 1.4.2.3 2008/11/07 21:13:23 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-02-07 11:47+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: shipping/uc_usps/uc_usps.admin.inc:48
+msgid ""
+"Markup shipping rate quote by dollar amount, percentage, or "
+"multiplier."
+msgstr ""
+"Zeichnen Sie versandkosten aus nach Festbetrag, Prozentual oder als "
+"Multiplikator."
+
+#: shipping/uc_usps/uc_usps.module:23
+msgid "USPS"
+msgstr "USPS (US Postal Service)"
+
+#: shipping/uc_usps/uc_usps.module:118
+msgid "Shipping quote from USPS"
+msgstr "Versandkosten Angebot von UPS"
+
+#: shipping/uc_usps/uc_usps.module:142
+msgid "Shipping quote from USPS Intl."
+msgstr "Versandkosten angebot von USPS Intl."
+
+#: shipping/uc_usps/uc_usps.module:127
+msgid "Is in domestic US areas (US, AS, GU, PR, VI)"
+msgstr "Ist in US binnen Gebieten (US, AS, GU, PR, VI)"
+
+#: shipping/uc_usps/uc_usps.module:151
+msgid "Is not in domestic US areas (US, AS, GU, PR, VI)"
+msgstr "Ist nicht in US binnen Gebieten (US, AS, GU, PR, VI)"
+
+#: shipping/uc_usps/uc_usps.module:211
+msgid "U.S. Postal Service (Intl.)"
+msgstr "U.S. Postal Service (Intl.)"
+
+#: shipping/uc_usps/uc_usps.admin.inc:28,34
+msgid ""
+"Select the USPS services that are available to customers. Be sure to "
+"include the services that the Postal Service agrees are available to "
+"you."
+msgstr ""
+"Wählen Sie USPS Dienstleistungen die für ihre Kunden verfügbar sein "
+"sollen. Stellen Sie sicher das Sie nur Dienstlestungen wählen von "
+"denen der Postal service sagt, dass Sie für Sie verfügbar sind."
+
+#: shipping/uc_usps/uc_usps.module:285
+msgid "U.S.P.S. @service"
+msgstr "U.S.P.S. @service"
+
+#: shipping/uc_usps/uc_usps.module:357
+msgid "USPS @service"
+msgstr "USPS @service"
+
+#: shipping/uc_usps/uc_usps.module:632
+msgid "Flat rate box"
+msgstr "Pauschalversand Box"
+
+#: shipping/uc_usps/uc_usps.module:633
+msgid "Flat rate envelope"
+msgstr "Pauschal Umschlag"
+
+#: shipping/uc_usps/uc_usps.module:634
+msgid "Rectangular"
+msgstr "Rechteckig"
+
+#: shipping/uc_usps/uc_usps.module:635
+msgid "Non-rectangular"
+msgstr "nicht-Rechteckig"
+
+#: shipping/uc_usps/uc_usps.module:647
+msgid "U.S.P.S. Priority Mail"
+msgstr "U.S.P.S. Priority Mail"
+
+#: shipping/uc_usps/uc_usps.module:648
+msgid "U.S.P.S. Express Mail PO to PO"
+msgstr "U.S.P.S. Express Mail PO to PO"
+
+#: shipping/uc_usps/uc_usps.module:649
+msgid "U.S.P.S. Express Mail PO to Addressee"
+msgstr "U.S.P.S. Express Mail PO to Empänger"
+
+#: shipping/uc_usps/uc_usps.module:650
+msgid "U.S.P.S. Parcel Post"
+msgstr "U.S.P.S. Parcel Post"
+
+#: shipping/uc_usps/uc_usps.module:651
+msgid "U.S.P.S. Bound Printed Matter"
+msgstr "U.S.P.S. gebundene Drucksache"
+
+#: shipping/uc_usps/uc_usps.module:652
+msgid "U.S.P.S. Media Mail"
+msgstr "U.S.P.S. Media Mail"
+
+#: shipping/uc_usps/uc_usps.module:653
+msgid "U.S.P.S. Library"
+msgstr "U.S.P.S. Library"
+
+#: shipping/uc_usps/uc_usps.module:654
+msgid "U.S.P.S. First-Class Postcard Stamped"
+msgstr "U.S.P.S. First-Class Postcard Stamped"
+
+#: shipping/uc_usps/uc_usps.module:655
+msgid "U.S.P.S. Express Mail Flat-Rate Envelope"
+msgstr "U.S.P.S. Express Mail Flat-Rate Envelope"
+
+#: shipping/uc_usps/uc_usps.module:656
+msgid "U.S.P.S. Priority Mail Flat-Rate Envelope"
+msgstr "U.S.P.S. Priority Mail Flat-Rate Envelope"
+
+#: shipping/uc_usps/uc_usps.module:657
+msgid "U.S.P.S. Priority Mail Flat-Rate Box"
+msgstr "U.S.P.S. Priority Mail Flat-Rate Box"
+
+#: shipping/uc_usps/uc_usps.module:664
+msgid "Priority Mail International"
+msgstr "Priority Mail International"
+
+#: shipping/uc_usps/uc_usps.module:663
+msgid "Express Mail International (EMS)"
+msgstr "Express Mail International (EMS)"
+
+#: shipping/uc_usps/uc_usps.module:666
+msgid "Global Express Guaranteed"
+msgstr "Global Express Guaranteed"
+
+#: shipping/uc_usps/uc_usps.module:667
+msgid "Global Express Guaranteed Non-Document Rectangular"
+msgstr "Global Express Guaranteed Non-Document Rectangular"
+
+#: shipping/uc_usps/uc_usps.module:668
+msgid "Global Express Guaranteed Non-Document Non-Rectangular"
+msgstr "Global Express Guaranteed Keine-Dokumente Nicht Kubisch"
+
+#: shipping/uc_usps/uc_usps.module:669
+msgid "Priority Mail International Flat Rate Envelope"
+msgstr "Priority Mail International Flat Rate Envelope"
+
+#: shipping/uc_usps/uc_usps.module:0
+msgid "uc_usps"
+msgstr "uc_usps"
+
+#: shipping/uc_usps/uc_usps.info:0
+msgid ""
+"Integration of USPS Rate Calculator and Mail Service Standards Web "
+"Tools with Ubercart."
+msgstr ""
+"Integration des USPS Tarif Rechners und Versandservice Web tools in "
+"Ubercart."
+
+#: shipping/uc_usps/uc_usps.module:48
+msgid "USPS product description"
+msgstr "USPS Artikel beschreibung"
+
+#: shipping/uc_usps/uc_usps.admin.inc:20
+msgid "USPS user ID"
+msgstr "USPS Benutzer ID"
+
+#: shipping/uc_usps/uc_usps.admin.inc:21
+msgid ""
+"To acquire or locate your user ID, refer to the <a href=\"!url\">USPS "
+"documentation</a>."
+msgstr ""
+"Um eine Benutzer ID zu bekommen oder zu finen, wenden Sie sich an die "
+"<a href=\"!url\">USPS Dokumentation</a>."
+
+#: shipping/uc_usps/uc_usps.admin.inc:25
+msgid "USPS services"
+msgstr "USPS Diestleistungen"
+
+#: shipping/uc_usps/uc_usps.admin.inc:31
+msgid "USPS international services"
+msgstr "USPS Internatonale Diestleistungen"
+
+#: shipping/uc_usps/uc_usps.module:670
+msgid "Priority Mail International Flat Rate Box"
+msgstr "Priority Mail International Flat Rate Box"
+
+#: shipping/uc_usps/uc_usps.module:671
+msgid "Express Mail International (EMS) Flat Rate Envelope"
+msgstr "Express Mail International (EMS) Flat Rate Envelope"
+
+#: shipping/uc_usps/uc_usps.module:645
+msgid "U.S.P.S. First-Class Flat"
+msgstr "U.S.P.S. First-Class Flat"
+
+#: shipping/uc_usps/uc_usps.module:646
+msgid "U.S.P.S. First-Class Parcel"
+msgstr "U.S.P.S. First-Class Parcel"
+
+#: shipping/uc_usps/uc_usps.module:644
+msgid "U.S.P.S. First-Class Mail"
+msgstr ""
+
+#: shipping/uc_usps/uc_usps.module:672
+msgid "First Class Mail International Letter"
+msgstr ""
+
+#: shipping/uc_usps/uc_usps.module:673
+msgid "First Class Mail International Flat"
+msgstr ""
+
+#: shipping/uc_usps/uc_usps.module:674
+msgid "First Class Mail International Parcel"
+msgstr ""
+
+#: shipping/uc_usps/uc_usps.admin.inc:41
+msgid "Multiplier (�)"
+msgstr ""
+

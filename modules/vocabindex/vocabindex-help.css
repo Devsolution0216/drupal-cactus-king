@@ -1,0 +1,18 @@
+/*
+** Help page configuration steps
+*/
+#dynamic-help {
+  border-top: 1px solid #ccc; 
+  margin: 0.6em 0 1.2em 0;
+}
+#dynamic-help li {
+  background-position: 9px center;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 3px 3px 3px 30px;
+}
+
+#dynamic-help li.todo {
+  background: #ffd url(../../misc/watchdog-warning.png) 5px center no-repeat;
+  cursor: help;
+}

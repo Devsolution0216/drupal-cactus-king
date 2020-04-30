@@ -1,0 +1,21 @@
+<?php
+// $Id: uc_product_actions.install,v 1.1 2010/10/09 08:44:17 asak Exp $
+
+/**
+ * @file
+ * Install and disable functions for the Ubercart product actions module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function uc_product_actions_install() {
+  drupal_set_message(st("Ubercart product actions module has been installed. You can now use the custom actions anywhere actions are available, specifically in conjenction with the VBO module. For more info, see the README.txt file."));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function uc_product_actions_disable() {
+  drupal_set_message(st("Ubercart product actions module has been disabled - make sure you've removed the actions from VBO and any custom implementations."));
+}

@@ -1,0 +1,394 @@
+<?php
+// $Id: edit_term.module,v 1.3.2.3 2009/05/27 23:48:42 dman Exp $
+/**
+ * @file
+ *
+ * Enhancements to the Drupal admin interface - make term management easier.
+ *
+ * This module adds a few usability elements to the Drupal term management
+ * screens:
+ * 
+ * Direct link to 'edit term' page when viewing taxonomy/term/n pages
+ * This enables quick acces right to the term description and heirarchy
+ * position, returning the admin user to where they were on save.
+ * Also works for 'gallery' management pages from the image_gallery.module 
+ * 
+ * An edit form for menu placement for the term on the term edit page. Create
+ * and position a menu link to taxonomy/term/n as needed. No need to trust
+ * taxonomy_menu, go through the admin - menu screens and juggle weights, or try
+ * or other strange navigations. Just add a menu item the same as you do for a
+ * node.
+ * 
+ * An edit form for term aliases. Again, like editing a node, just give your
+ * term page a path. Should co-operate with pathauto also.
+ *
+ * The UI additions integrate with image_gallery.module to display the term edit
+ * tab on gallery pages also, and to edit gallery paths and menus the same as
+ * term pages ... taking care to redirect to image/tid/n pages, not
+ * taxonomy/term/n pages.
+ *
+ * Requires permissions: 
+ *   "administer taxonomy", "administer images" as needed.
+ *
+ * Credits:
+ * --------
+ * 
+ * Original edit_term 'block' feature
+ * @author Benjamin Melan�on of Agaric Design Collective, October 2007. http:
+ * //AgaricDesign.com
+ * 
+ * Usability additions
+ * - edit tabs
+ * - menu editor
+ * - alias editor
+ * @author Dan morrison (dman) http://coders.co.nz/ February 2008
+ * 
+ * @version $Id: edit_term.module,v 1.3.2.3 2009/05/27 23:48:42 dman Exp $
+ */
+
+/**
+ * Return help text describing this module
+ *
+ * Implementation of hook_help().
+ */
+function edit_term_help($path, $arg) {
+  switch ($path) {
+    case 'admin/modules#description' :
+      return t("Enhancements to make term editing easier.");
+    case 'admin/help#edit_term':
+      return ' '; // Show me on the help menu, but don't execute all the time
+    case 'admin/help/edit_term':
+      return edit_term_about();
+  }
+  return false;
+}
+
+/**
+ * Hook Implimentation
+ * 
+ * Adds edit tab to taxonomy pages.
+ */
+function edit_term_menu() {
+  $items = array();
+
+  // Add an edit tab to taxonomy pages for easy access
+  // Also needs menu_alter to shuffle the existing items around to fit.
+  $items['taxonomy/term/%/view'] = array(
+    'title' => t('View Term'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 0,
+  );
+
+  $items['taxonomy/term/%/edit-term'] = array(
+    'title' => t('Edit Term'),
+    'page callback' => 'edit_term_edit_taxonomy_term',
+    'page arguments' => array(2),
+    'access arguments' => array('administer taxonomy'),
+    'file' => 'taxonomy.admin.inc',
+    'file path' => drupal_get_path('module', 'taxonomy'),
+    'weight' => 1,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  /////////////////////////////////////////
+  // Add an edit tab to gallery pages also
+
+  $items['image/tid/%'] = array(
+    'title' => 'Image galleries',
+    'access arguments' => array('access content'),
+    'page arguments' => array('tid', 2),
+    'type' => MENU_CALLBACK,
+    'page callback' => 'image_gallery_page',
+  );
+
+  $items['image/tid/%/view'] = array(
+    'title' => t('View'),
+    'weight' => 0,
+    'type' => MENU_DEFAULT_LOCAL_TASK
+  );
+
+  $items['image/tid/%/edit-term'] = array(
+    'title' => t('Edit Gallery'),
+    'page callback' => 'edit_term_edit_taxonomy_term',
+    'page arguments' => array(2),
+    'access arguments' => array('administer images'),
+    'weight' => 1,
+    'type' => MENU_LOCAL_TASK
+  );
+
+  return $items;
+}
+
+/**
+ * An implementation of hook_menu_alter().
+ * Modify the 'view term' page to get a edit tab.
+ * Need to tweak the others to be nice neigbours
+ */
+function edit_term_menu_alter(&$items) {
+  $items['taxonomy/term']['type'] = MENU_CALLBACK;
+  $items['image']['type'] = MENU_CALLBACK;
+}
+
+
+/**
+ * Redirect the extra tab placed next to the normal term 'view' to the taxonomy
+ * admin edit page.
+ */
+function edit_term_edit_taxonomy_term($tid) {
+
+  if(! is_numeric($tid)) {
+    drupal_set_message("Invalid term requested - '$tid' is not available", 'error');
+    return drupal_not_found();
+  }
+
+  $term = taxonomy_get_term($tid);
+  $termpath = taxonomy_term_path($term);
+  // Help us bounce back to where we came from
+  $_REQUEST['destination'] = $termpath;
+
+  if ($term) {
+    drupal_set_title(t("Editing %term", array('%term' => $term->name)));
+    module_load_include('inc', 'taxonomy', 'taxonomy.admin');
+    return taxonomy_admin_term_edit($tid);
+  }
+  else {
+    return t("Failed to load term");
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ * Add menu item fields to the term form.
+ * 
+ * Somewhat copied from menu_form_alter()
+ */
+function edit_term_form_alter(&$form, $form_state, $form_id) {
+  if ($form_id == 'taxonomy_form_term') {
+
+    // When creating, the module has helpfully created a dummy $term for us
+    $term = (object)$form['#term'];
+
+    // Default form has no useful weighting on it.
+    // Add some
+    $form['identification']['#weight'] = 0;
+    $form['advanced']['#weight'] = 5;
+    $form['submit']['#weight'] = 10;
+    $form['delete']['#weight'] = 11;
+
+    // Add the menu editor
+    edit_term_menu_form($term, $form);
+
+    // Add the alias editor
+    if (module_exists('path')) {
+      edit_term_path_form($term, $form);
+    }
+  }
+}
+
+/**
+ * Adds the menu edit function to term view pages.
+ * 
+ * Helper to edit_term_form_alter. Amends the $form by reference.
+ * 
+ * Pretty much a copy of menu_form_alter(), 
+ * It does the same thing as node edit forms do.
+ */
+function edit_term_menu_form($term, &$form) {
+
+  if ($term->tid > 0) {
+    // Valid term. Does it have a menu yet?
+    $termpath = taxonomy_term_path($term); 
+    $mlid = db_result(db_query("SELECT mlid FROM {menu_links} WHERE link_path = '%s' ", $termpath));
+    if ($mlid) {
+      $item = menu_link_load($mlid);
+      $item['domenu'] = TRUE;
+    }
+  }
+  if(empty($item)) {
+    // Need a dummy menu item of some sort or menu.module gets confused when trying to save later
+    $item = array(
+      'customized' => 1,
+      'module' => 'menu',
+      'parent_depth_limit' => MENU_MAX_DEPTH,
+      'link_title' => $term->name,
+      'weight' => 0,
+      'domenu' => FALSE,
+      'mlid' => 0, # required 
+      'menu_name' => variable_get('menu_default_node_menu', 'primary-links'),
+      'plid' => 0,  
+    );
+  }
+
+  // Generate a list of possible parents for the selector.
+  $options = menu_parent_options(menu_get_menus(), $item);
+  $default = $item['menu_name'] .':'. $item['plid'];
+  
+  // If not already set, Guess the most likely parent based on taxonomy heirarchy
+  if (empty($item['plid']) && $parents = taxonomy_get_parents($term->tid) ) {
+    // looking for parents with existing menu items ;
+    foreach ($parents as $pid => $parent) {
+      $parent_path = taxonomy_term_path($parent);
+      $plid = db_result(db_query("SELECT mlid FROM {menu_links} WHERE link_path = '%s' ", $parent_path));
+      if ($plid && $parent_menu= menu_link_load($plid)) {
+        $default = $parent_menu['menu_name'] .':'. $parent_menu['mlid'];
+        $item['plid'] = $parent_menu['mlid'];
+        // Thats our default parent
+      }
+    }
+  }
+
+  // Below here partly copied from menu_form_alter
+
+  $form['menu'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Menu settings'),
+    '#access' => user_access('administer menu'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#tree' => TRUE,
+    '#weight' => 2,
+    '#attributes' => array('class' => 'menu-item-form'),
+  );
+
+  $form['menu']['domenu'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Create a menu item.'),
+    '#default_value' => ! empty($item['domenu']),
+  );
+
+  if (!$item['domenu']) {
+    $form['menu']['#collapsed'] = TRUE;
+  }
+
+  foreach (array('mlid', 'module', 'hidden', 'has_children', 'customized', 'options', 'expanded', 'hidden', 'parent_depth_limit') as $key) {
+    if(isset($item[$key])) $form['menu'][$key] = array('#type' => 'value', '#value' => $item[$key]);
+  }
+  $form['menu']['#item'] = $item;
+
+  $form['menu']['link_title'] = array('#type' => 'textfield',
+    '#title' => t('Menu link title'),
+    '#default_value' => $item['link_title'],
+    '#required' => FALSE,
+  );
+
+  $form['menu']['parent'] = array(
+    '#type' => 'select',
+    '#title' => t('Parent item'),
+    '#default_value' => $default,
+    '#options' => $options,
+    '#attributes' => array('class' => 'menu-title-select'),
+  );
+
+  $form['menu']['weight'] = array(
+    '#type' => 'weight',
+    '#title' => t('Weight'),
+    '#delta' => 50,
+    '#default_value' => $item['weight'],
+  );
+}
+
+/**
+ * Adds the path alias edit function to term pages
+ * 
+ * Helper to edit_term_form_alter
+ * 
+ * extension under hook_form_alter().
+ */
+function edit_term_path_form($term, &$form) {
+  $path = "";
+  if ($term->tid) {
+    $system_path = taxonomy_term_path($term);
+    $found_path = drupal_get_path_alias($system_path);
+    if ($found_path != $system_path) {
+      // Found an alias
+      $path = $found_path; 
+    }
+  }
+  $form['path']['path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('URL path settings'),
+    '#default_value' => $path,
+    '#access' => user_access('create url aliases'),
+    '#maxlength' => 250,
+    '#weight' => 3,
+  );
+  if ($path) {
+    $form['path']['pid'] = array(
+      '#type' => 'value',
+      '#value' => db_result(db_query("SELECT pid FROM {url_alias} WHERE dst = '%s'", $path))
+    );
+  }
+}
+
+/**
+ * Implementation of hook_taxonomy().
+ * 
+ * Capture the editing of a term from term edit form.
+ * Get the additional fields we added to the form. 
+ * Make out own updates as needed.
+ */
+function edit_term_taxonomy($op, $type, $form_values = NULL) {
+  if ($type == "term" && user_access('administer menu')) {
+    $term = (object) $form_values;
+
+    $termpath = taxonomy_term_path($term);
+    switch ($op) {
+      case 'insert':
+      case 'update':
+        // If the checkbox is set, create/update a menu
+        // if not, remove it.
+        
+        if (empty($term->menu['domenu'])) {
+          if (isset($term->menu['mlid']) ) {
+            menu_link_delete($term->menu['mlid']);
+          }
+        }
+        else {
+          // Split the parent menu identifier back from the string in the selectbox
+          list($term->menu['menu_name'], $term->menu['plid']) = explode(':', $term->menu['parent']);
+
+          if (! $term->menu['link_title']) {
+            $term->menu['link_title'] = $term->name;
+          }
+          $term->menu['link_path'] = $termpath;
+          $term->menu['options'] = array();
+          menu_link_save($term->menu);
+        }
+
+        // Also update term alias 
+        if (module_exists('path')) {
+          if (isset($term->path)) {
+            path_set_alias($termpath, $term->path);
+          }
+          else {
+            // Should DELETE the alias that used to apply to this term.
+            path_set_alias($termpath);
+            // path_set_alias($path, $alias, $pid);
+          }
+        }
+        break;
+
+      case 'delete':
+        if(isset($term->menu['mlid'])) {
+          menu_link_delete($term->menu['mlid']);
+        }
+        if (module_exists('path')) {
+          path_set_alias($termpath);
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Self-documenting help page.
+ * Return my own page header
+ */
+function edit_term_about() {
+  // Render this file header as the readme available under admin/help
+  $chunks = preg_split( '/(@file)|(\*\/)/', file_get_contents(__FILE__) );
+  $readme = preg_replace('|\n\s*\*|', "\n", $chunks[1]);
+  $readme = preg_replace('|\n\s*@|', "\n<br/>\n@", $readme);
+  $readme = preg_replace('|\n\s*\n|', "\n<br/><br/>\n", $readme);
+  return $readme;
+}

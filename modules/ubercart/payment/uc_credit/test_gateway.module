@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * A test module used as an example for a payment gateway.
+ *
+ * Development sponsored by the Ubercart project.  http://www.ubercart.org
+ */
+
+/*******************************************************************************
+ * Hook Functions (Ubercart)
+ ******************************************************************************/
+
+function test_gateway_payment_gateway() {
+  $gateways[] = array(
+    'id' => 'test_gateway',
+    'title' => t('Test Gateway'),
+    'description' => t('Process credit card payments through the Test Gateway.'),
+    'credit' => 'test_gateway_charge',
+  );
+
+  return $gateways;
+}
+
+
+/*******************************************************************************
+ * Module and Helper Functions
+ ******************************************************************************/
+
+function test_gateway_charge($order_id, $amount, $data) {
+  global $user;
+  $order = uc_order_load($order_id);
+
+  // Use 0000000000000000 to test a failed payment, anything else for a good one.
+  if ($order->payment_details['cc_number'] == '0000000000000000') {
+    $success = FALSE;
+  }
+  else {
+    $success = TRUE;
+  }
+
+  // Uncomment this lines to see the order object.  The information for the
+  // payment is in the $order->payment_details array.
+  // drupal_set_message('<pre>'. print_r($order->payment_details, TRUE) .'</pre>');
+
+  if ($success) {
+    $context = array(
+      'revision' => 'formatted-original',
+      'type' => 'amount',
+    );
+    $message = t('Credit card charged: !amount', array('!amount' => uc_price($amount, $context)));
+    uc_order_comment_save($order_id, $user->uid, $message, 'admin');
+  }
+  else {
+    $message = t('Credit card charge failed.');
+    uc_order_comment_save($order_id, $user->uid, $message, 'admin');
+  }
+
+  $result = array(
+    'success' => $success,
+    'comment' => t('Card charged, resolution code: 0022548315'),
+    'message' => $success ? t('Credit card payment processed successfully.') : t('Credit card charge failed.'),
+    'uid' => $user->uid,
+    // 'data' => $data,
+  );
+
+  return $result;
+}

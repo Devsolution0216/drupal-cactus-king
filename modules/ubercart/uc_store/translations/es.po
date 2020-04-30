@@ -1,0 +1,1788 @@
+# $Id: es.po,v 1.1.2.3 2008/08/06 13:41:27 islandusurper Exp $
+#
+# LANGUAGE translation of Drupal (uc_store.module)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_store.module,v 1.12 2007/10/02 17:43:48 rszrama
+#  uc_store.info,v 1.5 2007/10/02 17:43:48 rszrama
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2007-10-04 09:49-0400\n"
+"PO-Revision-Date: 2007-10-11 HH:MM+ZZZZ\n"
+"Last-Translator: Antonio de la Torre <antdltorre@gmail.com>\n"
+"Language-Team: Spanish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: uc_store.module:62
+msgid "Store administration"
+msgstr "Administración de tienda"
+
+#: uc_store.module:63
+msgid "Administer store settings, products, orders, and more."
+msgstr "Administrar opciones de tienda, productos, pedidos y demás."
+
+#: uc_store.module:70
+msgid "Customers"
+msgstr "Clientes"
+
+#: uc_store.module:71;81
+msgid "View and modify customer information and orders."
+msgstr "Ver y modificar información de clientes y pedidos."
+
+#: uc_store.module:80
+msgid "View customers"
+msgstr "Ver clientes"
+
+#: uc_store.module:89
+msgid "Search customers"
+msgstr "Buscar clientes"
+
+#: uc_store.module:90
+msgid "Search through your customer list."
+msgstr "Buscar a través de su lista de clientes"
+
+#: uc_store.module:98
+msgid "Reports"
+msgstr "Informes"
+
+#: uc_store.module:99
+msgid "Browse various store reports."
+msgstr "Navegue a través de varios informes de la tienda."
+
+#: uc_store.module:107
+msgid "Configuration"
+msgstr "Configuración"
+
+#: uc_store.module:108
+msgid "Adjust configuration settings for Ubercart."
+msgstr "Ajustar las opciones de configuración de Ubecart."
+
+#: uc_store.module:116
+msgid "Help"
+msgstr "Ayuda"
+
+#: uc_store.module:117
+msgid "Links to get help!"
+msgstr "¡Enlaces para obtener ayuda!"
+
+#: uc_store.module:125
+msgid "Using tokens"
+msgstr "Usando tokens"
+
+#: uc_store.module:126
+msgid "Understand what tokens are and how to use them."
+msgstr "Comprender lo que los tokens son y como usarlos."
+
+#: uc_store.module:133
+msgid "Country settings"
+msgstr "Opciones de paises"
+
+#: uc_store.module:136
+msgid "Configure country specific settings."
+msgstr "Configurar opciones específicas de país"
+
+#: uc_store.module:141;186
+msgid "Overview"
+msgstr "Revista"
+
+#: uc_store.module:143
+msgid "View the country settings."
+msgstr "Ver las opciones de país."
+
+#: uc_store.module:149;194;2537
+msgid "Edit"
+msgstr "Editar"
+
+#: uc_store.module:153
+msgid "Edit the country settings."
+msgstr "Ediatar las opciones de país"
+
+#: uc_store.module:159
+msgid "Import countries"
+msgstr "Importar paises"
+
+#: uc_store.module:161
+msgid "Import and manage countries."
+msgstr "Importar y gestionar paises."
+
+#: uc_store.module:167
+msgid "Country formats"
+msgstr "Formatos de paises"
+
+#: uc_store.module:171
+msgid "Edit the country specific format settings."
+msgstr "Editar las opciones de formato específicas de país."
+
+#: uc_store.module:178
+msgid "Store settings"
+msgstr "Opciones de tienda"
+
+#: uc_store.module:181
+msgid "Configure the main store settings."
+msgstr "Configurar las opciones principales de tienda."
+
+#: uc_store.module:188
+msgid "View the store settings."
+msgstr "Ver las opciones de la tienda."
+
+#: uc_store.module:198
+msgid "Edit the store settings."
+msgstr "Editar las opciones de la tienda."
+
+#: uc_store.module:204
+msgid "Contact settings"
+msgstr "Opciones de contacto"
+
+#: uc_store.module:206
+msgid "Edit the contact settings."
+msgstr "Editar las opciones de contacto."
+
+#: uc_store.module:212;1313
+msgid "Display settings"
+msgstr "Opciones de visualización"
+
+#: uc_store.module:216
+msgid "Edit the display settings."
+msgstr "Editar las opciones de visualización."
+
+#: uc_store.module:222;1322
+msgid "Format settings"
+msgstr "Opciones de formato"
+
+#: uc_store.module:226
+msgid "Edit the format settings."
+msgstr "Editar las opciones de formato."
+
+#: uc_store.module:232;1357
+msgid "Census settings"
+msgstr "Opciones de Census"
+
+#: uc_store.module:236
+msgid "Control information reported to www.ubercart.org."
+msgstr "Controlar la información remitida a www.ubercart.org."
+
+#: uc_store.module:243
+msgid "User initials"
+msgstr "Inciales de usuario"
+
+#: uc_store.module:247
+msgid "Assign initials to user accounts."
+msgstr "Asignar inciales a las cuentas de usuario."
+
+#: uc_store.module:252
+msgid "Table display settings"
+msgstr "Opciones de visualización de tabla"
+
+#: uc_store.module:255
+msgid "Configure the display of tables in your store."
+msgstr "Configurar la visualización de tablas en su tienda."
+
+#: uc_store.module:268
+msgid "JS utilities"
+msgstr "Utilidades JS"
+
+#: uc_store.module:277
+msgid "Customer orders"
+msgstr "Pedidos de cliente"
+
+#: uc_store.module:280
+msgid "View a list of orders placed by this customer."
+msgstr "Ver una lista de los pedidos almacenados de este cliente."
+
+#: uc_store.module:289
+msgid "Disable a country"
+msgstr "Desactivar un país"
+
+#: uc_store.module:290
+msgid "Disable a country from use."
+msgstr "Desactivar el uso de un país."
+
+#: uc_store.module:298
+msgid "Enable a country"
+msgstr "Activar una país"
+
+#: uc_store.module:299
+msgid "Enable a disabled country."
+msgstr "Activar un país desactivado."
+
+#: uc_store.module:307
+msgid "Remove a country"
+msgstr "Eliminar un país"
+
+#: uc_store.module:308
+msgid "Remove an installed country."
+msgstr "Eliminar una país instalado."
+
+#: uc_store.module:316
+msgid "Update a country"
+msgstr "Actualizar un país"
+
+#: uc_store.module:317
+msgid "Update an installed country."
+msgstr "Actualizar un país instalado."
+
+#: uc_store.module:362;364
+msgid "our store"
+msgstr "nuestra tienda"
+
+#: uc_store.module:380
+msgid "A link to the site login page."
+msgstr "Un enlace a la página de acceso del sitio."
+
+#: uc_store.module:381
+msgid "The URL for the site logo."
+msgstr "La URL al logo del sitio."
+
+#: uc_store.module:382
+msgid "The Ubercart store name."
+msgstr "El nombre de la tienda Ubercart."
+
+#: uc_store.module:383
+msgid "The Ubercart store URL."
+msgstr "La URL de la tienda Ubercart."
+
+#: uc_store.module:384
+msgid "A link to the Ubercart store using the store name."
+msgstr "Un enlace a la tienda Ubercart usando el nombre de la tienda."
+
+#: uc_store.module:385
+msgid "The Ubercart store owner."
+msgstr "El dueño de la tienda Ubercart."
+
+#: uc_store.module:386
+msgid "The Ubercart store e-mail address."
+msgstr "La dirección de correo-e de la tienda Ubercart."
+
+#: uc_store.module:387
+msgid "The Ubercart store phone number."
+msgstr "El número de teléfono de la tienda Ubercart."
+
+#: uc_store.module:388
+msgid "The Ubercart store mailing address."
+msgstr "La dirección de correo postal de la tienda Ubercart."
+
+#: uc_store.module:389
+msgid "The URL to the store help page."
+msgstr "La URL a la página de ayuda de la tienda."
+
+#: uc_store.module:397
+msgid "Ubercart contacts Ubercart.org once a day to retrieve update reminders and security alerts that may prevent monetary losses from security vulnerabilites. Additional information may be sent to generate anonymous, community-wide statistical data for display on the site."
+msgstr ""
+
+#: uc_store.module:465;481
+msgid "Store Links"
+msgstr "Enlaces de la Tienda"
+
+#: uc_store.module:521
+msgid "E-commerce powered by Ubercart, the <a href=\"!url\">free e-commerce shopping cart software.</a>"
+msgstr ""
+
+#: uc_store.module:595;1603;2582
+msgid "Title"
+msgstr "Título"
+
+#: uc_store.module:595;1214
+msgid "Description"
+msgstr "Descripción"
+
+#: uc_store.module:597
+msgid "Status messages:"
+msgstr "Mensaje de estado:"
+
+#: uc_store.module:607;640
+msgid "- Show links -"
+msgstr "- Mostrar Enlaces -"
+
+#: uc_store.module:607
+msgid "- Hide links -"
+msgstr "- Ocultar Enlaces -"
+
+#: uc_store.module:670
+msgid "The following users on your site have placed orders:"
+msgstr "Los usuarios siguientes han realizado pedidos en su sitio:"
+
+#: uc_store.module:684;731
+msgid "View"
+msgstr "Ver"
+
+#: uc_store.module:684
+msgid "Name"
+msgstr "Nombre"
+
+#: uc_store.module:684;870;2108
+msgid "E-mail"
+msgstr "Correo-e"
+
+#: uc_store.module:684;1378;1555;2129
+msgid "City"
+msgstr "Ciudad"
+
+#: uc_store.module:684
+msgid "ID"
+msgstr "ID"
+
+#: uc_store.module:688
+msgid "View user details."
+msgstr "Ver los detalles de usuario."
+
+#: uc_store.module:692
+msgid "View customer's order."
+msgstr "Ver los pedidos de clientes."
+
+#: uc_store.module:731
+msgid "Order ID"
+msgstr "ID de pedido"
+
+#: uc_store.module:731
+msgid "Date"
+msgstr "Fecha"
+
+#: uc_store.module:731
+msgid "Billing Name"
+msgstr "Nombre de Facturación"
+
+#: uc_store.module:732
+msgid "Shipping Name"
+msgstr "Nombre de Transporte"
+
+#: uc_store.module:732
+msgid "Items"
+msgstr "Artículos"
+
+#: uc_store.module:732
+msgid "Total"
+msgstr "Total"
+
+#: uc_store.module:736
+msgid "No orders found."
+msgstr "Ningún pedido encontrado."
+
+#: uc_store.module:744
+msgid "View order !order_id."
+msgstr "Ver pedido !order_id."
+
+#: uc_store.module:749
+msgid "Edit order !order_id."
+msgstr "Editar pedido !order_id."
+
+#: uc_store.module:780
+msgid "Create an order for this customer."
+msgstr "Crear un pedido para este cliente."
+
+#: uc_store.module:782
+msgid "!totals_orders orders shown match that account with !totals_items items purchased and !totals_total spent:"
+msgstr "!totals_orders pedidos mostrados coinciden esa cuenta con !totals_items artículos comprados y !totals_total gastados:"
+
+#: uc_store.module:824
+msgid "Search returned the following results:"
+msgstr "La búsqueda devolvió los resultados siguientes:"
+
+#: uc_store.module:835
+msgid "Search options"
+msgstr "Opciones de búsqueda"
+
+#: uc_store.module:843
+msgid "Search for customers based on any of the following fields.  Use * as a wildcard to match any character.<br/>For example, searching by last name for 's*' will return all customers whose last name starts with an s.<br/>(<em>Leave a field empty to ignore it in the search.</em>)"
+msgstr "Buscar clientes basados en alguno de los siguientes campos. Use * como comodín para coincidir cualquier carácter.<br/>Por ejemplo, buscando por los últimos apellidos con 's*' devolverá todos los clientes cuyo apellido comience con una s.<br/>(<em>Déjelo en blanco para ignorarlo en la búsqueda.</em>"
+
+#: uc_store.module:850
+msgid "First name"
+msgstr "Nombre"
+
+#: uc_store.module:860
+msgid "Last name"
+msgstr "Apellidos"
+
+#: uc_store.module:880
+msgid "Search"
+msgstr "Buscar"
+
+#: uc_store.module:921
+msgid "Default reports have not been added to Ubercart yet, but they will be here before the beta release.  In the meantime, you may be able to find <a href=\"!url\">contributed modules</a> that create reports.  If so, you will find link to them here!"
+msgstr ""
+
+#: uc_store.module:943
+msgid "Use the following links to find documentation and support:"
+msgstr "Utilice los enlaces siguientes para encontrar documentación y soporte:"
+
+#: uc_store.module:945
+msgid "Ubercart User's Guide"
+msgstr "Guía de Usuario de Ubercart"
+
+#: uc_store.module:946
+msgid "Support Forums"
+msgstr "Foros de soporte"
+
+#: uc_store.module:947
+msgid "Drupal Handbook"
+msgstr "Manuales de Drupal"
+
+#: uc_store.module:957
+msgid "Tokens are bracketed phrases you can use in certain text fields and boxes as placeholders for some other text. Tokens represent things like store variables, links to certain pages, order information, etc.  Tokens are used by including the token listed below in a text field that uses them.  The description for the textfields will alert you to which groups of tokens listed below may be used."
+msgstr ""
+
+#: uc_store.module:970
+msgid "!country version !version is !status."
+msgstr "Versión !country !version está !status."
+
+#: uc_store.module:970
+msgid "enabled"
+msgstr "activada"
+
+#: uc_store.module:970
+msgid "disabled"
+msgstr "desactivada"
+
+#: uc_store.module:974
+msgid "Imported countries"
+msgstr "Paises importados"
+
+#: uc_store.module:980
+msgid "Country specific formats"
+msgstr "Formatos específicos de país"
+
+#: uc_store.module:982
+msgid "Tweak the address formatting for a specific country."
+msgstr "Afinar el formato de direcciones para un país determinado."
+
+#: uc_store.module:998;1379;1557;2138
+msgid "Country"
+msgstr "País"
+
+#: uc_store.module:998
+msgid "Code"
+msgstr "Código"
+
+#: uc_store.module:998
+msgid "Version"
+msgstr "Versión"
+
+#: uc_store.module:998
+msgid "Operations"
+msgstr "Operaciones"
+
+#: uc_store.module:1009
+msgid "enable"
+msgstr "activar"
+
+#: uc_store.module:1012
+msgid "disable"
+msgstr "desactivar"
+
+#: uc_store.module:1015
+msgid "update"
+msgstr "actualizar"
+
+#: uc_store.module:1017
+msgid "remove"
+msgstr "eliminar"
+
+#: uc_store.module:1031
+msgid "To import new country data, make sure the file has been placed in the<br>Ubercart folder uc_store/countries, select it in the list, and click <em>Import</em>:"
+msgstr "Para importar datos de un nuevo país, asegúrese que el archivo está situado en la<br>carpeta de ubercart uc_store/countries, selecciónela de la lista y pulse <em>Importar</em>:"
+
+#: uc_store.module:1033
+msgid "Country:"
+msgstr "País"
+
+#: uc_store.module:1036
+msgid "-None available-"
+msgstr "-Ninguna disponible-"
+
+#: uc_store.module:1041
+msgid "Import"
+msgstr "Importar"
+
+#: uc_store.module:1061
+msgid "Country file !file imported."
+msgstr "Archivo de país !file importado."
+
+#: uc_store.module:1064
+msgid "Country file had no install function."
+msgstr "El archivo de país no tenía ninguna función de instalación."
+
+#: uc_store.module:1077
+msgid "!country disabled."
+msgstr "!country desactivado."
+
+#: uc_store.module:1080
+msgid "!country is already disabled."
+msgstr "!country está ya desactivado."
+
+#: uc_store.module:1084
+msgid "Attempted to disable an invalid country."
+msgstr "Ha intentado desactivar un país inválido."
+
+#: uc_store.module:1098
+msgid "!country enabled."
+msgstr "!country activado."
+
+#: uc_store.module:1101
+msgid "!country is already enabled."
+msgstr "!country está ya activado."
+
+#: uc_store.module:1105
+msgid "Attempted to enable an invalid country."
+msgstr "Ha intentado sactivar un país inválido."
+
+#: uc_store.module:1114;1139
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: uc_store.module:1118;1143
+msgid "Remove"
+msgstr "Eliminar"
+
+#: uc_store.module:1124
+msgid "Warning: !number orders were found with addresses in this country. Removing this country now will cause errors to show on those order pages. You might consider simply disabling this country instead."
+msgstr "Atención: !number pedidos fueron encontrados con direcciones en este país. Al eliminar este país ahora producirá errores en esas páginas de pedidos. Puede considerar desactivar simplemente este país en su lugar."
+
+#: uc_store.module:1130
+msgid "Are you sure you wish to completely remove this country?"
+msgstr "¿Está seguro de querer eliminar completamente este país?"
+
+#: uc_store.module:1154
+msgid "Attempted to remove an invalid country."
+msgstr "Ha intentado eliminar un país inválido."
+
+#: uc_store.module:1170
+msgid "!country removed."
+msgstr "!country eliminado."
+
+#: uc_store.module:1180;1201
+msgid "Attempted to update an invalid country."
+msgstr "Ha intentado actualizar un país inválido."
+
+#: uc_store.module:1185
+msgid "You cannot update to a previous version."
+msgstr "No puede actualizar a una versión previa."
+
+#: uc_store.module:1198
+msgid "Country update complete."
+msgstr "Actualización de país completada."
+
+#: uc_store.module:1210
+msgid "Address variables instructions"
+msgstr "Instrucciones de variables de direcciones"
+
+#: uc_store.module:1214
+msgid "Variable"
+msgstr "Variable"
+
+#: uc_store.module:1216
+msgid "customer's first name"
+msgstr "nombre del cliente"
+
+#: uc_store.module:1217
+msgid "customer's last name"
+msgstr "apellidos del cliente"
+
+#: uc_store.module:1218
+msgid "company name"
+msgstr "nombre de la compañía"
+
+#: uc_store.module:1219
+msgid "first street address field"
+msgstr "campo de primera dirección"
+
+#: uc_store.module:1220
+msgid "second street address field"
+msgstr "campo de segunda dirección"
+
+#: uc_store.module:1221
+msgid "city name"
+msgstr "nombre de ciudad"
+
+#: uc_store.module:1222
+msgid "full name of the zone"
+msgstr "nombre completo de la zona"
+
+#: uc_store.module:1223
+msgid "abbreviation of the zone"
+msgstr "abreviatura de la zona"
+
+#: uc_store.module:1224
+msgid "postal code"
+msgstr "código postal"
+
+#: uc_store.module:1225
+msgid "name of the country"
+msgstr "nombre de país"
+
+#: uc_store.module:1226
+msgid "2 digit country abbreviation"
+msgstr "abreviatura de país de 2 dígitos"
+
+#: uc_store.module:1227
+msgid "3 digit country abbreviation"
+msgstr "abreviatura de país de 3 dígitos"
+
+#: uc_store.module:1230
+msgid "The following variables should be used in configuring addresses for the countries you ship to:"
+msgstr "Las variables siguientes pueden ser usadas en las direcciones configuradas para los paises a los que realice transportes:"
+
+#: uc_store.module:1231
+msgid "*Adding _if to any country variable will make it only display for addresses<br>whose country is different than the default store country."
+msgstr "*Añadiendo _if a una variable de país la hará sólo mostrarse para direcciones<br>cuyo país sea diferente al país predefinido de la tienda."
+
+#: uc_store.module:1252
+msgid "Address format"
+msgstr "Formato de país"
+
+#: uc_store.module:1254
+msgid "Uses the variables mentioned in the instructions to format an address for this country."
+msgstr "Use las variables mencionadas en las isntrucciones para formatear una dirección para este país."
+
+#: uc_store.module:1262
+msgid "Submit changes"
+msgstr "Enviar cambios"
+
+#: uc_store.module:1272
+msgid "Country settings saved."
+msgstr "Opciones de país guardadas."
+
+#: uc_store.module:1286
+msgid "Name and contact information"
+msgstr "Información de nombre y contacto"
+
+#: uc_store.module:1288
+msgid "Store name is %name."
+msgstr "El nombre de la tienda es %name."
+
+#: uc_store.module:1288;1289;1290;1291;1292
+msgid "not set"
+msgstr "no configurado"
+
+#: uc_store.module:1289
+msgid "Store owner is %owner."
+msgstr "El propietario de la tienda es %owner."
+
+#: uc_store.module:1290
+msgid "Store e-mail is %email."
+msgstr "El correo-e de la tienda es %email."
+
+#: uc_store.module:1291
+msgid "Store phone number is !phone."
+msgstr "El número de teléfono de la tienda es !phone."
+
+#: uc_store.module:1292
+msgid "Store fax number is !fax."
+msgstr "El fax de la tienda es !fax."
+
+#: uc_store.module:1293
+msgid "Store address is:<p>!address"
+msgstr "La dirección de la tienda es:<p>!address"
+
+#: uc_store.module:1299;1398
+msgid "Dashboard with collapsed submenu links"
+msgstr "Tablero de mando con enlaces de submenús comprimidos"
+
+#: uc_store.module:1302;1399
+msgid "Dashboard with expanded submenu links"
+msgstr "Tablero de mando con enlaces de submenús expandidos"
+
+#: uc_store.module:1305;1400
+msgid "Dashboard with no submenu links"
+msgstr "Tablero de mando sin enlaces de submenús"
+
+#: uc_store.module:1308;1401
+msgid "Normal Drupal submenu listing"
+msgstr "Listado de submenú normal de Drupal"
+
+#: uc_store.module:1315
+msgid "Store admin page display type:<br>!type"
+msgstr "Tipo de visualización de la página de administración de la tienda:<br>!type"
+
+#: uc_store.module:1316
+msgid "Customer !type address used in lists."
+msgstr "dirección !type de cliente usada en las listas."
+
+#: uc_store.module:1316
+msgid "billing"
+msgstr "facturación"
+
+#: uc_store.module:1316
+msgid "shipping"
+msgstr "transporte"
+
+#: uc_store.module:1324
+msgid "Default currency: !code"
+msgstr "Moneda predefinida: !code"
+
+#: uc_store.module:1325
+msgid "Currency format: !value"
+msgstr "Formato de moneda: !value"
+
+#: uc_store.module:1326
+msgid "Weight format: !value"
+msgstr "Formato de peso: !value"
+
+#: uc_store.module:1327
+msgid "Date format: !value"
+msgstr "Formato de fecha: !value"
+
+#: uc_store.module:1333
+msgid "Basic version information"
+msgstr "Información básica de la versión"
+
+#: uc_store.module:1335;1706
+msgid "Host name"
+msgstr "Nombre de Servidor"
+
+#: uc_store.module:1338;1711
+msgid "List of enabled modules"
+msgstr "Lista de módulos activados"
+
+#: uc_store.module:1341;1716
+msgid "Number of fulfilled orders"
+msgstr "Número de pedidos realizados"
+
+#: uc_store.module:1344;1721
+msgid "Number of products sold"
+msgstr "Número de productos vendidos"
+
+#: uc_store.module:1347;1726
+msgid "Total sales"
+msgstr "Ventas totales"
+
+#: uc_store.module:1349
+msgid "You are reporting the following to Ubercart.org:"
+msgstr "Informes que se genera a Ubercart.org:"
+
+#: uc_store.module:1353
+msgid "You are not reporting any data to Ubercart.org."
+msgstr "No se están remitiendo informes a Ubercart.org."
+
+#: uc_store.module:1370
+msgid "Store Name"
+msgstr "Nombre de la Tienda"
+
+#: uc_store.module:1371
+msgid "Store Owner"
+msgstr "Propietario de la Tienda"
+
+#: uc_store.module:1372
+msgid "E-mail Address"
+msgstr "Dirección de Correo-e"
+
+#: uc_store.module:1373
+msgid "E-mail From Address"
+msgstr ""
+
+#: uc_store.module:1374;1551;2111
+msgid "Phone Number"
+msgstr "Número de Teléfono"
+
+#: uc_store.module:1375
+msgid "Fax Number"
+msgstr "Número de Fax"
+
+#: uc_store.module:1376;1553;2123
+msgid "Street Address 1"
+msgstr "Dirección 1"
+
+#: uc_store.module:1377;1554;2126
+msgid "Street Address 2"
+msgstr "Dirección 2"
+
+#: uc_store.module:1386;1556;2132
+msgid "Zone"
+msgstr "Zona"
+
+#: uc_store.module:1387;1558;2135
+msgid "Postal Code"
+msgstr "Código Postal"
+
+#: uc_store.module:1395
+msgid "Display type for the main store admininstration page"
+msgstr "Mostrar tipo parala página principal de administración de la tienda"
+
+#: uc_store.module:1396
+msgid "Some options are better suited for different themes, so feel free to try them all out!"
+msgstr "Algunas opciones se adaptan mejor en temas diferentes, por lo que ¡experimente con ellos!"
+
+#: uc_store.module:1414
+msgid "Select the address to be used on customer lists and summaries."
+msgstr "Seleccione la dirección usada en las listas y sumarios de cliente."
+
+#: uc_store.module:1416
+msgid "Also applies to notification e-mails."
+msgstr "También se aplica en los correos-e de notificación."
+
+#: uc_store.module:1421
+msgid "Primary customer address"
+msgstr "Dirección principal del cliente"
+
+#: uc_store.module:1424
+msgid "Billing address"
+msgstr "Dirección de facturación"
+
+#: uc_store.module:1425
+msgid "Shipping address"
+msgstr "Dirección de transporte"
+
+#: uc_store.module:1436
+msgid "Currency format"
+msgstr "Formato de moneda"
+
+#: uc_store.module:1442
+msgid "ISO 3-letter currency code"
+msgstr "Código de moneda ISO 3-letras"
+
+#: uc_store.module:1448
+msgid "Current Format"
+msgstr "Formato Corriente"
+
+#: uc_store.module:1453
+msgid "Currency Sign"
+msgstr "Signo de Moneda"
+
+#: uc_store.module:1456
+msgid "Display currency sign after amount."
+msgstr "Mostrar el signo de la moneda después de la cantidad."
+
+#: uc_store.module:1459
+msgid "Thousands Marker"
+msgstr "Marcador de Miles"
+
+#: uc_store.module:1460
+msgid "Decimal Marker"
+msgstr "Marcador de Decimales"
+
+#: uc_store.module:1464
+msgid "Number of Decimal Places"
+msgstr "Número de Decimales"
+
+#: uc_store.module:1471
+msgid "Weight format"
+msgstr "Formato de peso"
+
+#: uc_store.module:1476;1505
+msgid "Supply a format string for each unit. !value represents the weight value."
+msgstr "Suministra una cadena de formato para cada unidad. !value representa el valor del peso."
+
+#: uc_store.module:1479
+msgid "Pounds"
+msgstr "Libras"
+
+#: uc_store.module:1480
+msgid "Ounces"
+msgstr "Onzas"
+
+#: uc_store.module:1481
+msgid "Kilograms"
+msgstr "kilogramos"
+
+#: uc_store.module:1482
+msgid "Grams"
+msgstr "Gramos"
+
+#: uc_store.module:1486;1513
+msgid "Default unit of measurement"
+msgstr "unidad de medida predefinida"
+
+#: uc_store.module:1493;1520
+msgid "@unit format string"
+msgstr "Cadena de formato de @unit"
+
+#: uc_store.module:1500
+msgid "Length format"
+msgstr "Formato de longitud"
+
+#: uc_store.module:1508
+msgid "Inches"
+msgstr "Pulgadas"
+
+#: uc_store.module:1509
+msgid "Centimeters"
+msgstr "Centímetros"
+
+#: uc_store.module:1527
+msgid "Date format"
+msgstr "Formato de fecha"
+
+#: uc_store.module:1532
+msgid "Supply a format string using !link syntax."
+msgstr "Suministra una cadena de formato usando sintaxis de !link."
+
+#: uc_store.module:1532
+msgid "PHP date"
+msgstr "Fecha PHP"
+
+#: uc_store.module:1536
+msgid "Default format string"
+msgstr "Cadena de formato predefinida"
+
+#: uc_store.module:1549;2102
+msgid "First Name"
+msgstr "Nombre"
+
+#: uc_store.module:1550;2105
+msgid "Last Name"
+msgstr "Apellidos"
+
+#: uc_store.module:1552;2114
+msgid "Company"
+msgstr "Compañía"
+
+#: uc_store.module:1559;2117
+msgid "Address"
+msgstr "Dirección"
+
+#: uc_store.module:1560;2120
+msgid "Street Address"
+msgstr "Dirección de la Calle"
+
+#: uc_store.module:1592;1621
+msgid "Save configuration"
+msgstr "Guardar configuración"
+
+#: uc_store.module:1596;1637
+msgid "Reset to defaults"
+msgstr "Volver a predefinidos"
+
+#: uc_store.module:1603;2582
+msgid "Enabled"
+msgstr "Activado"
+
+#: uc_store.module:1603
+msgid "Field"
+msgstr "Campo"
+
+#: uc_store.module:1603
+msgid "Required"
+msgstr "Requerido"
+
+#: uc_store.module:1635
+msgid "The configuration options have been saved."
+msgstr "Las opciones de configuración han sido guardadas."
+
+#: uc_store.module:1642
+msgid "The configuration options have been reset to their default values."
+msgstr "Las opciones de configuración ha sido reseteadas a sus valores predefinidos."
+
+#: uc_store.module:1653
+msgid "User name"
+msgstr "Nombre de usuario"
+
+#: uc_store.module:1654
+msgid "Enter the name of the user whose initials you want to adjust."
+msgstr "Introduzca el nombre del usuario cuyas inciales quiere ajustar."
+
+#: uc_store.module:1661
+msgid "Initials"
+msgstr "Iniciales"
+
+#: uc_store.module:1662
+msgid "Enter initials or leave blank to erase current initials."
+msgstr "Introduzca las inicilaes o déjelo en blanco para borrar las iniciales actuales."
+
+#: uc_store.module:1668
+msgid "Submit"
+msgstr "Enviar"
+
+#: uc_store.module:1679
+msgid "Initials for !username deleted."
+msgstr "Iniciales para !username eliminadas."
+
+#: uc_store.module:1683
+msgid "Initials for !username set to !initials."
+msgstr "Las iniciales para !username fijadas en !initials."
+
+#: uc_store.module:1693
+msgid "Send anonymous statistical data to Ubercart.org as specified below."
+msgstr "Enviar datos anónimos de estadísticas a Ubercart.org como se especifica debajo."
+
+#: uc_store.module:1695
+msgid "To see the results of this data collection, please visit the !statistics page."
+msgstr "Para ver los resultados de esta colección de datos, por favor visite la página de !statistics."
+
+#: uc_store.module:1700
+msgid "Optional data"
+msgstr "Datos opcionales"
+
+#: uc_store.module:1701
+msgid "In addition to PHP, MySQL, and Drupal version information, the following types of data will also be reported:"
+msgstr "Además de información sobre la versión de PHP, MySQL y Drupal, los siguientes tipos de datos serán también remitidos:"
+
+#: uc_store.module:1737
+msgid "The following tables are used to display various parts of your store to your administrators and customers. Click on a table id to configure the display of that table."
+msgstr "Las siguientes tablas se usan para mostrar varias partes de su tienda a sus administradores y clientes. Pulse en un identificativo de tabla para configurar la visualización de ésta."
+
+#: uc_store.module:1979;1985;1986
+msgid "N/A"
+msgstr "N/A"
+
+#: uc_store.module:1979;1984
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: uc_store.module:2141
+msgid "The field title %field is being accessed incorrectly."
+msgstr "El título de campo %field ha sido accedido incorrectamente."
+
+#: uc_store.module:2206
+msgid "Not applicable"
+msgstr "No aplicable"
+
+#: uc_store.module:2209
+msgid "Please Select"
+msgstr "Por favo, seleccione"
+
+#: uc_store.module:2249
+msgid "No countries found."
+msgstr "Ningún país encontrado."
+
+#: uc_store.module:2273
+msgid "Day"
+msgstr "Día"
+
+#: uc_store.module:2287
+msgid "Month"
+msgstr "Mes"
+
+#: uc_store.module:2288
+msgid "01 - January"
+msgstr "01 - Enero"
+
+#: uc_store.module:2288
+msgid "02 - February"
+msgstr "02 - Febrero"
+
+#: uc_store.module:2288
+msgid "03 - March"
+msgstr "03 - Marzo"
+
+#: uc_store.module:2289
+msgid "04 - April"
+msgstr "04 - Abril"
+
+#: uc_store.module:2289
+msgid "05 - May"
+msgstr "05 - Mayo"
+
+#: uc_store.module:2289
+msgid "06 - June"
+msgstr "06 - Junio"
+
+#: uc_store.module:2290
+msgid "07 - July"
+msgstr "07 - Julio"
+
+#: uc_store.module:2290
+msgid "08 - August"
+msgstr "08 - Agosto"
+
+#: uc_store.module:2290
+msgid "09 - September"
+msgstr "09 - Septiembre"
+
+#: uc_store.module:2291
+msgid "10 - October"
+msgstr "10 - Octubre"
+
+#: uc_store.module:2291
+msgid "11 - November"
+msgstr "11 - Noviembre"
+
+#: uc_store.module:2291
+msgid "12 - December"
+msgstr "12 - Diciembre"
+
+#: uc_store.module:2307
+msgid "Year"
+msgstr "Año"
+
+#: uc_store.module:2330
+msgid "Select one..."
+msgstr "Seleccione uno..."
+
+#: uc_store.module:2337
+msgid "Address book"
+msgstr "Libro de direcciones"
+
+#: uc_store.module:2527
+msgid "No overview found."
+msgstr "Ninguna descripción encontrada."
+
+#: uc_store.module:2547
+msgid "No settings found."
+msgstr "Opciones no encontradas."
+
+#: uc_store.module:2582
+msgid "Weight"
+msgstr "Peso"
+
+#: uc_store.module:2632
+msgid "You must enter a number."
+msgstr "Debe introducir un número."
+
+#: uc_store.module:2635
+msgid "You must enter a negative number."
+msgstr "Debe introducir un número negativo."
+
+#: uc_store.module:2638
+msgid "You must enter a positive number."
+msgstr "Debe introducir un número positivo."
+
+#: uc_store.module:2659
+msgid "Afghanistan Afghani (AFA)"
+msgstr ""
+
+#: uc_store.module:2660
+msgid "Albanian Lek (ALL)"
+msgstr ""
+
+#: uc_store.module:2661
+msgid "Algerian Dinar (DZD)"
+msgstr ""
+
+#: uc_store.module:2662
+msgid "Argentine Peso (ARS)"
+msgstr ""
+
+#: uc_store.module:2663
+msgid "Aruba Florin (AWG)"
+msgstr ""
+
+#: uc_store.module:2664
+msgid "Australian Dollar (AUD)"
+msgstr ""
+
+#: uc_store.module:2665
+msgid "Bahamian Dollar (BSD)"
+msgstr ""
+
+#: uc_store.module:2666
+msgid "Bahraini Dinar (BHD)"
+msgstr ""
+
+#: uc_store.module:2667
+msgid "Bangladesh Taka (BDT)"
+msgstr ""
+
+#: uc_store.module:2668
+msgid "Barbados Dollar (BBD)"
+msgstr ""
+
+#: uc_store.module:2669
+msgid "Belarus Ruble (BYR)"
+msgstr ""
+
+#: uc_store.module:2670
+msgid "Belize Dollar (BZD)"
+msgstr ""
+
+#: uc_store.module:2671
+msgid "Bermuda Dollar (BMD)"
+msgstr ""
+
+#: uc_store.module:2672
+msgid "Bhutan Ngultrum (BTN)"
+msgstr ""
+
+#: uc_store.module:2673
+msgid "Bolivian Boliviano (BOB)"
+msgstr ""
+
+#: uc_store.module:2674
+msgid "Botswana Pula (BWP)"
+msgstr ""
+
+#: uc_store.module:2675
+msgid "Brazilian Real (BRL)"
+msgstr ""
+
+#: uc_store.module:2676
+msgid "British Pound (GBP)"
+msgstr "Libra Esterlina (GBP)"
+
+#: uc_store.module:2677
+msgid "Brunei Dollar (BND)"
+msgstr ""
+
+#: uc_store.module:2678
+msgid "Bulgarian Lev (BGN)"
+msgstr ""
+
+#: uc_store.module:2679
+msgid "Burundi Franc (BIF)"
+msgstr ""
+
+#: uc_store.module:2680
+msgid "Cambodia Riel (KHR)"
+msgstr ""
+
+#: uc_store.module:2681
+msgid "Canadian Dollar (CAD)"
+msgstr "Dolar Canadiense (CAD)"
+
+#: uc_store.module:2682
+msgid "Cape Verde Escudo (CVE)"
+msgstr ""
+
+#: uc_store.module:2683
+msgid "Cayman Islands Dollar (KYD)"
+msgstr ""
+
+#: uc_store.module:2684
+msgid "CFA Franc (BCEAO) (XOF)"
+msgstr ""
+
+#: uc_store.module:2685
+msgid "CFA Franc (BEAC) (XAF)"
+msgstr ""
+
+#: uc_store.module:2686
+msgid "Chilean Peso (CLP)"
+msgstr ""
+
+#: uc_store.module:2687
+msgid "Chinese Yuan (CNY)"
+msgstr ""
+
+#: uc_store.module:2688
+msgid "Colombian Peso (COP)"
+msgstr ""
+
+#: uc_store.module:2689
+msgid "Comoros Franc (KMF)"
+msgstr ""
+
+#: uc_store.module:2690
+msgid "Costa Rica Colon (CRC)"
+msgstr ""
+
+#: uc_store.module:2691
+msgid "Croatian Kuna (HRK)"
+msgstr ""
+
+#: uc_store.module:2692
+msgid "Cuban Peso (CUP)"
+msgstr ""
+
+#: uc_store.module:2693
+msgid "Cyprus Pound (CYP)"
+msgstr ""
+
+#: uc_store.module:2694
+msgid "Czech Koruna (CZK)"
+msgstr ""
+
+#: uc_store.module:2695
+msgid "Danish Krone (DKK)"
+msgstr ""
+
+#: uc_store.module:2696
+msgid "Dijibouti Franc (DJF)"
+msgstr ""
+
+#: uc_store.module:2697
+msgid "Dominican Peso (DOP)"
+msgstr ""
+
+#: uc_store.module:2698
+msgid "East Caribbean Dollar (XCD)"
+msgstr ""
+
+#: uc_store.module:2699
+msgid "Ecuador Sucre (ECS)"
+msgstr ""
+
+#: uc_store.module:2700
+msgid "Egyptian Pound (EGP)"
+msgstr ""
+
+#: uc_store.module:2701
+msgid "El Salvador Colon (SVC)"
+msgstr ""
+
+#: uc_store.module:2702
+msgid "Eritrea Nakfa (ERN)"
+msgstr ""
+
+#: uc_store.module:2703
+msgid "Estonian Kroon (EEK)"
+msgstr ""
+
+#: uc_store.module:2704
+msgid "Ethiopian Birr (ETB)"
+msgstr ""
+
+#: uc_store.module:2705
+msgid "Euro (EUR)"
+msgstr "Euro (EUR)"
+
+#: uc_store.module:2706
+msgid "Falkland Islands Pound (FKP)"
+msgstr ""
+
+#: uc_store.module:2707
+msgid "Fiji Dollar (FJD)"
+msgstr ""
+
+#: uc_store.module:2708
+msgid "Gambian Dalasi (GMD)"
+msgstr ""
+
+#: uc_store.module:2709
+msgid "Ghanian Cedi (GHC)"
+msgstr ""
+
+#: uc_store.module:2710
+msgid "Gibraltar Pound (GIP)"
+msgstr ""
+
+#: uc_store.module:2711
+msgid "Gold Ounces (XAU)"
+msgstr ""
+
+#: uc_store.module:2712
+msgid "Guatemala Quetzal (GTQ)"
+msgstr ""
+
+#: uc_store.module:2713
+msgid "Guinea Franc (GNF)"
+msgstr ""
+
+#: uc_store.module:2714
+msgid "Guyana Dollar (GYD)"
+msgstr ""
+
+#: uc_store.module:2715
+msgid "Haiti Gourde (HTG)"
+msgstr ""
+
+#: uc_store.module:2716
+msgid "Honduras Lempira (HNL)"
+msgstr ""
+
+#: uc_store.module:2717
+msgid "Hong Kong Dollar (HKD)"
+msgstr ""
+
+#: uc_store.module:2718
+msgid "Hungarian Forint (HUF)"
+msgstr ""
+
+#: uc_store.module:2719
+msgid "Iceland Krona (ISK)"
+msgstr ""
+
+#: uc_store.module:2720
+msgid "Indian Rupee (INR)"
+msgstr ""
+
+#: uc_store.module:2721
+msgid "Indonesian Rupiah (IDR)"
+msgstr ""
+
+#: uc_store.module:2722
+msgid "Iran Rial (IRR)"
+msgstr ""
+
+#: uc_store.module:2723
+msgid "Iraqi Dinar (IQD)"
+msgstr ""
+
+#: uc_store.module:2724
+msgid "Israeli Shekel (ILS)"
+msgstr ""
+
+#: uc_store.module:2725
+msgid "Jamaican Dollar (JMD)"
+msgstr ""
+
+#: uc_store.module:2726
+msgid "Japanese Yen (JPY)"
+msgstr ""
+
+#: uc_store.module:2727
+msgid "Jordanian Dinar (JOD)"
+msgstr ""
+
+#: uc_store.module:2728
+msgid "Kazakhstan Tenge (KZT)"
+msgstr ""
+
+#: uc_store.module:2729
+msgid "Kenyan Shilling (KES)"
+msgstr ""
+
+#: uc_store.module:2730
+msgid "Korean Won (KRW)"
+msgstr ""
+
+#: uc_store.module:2731
+msgid "Kuwaiti Dinar (KWD)"
+msgstr ""
+
+#: uc_store.module:2732
+msgid "Lao Kip (LAK)"
+msgstr ""
+
+#: uc_store.module:2733
+msgid "Latvian Lat (LVL)"
+msgstr ""
+
+#: uc_store.module:2734
+msgid "Lebanese Pound (LBP)"
+msgstr ""
+
+#: uc_store.module:2735
+msgid "Lesotho Loti (LSL)"
+msgstr ""
+
+#: uc_store.module:2736
+msgid "Liberian Dollar (LRD)"
+msgstr ""
+
+#: uc_store.module:2737
+msgid "Libyan Dinar (LYD)"
+msgstr ""
+
+#: uc_store.module:2738
+msgid "Lithuanian Lita (LTL)"
+msgstr ""
+
+#: uc_store.module:2739
+msgid "Macau Pataca (MOP)"
+msgstr ""
+
+#: uc_store.module:2740
+msgid "Macedonian Denar (MKD)"
+msgstr ""
+
+#: uc_store.module:2741
+msgid "Malagasy Franc (MGF)"
+msgstr ""
+
+#: uc_store.module:2742
+msgid "Malawi Kwacha (MWK)"
+msgstr ""
+
+#: uc_store.module:2743
+msgid "Malaysian Ringgit (MYR)"
+msgstr ""
+
+#: uc_store.module:2744
+msgid "Maldives Rufiyaa (MVR)"
+msgstr ""
+
+#: uc_store.module:2745
+msgid "Maltese Lira (MTL)"
+msgstr ""
+
+#: uc_store.module:2746
+msgid "Mauritania Ougulya (MRO)"
+msgstr ""
+
+#: uc_store.module:2747
+msgid "Mauritius Rupee (MUR)"
+msgstr ""
+
+#: uc_store.module:2748
+msgid "Mexican Peso (MXN)"
+msgstr ""
+
+#: uc_store.module:2749
+msgid "Moldovan Leu (MDL)"
+msgstr ""
+
+#: uc_store.module:2750
+msgid "Mongolian Tugrik (MNT)"
+msgstr ""
+
+#: uc_store.module:2751
+msgid "Moroccan Dirham (MAD)"
+msgstr ""
+
+#: uc_store.module:2752
+msgid "Mozambique Metical (MZM)"
+msgstr ""
+
+#: uc_store.module:2753
+msgid "Myanmar Kyat (MMK)"
+msgstr ""
+
+#: uc_store.module:2754
+msgid "Namibian Dollar (NAD)"
+msgstr ""
+
+#: uc_store.module:2755
+msgid "Nepalese Rupee (NPR)"
+msgstr ""
+
+#: uc_store.module:2756
+msgid "Neth Antilles Guilder (ANG)"
+msgstr ""
+
+#: uc_store.module:2757
+msgid "New Zealand Dollar (NZD)"
+msgstr ""
+
+#: uc_store.module:2758
+msgid "Nicaragua Cordoba (NIO)"
+msgstr ""
+
+#: uc_store.module:2759
+msgid "Nigerian Naira (NGN)"
+msgstr ""
+
+#: uc_store.module:2760
+msgid "North Korean Won (KPW)"
+msgstr ""
+
+#: uc_store.module:2761
+msgid "Norwegian Krone (NOK)"
+msgstr ""
+
+#: uc_store.module:2762
+msgid "Omani Rial (OMR)"
+msgstr ""
+
+#: uc_store.module:2763
+msgid "Pacific Franc (XPF)"
+msgstr ""
+
+#: uc_store.module:2764
+msgid "Pakistani Rupee (PKR)"
+msgstr ""
+
+#: uc_store.module:2765
+msgid "Palladium Ounces (XPD)"
+msgstr ""
+
+#: uc_store.module:2766
+msgid "Panama Balboa (PAB)"
+msgstr ""
+
+#: uc_store.module:2767
+msgid "Papua New Guinea Kina (PGK)"
+msgstr ""
+
+#: uc_store.module:2768
+msgid "Paraguayan Guarani (PYG)"
+msgstr ""
+
+#: uc_store.module:2769
+msgid "Peruvian Nuevo Sol (PEN)"
+msgstr ""
+
+#: uc_store.module:2770
+msgid "Philippine Peso (PHP)"
+msgstr ""
+
+#: uc_store.module:2771
+msgid "Platinum Ounces (XPT)"
+msgstr ""
+
+#: uc_store.module:2772
+msgid "Polish Zloty (PLN)"
+msgstr ""
+
+#: uc_store.module:2773
+msgid "Qatar Rial (QAR)"
+msgstr ""
+
+#: uc_store.module:2774
+msgid "Romanian Leu (ROL)"
+msgstr ""
+
+#: uc_store.module:2775
+msgid "Russian Rouble (RUB)"
+msgstr ""
+
+#: uc_store.module:2776
+msgid "Rwanda Franc (RWF)"
+msgstr ""
+
+#: uc_store.module:2777
+msgid "Samoa Tala (WST)"
+msgstr ""
+
+#: uc_store.module:2778
+msgid "Sao Tome Dobra (STD)"
+msgstr ""
+
+#: uc_store.module:2779
+msgid "Saudi Arabian Riyal (SAR)"
+msgstr ""
+
+#: uc_store.module:2780
+msgid "Seychelles Rupee (SCR)"
+msgstr ""
+
+#: uc_store.module:2781
+msgid "Sierra Leone Leone (SLL)"
+msgstr ""
+
+#: uc_store.module:2782
+msgid "Silver Ounces (XAG)"
+msgstr ""
+
+#: uc_store.module:2783
+msgid "Singapore Dollar (SGD)"
+msgstr ""
+
+#: uc_store.module:2784
+msgid "Slovak Koruna (SKK)"
+msgstr ""
+
+#: uc_store.module:2785
+msgid "Slovenian Tolar (SIT)"
+msgstr ""
+
+#: uc_store.module:2786
+msgid "Solomon Islands Dollar (SBD)"
+msgstr ""
+
+#: uc_store.module:2787
+msgid "Somali Shilling (SOS)"
+msgstr ""
+
+#: uc_store.module:2788
+msgid "South African Rand (ZAR)"
+msgstr ""
+
+#: uc_store.module:2789
+msgid "Sri Lanka Rupee (LKR)"
+msgstr ""
+
+#: uc_store.module:2790
+msgid "St Helena Pound (SHP)"
+msgstr ""
+
+#: uc_store.module:2791
+msgid "Sudanese Dinar (SDD)"
+msgstr ""
+
+#: uc_store.module:2792
+msgid "Surinam Guilder (SRG)"
+msgstr ""
+
+#: uc_store.module:2793
+msgid "Swaziland Lilageni (SZL)"
+msgstr ""
+
+#: uc_store.module:2794
+msgid "Swedish Krona (SEK)"
+msgstr ""
+
+#: uc_store.module:2795
+msgid "Swiss Franc (CHF)"
+msgstr ""
+
+#: uc_store.module:2796
+msgid "Syrian Pound (SYP)"
+msgstr ""
+
+#: uc_store.module:2797
+msgid "Taiwan Dollar (TWD)"
+msgstr ""
+
+#: uc_store.module:2798
+msgid "Tanzanian Shilling (TZS)"
+msgstr ""
+
+#: uc_store.module:2799
+msgid "Thai Baht (THB)"
+msgstr ""
+
+#: uc_store.module:2800
+msgid "Tonga Pa'anga (TOP)"
+msgstr ""
+
+#: uc_store.module:2801
+msgid "Trinidad & Tobago Dollar (TTD)"
+msgstr ""
+
+#: uc_store.module:2802
+msgid "Tunisian Dinar (TND)"
+msgstr ""
+
+#: uc_store.module:2803
+msgid "Turkish Lira (TRL)"
+msgstr ""
+
+#: uc_store.module:2804
+msgid "U.S. Dollar (USD)"
+msgstr "Dolar EE.UU. (USD)"
+
+#: uc_store.module:2805
+msgid "UAE Dirham (AED)"
+msgstr ""
+
+#: uc_store.module:2806
+msgid "Ugandan Shilling (UGX)"
+msgstr ""
+
+#: uc_store.module:2807
+msgid "Ukraine Hryvnia (UAH)"
+msgstr ""
+
+#: uc_store.module:2808
+msgid "Uruguayan New Peso (UYU)"
+msgstr ""
+
+#: uc_store.module:2809
+msgid "Vanuatu Vatu (VUV)"
+msgstr ""
+
+#: uc_store.module:2810
+msgid "Venezuelan Bolivar (VEB)"
+msgstr ""
+
+#: uc_store.module:2811
+msgid "Vietnam Dong (VND)"
+msgstr ""
+
+#: uc_store.module:2812
+msgid "Yemen Riyal (YER)"
+msgstr ""
+
+#: uc_store.module:2813
+msgid "Yugoslav Dinar (YUM)"
+msgstr ""
+
+#: uc_store.module:2814
+msgid "Zambian Kwacha (ZMK)"
+msgstr ""
+
+#: uc_store.module:2815
+msgid "Zimbabwe Dollar (ZWD)"
+msgstr ""
+
+#: uc_store.module:493
+msgid "administer store"
+msgstr "administrar tienda"
+
+#: uc_store.module:493
+msgid "view customers"
+msgstr "ver clientes"
+
+#: uc_store.module:493
+msgid "view store reports"
+msgstr "ver informes de la tienda"
+
+#: uc_store.module:0
+msgid "uc_store"
+msgstr "uc_store"
+
+#: uc_store.info:0
+msgid "Store"
+msgstr "Tienda"
+
+#: uc_store.info:0
+msgid "REQUIRED. Setup the store settings and manage your Ubercart site."
+msgstr "REQUERIDO. Configurar las opciones de la tienda y gestionar su sitio Ubercart."
+
+#: uc_store.info:0
+msgid "Ubercart - core"
+msgstr "Ubercart - core"
+

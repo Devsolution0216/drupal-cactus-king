@@ -1,0 +1,661 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_file.module,v 1.2.2.9 2008/12/09 15:20:38 islandusurper
+#  uc_file.admin.inc,v 1.1.2.3 2008/11/21 21:17:26 islandusurper
+#  uc_file.pages.inc,v 1.1.2.4 2008/11/21 21:17:26 islandusurper
+#  uc_file.info,v 1.2.2.5 2008/11/07 21:13:23 islandusurper
+#  uc_file.ca.inc,v 1.1.2.1 2008/11/21 21:17:26 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-11-10 16:05+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_file/uc_file.module:52
+msgid "View file downloads"
+msgstr "Datei Downloads ansehen"
+
+#: uc_file/uc_file.module:53
+msgid "View all file download features on products."
+msgstr "Alle Datei Download features bei Produkten anzeigen."
+
+#: uc_file/uc_file.module:585,730,61
+msgid "File download"
+msgstr "Datei Download"
+
+#: uc_file/uc_file.module:62
+msgid "Edit the notification settings for purchased file downloads."
+msgstr ""
+"Benachrichtigungs Einstellungen für gekaufte Datei downloads "
+"bearbeiten."
+
+#: uc_file/uc_file.module:70
+msgid "Files"
+msgstr "Dateien"
+
+#: uc_file/uc_file.module:71
+msgid "View your purchased files."
+msgstr "Ihre gekauften Dateien ansehen."
+
+#: uc_file/uc_file.module:273
+msgid "Add file"
+msgstr "Datei hinzufügen"
+
+#: uc_file/uc_file.module:828
+msgid "%file is not a valid file or directory inside file download directory."
+msgstr ""
+"%file ist keine gültige Datei oder gültiges Verzeichniss innerhalb "
+"des Datei Downloadverzeichnisses."
+
+#: uc_file/uc_file.module:383
+msgid "Click here to view your file downloads."
+msgstr "Hier klicken um ihre Datei downloads zu sehen."
+
+#: uc_file/uc_file.module:621
+msgid "The list of file download links (if any) associated with an order"
+msgstr ""
+"Eine Liste von Download Links (falls vorhanden) in Verbindung mit "
+"einer Bestellung"
+
+#: uc_file/uc_file.module:1174
+msgid "File Downloads for Order# [order-id]"
+msgstr "Datei zum Herunterladen für Bestellung # [order-id]"
+
+#: uc_file/uc_file.module:725
+msgid ""
+"This is the model/SKU that will need to be purchased to obtain the "
+"file download."
+msgstr ""
+"Dies ist das Modul/SKU welches Sie kaufen müssen um den Datei "
+"Download zu erhalten."
+
+#: uc_file/uc_file.module:741
+msgid "A description of the download associated with the product."
+msgstr "Eine Beschreibung des Downloads welcher mit dem Produkt verbunden ist."
+
+#: uc_file/uc_file.module:747
+msgid ""
+"Check if this product model/SKU file download is also associated with "
+"a shippable product."
+msgstr ""
+"Überprüfe ob dieser Produkt Modul/SKU Datei Download auch mit einem "
+"verschickbaren Produkt verbunden ist."
+
+#: uc_file/uc_file.module:918
+msgid "Files path"
+msgstr "Datei Pfad"
+
+#: uc_file/uc_file.module:930
+msgid "Download limits"
+msgstr "Download beschränkung"
+
+#: uc_file/uc_file.module:937
+msgid ""
+"The number of times a file can be downloaded. Leave empty to set no "
+"limit."
+msgstr ""
+"Wie oft soll eine Datei heruntergeladen werden können. Leer lassen  "
+"um kein Limit zu setzen."
+
+#: uc_file/uc_file.module:784,944
+msgid "IP addresses"
+msgstr "Ipadressen"
+
+#: uc_file/uc_file.module:945
+msgid ""
+"The number of unique IPs that a file can be downloaded from. Leave "
+"empty to set no limit."
+msgstr ""
+"Dien anzahl von eindeutigen IPs von denen aus die Datei "
+"heruntergeladen werden kann. Leer lassen um kein Limit zu setzten."
+
+#: uc_file/uc_file.module:970
+msgid ""
+"How long after a product has been purchased until its file download "
+"expires."
+msgstr ""
+"Wie lange der Datei Download gültig bleibt nach dem das Produkt "
+"gekauft wurde."
+
+#: uc_file/uc_file.module:981
+msgid "%dir is not a valid file or directory"
+msgstr "%dir ist kein gültiges Verzeichnis"
+
+#: uc_file/uc_file.admin.inc:86,244
+msgid "Delete file(s)"
+msgstr "Lösche Datei(en)"
+
+#: uc_file/uc_file.admin.inc:87,304,307
+msgid "Upload file"
+msgstr "Datei hochladen"
+
+#: uc_file/uc_file.admin.inc:79
+msgid "File options"
+msgstr "Datei Optionen"
+
+#: uc_file/uc_file.admin.inc:113
+msgid "Perform action"
+msgstr "Aktion ausführen"
+
+#: uc_file/uc_file.admin.inc:228
+msgid "directory"
+msgstr "Verzeichnis"
+
+#: uc_file/uc_file.admin.inc:254
+msgid "Delete selected directories and their sub directories"
+msgstr "Lösche ausgewählte Verzeichnisse und deren Unterverzeichnisse"
+
+#: uc_file/uc_file.admin.inc:246
+msgid ""
+"Deleting a file will remove all its associated file downloads and "
+"product features. Removing a directory will remove any files it "
+"contains and their associated file downloads and product features."
+msgstr ""
+"Beim Löschen einer Datei wird der damit verbundene Download sowie "
+"Produkt Merkmale ebenfalls gelöscht. Das Löschen eines "
+"Verzeichnisses bewirkt die Löschung aller darin befindlichen Dateien "
+"sowie die Damit verbundenen Downloads und Produkt Merkmale."
+
+#: uc_file/uc_file.admin.inc:292
+msgid "Directory"
+msgstr "Verzeichnis"
+
+#: uc_file/uc_file.admin.inc:293
+msgid ""
+"The directory to upload the file to. The default directory is the root "
+"of the file downloads directory."
+msgstr ""
+"Das Verzeichnis in welche die Datei hochgeladen wird. Das "
+"Standardverzeichnis ist das Wurzelverzeichnis des "
+"Downloadverzeichnisses."
+
+#: uc_file/uc_file.admin.inc:298,494
+msgid "File"
+msgstr "Datei"
+
+#: uc_file/uc_file.admin.inc:350
+msgid "An error occurred while uploading the file"
+msgstr "Während des Hochladens trat ein Fehler auf"
+
+#: uc_file/uc_file.admin.inc:414
+msgid "An error occurred while copying the file to %dir"
+msgstr "Während des Kopiervorgangs nach %dir trat ein Fehler auf"
+
+#: uc_file/uc_file.admin.inc:418
+msgid "Can not move file to %dir"
+msgstr "Es ist nicht möglich die Datei nach %dir zu verschieben"
+
+#: uc_file/uc_file.pages.inc:35
+msgid "Purchased"
+msgstr "Bestellt"
+
+#: uc_file/uc_file.pages.inc:90
+msgid "No downloads found"
+msgstr "Keine Dateien zum Herunterladen gefunden"
+
+#: uc_file/uc_file.pages.inc:118
+msgid ""
+"Please contact the site administrator if this message has been "
+"received in error."
+msgstr ""
+"Bitte setzen Sie sich mit dem Administrator der Seite in Verbindung "
+"falls Sie diese Nachricht irrtümlich erhalten haben."
+
+#: uc_file/uc_file.pages.inc:166
+msgid "The user %username "
+msgstr "Der Benutzer %username "
+
+#: uc_file/uc_file.pages.inc:166
+msgid "The IP address %ip "
+msgstr "Die IP Adresse %ip "
+
+#: uc_file/uc_file.pages.inc:121
+msgid "You have attempted to download an incorrect file URL too many times. "
+msgstr ""
+"Eine falsche Dateie wurde zu oft versucht von Ihnen herunter zu laden. "
+""
+
+#: uc_file/uc_file.pages.inc:122
+msgid "The following URL is not a valid download link. "
+msgstr "Die folgende URL ist kein gültiger Download Link. "
+
+#: uc_file/uc_file.pages.inc:123
+msgid "You have downloaded this file from too many different locations. "
+msgstr ""
+"Sie haben diese Datei von zu vielen verschiedenen Orten herunter "
+"geladen. "
+
+#: uc_file/uc_file.pages.inc:125
+msgid "This file download has expired. "
+msgstr "Dieser Datei Download ist abgelaufen. "
+
+#: uc_file/uc_file.module:103
+msgid "download file"
+msgstr "Datei herunterladen"
+
+#: uc_file/uc_file.info:0
+msgid "Allows products to be associated with downloadable files."
+msgstr "Erlaubt es Produkte mit herunterladbaren Dateien zu verbinden."
+
+#: uc_file/uc_file.module:871
+msgid "<strong>Directory:</strong> !dir<br/>"
+msgstr "<strong>Verzeichniss:</strong> !dir<br/>"
+
+#: uc_file/uc_file.module:874
+msgid "<strong>File:</strong> !file<br/>"
+msgstr "<strong>Datei:</strong> !file<br/>"
+
+#: uc_file/uc_file.module:876
+msgid "<strong>Shippable:</strong> Yes"
+msgstr "<strong>Versendbar:</strong> Ja"
+
+#: uc_file/uc_file.module:876
+msgid "<strong>Shippable:</strong> No"
+msgstr "<strong>Versendbar:</strong> Nein"
+
+#: uc_file/uc_file.admin.inc:519
+msgid ""
+"The message the user receives after purchasing products with file "
+"downloads (<a href=\"!token_url\">uses order, uc_file, and global "
+"tokens</a>)"
+msgstr ""
+"Die Nachricht welche ein Benutzer nach dem Kauf eines herunterladbaren "
+"Produktes erhält (<a href=\"!token_url\">uses order, uc_file, and "
+"global tokens</a>)"
+
+#: uc_file/uc_file.module:103
+msgid "view all downloads"
+msgstr "zeige alle Downloads"
+
+#: uc_file/uc_file.module:603
+msgid ""
+"The file downloads directory is not valid or set. Set a valid "
+"directory in the <a href=\"!url\">product feature settings</a> under "
+"the file download settings fieldset."
+msgstr ""
+"Das Datei Download Verzeichnis ist nicht gültig bzw. nicht "
+"eingetragen. Tragen Sie ein gültiges Verzeichnis in den <a "
+"href=\"!url\">Produkt Merkmal Einstellungen</a> unterhalb der Datei "
+"Download Einstellungen ein."
+
+#: uc_file/uc_file.module:610
+msgid "The file downloads directory has been set and is working."
+msgstr "Das Datei Download Verzeichniss wurde gesetzt und funktioniert."
+
+#: uc_file/uc_file.module:733
+msgid ""
+"The file that can be downloaded when product is purchased (enter a "
+"path relative to the %dir directory)."
+msgstr ""
+"Die Datei die heruntergeladen werden kann wenn der Artikel gekauft "
+"wurde (geben sie einen Pfad relativ zum %dir Verzeichnis an)"
+
+#: uc_file/uc_file.module:676
+msgid ""
+"A file directory needs to be configured in <a href=\"!url\">product "
+"feature settings</a> before a file can be selected."
+msgstr ""
+"Es muss ein Datei verzeichnis in den <a href=\"!url\">Artikel feature "
+"Einstellungen</a> konfiguriert werden bevor Sie eine Datei auswählen "
+"können."
+
+#: uc_file/uc_file.pages.inc:85,86
+msgid "Unlimited"
+msgstr "Unbegrenzt"
+
+#: uc_file/uc_file.module:1180
+msgid ""
+"Your order (order# [order-link]) at [store-name] included file "
+"download(s). You may access them with the following link(s):\n"
+"\n"
+"[file-downloads]\n"
+"\n"
+"After downloading these files these links will have expired. If you "
+"need to download the files again, you can login at [site-login] and "
+"visit the \"My Account\" section of the site.\n"
+"\n"
+"Thanks again, \n"
+"\n"
+"[store-name]\n"
+"[site-slogan]"
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:78
+msgid "expires on @date"
+msgstr "verfällt am @date"
+
+#: uc_file/uc_file.pages.inc:176
+msgid "%username has been temporarily banned from file downloads."
+msgstr ""
+
+#: uc_file/uc_file.ca.inc:133
+msgid "User can now download files in the directory %dir."
+msgstr "Benutzer können nun Dateien im Verzeichnis %dir runterladen."
+
+#: uc_file/uc_file.ca.inc:136
+msgid "User can now download the file %file."
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:192
+msgid ""
+"File downloads can be attached to any Ubercart product as a product "
+"feature. For security reasons the <a href=\"!download_url\">file "
+"downloads directory</a> is separated from the Drupal <a "
+"href=\"!file_url\">file system</a>. Here are the list of files (and "
+"their associated Ubercart products) that can be used for file "
+"downloads."
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:507
+msgid "Send email to customer with file download link(s)."
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:186
+msgid ""
+"%username has been denied a file download by downloading it from too "
+"many IP addresses."
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:193
+msgid ""
+"%username has been denied a file download by downloading it too many "
+"times."
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:200
+msgid "%username has been denied an expired file download."
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:215
+msgid "%username has started download of the file %filename."
+msgstr "%username hat mit dem herunterladen der Datei %filename begonnen."
+
+#: uc_file/uc_file.admin.inc:70
+msgid "Check all"
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:71
+msgid "Uncheck all"
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:136
+msgid "You must select at least one file to delete."
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:247
+msgid "Delete affected files"
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:299
+msgid ""
+"The maximum file size that can be uploaded is %size bytes. You will "
+"need to use a different method to upload the file to the directory "
+"(e.g. (S)FTP, SCP) if your file exceeds this size.<br />The module "
+"will automatically detect files you upload using an alternate method."
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:380
+msgid "The selected file(s) have been deleted."
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:383
+msgid "One or more files could not be deleted."
+msgstr ""
+
+#: uc_file/uc_file.admin.inc:411
+msgid "The file %file has been uploaded to %dir"
+msgstr ""
+
+#: uc_file/uc_file.ca.inc:22
+msgid "Renew purchased files"
+msgstr ""
+
+#: uc_file/uc_file.ca.inc:23
+msgid "Renew purchased files if the order status matches."
+msgstr ""
+
+#: uc_file/uc_file.ca.inc:45
+msgid "Update all file expirations for this order."
+msgstr ""
+
+#: uc_file/uc_file.ca.inc:65
+msgid "Renew the files on an order."
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:96
+msgid ""
+"Once your download is finished, you must refresh the page to download "
+"again. (Provided you have permission)"
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:97
+msgid ""
+"Downloads will not be counted until the file is finished transferring, "
+"even though the number may increment when you click."
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:98
+msgid ""
+"Do not use any download acceleration feature to download the file, or "
+"you may lock yourself out of the download."
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:120
+msgid "The file you requested does not exist. "
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:124
+msgid "You have reached the download limit for this file. "
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:126
+msgid "A hook denied your access to this file. "
+msgstr ""
+
+#: uc_file/uc_file.module:154
+msgid "Ubercart file downloads"
+msgstr ""
+
+#: uc_file/uc_file.module:164
+msgid "You must add files at the !url in order to attach them to a user."
+msgstr ""
+
+#: uc_file/uc_file.module:166
+msgid "Ubercart file download administration page"
+msgstr ""
+
+#: uc_file/uc_file.module:176
+msgid "Accessible downloads"
+msgstr ""
+
+#: uc_file/uc_file.module:204
+msgid "Never"
+msgstr ""
+
+#: uc_file/uc_file.module:274
+msgid ""
+"Select a file to add as a download. Newly added files will inherit the "
+"settings at the !url."
+msgstr ""
+
+#: uc_file/uc_file.module:274
+msgid "Ubercart file product feature settings page"
+msgstr ""
+
+#: uc_file/uc_file.module:292,834,992
+msgid ""
+"A negative download limit does not make sense. Please enter a positive "
+"integer, or leave empty for no limit."
+msgstr ""
+
+#: uc_file/uc_file.module:296
+msgid ""
+"A negative address limit does not make sense. Please enter a positive "
+"integer, or leave empty for no limit."
+msgstr ""
+
+#: uc_file/uc_file.module:308
+msgid "The date %date has already occurred."
+msgstr ""
+
+#: uc_file/uc_file.module:312
+msgid ""
+"A negative expiration quantity does not make sense. Use the polarity "
+"control to determine if the time should be added or subtracted."
+msgstr ""
+
+#: uc_file/uc_file.module:465
+msgid "No files can be downloaded by this user."
+msgstr ""
+
+#: uc_file/uc_file.module:468
+msgid "Below is a list of downloads this user can access."
+msgstr ""
+
+#: uc_file/uc_file.module:537
+msgid ""
+"You already have privileges to download %file. If you complete the "
+"purchase of this item, your new download limit will be "
+"%download_limit, your access location limit will be %address_limit, "
+"and your new expiration time will be %expiration."
+msgstr ""
+
+#: uc_file/uc_file.module:540,541
+msgid "unlimited"
+msgstr ""
+
+#: uc_file/uc_file.module:754
+msgid "File limitations"
+msgstr ""
+
+#: uc_file/uc_file.module:758
+msgid ""
+"Use these options to override any global download limits set at the "
+"!url."
+msgstr ""
+
+#: uc_file/uc_file.module:758
+msgid "Ubercart product settings page"
+msgstr ""
+
+#: uc_file/uc_file.module:763
+msgid "Override download limit"
+msgstr ""
+
+#: uc_file/uc_file.module:765
+msgid ""
+"Override the amount of times a customer can download this file after "
+"the product has been purchased."
+msgstr ""
+
+#: uc_file/uc_file.module:771
+msgid "The number of times this file can be downloaded."
+msgstr ""
+
+#: uc_file/uc_file.module:778
+msgid "Override location limit"
+msgstr ""
+
+#: uc_file/uc_file.module:780
+msgid ""
+"Override the amount of locations (IP addresses) a customer can "
+"download this file from after the product has been purchased."
+msgstr ""
+
+#: uc_file/uc_file.module:786
+msgid "The number of unique IPs that a file can be downloaded from."
+msgstr ""
+
+#: uc_file/uc_file.module:793
+msgid "Override time limit"
+msgstr ""
+
+#: uc_file/uc_file.module:795
+msgid ""
+"Override the amount of time a customer can download this file after "
+"the product has been purchased."
+msgstr ""
+
+#: uc_file/uc_file.module:816
+msgid ""
+"How long after this product has been purchased until this file "
+"download expires."
+msgstr ""
+
+#: uc_file/uc_file.module:838,998
+msgid ""
+"A negative IP address limit does not make sense. Please enter a "
+"positive integer, or leave empty for no limit."
+msgstr ""
+
+#: uc_file/uc_file.module:843,987
+msgid ""
+"You set the granularity (%gran), but you did not set how many. Please "
+"enter a positive non-zero integer."
+msgstr ""
+
+#: uc_file/uc_file.module:869
+msgid "<strong>SKU:</strong> !sku<br />"
+msgstr ""
+
+#: uc_file/uc_file.module:919
+msgid ""
+"The absolute path (or relative to Drupal root) where files used for "
+"file downloads are located. For security reasons, it is recommended to "
+"choose a path outside the web root."
+msgstr ""
+
+#: uc_file/uc_file.module:924
+msgid "Warn about purchasing duplicate files"
+msgstr ""
+
+#: uc_file/uc_file.module:925
+msgid ""
+"If a customer attempts to purchase a product containing a file "
+"download, warn them and notify them that the download limits will be "
+"added onto their current limits."
+msgstr ""
+
+#: uc_file/uc_file.module:1360
+msgid "The directory %dir was deleted."
+msgstr ""
+
+#: uc_file/uc_file.module:1364
+msgid "The directory %dir could not be deleted."
+msgstr ""
+
+#: uc_file/uc_file.module:1369
+msgid "The directory %dir could not be deleted because it is not empty."
+msgstr ""
+
+#: uc_file/uc_file.module:1377
+msgid "The file %dir was deleted."
+msgstr ""
+
+#: uc_file/uc_file.module:1380
+msgid "The file %dir could not be deleted."
+msgstr ""
+
+#: uc_file/uc_file.module:1551
+msgid "%user has had all of his/her downloadable files removed."
+msgstr ""
+
+#: uc_file/uc_file.module:1569
+msgid "%user has had %file removed from his/her downloadable file list."
+msgstr ""
+
+#: uc_file/uc_file.module:1714
+msgid "%user has had download privileges of %file renewed."
+msgstr ""
+
+#: uc_file/uc_file.module:1717
+msgid "%user has been allowed to download %file."
+msgstr ""
+

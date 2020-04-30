@@ -1,0 +1,10 @@
+name = "nodeorder"
+description = "Allows the ordering of nodes within taxonomy terms."
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-03-04
+version = "6.x-1.0"
+core = "6.x"
+project = "nodeorder"
+datestamp = "1236197134"
+

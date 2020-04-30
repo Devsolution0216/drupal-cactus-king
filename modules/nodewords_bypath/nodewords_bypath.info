@@ -1,0 +1,12 @@
+; $Id: nodewords_bypath.info,v 1.1.2.1.2.2 2009/01/01 02:37:28 univate Exp $
+name = Meta tags by path
+description = Allows custom meta tags based on path rules
+dependencies[] = nodewords
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-03-22
+version = "6.x-1.0"
+core = "6.x"
+project = "nodewords_bypath"
+datestamp = "1237693235"
+

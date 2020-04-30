@@ -1,0 +1,246 @@
+
+/* These classes should really be universal... pretty standard stuff. */
+
+.solid-border {
+  border: solid 1px #bbb;
+  padding: 5px;
+}
+
+.solid-border td {
+  padding: 5px;
+}
+
+.show-onload {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.order-review-table {
+  width: auto;
+  margin: auto;
+  border: solid 1px #999;
+  font-size: .9em;
+  line-height: 1.4em;
+}
+
+.order-review-table td {
+  padding-top: 0.1em;
+  padding-bottom: 0.2em;
+}
+
+.order-review-table .pane-title-row {
+  text-align: center;
+  font-weight: bold;
+  border: solid 1px #999;
+  background-color: #ddd;
+  padding: .5em 1em;
+}
+
+.order-review-table .title-col {
+  text-align: right;
+  font-weight: bold;
+  padding-left: 3em;
+}
+
+.order-review-table .data-col {
+  padding-right: 3em;
+}
+
+.order-review-table .row-border-top {
+  border-top: solid 1px #999;
+}
+
+.order-review-table .row-border-bottom {
+  border-bottom: solid 1px #999;
+}
+
+.order-review-table .review-button-row {
+  text-align: right;
+  background-color: #ddd;
+  border: solid 1px #999;
+}
+
+.order-review-table .review-button-row form {
+  display: inline;
+}
+
+
+/* I cannot testify for any of the data below.. it's a hodge podge. */
+
+.next-button {
+  margin-top: 1em;
+  text-align: right;
+}
+
+#uc-cart-view-form img {
+  padding-right: .8em;
+  float: left;
+}
+
+#line-items-div table {
+  width: auto;
+}
+
+#line-items-div td {
+  padding: 0em 1em;
+}
+
+#line-items-div tbody {
+  border-top: 0px;
+}
+
+.address-book-icon {
+  position: relative;
+  top: 2px;
+  margin-left: 2px;
+}
+
+/**
+ * CSS rules for the cart form at /cart.
+ */
+
+#cart-form-products {
+  border: solid 1px #bbb;
+  margin-top: .5em;
+}
+
+#cart-form-products td.desc {
+  width: 100%;
+}
+
+#cart-form-products td.total, #cart-form-products td.subtotal {
+  white-space: nowrap;
+}
+
+#cart-form-buttons {
+  border: solid 1px #bbb;
+  margin: .5em 0em;
+  text-align: right;
+}
+
+#cart-form-pane #uc-cart-view-form {
+  margin-bottom: .5em;
+}
+
+#cart-form-buttons .form-button, #cart-form-buttons .form-submit {
+  margin: .5em .5em .5em 0em;
+}
+
+#update-checkout-buttons {
+  float: right;
+}
+
+#continue-shopping-link {
+  float: left;
+  position: relative;
+  top: .5em;
+  left: .75em;
+}
+
+#continue-shopping-button {
+  margin-right: 100%;
+  margin-left: .5em;
+  white-space: nowrap;
+}
+
+/**
+ * CSS rules for the cart review table.
+ */
+
+.cart-review {
+  border: solid 1px #bbb;
+}
+
+.cart-review td {
+  padding: .4em;
+}
+
+.cart-review thead tr {
+  font-weight: bold;
+  border: 0em;
+}
+
+.cart-review tbody {
+  border-top: 0em;
+}
+
+.cart-review tbody tr {
+  border: 0em;
+  vertical-align: top;
+}
+
+td.qty {
+  text-align: center;
+}
+
+td.price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+td.products {
+  width: 100%;
+}
+
+td.subtotal {
+  text-align: right;
+}
+
+#subtotal-title {
+  font-weight: bold;
+}
+
+
+/**
+ * CSS rules for the default checkout panes.
+ */
+
+.address-pane-table tbody {
+  border-top: 0px;
+}
+
+.address-pane-table table td {
+  padding: 2px;
+}
+
+.field-label {
+  text-align: right;
+  font-weight: bold;
+}
+
+.address-pane-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.address-pane-table .form-item {
+  display: inline;
+}
+
+/**
+ * CSS rules for payment details tables.
+ */
+
+.inline-pane-table tbody {
+  border-top: 0em;
+}
+
+.inline-pane-table .form-item {
+  display: inline;
+}
+
+/**
+ * CSS rules for the bottom of the checkout form at /cart/checkout.
+ */
+
+#checkout-form-bottom {
+  border: solid 1px #bbb;
+  text-align: right;
+}
+
+#checkout-form-bottom .form-button, #checkout-form-bottom .form-submit {
+  margin: .5em .5em .5em 0em;
+}

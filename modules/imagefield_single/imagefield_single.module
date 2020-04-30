@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * @file
+ * Imagefield Single provides options to format a multivalue imagefield returning
+ * a single image, instead of as a set.
+ */
+
+/**
+ * Implementation of hook_theme().
+ */
+function imagefield_single_theme() {
+  $theme = array();
+  
+  foreach (imagecache_presets() as $preset) {
+    $theme['imagefield_single_formatter_'. $preset['presetname'] .'_default-single'] = array(
+      'arguments' => array('element' => NULL),
+      'function' => 'theme_imagefield_single_formatter_default',
+    );
+    $theme['imagefield_single_formatter_'. $preset['presetname'] .'_linked-single'] = array(
+      'arguments' => array('element' => NULL),
+      'function' => 'theme_imagefield_single_formatter_linked',
+    );
+  }
+  
+  return $theme;
+}
+
+/**
+ * Implementation of hook_field_formatter_info().
+ * Declare the field formatters provided by the module.
+ */
+function imagefield_single_field_formatter_info() {
+  $formatters = array();
+  
+  foreach (imagecache_presets() as $preset) {
+    $formatters[$preset['presetname'] .'_default-single'] = array(
+      'label' => t('@preset image (single)', array('@preset' => $preset['presetname'])),
+      'field types' => array('image', 'filefield'),
+    );
+    $formatters[$preset['presetname'] .'_linked-single'] = array(
+      'label' => t('@preset image linked to node (single)', array('@preset' => $preset['presetname'])),
+      'field types' => array('image', 'filefield'),
+    );
+  }
+  
+  return $formatters;
+}
+
+function theme_imagefield_single_formatter_default($element) {
+  // Track if this node had been loaded before
+  static  $static_multiformat_image; 
+
+  // If this is not the first load, return nothing
+  if ($static_imagefield_single[$element['#node']->nid]) {
+    return '';
+  }
+  else {
+    $static_imagefield_single[$element['#node']->nid] = TRUE;
+  }
+  $item = $element['#item'];
+  $preset = substr($element['#formatter'], 0, - strlen('_default-single'));
+  
+  return theme('imagecache', $preset, $item['filepath'], $item['data']['alt'], $item['data']['title']);
+}
+
+function theme_imagefield_single_formatter_linked($element) {
+  // Track if this node had been loaded before
+  static  $static_imagefield_single; 
+
+  // If this is not the first load, return nothing
+  if ($static_imagefield_single[$element['#node']->nid]) {
+    return '';
+  }
+  else {
+    $static_imagefield_single[$element['#node']->nid] = TRUE;
+  }
+  $item = $element['#item'];
+  $preset = substr($element['#formatter'], 0, - strlen('_linked-single'));
+  $path = empty($item['nid']) ? '' : 'node/'. $item['nid'];
+  $image = theme('imagecache', $preset, $item['filepath'], $item['data']['alt'], $item['data']['title'], array('html' => TRUE));
+  
+  return l($image, $path, array('html' => TRUE));
+}
+
+

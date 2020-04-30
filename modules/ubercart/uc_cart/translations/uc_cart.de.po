@@ -1,0 +1,1070 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_cart.module,v 1.15.2.11 2008/12/09 15:20:37 islandusurper
+#  uc_cart.admin.inc,v 1.1.2.4 2008/11/21 21:17:27 islandusurper
+#  uc_cart_checkout_pane.inc,v 1.5.2.2 2008/11/07 21:13:21 islandusurper
+#  uc_cart.ca.inc,v 1.1.2.7 2008/11/21 21:17:27 islandusurper
+#  uc_cart.pages.inc,v 1.1.2.4 2008/11/07 21:13:22 islandusurper
+#  uc_cart.info,v 1.7.2.2 2008/11/07 21:13:22 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-19 09:52+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_cart/uc_cart.module:420,685,150
+msgid "Checkout"
+msgstr "Kasse"
+
+#: uc_cart/uc_cart.admin.inc:255
+msgid "Submit order button text"
+msgstr "Text des Bestellung absenden Buttons"
+
+#: uc_cart/uc_cart_checkout_pane.inc:63
+msgid ""
+"Enter a valid email address for this order or <a href=\"!url\">click "
+"here</a> to login with an existing account and return to checkout."
+msgstr ""
+"Bitte geben Sie eine gültige E-Mail Adresse für diese Bestellung ein "
+"oder <a href=\"!url\">klicken Sie hier</a> um sich mit Ihrem "
+"bestehenden Konto anzumelden und zur Kasse zurückzukehren."
+
+#: uc_cart/uc_cart_checkout_pane.inc:106
+msgid "New account details"
+msgstr "Neue Konten-Details"
+
+#: uc_cart/uc_cart_checkout_pane.inc:107,204
+msgid ""
+"<b>Optional.</b> New customers may supply custom account details.<br "
+"/>We will create these for you if no values are entered."
+msgstr ""
+"<b>Optional.</b> Neue Kunden können eigene Account-Details "
+"angeben..<br />Wenn keine Werte eingetragen werden werden wir diese "
+"Account-Details erzeugen."
+
+#: uc_cart/uc_cart_checkout_pane.inc:96
+msgid "Confirm password"
+msgstr "Bestätigen Sie Ihr Passwort"
+
+#: uc_cart/uc_cart_checkout_pane.inc:97
+msgid "Passwords must match to proceed."
+msgstr "Der Inhalt der Passwortfelder muss übereinstimmen um fortzufahren."
+
+#: uc_cart/uc_cart_checkout_pane.inc:128
+msgid "You must enter a valid e-mail address."
+msgstr "Sie müssen eine gültige E-Mailadresse angeben."
+
+#: uc_cart/uc_cart_checkout_pane.inc:136
+msgid "The e-mail address did not match."
+msgstr "Die E-Mail Adresse stimmte nicht überein."
+
+#: uc_cart/uc_cart_checkout_pane.inc:148
+msgid ""
+"An account already exists for your e-mail address. The new account "
+"details you entered will be disregarded."
+msgstr ""
+"Es existiert bereits ein Benutzerkonto für diese E-Mail Adresse. Die "
+"neuen Benutzerkontendaten welche Sie eingegeben haben werden "
+"verworfen."
+
+#: uc_cart/uc_cart_checkout_pane.inc:159
+msgid ""
+"The username %name is already taken. Please enter a different name or "
+"leave the field blank for your username to be your e-mail address."
+msgstr ""
+"Der Benutzername %name ist schon vergeben. Bitte wählen Sie einen "
+"anderen Benutzernamen oder lassen Sie das Feld frei um Ihre E-Mail "
+"Adresse als Benutzername zu verwenden."
+
+#: uc_cart/uc_cart_checkout_pane.inc:167
+msgid "The passwords you entered did not match. Please try again."
+msgstr ""
+"Die Passwörter die Sie eingegeben haben stimmten nicht überein. "
+"Bitte versuchen Sie es noch einmal."
+
+#: uc_cart/uc_cart_checkout_pane.inc:202
+msgid "New account details help message"
+msgstr "Hilfe Nachricht zu den Benutzerkonten Details"
+
+#: uc_cart/uc_cart_checkout_pane.inc:203
+msgid ""
+"Enter the help message displayed in the new account details fieldset "
+"when shown."
+msgstr ""
+"Geben Sie den Hilfenachricht, die in den Benutzerkonten-Details steht "
+"ein wenn sie angezeigt wird."
+
+#: uc_cart/uc_cart_checkout_pane.inc:218
+msgid "Enter your delivery address and information here."
+msgstr "Lieferadresse und -informationen bitte hier angeben."
+
+#: uc_cart/uc_cart_checkout_pane.inc:231,322
+msgid "Saved addresses"
+msgstr "Gespeicherte Adressen"
+
+#: uc_cart/uc_cart_checkout_pane.inc:295,385
+msgid "Phone"
+msgstr "Telefon"
+
+#: uc_cart/uc_cart_checkout_pane.inc:309
+msgid "Enter your billing address and information here."
+msgstr "Rechnungsadresse und -informationen bitte hier angeben."
+
+#: uc_cart/uc_cart_checkout_pane.inc:316
+msgid "My billing information is the same as my delivery information."
+msgstr "Meine Rechnungsadresse ist dieselbe wie meine Lieferadresse"
+
+#: uc_cart/uc_cart_checkout_pane.inc:397
+msgid ""
+"Use this area for special instructions or questions regarding your "
+"order."
+msgstr ""
+"Nutzen Sie dieses Feld für spezielle Wünsche oder Fragen zu Ihrer "
+"Bestellung"
+
+#: uc_cart/uc_cart_checkout_pane.inc:571
+msgid "!qtyx"
+msgstr "!qtyx"
+
+#: uc_cart/uc_cart.ca.inc:39
+msgid "Customer completes checkout"
+msgstr "Der Kunde hat den Bestellvorgang abgeschlossen."
+
+#: uc_cart/uc_cart.module:28,52
+msgid "Cart settings"
+msgstr "Warenkorb-Einstellungen"
+
+#: uc_cart/uc_cart.module:29
+msgid "Configure the cart settings."
+msgstr "Warenkorb Einstellungen anpassen"
+
+#: uc_cart/uc_cart.module:36
+msgid "View the cart settings."
+msgstr "Zeige die Warenkorb-Einstellungen."
+
+#: uc_cart/uc_cart.module:43,95
+msgid "Edit the cart settings."
+msgstr "Bearbeite die Warenkorb-Einstellungen"
+
+#: uc_cart/uc_cart.module:53
+msgid "Edit the basic cart settings."
+msgstr "Bearbeite die Warenkorbgrundeinstellungen"
+
+#: uc_cart/uc_cart.module:59
+msgid "Cart panes"
+msgstr "Warenkorb Abschnitte"
+
+#: uc_cart/uc_cart.module:60
+msgid "Edit the pane settings for the cart view page."
+msgstr "Spalten Einstellungen für die Warenkorbansichts Seite verwalten."
+
+#: uc_cart/uc_cart.module:70
+msgid "Edit the settings for the shopping cart block."
+msgstr "Einstellungen für der Warenkorb Block bearbeiten."
+
+#: uc_cart/uc_cart.module:79,104
+msgid "Checkout settings"
+msgstr "Bestellvorgangs Einstellungen"
+
+#: uc_cart/uc_cart.module:80
+msgid "Configure the checkout settings."
+msgstr "Konfiguriere die Kasseneinstellungen"
+
+#: uc_cart/uc_cart.module:87
+msgid "View the checkout settings."
+msgstr "Schaue dir die Kasseneinstellungen an."
+
+#: uc_cart/uc_cart.module:105
+msgid "Edit the basic checkout settings."
+msgstr "Bearbeite die grundlegenden Kasseneinstellungen"
+
+#: uc_cart/uc_cart.module:111
+msgid "Checkout panes"
+msgstr "Kassen Hinweise"
+
+#: uc_cart/uc_cart.module:112
+msgid "Edit the pane settings for the checkout page."
+msgstr "Die Abschnittseinstellungen für die Bestellabschluss Seite"
+
+#: uc_cart/uc_cart.module:121
+msgid "Checkout messages"
+msgstr "Kassennachricht"
+
+#: uc_cart/uc_cart.module:122
+msgid "Edit the messages for the checkout completion page."
+msgstr "Die Nachricht für die Bestellung abgeschlossen Seite anzeigen."
+
+#: uc_cart/uc_cart.module:131
+msgid "Address fields"
+msgstr "Adressfelder"
+
+#: uc_cart/uc_cart.module:132
+msgid "Edit the address field settings."
+msgstr "Bearbeite die Adressfeld-Einstellungen"
+
+#: uc_cart/uc_cart.module:143
+msgid "View/modify the contents of your shopping cart or proceed to checkout."
+msgstr "Inhalt Ihres Warenkorbs bearbeiten oder zur Kasse gehen."
+
+#: uc_cart/uc_cart.module:151
+msgid "Purchase the items in your shopping cart."
+msgstr "Die Inhalte des Warenkorbs kaufen."
+
+#: uc_cart/uc_cart.module:159
+msgid "Review an order before final submission."
+msgstr ""
+"Überprüfen Sie Ihre Bestellung bevor Sie sie entgültig "
+"übermitteln."
+
+#: uc_cart/uc_cart.module:167
+msgid "Display information upon completion of an order."
+msgstr "Zeige Informationen beim Abschluss einer Bestellung"
+
+#: uc_cart/uc_cart.module:292
+msgid "Hide block if cart is empty."
+msgstr "Block verstecken wenn der Warenkorb leer ist."
+
+#: uc_cart/uc_cart.module:318
+msgid "Display small help text in the shopping cart block."
+msgstr "Den Kurzen Hilfe Text im Warenkorb Block anzeigen."
+
+#: uc_cart/uc_cart.module:323
+msgid "Cart help text"
+msgstr "Warenkorb Hilfe-Text"
+
+#: uc_cart/uc_cart.module:324
+msgid "Displayed if the above box is checked."
+msgstr "Wird angezeigt wenn die obige checkbox angehakt ist."
+
+#: uc_cart/uc_cart.module:364
+msgid "Expand cart block."
+msgstr "Warenkorbs Block erweitern."
+
+#: uc_cart/uc_cart.module:412,627
+msgid "There are no products in your shopping cart."
+msgstr "Es sind keine Artikel in Ihrem Warenkorb."
+
+#: uc_cart/uc_cart.module:418
+msgid "View cart"
+msgstr "Warenkorb zeigen"
+
+#: uc_cart/uc_cart.module:425
+msgid "Total:"
+msgstr "Gesamt:"
+
+#: uc_cart/uc_cart.ca.inc:20
+msgid "Order has a product of a particular class"
+msgstr "In der Bestellung ist ein Produkt der Warengruppe enthalten."
+
+#: uc_cart/uc_cart.module:558
+msgid "Get the necessary information to create a customer on the site."
+msgstr ""
+"Die notwendigen Informatioen um einen Kunden auf der Website zu "
+"erstellen."
+
+#: uc_cart/uc_cart.module:565
+msgid "Get the information for where the order needs to ship."
+msgstr "Informationen rund um die Lieferanschrift erheben."
+
+#: uc_cart/uc_cart.module:573
+msgid "Get basic information needed to collect payment."
+msgstr "Informationen rund um die Rechnungstellung / Bezahlung erheben."
+
+#: uc_cart/uc_cart.module:580
+msgid "Allow a customer to put comments on an order."
+msgstr "Kunden erlauben einen Kommentar zur Bestellung abzugeben."
+
+#: uc_cart/uc_cart.admin.inc:124
+msgid "link"
+msgstr "link"
+
+#: uc_cart/uc_cart.admin.inc:124
+msgid "button"
+msgstr "Schaltfläche"
+
+#: uc_cart/uc_cart.admin.inc:17
+msgid "Help text is shown in block:"
+msgstr "Hilfe text wird im Block angezeigt."
+
+#: uc_cart/uc_cart.admin.inc:21
+msgid "Help text is not shown in block."
+msgstr "Hilfetext wird nicht im Block angezeigt."
+
+#: uc_cart/uc_cart.admin.inc:28
+msgid "Cart block is !option when empty."
+msgstr "Warenkorb Block wird !option wenn er leer ist."
+
+#: uc_cart/uc_cart.admin.inc:28
+msgid "hidden"
+msgstr "versteckt"
+
+#: uc_cart/uc_cart.admin.inc:28
+msgid "shown"
+msgstr "gezeigt"
+
+#: uc_cart/uc_cart.admin.inc:29
+msgid "Cart block is !option by default."
+msgstr "Warenkorb Block ist standardmäsig !option."
+
+#: uc_cart/uc_cart.admin.inc:29
+msgid "expanded"
+msgstr "Ausgeklappt"
+
+#: uc_cart/uc_cart.admin.inc:29
+msgid "collapsed"
+msgstr "Eingeklappt"
+
+#: uc_cart/uc_cart.admin.inc:207
+msgid "Drupal handles all the block settings forms automatically."
+msgstr "Drupal kümmert sich selbständig um die Blockeinstellungen."
+
+#: uc_cart/uc_cart.admin.inc:208
+msgid ""
+"<a href=\"!url\">Click here</a> to goto the shopping cart block "
+"configuration page."
+msgstr ""
+"<a href=\"!url\">Hier klicken </a> um auf die Warenkorb Block "
+"Einstellungsseite zu gelangen.."
+
+#: uc_cart/uc_cart.admin.inc:41
+msgid "General cart settings"
+msgstr "Allgemeine Einstellungen des Warenkorbs"
+
+#: uc_cart/uc_cart.admin.inc:46
+msgid "Add to cart redirect"
+msgstr "Zum Warenkorb hinzufügen - Weiterleitung"
+
+#: uc_cart/uc_cart.admin.inc:47
+msgid ""
+"Enter the Drupal page to redirect to when a customer adds an item to "
+"their cart.<br />Enter &lt;none&gt; for no redirect."
+msgstr ""
+"Geben Sie die Drupal Seite an zu der ein Kunde Weitergeleitet werden "
+"soll wenn er einen Artikel in seinen Warenkorb legt.<br />Geben Sie "
+"&lt;none&gt; an für keine Weiterleitung."
+
+#: uc_cart/uc_cart.admin.inc:55
+msgid "Minimum order subtotal"
+msgstr "Mindestbestellsumme"
+
+#: uc_cart/uc_cart.admin.inc:56
+msgid ""
+"Optionally specify a minimum allowed subtotal for a cart to proceed to "
+"checkout."
+msgstr ""
+"Optional legen Sie einen Mindestbestellwert fest welcher notwendig ist "
+"um eine Bestellung aufzugeben."
+
+#: uc_cart/uc_cart.admin.inc:66
+msgid "Anonymous cart duration"
+msgstr "Warenkorb Haltbarkeit für anonyme Benutzer."
+
+#: uc_cart/uc_cart.admin.inc:72,101
+msgid "Duration"
+msgstr "Dauer"
+
+#: uc_cart/uc_cart.admin.inc:95
+msgid "Authenticated cart duration"
+msgstr "Warenkorb Haltbarkeit für angemeldete Benutzer"
+
+#: uc_cart/uc_cart.admin.inc:123
+msgid "Continue shopping link"
+msgstr "Weiter Einkaufen Link"
+
+#: uc_cart/uc_cart.admin.inc:128
+msgid "Display the continue shopping link as"
+msgstr "Zeige den Weiter Einkaufen Link als"
+
+#: uc_cart/uc_cart.admin.inc:130
+msgid "A text link"
+msgstr "einen Text Link"
+
+#: uc_cart/uc_cart.admin.inc:131
+msgid "A button link"
+msgstr "einen Button Link"
+
+#: uc_cart/uc_cart.admin.inc:137
+msgid "Continue shopping link URL"
+msgstr "URL des Weiter Einkaufen Links"
+
+#: uc_cart/uc_cart.admin.inc:138
+msgid ""
+"Enter the Drupal page for the link to continue shopping from the cart "
+"view page.<br />Enter &lt;none&gt; for no link to appear."
+msgstr ""
+"Geben Sie die Drupal Seite an die erschein soll wenn man auf den "
+"Weiter Einkaufen Link klickt. <br />Geben sie &lt;none&gt; ein damit "
+"kein Link erscheint."
+
+#: uc_cart/uc_cart.admin.inc:145
+msgid "Continue shopping link text"
+msgstr "Text des Weiter Einkaufen Links"
+
+#: uc_cart/uc_cart.admin.inc:146
+msgid "Enter the text for the continue shopping link."
+msgstr "Geben Sie den Text für den Weiter Einkaufen Link ein."
+
+#: uc_cart/uc_cart.admin.inc:152
+msgid "Cart breadcrumb"
+msgstr "Warenkorb Breadcrumb"
+
+#: uc_cart/uc_cart.admin.inc:157
+msgid "Default cart breadcrumb URL"
+msgstr "Standard Warenkorb Breadcrumb URL"
+
+#: uc_cart/uc_cart.admin.inc:158
+msgid ""
+"Enter the Drupal page linked to in the default breadcrumb on the cart "
+"view page."
+msgstr ""
+"Die Drupal Seite die mit den Standard Breadcrumb auf der Warenkorb "
+"Seite verlinkt wird."
+
+#: uc_cart/uc_cart.admin.inc:165
+msgid "Default cart breadcrumb text"
+msgstr "Standard Text für den Warenkorb Breadcrumb"
+
+#: uc_cart/uc_cart.admin.inc:166
+msgid "Enter the text for the default breadcrumb on the cart page."
+msgstr ""
+"Geben Sie den Text für den Standard Breadcrumb auf der Warenkorb "
+"Seite an."
+
+#: uc_cart/uc_cart.admin.inc:175
+msgid "Minimum order subtotal should be a non-negative number."
+msgstr "Der Mindestbestellwert sollte eine positive Zahl sein."
+
+#: uc_cart/uc_cart.admin.inc:223
+msgid "General checkout settings"
+msgstr "Konfiguriere die Kasseneinstellungen"
+
+#: uc_cart/uc_cart.admin.inc:228
+msgid ""
+"Enable checkout (disable to only use third party checkout service like "
+"PayPal Express Checkout)."
+msgstr ""
+"Kassen Seite aktivieren (deaktivieren um nur Kassendienste anderer "
+"Anbieter zu nutzen wie z.B. PayPal Express Checkout)"
+
+#: uc_cart/uc_cart.admin.inc:238
+msgid "Enable anonymous checkout (users can checkout without logging in)."
+msgstr ""
+"Eine unangemelden Bezahlvorgang ermöglichen, Kunden können zur kasse "
+"gehen ohne sich anmelden zu müssen."
+
+#: uc_cart/uc_cart.admin.inc:249
+msgid ""
+"Change the text on the review order button at the bottom of the "
+"checkout screen."
+msgstr ""
+"Beschriftung des Bestellung Überprüfen Buttons am Ende der "
+"Kassenseite bearbeiten."
+
+#: uc_cart/uc_cart.admin.inc:256
+msgid ""
+"Change the text on the submit order button at the bottom of the review "
+"screen."
+msgstr ""
+"Die Beschriftung des Bestellung absenden Buttons am Ende der "
+"Bestellung überprüfen Seite anpassen."
+
+#: uc_cart/uc_cart.admin.inc:262
+msgid ""
+"Hide shipping information when possible for carts with no shippable "
+"items."
+msgstr ""
+"Versandinformationen verstecken, wenn es sich um einen Warenkorb ohne "
+"versendbare Artikel handelt."
+
+#: uc_cart/uc_cart.admin.inc:273
+msgid "Checkout pane display options"
+msgstr "Abschnitts anzeige Optionen für die Kassen Seite."
+
+#: uc_cart/uc_cart.admin.inc:278
+msgid "Use collapsing checkout panes with next buttons during checkout."
+msgstr "Einklappbare Abschnitte für die Kassen Seite nutzen."
+
+#: uc_cart/uc_cart.admin.inc:288
+msgid "Collapse a pane when its next button is clicked."
+msgstr "Einen Abschnitt einklappen wenn der Weiter Button benutzt wird."
+
+#: uc_cart/uc_cart.admin.inc:299
+msgid "Change the text on the checkout pane buttons to expand the next pane."
+msgstr ""
+"Die Beschriftung der Abschnitts Buttons auf der Scheckoutseite anpssen "
+"die den Nächsten Abschnitt öffnen."
+
+#: uc_cart/uc_cart.admin.inc:306
+msgid "Checkout completion settings"
+msgstr "Einstellungen zur Vervollständigung zum Punkt Kasse"
+
+#: uc_cart/uc_cart.admin.inc:311
+msgid "Send new customers a separate e-mail with their account details."
+msgstr "Eine spereate E-Mail mit den Zugangsdaten an neue Kunden schicken."
+
+#: uc_cart/uc_cart.admin.inc:338
+msgid "Alternate checkout completion page"
+msgstr "Alternative Kassen Vervollständigungsseite"
+
+#: uc_cart/uc_cart.admin.inc:339
+msgid "Leave blank to use the default completion page (recommended)."
+msgstr ""
+"Dieses Feld leer lassen um die Standart-Vervollständigungsseite zu "
+"nutzen (empfolen)."
+
+#: uc_cart/uc_cart.admin.inc:400
+msgid "!pane settings"
+msgstr "!pane Einstellungen"
+
+#: uc_cart/uc_cart.admin.inc:414
+msgid "Checkout instructions"
+msgstr "Kassen Hinweise"
+
+#: uc_cart/uc_cart.admin.inc:415
+msgid "Provide instructions for customers at the top of the checkout screen."
+msgstr "Stelle dem Kunden Hinweise oben am Kassenbildschirm zur Verfügung."
+
+#: uc_cart/uc_cart.admin.inc:424
+msgid "Checkout review instructions"
+msgstr "Kassen-Überprüfungs Hinweise"
+
+#: uc_cart/uc_cart.admin.inc:425
+msgid ""
+"Provide instructions for customers at the top of the checkout review "
+"screen."
+msgstr ""
+"Stelle dem Kunden Hinweise oben am Kassen-Überprüfungsbildschirm zur "
+"Verfügung."
+
+#: uc_cart/uc_cart.admin.inc:436
+msgid "Checkout completion message header"
+msgstr "Kassen Vervollständigung Nachrichten Überschrift"
+
+#: uc_cart/uc_cart.admin.inc:448
+msgid "Checkout completion message body"
+msgstr "Kassen Vervollständigung Nachrichtentext"
+
+#: uc_cart/uc_cart.admin.inc:455
+msgid "Checkout completion for logged-in users"
+msgstr "Kassen Vervollständigung für angemeldete Benutzer"
+
+#: uc_cart/uc_cart.admin.inc:467
+msgid "Checkout completion for existing users"
+msgstr "Kassen Vervollständigung für bestehende Benutzer"
+
+#: uc_cart/uc_cart.admin.inc:480
+msgid "Checkout completion for new users"
+msgstr "Kassen Vervollständigung für neue Benutzer"
+
+#: uc_cart/uc_cart.admin.inc:492
+msgid "Continue shopping message"
+msgstr "Weiterfahren mit dem Einkauf Nachricht"
+
+#: uc_cart/uc_cart.module:680
+msgid "Update cart"
+msgstr "Warenkorb aktualisieren"
+
+#: uc_cart/uc_cart.module:746
+msgid "Qty."
+msgstr "Anz."
+
+#: uc_cart/uc_cart.module:797
+msgid "Your cart has been updated."
+msgstr "Ihr Warenkorb wurde aktualisiert."
+
+#: uc_cart/uc_cart.pages.inc:72
+msgid "The minimum order subtotal for checkout is !min."
+msgstr "Der Mindestbestellwert ist !min."
+
+#: uc_cart/uc_cart.pages.inc:79
+msgid "You must login before you can proceed to checkout."
+msgstr "Sie müssen sich anmelden bevor Sie zur Kasse gehen können."
+
+#: uc_cart/uc_cart.pages.inc:107
+msgid "Customer cancelled this order from the checkout form."
+msgstr "Der Kunde hat diese Bestellung beim Kassen Formular abgebrochen."
+
+#: uc_cart/uc_cart.module:1032
+msgid "Sorry, that item is not available for purchase at this time."
+msgstr "Entschuldigung, dieser Artikel ist zur Zeit nicht verfügbar."
+
+#: uc_cart/uc_cart.info:0
+msgid "REQUIRED. Controls the shopping cart for an Ubercart e-commerce site."
+msgstr "BENÖTIGT. Steuert den Warenkorb einer Ubercart site."
+
+#: uc_cart/uc_cart.ca.inc:76
+msgid "Your Order at [store-name]"
+msgstr "Ihre Bestellung bei [store-name]"
+
+#: uc_cart/uc_cart.ca.inc:90
+msgid "New Order at [store-name]"
+msgstr "Neue Bestellung bei [store-name]"
+
+#: uc_cart/uc_cart_checkout_pane.inc:68
+msgid "Confirm e-mail address"
+msgstr "Bestätigen Sie Ihre E-Mail Adresse"
+
+#: uc_cart/uc_cart_checkout_pane.inc:192
+msgid "Allow anonymous customers to specify a new user account name."
+msgstr "anonymen Kunden erlauben einen neuen Benutzernamen anzugeben."
+
+#: uc_cart/uc_cart_checkout_pane.inc:197
+msgid "Allow anonymous customers to specify a new user account password."
+msgstr "Anonymen Kunden erlauben ein neues Passwort anzugeben."
+
+#: uc_cart/uc_cart.module:259,352,142
+msgid "Shopping cart"
+msgstr "Warenkorb"
+
+#: uc_cart/uc_cart.module:297
+msgid "Display the shopping cart icon in the block title."
+msgstr "Das Warenkorb Icon im Blocktitel anzeigen"
+
+#: uc_cart/uc_cart.module:302
+msgid "Cart name"
+msgstr "Warenkorb Name"
+
+#: uc_cart/uc_cart.module:303
+msgid ""
+"This name will be displayed when using the default block title.<br "
+"/>Leaving this blank defaults to the translatable name \"Shopping "
+"Cart.\""
+msgstr ""
+"Dies wird als Standard Block Titel angezeigt, sofern der Standard "
+"Block Titel genutzt wird.<br />Wenn Sie das leer lassen wird der "
+"Übersetzbare Name: Warenkorb angezeigt."
+
+#: uc_cart/uc_cart.module:308
+msgid ""
+"Make the shopping cart block collapsible by clicking the name or "
+"arrow."
+msgstr ""
+"Ermöglicht es den Warenkorb Block durch einen Klick auf einen Pfeil "
+"einzuklappen."
+
+#: uc_cart/uc_cart.module:313
+msgid "Display the shopping cart block collapsed by default."
+msgstr "Den Warenkob Block standardmäßig eingeklappt anzeigen."
+
+#: uc_cart/uc_cart.module:520
+msgid ""
+"<p><strong>Username:</strong> !new_username<br "
+"/><strong>Password:</strong> !new_password"
+msgstr ""
+"<p><strong>Benutzername:</strong> !new_username<br "
+"/><strong>Passwort:</strong> !new_password"
+
+#: uc_cart/uc_cart.module:548
+msgid "Cart contents"
+msgstr "Warenkorb Inhalt"
+
+#: uc_cart/uc_cart.module:557
+msgid "Customer information"
+msgstr "Kunden Informationen"
+
+#: uc_cart/uc_cart.module:564
+msgid "Delivery information"
+msgstr "Liefer Informationen"
+
+#: uc_cart/uc_cart.module:572
+msgid "Billing information"
+msgstr "Rechnungs Informationen"
+
+#: uc_cart/uc_cart.admin.inc:67
+msgid ""
+"Set the length of time products remain in the cart for customers who "
+"<strong>have not</strong> logged in."
+msgstr ""
+"Legen Sie fest wie lange Artikel im Warenkorb bleiben für Kunden die "
+"sich <b>nicht</b> angemeldet haben."
+
+#: uc_cart/uc_cart.admin.inc:82
+msgid "Minute(s)"
+msgstr "Minute(n)"
+
+#: uc_cart/uc_cart.admin.inc:83,111
+msgid "Hour(s)"
+msgstr "Stunde(n)"
+
+#: uc_cart/uc_cart.admin.inc:84,112
+msgid "Day(s)"
+msgstr "Tag(e)"
+
+#: uc_cart/uc_cart.admin.inc:85,113
+msgid "Week(s)"
+msgstr "Woche(n)"
+
+#: uc_cart/uc_cart.admin.inc:86,114
+msgid "Year(s)"
+msgstr "Jahr(e)"
+
+#: uc_cart/uc_cart.admin.inc:96
+msgid ""
+"Set the length of time products remain in the cart for customers who "
+"<strong>have</strong> logged in."
+msgstr ""
+"Legen Sie fest wie lange Artikel im Warenkorb bleiben für Kunden die "
+"sich angemeldet haben."
+
+#: uc_cart/uc_cart.admin.inc:248
+msgid "Review order button text"
+msgstr "Beschriftung des Bestellung Überprüfen Buttons"
+
+#: uc_cart/uc_cart.admin.inc:298
+msgid "Next pane button text"
+msgstr "Beschriftung des Nächster Abschnitt Buttons"
+
+#: uc_cart/uc_cart.admin.inc:327
+msgid "New customer accounts will be set to active."
+msgstr "Neu Kunden Benuterkonten werden auf aktiv gesetzt."
+
+#: uc_cart/uc_cart.admin.inc:328
+msgid "Uncheck to create new accounts but make them blocked."
+msgstr ""
+"Abwählen um zwar neue Konten anzulegen, diese aber auf \"Gesperrt\" "
+"setzen."
+
+#: uc_cart/uc_cart_checkout_pane.inc:225
+msgid "My delivery information is the same as my billing information."
+msgstr "Meine Rechnungsadresse ist die selbe wie meine Lieferadresse"
+
+#: uc_cart/uc_cart.module:517
+msgid "Your order is complete! Your order number is [order-id]."
+msgstr ""
+"Ihre Bestellung ist vollständig und wird unter der Nummer [order-id] "
+"geführt."
+
+#: uc_cart/uc_cart.module:519
+msgid ""
+"Thank you for shopping at [store-name]. Your current order has been "
+"attached to the account we found matching your e-mail address."
+msgstr ""
+"Danke für Ihren Einkauf bei [store-name]. Ihre aktuelle Bestellung "
+"wurde dem Benutzerkonto hinzugefügt zu dem Ihre E-Mail Adresse "
+"gehört."
+
+#: uc_cart/uc_cart.module:520
+msgid ""
+"Thank you for shopping at [store-name]. A new account has been created "
+"for you here that you may use to view your current order status."
+msgstr ""
+"Danke für ihren Einkauf bei [store-name]. Ein neues Benutzerkonto "
+"wurde für Sie erstellt, damit Sie den Status ihrer Bestellung "
+"verfolgen können."
+
+#: uc_cart/uc_cart.admin.inc:437
+msgid ""
+"Header for message displayed after a user checks out. <a "
+"href=\"!url\">Uses order and global tokens</a>."
+msgstr ""
+"Überschrift der Nachricht die an der Kasse angezeigt wird. <a "
+"href=\"!url\">Order und Globale Tokens können benutzt werde.</a>."
+
+#: uc_cart/uc_cart.admin.inc:449
+msgid ""
+"In the following three boxes, you may use the special tokens "
+"!new_username for the username of a newly created account and "
+"!new_password for that account's password."
+msgstr ""
+"In den folgenden drei Feldern können Sie !site verwenden um Ihren "
+"Webseitennamen auszugeben, !new_username für den Benutzernamen eines "
+"neu angelegten Benutzerkontos und !new_password für das Passwort "
+"dieses Benutzerkontos."
+
+#: uc_cart/uc_cart.admin.inc:456
+msgid ""
+"Message displayed upon checkout for a user who has logged in. <a "
+"href=\"!url\">Uses order and global tokens</a>."
+msgstr ""
+"Nachricht wird für eingeloggte Kunden an der Kasse angezeigt. <a "
+"href=\"!url\">Bestellungs und Globale Tokens können verwendet "
+"werden.</a>."
+
+#: uc_cart/uc_cart.admin.inc:468
+msgid ""
+"Message displayed upon checkout for a user who has an account but "
+"wasn't logged in. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr ""
+"Nachricht wird für Kunden mit Konto, die aber nicht angemeldet waren, "
+"an der Kasse angezeigt. <a href=\"!url\">Bestellungs- und Globale "
+"Tokens können verwendet werden.</a>."
+
+#: uc_cart/uc_cart.admin.inc:481
+msgid ""
+"Message displayed upon checkout for a new user whose account was just "
+"created. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr ""
+"Nachricht wird für neu Kunden, für die ein neues Konto angelegt "
+"wurde, an der Kasse angezeigt. <a href=\"!url\">Bestellungs- und "
+"Globale Tokens können verwendet werden.</a>."
+
+#: uc_cart/uc_cart.admin.inc:493
+msgid ""
+"Message displayed upon checkout to direct customers to another part of "
+"your site. <a href=\"!url\">Uses order and global tokens</a>."
+msgstr ""
+"Nachricht wird an der Kasse angezeigt. Um Kunden auf einen anderen "
+"Bereich ihrer Site hinzuweisen <a href=\"!url\">Bestellungs- und "
+"Globale Tokens können verwendet werden.</a>."
+
+#: uc_cart/uc_cart_checkout_pane.inc:56
+msgid "Order information will be sent to your account e-mail listed below."
+msgstr ""
+"Informationen zur Bestellung werden an die unten aufgeführte "
+"E-Mailadresse gesandt."
+
+#: uc_cart/uc_cart.admin.inc:321
+msgid "Login users when new customer accounts are created at checkout."
+msgstr ""
+"Wenn ein neues Benutzerkonto bei der Bestellung angelegt wird, den "
+"Benutzer einloggen."
+
+#: uc_cart/uc_cart.module:417
+msgid "@count Item"
+msgid_plural "@count Items"
+msgstr[0] "@count Artikel"
+msgstr[1] "@count Artikel"
+
+#: uc_cart/uc_cart_checkout_pane.inc:59
+msgid "<b>E-mail address:</b> @email (<a href=\"!url\">edit</a>)"
+msgstr "<b>eMail-Addresse:</b> @email (<a href=\"!url\">bearbeiten</a>)"
+
+#: uc_cart/uc_cart.pages.inc:80
+msgid ""
+"If you do not have an account, you can <a href=\"!url\">click here</a> "
+"to create one."
+msgstr ""
+
+#: uc_cart/uc_cart.module:518
+msgid ""
+"Thank you for shopping at [store-name]. While logged in, you may "
+"continue shopping or <a href=\"[order-url]\">click here</a> to view "
+"your current order status and order history."
+msgstr ""
+
+#: uc_cart/uc_cart.pages.inc:446
+msgid ""
+"We're sorry.  An error occurred while processing your order that "
+"prevents us from completing it at this time. Please contact us and we "
+"will resolve the issue as soon as possible."
+msgstr ""
+
+#: uc_cart/uc_cart.pages.inc:447
+msgid "An empty order made it to checkout! Cart order ID: @cart_order"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:48
+msgid "Add to cart is redirecting to <br /><a href=\"!url\">!url</a>"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:57
+msgid "The minimum subtotal is @subtotal"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:68
+msgid "Anonymous cart duration is @duration"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:97
+msgid "Authenticated cart duration is @duration"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:124
+msgid "Continue shopping !type is: <br />!link"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:153
+msgid "Default cart breadcrumb is: <br />!breadcrumb"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:231
+msgid "Ubercart checkout is enabled."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:232
+msgid "Ubercart checkout is disabled."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:241
+msgid "Anonymous checkout is enabled."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:242
+msgid "Anonymous checkout is disabled."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:250
+msgid "Review order button says @button_text"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:257
+msgid "Submit order button says @button_text"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:265
+msgid "Shipping fields are hidden when applicable."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:266
+msgid "Shipping fields are always shown."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:281
+msgid "Checkout panes are collapsed with next buttons."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:282
+msgid "Checkout panes are expanded by default."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:291
+msgid "Collapsible panes will collapse when their next buttons are clicked."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:292
+msgid ""
+"Collapsible panes will not collapse when their next buttons are "
+"clicked."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:301
+msgid "Next buttons on checkout panes say %text"
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:314
+msgid "New customers receive an e-mail with their account details."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:315
+msgid ""
+"New customers will only see their details in their initial order "
+"e-mail."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:331
+msgid "New customer account status will be active."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:332
+msgid "New customer account status will be blocked."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:340
+msgid "Checkout completion page has been set to <a href=\"!url\">!url</a>."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:340
+msgid "Checkout completion page will be the default page."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:416
+msgid "Checkout instructions are set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:416
+msgid "Checkout instructions are not set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:427
+msgid "Review instructions are set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:428
+msgid "Review instructions are not set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:439
+msgid "Completion message is set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:440
+msgid "Completion message is not set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:458
+msgid "Completion text for logged in users is set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:459
+msgid "Completion text for logged in users is not set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:470
+msgid "Completion text for users who aren't logged in is set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:471
+msgid "Completion text for users who aren't logged in is not set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:483
+msgid "Completion text for new users is set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:484
+msgid "Completion text for new users is not set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:495
+msgid "Continue shopping text is set."
+msgstr ""
+
+#: uc_cart/uc_cart.admin.inc:496
+msgid "Continue shopping text is not set."
+msgstr ""
+
+#: uc_cart/uc_cart.ca.inc:48
+msgid "Customer user account"
+msgstr ""
+
+#: uc_cart/uc_cart.ca.inc:61
+msgid "E-mail checkout notifications"
+msgstr ""
+
+#: uc_cart/uc_cart.ca.inc:62
+msgid "Send an e-mail about the new order."
+msgstr ""
+
+#: uc_cart/uc_cart.ca.inc:83
+msgid "Send an e-mail to the administrator(s)"
+msgstr ""
+
+#: uc_cart/uc_cart_checkout_pane.inc:187
+msgid "Require e-mail confirmation in checkout for anonymous customers."
+msgstr ""
+
+#: uc_cart/uc_cart.module:516
+msgid ""
+"Your order is almost complete. Please review the details below and "
+"click '!submit' if all the information is correct.  You may use the "
+"'Back' button to make changes to your order if necessary."
+msgstr ""
+
+#: uc_cart/uc_cart.module:519
+msgid ""
+"<a href=\"[site-url]/user\">Click here</a> to login and view your "
+"current order status and order history. Remember to login when you "
+"make your next purchase for a faster checkout experience!"
+msgstr ""
+
+#: uc_cart/uc_cart.module:520
+msgid ""
+"<p><a href=\"[site-url]/user\">Click here</a> to login to your new "
+"account using the following information:"
+msgstr ""
+
+#: uc_cart/uc_cart.module:521
+msgid "<a href=\"[site-url]\">Return to the front page.</a>"
+msgstr ""
+
+#: uc_cart/uc_cart.module:1020
+msgid "@title is not a product. Unable to add to cart."
+msgstr ""
+

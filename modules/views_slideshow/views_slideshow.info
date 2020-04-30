@@ -1,0 +1,13 @@
+; $Id: views_slideshow.info,v 1.2 2008/09/30 20:10:22 aaron Exp $
+name = Views Slideshow
+description = Provides a View type that displays nodes as a jquery slideshow in a single div.
+dependencies[] = views
+package = Views
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-04-16
+version = "6.x-1.0-beta2"
+core = "6.x"
+project = "views_slideshow"
+datestamp = "1239848004"
+

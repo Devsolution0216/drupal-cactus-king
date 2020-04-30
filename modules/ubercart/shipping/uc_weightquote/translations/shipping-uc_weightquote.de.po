@@ -1,0 +1,50 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_weightquote.module,v 1.5.2.4 2008/11/21 21:17:30 islandusurper
+#  uc_weightquote.admin.inc,v 1.1.2.2 2008/11/07 21:13:28 islandusurper
+#  uc_weightquote.info,v 1.3.4.3 2008/11/07 21:13:28 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-19 09:49+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: shipping/uc_weightquote/uc_weightquote.module:116
+msgid "Shipping quote via product weight"
+msgstr "Versandkosten nach Artikel Gewicht."
+
+#: shipping/uc_weightquote/uc_weightquote.admin.inc:17
+msgid "The starting price of weight based shipping costs."
+msgstr "Der Startpreis bei Gewichtsberechneten Versandkosten."
+
+#: shipping/uc_weightquote/uc_weightquote.module:0
+msgid "uc_weightquote"
+msgstr "uc_weightquote"
+
+#: shipping/uc_weightquote/uc_weightquote.info:0
+msgid "Assigns a shipping rate to products based on weight."
+msgstr "Versandkosten werden Artikeln nach Gewicht zugewiesen."
+
+#: shipping/uc_weightquote/uc_weightquote.module:48
+msgid "Shipping rate by weight"
+msgstr "Versandkosten Berechnung nach Gewicht"
+
+#: shipping/uc_weightquote/uc_weightquote.module:56
+msgid "Shipping cost per !unit"
+msgstr "Versandkosten Berechnung nach !unit"
+
+#: shipping/uc_weightquote/uc_weightquote.module:151
+msgid "Weight rate per product"
+msgstr "Gewichts Rate nach Artikel"
+
+#: shipping/uc_weightquote/uc_weightquote.admin.inc:25
+msgid "Default cost adjustment per !unit"
+msgstr "Kosten anpassung nach !unit"
+

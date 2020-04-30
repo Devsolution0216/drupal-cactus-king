@@ -1,0 +1,16 @@
+; $Id: cck_teaser_field.info,v 1.2 2008/03/10 23:02:18 nedjo Exp $
+name = CCK Teaser Field
+description = Enables the designation of a given field to be used for teasers.
+dependencies[] = content
+package = CCK
+core = 6.x
+
+
+
+
+; Information added by drupal.org packaging script on 2008-12-30
+version = "6.x-1.0-beta1"
+core = "6.x"
+project = "cck_teaser_field"
+datestamp = "1230643209"
+

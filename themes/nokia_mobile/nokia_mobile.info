@@ -1,0 +1,15 @@
+; $Id: nokia_mobile.info,v 1.1 2010/01/05 19:42:09 atrasatti Exp $
+name = nokia_mobile
+description = "Mobile optimized theme based on Nokia mobile web templates."
+core = 6.x
+engine = phptemplate
+stylesheets[all][] = style.css
+
+; dependancies[] = mobileplugin
+
+; Information added by drupal.org packaging script on 2010-05-19
+version = "6.x-1.3"
+core = "6.x"
+project = "nokia_mobile"
+datestamp = "1274270413"
+

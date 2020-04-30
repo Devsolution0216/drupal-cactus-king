@@ -1,0 +1,215 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_stock.admin.inc,v 1.1.2.2 2008/12/09 15:20:35 islandusurper
+#  uc_stock.module,v 1.12.2.9 2008/12/09 15:20:35 islandusurper
+#  uc_stock.ca.inc,v 1.1.2.5 2008/11/07 21:13:29 islandusurper
+#  uc_stock.install,v 1.6.2.6 2008/11/07 21:13:29 islandusurper
+#  uc_stock.info,v 1.3.2.5 2008/11/07 21:13:29 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-13 22:49+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_stock/uc_stock.admin.inc:20
+msgid "Notification recipients"
+msgstr "Benachrichtigungs Empfänger"
+
+#: uc_stock/uc_stock.module:52
+msgid "Stock reports"
+msgstr "Bestands Auswertungen"
+
+#: uc_stock/uc_stock.module:43
+msgid "Stock settings"
+msgstr "Lagerverwaltungs Einstellungen"
+
+#: uc_stock/uc_stock.module:44
+msgid "View the stock settings."
+msgstr "Lagerverwaltungs Einstellungen anzeigen."
+
+#: uc_stock/uc_stock.module:101,223,238
+msgid "The current stock level"
+msgstr "Aktueller Bestands level"
+
+#: uc_stock/uc_stock.module:102,212
+msgid "The model or SKU of the stock level"
+msgstr "Die Artikelnummer des Bestands"
+
+#: uc_stock/uc_stock.module:103,228,242
+msgid "The threshold or warning limit of the stock level"
+msgstr "Der Grenzwert oder das Warnlimit für den Bestand"
+
+#: uc_stock/uc_stock.module:128
+msgid "[store-name]: Stock threshold limit reached"
+msgstr "[store-name]: Bestands Grenzwert erreicht"
+
+#: uc_stock/uc_stock.module:129
+msgid ""
+"This message has been sent to let you know that the stock level for "
+"the model [stock-model] has reached [stock-level]. There may not be "
+"enough units in stock to fulfill order #[order-link]."
+msgstr ""
+"Diese Nachricht wurde gesendet um Sie wissen zu lassen das der Bestand "
+"für: [stock-model] auf [stock-level] gesunken ist. Eventuell sind "
+"nicht mehr genügend Artikel auf lager um die Bestellung mit der "
+"Nummer #[order-link] ausführen zu können."
+
+#: uc_stock/uc_stock.admin.inc:55,59,196
+msgid "Threshold"
+msgstr "Grenzwert"
+
+#: uc_stock/uc_stock.admin.inc:14
+msgid "Send email notification when stock level reaches its threshold value"
+msgstr ""
+"Email benachrichtigung senden wenn der Bestand seinen Grenzwert "
+"erreicht."
+
+#: uc_stock/uc_stock.admin.inc:22
+msgid ""
+"The list of comma seperated email addresses that will receive the "
+"notification."
+msgstr ""
+"Die Liste mit kommagetrennten E-Mail adressen die Benachrichtigungen "
+"erhalten sollen."
+
+#: uc_stock/uc_stock.module:0
+msgid "uc_stock"
+msgstr "uc_stock"
+
+#: uc_stock/uc_stock.admin.inc:94
+msgid "Export to CSV file"
+msgstr "Als CSV datei exportieren."
+
+#: uc_stock/uc_stock.module:285
+msgid "Inactive"
+msgstr "Inaktiv"
+
+#: uc_stock/uc_stock.ca.inc:20
+msgid "Decrement stock upon order submission"
+msgstr "Bestand bei Bestellungs Übermittlung reduzieren"
+
+#: uc_stock/uc_stock.ca.inc:27
+msgid "Decrement stock of products in order"
+msgstr "Die Lageranzahl von Artikeln die in der #Bestellung sind reduzieren."
+
+#: uc_stock/uc_stock.ca.inc:69
+msgid "The stock level for %model_name has been decreased to !qty."
+msgstr "Der Lagerbestand für %model_name hat sich auf !qty verringert."
+
+#: uc_stock/uc_stock.admin.inc:35
+msgid ""
+"The message the user receives when the stock level reaches its "
+"threshold value (uses <a href=\"!token-help-page\">global, order, and "
+"stock tokens</a>)."
+msgstr ""
+
+#: uc_stock/uc_stock.ca.inc:43
+msgid "Decrement stock of products on the order with tracking activated."
+msgstr ""
+
+#: uc_stock/uc_stock.module:29
+msgid ""
+"To keep track of stock for a particular product SKU, make sure it is "
+"marked as active and enter a stock value. When the stock level drops "
+"below the threshold value, you can be notified based on your stock "
+"settings."
+msgstr ""
+
+#: uc_stock/uc_stock.module:32
+msgid ""
+"This is the list of product SKUs that are currently active. Stock "
+"levels below their threshold have highlighted rows. Toggle the "
+"checkbox below to alter which stock levels are shown."
+msgstr ""
+
+#: uc_stock/uc_stock.module:53
+msgid "View reports for product stock."
+msgstr ""
+
+#: uc_stock/uc_stock.admin.inc:224
+msgid "Stock settings saved."
+msgstr ""
+
+#: uc_stock/uc_stock.admin.inc:102
+msgid "Only show SKUs that are below their threshold."
+msgstr ""
+
+#: uc_stock/uc_stock.module:211,234
+msgid "Stock: SKU"
+msgstr ""
+
+#: uc_stock/uc_stock.module:216
+msgid "Stock: Active"
+msgstr ""
+
+#: uc_stock/uc_stock.module:217
+msgid "Whether or not the stock level is currently being tracked"
+msgstr ""
+
+#: uc_stock/uc_stock.module:222,237
+msgid "Stock: Stock Level"
+msgstr ""
+
+#: uc_stock/uc_stock.module:227,241
+msgid "Stock: Threshold"
+msgstr ""
+
+#: uc_stock/uc_stock.module:250
+msgid "Filter the node based on stock SKU."
+msgstr ""
+
+#: uc_stock/uc_stock.module:255
+msgid "Filter the node based on stock level."
+msgstr ""
+
+#: uc_stock/uc_stock.module:260
+msgid "Filter the node based on threshold level."
+msgstr ""
+
+#: uc_stock/uc_stock.module:268
+msgid ""
+"Filter the data based on whether or not stock tracking is active for "
+"the SKU."
+msgstr ""
+
+#: uc_stock/uc_stock.module:276
+msgid ""
+"Filter the node based on whether it stock level is below the threshold "
+"for the SKU."
+msgstr ""
+
+#: uc_stock/uc_stock.admin.inc:138
+msgid "No SKU found."
+msgstr ""
+
+#: uc_stock/uc_stock.install:16
+msgid "Stock levels for Ubercart products"
+msgstr ""
+
+#: uc_stock/uc_stock.install:19
+msgid "SKU of a product"
+msgstr ""
+
+#: uc_stock/uc_stock.install:26
+msgid "Node ID of a product"
+msgstr ""
+
+#: uc_stock/uc_stock.install:40
+msgid "Level of stock"
+msgstr ""
+
+#: uc_stock/uc_stock.install:47
+msgid "Threshold level"
+msgstr ""
+
+#: uc_stock/uc_stock.info:0
+msgid "Manage stock levels of your Ubercart products"
+msgstr ""
+

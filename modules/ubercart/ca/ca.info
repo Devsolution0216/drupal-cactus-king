@@ -1,0 +1,12 @@
+name = Conditional Actions
+description = "REQUIRED. Create conditional action configurations for taxes, shipping, and more!"
+package = Ubercart - core
+core = 6.x
+php = 5.0
+
+; Information added by drupal.org packaging script on 2011-07-30
+version = "6.x-2.6"
+core = "6.x"
+project = "ubercart"
+datestamp = "1312031519"
+

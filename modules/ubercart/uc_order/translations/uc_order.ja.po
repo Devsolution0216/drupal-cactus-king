@@ -1,0 +1,2196 @@
+# $Id: uc_order.ja.po,v 1.1.2.1 2009/11/02 07:44:12 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  uc_order.admin.inc,v 1.1.2.27 2009/10/20 20:58:07 islandusurper
+#  uc_order.order_pane.inc,v 1.1.2.19 2009/09/23 19:50:45 islandusurper
+#  uc_order.module,v 1.12.2.33 2009/10/29 20:35:58 islandusurper
+#  uc_order.line_item.inc,v 1.1.2.9 2009/09/21 14:34:46 islandusurper
+#  uc_order.ca.inc,v 1.1.2.28 2009/10/20 20:58:07 islandusurper
+#  uc_order.info,v 1.6.2.2 2008/11/07 21:13:23 islandusurper
+#  uc_order.install,v 1.9.2.18 2009/09/23 15:45:56 islandusurper
+#  admin.itpl.php,v 1.4.4.6 2009/08/17 21:27:53 islandusurper
+#  customer.itpl.php,v 1.5.2.9 2009/09/21 14:34:49 islandusurper
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-10-13 21:24+0900\n"
+"PO-Revision-Date: 2009-10-13 21:24+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=0; plural=;\n"
+
+#: uc_order.admin.inc:33
+msgid "Admin settings"
+msgstr "管理者の設定"
+
+#: uc_order.admin.inc:41
+msgid "Number of orders on overview screen"
+msgstr "一覧ページに表示する注文数"
+
+#: uc_order.admin.inc:43
+msgid "Displaying @orders orders at a time on the admin overview"
+msgstr "管理画面の一覧ページで1度に @orders 件の注文を表示"
+
+#: uc_order.admin.inc:48
+msgid "Enable order logging"
+msgstr "注文のログ記録を有効化"
+
+#: uc_order.admin.inc:51
+msgid "Order logging is enabled."
+msgstr "注文のログ記録は有効です。"
+
+#: uc_order.admin.inc:52
+msgid "Order logging is disabled."
+msgstr "注文のログ記録は無効です。"
+
+#: uc_order.admin.inc:58
+msgid "Capitalize address on order screens"
+msgstr "注文表示画面で住所の頭文字を大文字にする"
+
+#: uc_order.admin.inc:61
+msgid "Addresses on order view pages are capitalized."
+msgstr "注文表示画面の住所は頭文字を大文字にします。"
+
+#: uc_order.admin.inc:62
+msgid "Addresses on order view pages are not capitalized."
+msgstr "注文表示画面の住所は頭文字を大文字にしません。"
+
+#: uc_order.admin.inc:69
+msgid "Use the uBrowser product select on order edit screens"
+msgstr "注文編集画面でuBrowserによる商品選択を使用"
+
+#: uc_order.admin.inc:72
+msgid "You are using the uBrowser to add products to orders."
+msgstr "商品を注文に追加するのにuBrowserを使用しています。"
+
+#: uc_order.admin.inc:73
+msgid "You are not using the uBrowser to add products to orders."
+msgstr "商品を注文に追加するのにuBrowserを使用していません。"
+
+#: uc_order.admin.inc:81
+msgid "Customer settings"
+msgstr "顧客の設定"
+
+#: uc_order.admin.inc:88
+msgid "Allow customers to view order invoices from their order history."
+msgstr "顧客が注文履歴で請求書を表示できるようにする。"
+
+#: uc_order.admin.inc:89
+msgid "Enabling this feature allows pop-up invoices to be opened when a particular order is being viewed."
+msgstr "この機能を有効にすると、特定の注文を表示する際に請求書がポップアップで開きます。"
+
+#: uc_order.admin.inc:92
+msgid "Customers are allowed to view order invoices from their accounts."
+msgstr "顧客は自分のアカウントから注文の請求書を表示することができます。"
+
+#: uc_order.admin.inc:93
+msgid "Customers are not allowed to view order invoices from their accounts."
+msgstr "顧客は自分のアカウントから注文の請求書を表示することができません。"
+
+#: uc_order.admin.inc:99
+msgid "On-site invoice template"
+msgstr "ブラウザ表示用の請求書テンプレート"
+
+#: uc_order.admin.inc:100
+msgid "Select the invoice template to use when invoices are viewed on the site.<br />This is separate from the template used to e-mail invoices to customers which is configured through <a href=\"!url\">Conditional actions</a>."
+msgstr ""
+"サイト上で表示する請求書のテンプレートを選択してください。<br "
+"/>これは、<a "
+"href=\"!url\">条件付きアクション</a>で設定するメールの請求書で使用するテンプレートとは別個のものです。"
+
+#: uc_order.admin.inc:102
+msgid "You are using the %template order invoice template."
+msgstr ""
+"注文の請求書のテンプレートに %template "
+"を使用しています。"
+
+#: uc_order.admin.inc:127
+msgid "@state"
+msgstr ""
+
+#: uc_order.admin.inc:131
+msgid "The following order statuses have been defined:"
+msgstr "以下の注文ステータスは定義済みです:"
+
+#: uc_order.admin.inc:150
+msgid "Order states"
+msgstr "注文ステータス"
+
+#: uc_order.admin.inc:174
+msgid "- N/A -"
+msgstr ""
+
+#: uc_order.admin.inc:188
+msgid "Order statuses"
+msgstr "注文ステータス"
+
+#: uc_order.admin.inc:240;282
+msgid "Create new status"
+msgstr "新しいステータスを作成"
+
+#: uc_order.admin.inc:245;279;1145
+msgid "Submit changes"
+msgstr "変更を送信"
+
+#: uc_order.admin.inc:262
+msgid "Order status %status removed."
+msgstr "注文ステータス %status を削除しました。"
+
+#: uc_order.admin.inc:280
+msgid "Order workflow information saved."
+msgstr "注文ワークフローの情報を保存しました。"
+
+#: uc_order.admin.inc:329
+msgid "Order panes on !screen screen"
+msgstr "!screen画面での注文区画"
+
+#: uc_order.admin.inc:351
+msgid "Order status ID"
+msgstr "注文ステータスID"
+
+#: uc_order.admin.inc:352
+msgid "Must be a unique ID with no spaces."
+msgstr "スペース無しで一意なIDを指定します。"
+
+#: uc_order.admin.inc:361 uc_order.order_pane.inc:421 uc_order.module:747
+msgid "Title"
+msgstr "タイトル"
+
+#: uc_order.admin.inc:362
+msgid "The order status title displayed to users."
+msgstr "ユーザへ表示する注文ステータスのタイトル。"
+
+#: uc_order.admin.inc:376
+msgid "Order state"
+msgstr "注文ステータス"
+
+#: uc_order.admin.inc:377
+msgid "Set which order state this status is for."
+msgstr "この状態がどの注文ステータスに対応するかを指定します。"
+
+#: uc_order.admin.inc:385 uc_order.module:747
+msgid "List position"
+msgstr "リスト位置"
+
+#: uc_order.admin.inc:392
+msgid "Create"
+msgstr "作成"
+
+#: uc_order.admin.inc:395;1525;1672
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: uc_order.admin.inc:409
+msgid "You have entered an invalid status ID."
+msgstr "入力された状態IDが正しくありません。"
+
+#: uc_order.admin.inc:415
+msgid "This ID is already in use.  Please specify a unique ID."
+msgstr "このIDはすでに使用されています。一意なIDを指定してください。"
+
+#: uc_order.admin.inc:429
+msgid "Custom order status created."
+msgstr "独自の注文ステータスを作成しました。"
+
+#: uc_order.admin.inc:439
+msgid "Actions"
+msgstr "アクション"
+
+#: uc_order.admin.inc:440
+msgid "Order ID"
+msgstr "注文ID"
+
+#: uc_order.admin.inc:441 uc_order.module:1526
+msgid "Customer"
+msgstr "顧客"
+
+#: uc_order.admin.inc:442;1031 uc_order.line_item.inc:79 uc_order.order_pane.inc:753;869 uc_order.module:701
+msgid "Total"
+msgstr "合計"
+
+#: uc_order.admin.inc:443
+msgid "Purchase date"
+msgstr "購入日"
+
+#: uc_order.admin.inc:444;1029 uc_order.order_pane.inc:511;957
+msgid "Status"
+msgstr "状態"
+
+#: uc_order.admin.inc:499
+msgid "User: none"
+msgstr "ユーザ: なし"
+
+#: uc_order.admin.inc:502
+msgid "User: !name"
+msgstr "ユーザー: !name"
+
+#: uc_order.admin.inc:543
+msgid "Active orders"
+msgstr "アクティブな注文"
+
+#: uc_order.admin.inc:549
+msgid "All orders"
+msgstr "すべての注文"
+
+#: uc_order.admin.inc:560
+msgid "View by status"
+msgstr "ステータス別に表示"
+
+#: uc_order.admin.inc:598 uc_order.module:195
+msgid "View order"
+msgstr "注文を表示"
+
+#: uc_order.admin.inc:605 uc_order.module:1523;1812;203
+msgid "View"
+msgstr "表示"
+
+#: uc_order.admin.inc:629
+msgid "Order created by the administration."
+msgstr "管理者が作成した注文"
+
+#: uc_order.admin.inc:643 uc_order.order_pane.inc:237;238
+msgid "Search for an existing customer."
+msgstr "既存の顧客を検索"
+
+#: uc_order.admin.inc:647 uc_order.order_pane.inc:241;242
+msgid "Create a new customer."
+msgstr "新しい顧客を作成"
+
+#: uc_order.admin.inc:663
+msgid "New order customer"
+msgstr "新しい注文顧客"
+
+#: uc_order.admin.inc:664
+msgid "Use the buttons above to have these fields filled in or just submit the form with the fields blank to create a blank order."
+msgstr "これらのフィールドを入力必須にするか、または空欄のまま送信して空注文を作成するためには、上記のボタンを使用します。"
+
+#: uc_order.admin.inc:673 uc_order.order_pane.inc:215
+msgid "Customer number"
+msgstr "顧客番号"
+
+#: uc_order.admin.inc:685 uc_order.order_pane.inc:227
+msgid "Primary e-mail"
+msgstr "主なメールアドレス"
+
+#: uc_order.admin.inc:694 uc_order.module:118;127
+msgid "Create order"
+msgstr "注文を作成"
+
+#: uc_order.admin.inc:714
+msgid "Search returned the following results:"
+msgstr "検索結果:"
+
+#: uc_order.admin.inc:795
+msgid "You must select a customer before address<br>information is available.<br>"
+msgstr "登録済み住所を利用するには顧客を選択してください。"
+
+#: uc_order.admin.inc:798
+msgid "No addresses found for customer."
+msgstr "顧客の住所が見つかりません。"
+
+#: uc_order.admin.inc:801
+msgid "Select an address"
+msgstr "住所を選択"
+
+#: uc_order.admin.inc:808;1010;1628
+msgid "Close"
+msgstr "閉じる"
+
+#: uc_order.admin.inc:859
+msgid "Search returned no results."
+msgstr "条件に合う検索結果はありません。"
+
+#: uc_order.admin.inc:863
+msgid "Search returned the following:"
+msgstr "検索結果:"
+
+#: uc_order.admin.inc:871;1733
+msgid "Invalid e-mail address."
+msgstr "不正なメールアドレス。"
+
+#: uc_order.admin.inc:875
+msgid "An account already exists for that e-mail."
+msgstr "そのメールアドレスはすでに登録されています。"
+
+#: uc_order.admin.inc:876;903
+msgid "Use this account now?"
+msgstr "このアカウントを今すぐ使用しますか？"
+
+#: uc_order.admin.inc:877
+msgid "User !uid - !mail"
+msgstr "ユーザ !uid - !mail"
+
+#: uc_order.admin.inc:879;906
+msgid "Apply"
+msgstr "適用"
+
+#: uc_order.admin.inc:900
+msgid "Account details sent to e-mail provided.<br /><br /><strong>Username:</strong> @username<br /><strong>Password:</strong> @password"
+msgstr ""
+"アカウントの詳細を、ご入力いただいたメールアドレスに送信いたしました。<br "
+"/><br /><strong>ユーザー名:</strong> @username<br "
+"/><strong>パスワード:</strong> @password"
+
+#: uc_order.admin.inc:904
+msgid "User @uid - @mail"
+msgstr "ユーザー @uid - @mail"
+
+#: uc_order.admin.inc:925
+msgid "Search for a customer based on these fields."
+msgstr "これらの項目から顧客を検索します。"
+
+#: uc_order.admin.inc:926
+msgid "Use * as a wildcard to match any character."
+msgstr "ワイルドカードの * はすべての文字に一致します。"
+
+#: uc_order.admin.inc:927
+msgid "Leave a field empty to ignore it in the search."
+msgstr "空欄のフィールドは検索に使用しません。"
+
+#: uc_order.admin.inc:933
+msgid "First name"
+msgstr "名"
+
+#: uc_order.admin.inc:940
+msgid "Last name"
+msgstr "姓"
+
+#: uc_order.admin.inc:947;969
+msgid "E-mail"
+msgstr "メール"
+
+#: uc_order.admin.inc:955
+msgid "Select a customer"
+msgstr "顧客を選択"
+
+#: uc_order.admin.inc:964
+msgid "Enter an e-mail address for the new customer."
+msgstr "新しい顧客のメールアドレスを入力してください。"
+
+#: uc_order.admin.inc:978;1623 uc_order.module:911
+msgid "Search"
+msgstr "検索"
+
+#: uc_order.admin.inc:986;1618
+msgid "Select"
+msgstr "選択"
+
+#: uc_order.admin.inc:992
+msgid "Back"
+msgstr "戻る"
+
+#: uc_order.admin.inc:999
+msgid "E-mail customer account details."
+msgstr "顧客のアカウント詳細をメールで送信。"
+
+#: uc_order.admin.inc:1003
+msgid "Submit"
+msgstr "送信"
+
+#: uc_order.admin.inc:1024
+msgid "My order history"
+msgstr "注文履歴"
+
+#: uc_order.admin.inc:1027 uc_order.order_pane.inc:511;945;1013
+msgid "Date"
+msgstr "日付"
+
+#: uc_order.admin.inc:1028
+msgid "Order #"
+msgstr "注文 #"
+
+#: uc_order.admin.inc:1030 uc_order.ca.inc:689;765 uc_order.module:600;225
+msgid "Products"
+msgstr "商品"
+
+#: uc_order.admin.inc:1063
+msgid "No orders available."
+msgstr "注文がありません。"
+
+#: uc_order.admin.inc:1076
+msgid "Order history"
+msgstr "注文履歴"
+
+#: uc_order.admin.inc:1082
+msgid "Print invoice"
+msgstr "請求書を印刷"
+
+#: uc_order.admin.inc:1083
+msgid "Close window"
+msgstr "ウィンドウを閉じる"
+
+#: uc_order.admin.inc:1106 uc_order.module:1525;249
+msgid "Invoice"
+msgstr "請求書"
+
+#: uc_order.admin.inc:1109
+msgid "Click to open a window with a printable invoice."
+msgstr "クリックして印刷用請求書のウィンドウを開きます。"
+
+#: uc_order.admin.inc:1153;1210;1801 uc_order.module:1855;1887
+msgid "Delete"
+msgstr "削除"
+
+#: uc_order.admin.inc:1202
+msgid "This order has been modified by another user, changes cannot be saved."
+msgstr "この注文は他のユーザーによって修正が加えられており、変更は保存されませんでした。"
+
+#: uc_order.admin.inc:1289
+msgid "Order changes saved."
+msgstr "注文の変更を保存しました。"
+
+#: uc_order.admin.inc:1456 uc_order.order_pane.inc:812;927
+msgid "This order contains no products."
+msgstr "この注文には商品が含まれていません。"
+
+#: uc_order.admin.inc:1482
+msgid "Remove this product."
+msgstr "この商品を削除"
+
+#: uc_order.admin.inc:1483
+msgid "Remove product from order?"
+msgstr "注文から商品を削除しますか？"
+
+#: uc_order.admin.inc:1499
+msgid "Line Item Title"
+msgstr "項目のタイトル"
+
+#: uc_order.admin.inc:1500
+msgid "Display title of the line item."
+msgstr "項目のタイトルを表示。"
+
+#: uc_order.admin.inc:1507
+msgid "Line Item Amount"
+msgstr "項目の金額"
+
+#: uc_order.admin.inc:1508
+msgid "Amount of the line item without a currency sign."
+msgstr "通貨記号無しの金額。"
+
+#: uc_order.admin.inc:1524 uc_order.order_pane.inc:380
+msgid "Add line item"
+msgstr "項目を追加"
+
+#: uc_order.admin.inc:1543
+msgid "Amount must be numeric."
+msgstr "値を数字で指定してください。"
+
+#: uc_order.admin.inc:1559
+msgid "Line item added to order."
+msgstr "注文に項目を追加しました。"
+
+#: uc_order.admin.inc:1601
+msgid "No products found."
+msgstr "商品がありません。"
+
+#: uc_order.admin.inc:1606
+msgid "Select a product"
+msgstr "商品を選択"
+
+#: uc_order.admin.inc:1613
+msgid "Search by name or model/SKU (* is the wildcard)"
+msgstr "名前や型番/SKUで検索します（*はワイルドカードです）"
+
+#: uc_order.admin.inc:1660 uc_order.order_pane.inc:715;831 uc_order.module:970
+msgid "Qty"
+msgstr "数量"
+
+#: uc_order.admin.inc:1667
+msgid "Add to order"
+msgstr "注文に追加"
+
+#: uc_order.admin.inc:1714
+msgid "Recipient e-mail address"
+msgstr "受信者メールアドレス"
+
+#: uc_order.admin.inc:1719 uc_order.module:271
+msgid "Mail invoice"
+msgstr "メール請求書"
+
+#: uc_order.admin.inc:1744
+msgid "Order @order_id does not exist."
+msgstr "注文 @order_id は存在しません。"
+
+#: uc_order.admin.inc:1754
+msgid "E-mail failed."
+msgstr "メール送信失敗。"
+
+#: uc_order.admin.inc:1757
+msgid "Invoice e-mailed to @email."
+msgstr "@email へ請求書のメールを送信済み。"
+
+#: uc_order.admin.inc:1775
+msgid "Time"
+msgstr "時間"
+
+#: uc_order.admin.inc:1775 uc_order.order_pane.inc:949;1017
+msgid "User"
+msgstr "ユーザ"
+
+#: uc_order.admin.inc:1775
+msgid "Changes"
+msgstr "変更"
+
+#: uc_order.admin.inc:1779
+msgid "No changes have been logged for this order."
+msgstr "この注文に記録されている変更はありません。"
+
+#: uc_order.admin.inc:1792
+msgid "It is not possible to delete order @id."
+msgstr "注文 @id を削除することはできません。"
+
+#: uc_order.admin.inc:1801
+msgid "Are you sure you want to delete order @order_id?"
+msgstr "注文 @order_id を本当に削除しますか？"
+
+#: uc_order.admin.inc:1812
+msgid "Order @order_id completely removed from the database."
+msgstr ""
+"注文 @order_id "
+"をデータベースから完全に削除しました。"
+
+#: uc_order.ca.inc:19
+msgid "Ubercart order object"
+msgstr "Ubercartのorderオブジェクト"
+
+#: uc_order.ca.inc:25
+msgid "Order line item"
+msgstr "注文項目"
+
+#: uc_order.ca.inc:37
+msgid "Order status gets updated"
+msgstr "注文ステータスが更新される"
+
+#: uc_order.ca.inc:38;53;57;125;135;225;297;302;310;318;326 uc_order.info:0
+msgid "Order"
+msgstr "注文"
+
+#: uc_order.ca.inc:42
+msgid "Original order"
+msgstr "元の注文"
+
+#: uc_order.ca.inc:46
+msgid "Updated order"
+msgstr "注文を更新"
+
+#: uc_order.ca.inc:52
+msgid "E-mail requested for order status update"
+msgstr "注文ステータスの更新で送信するメール"
+
+#: uc_order.ca.inc:72
+msgid "E-mail an order update notification"
+msgstr "注文更新の情報をメール送信"
+
+#: uc_order.ca.inc:73
+msgid "Notify the customer when the order status is changed."
+msgstr "注文ステータスが変更された場合に顧客へ通知します。"
+
+#: uc_order.ca.inc:82
+msgid "If the order status is not still In Checkout."
+msgstr "注文ステータスがもはや購入手続きでない場合。"
+
+#: uc_order.ca.inc:96
+msgid "Send an e-mail to the customer"
+msgstr "顧客へメール送信"
+
+#: uc_order.ca.inc:103
+msgid "Order #[order-id] Update"
+msgstr "注文 #[order-id] の更新"
+
+#: uc_order.ca.inc:123
+msgid "Check the order status"
+msgstr "注文ステータスをチェック"
+
+#: uc_order.ca.inc:124
+msgid "Returns TRUE if the current order status matches the status specified below."
+msgstr "現在の注文ステータスが以下で指定した状態と一致すればTRUEを返します。"
+
+#: uc_order.ca.inc:133
+msgid "Check the order total"
+msgstr "注文合計をチェック"
+
+#: uc_order.ca.inc:134
+msgid "Returns TRUE if the current order total is within the parameters below."
+msgstr "現在の注文合計が以下のパラメータの範囲内にあればTRUEを返します。"
+
+#: uc_order.ca.inc:143
+msgid "Check an order's shipping postal code"
+msgstr "配送先の郵便番号をチェック"
+
+#: uc_order.ca.inc:144;153;162
+msgid "Order: Shipping address"
+msgstr "注文: 配送先住所"
+
+#: uc_order.ca.inc:145
+msgid "Returns TRUE if the shipping postal code is in the specified area."
+msgstr "配送先の郵便番号が指定の地域にあればTRUEを返します。"
+
+#: uc_order.ca.inc:152
+msgid "Check an order's shipping @zone"
+msgstr "注文の配送先@zoneをチェック"
+
+#: uc_order.ca.inc:154
+msgid "Returns TRUE if the shipping @zone is in the specified list."
+msgstr "配送先の@zoneが指定のリストに含まれていればTRUEを返します。"
+
+#: uc_order.ca.inc:161
+msgid "Check an order's shipping country"
+msgstr "配送先の国をチェック"
+
+#: uc_order.ca.inc:163
+msgid "Returns TRUE if the shipping country is in the specified list."
+msgstr "配送先の国が指定の一覧にあればTRUEを返します。"
+
+#: uc_order.ca.inc:170
+msgid "Check an order's billing postal code"
+msgstr "請求先の郵便番号をチェック"
+
+#: uc_order.ca.inc:171;180;189
+msgid "Order: Billing address"
+msgstr "注文: 請求先住所"
+
+#: uc_order.ca.inc:172
+msgid "Returns TRUE if the billing postal code is in the specified area."
+msgstr "請求先の郵便番号が指定の地域にあればTRUEを返します。"
+
+#: uc_order.ca.inc:179
+msgid "Check an order's billing @zone"
+msgstr "注文の請求先@zoneをチェック"
+
+#: uc_order.ca.inc:181
+msgid "Returns TRUE if the billing @zone is in the specified list."
+msgstr "請求先の@zoneが指定のリストに含まれていればTRUEを返します。"
+
+#: uc_order.ca.inc:188
+msgid "Check an order's billing country"
+msgstr "請求先の国をチェック"
+
+#: uc_order.ca.inc:190
+msgid "Returns TRUE if the billing country is in the specified list."
+msgstr "請求先の国が指定の一覧にあればTRUEを返します。"
+
+#: uc_order.ca.inc:197
+msgid "Check an order's products"
+msgstr "注文の商品をチェック"
+
+#: uc_order.ca.inc:198;207;216
+msgid "Order: Product"
+msgstr "注文: 商品"
+
+#: uc_order.ca.inc:199
+msgid "Returns TRUE if the order has any, all, or only the products in the list."
+msgstr "注文した商品がリストにあればTRUEを返します。"
+
+#: uc_order.ca.inc:206
+msgid "Check an order's number of products"
+msgstr "注文の商品数をチェック"
+
+#: uc_order.ca.inc:208
+msgid "Determines if the order has the specified number of products, possibly of a certain type."
+msgstr "注文に指定の商品数が含まれているか判定します。特定のタイプの商品だけカウントすることができます。"
+
+#: uc_order.ca.inc:215
+msgid "Check an order's total weight"
+msgstr "注文の合計重量をチェック"
+
+#: uc_order.ca.inc:217
+msgid "Determines if the order has the specified weight, possibly counting only a certain type of product."
+msgstr "注文に指定の重さがあるか判定します。特定のタイプの商品だけカウントすることができます。"
+
+#: uc_order.ca.inc:224
+msgid "Check if an order can be shipped"
+msgstr "注文が配送可能かチェック"
+
+#: uc_order.ca.inc:226
+msgid "Returns TRUE if the order has any shippable products."
+msgstr "配送可能な商品が注文に含まれていればTRUEを返します。"
+
+#: uc_order.ca.inc:234
+msgid "Check the user name."
+msgstr "ユーザー名をチェック"
+
+#: uc_order.ca.inc:235;244;253;262;271;280
+msgid "Order: User"
+msgstr "注文: ユーザー"
+
+#: uc_order.ca.inc:236
+msgid "Returns TRUE if the user name matches the condition."
+msgstr "ユーザー名が条件に一致する場合にTRUEを返します。"
+
+#: uc_order.ca.inc:243
+msgid "Check the user email address."
+msgstr "ユーザーのメールアドレスをチェック"
+
+#: uc_order.ca.inc:245
+msgid "Returns TRUE if the user email addresses matches the condition."
+msgstr "ユーザーのメールアドレスが条件に一致する場合にTRUEを返します。"
+
+#: uc_order.ca.inc:252
+msgid "Check the user creation date."
+msgstr "ユーザーの登録日時をチェック"
+
+#: uc_order.ca.inc:254
+msgid "Returns TRUE if the user creation date matches the condition."
+msgstr "ユーザーの登録日時が条件に一致する場合にTRUEを返します。"
+
+#: uc_order.ca.inc:261
+msgid "Check the user last login date."
+msgstr "ユーザーの最終ログイン日時をチェック"
+
+#: uc_order.ca.inc:263
+msgid "Returns TRUE if the user last login date matches the condition."
+msgstr "ユーザーの最終ログイン日時が条件に一致する場合にTRUEを返します。"
+
+#: uc_order.ca.inc:270
+msgid "Check the user language setting."
+msgstr "ユーザーの言語設定をチェック"
+
+#: uc_order.ca.inc:272
+msgid "Returns TRUE if the user language setting matches the condition."
+msgstr "ユーザーの言語設定が条件に一致する場合にTRUEを返します。"
+
+#: uc_order.ca.inc:279
+msgid "Check the role of the user."
+msgstr "ユーザーのロールをチェック"
+
+#: uc_order.ca.inc:281
+msgid "Returns TRUE if the user roles match your settings."
+msgstr "ユーザーのロールが条件に一致する場合にTRUEを返します。"
+
+#: uc_order.ca.inc:301
+msgid "Update the order status"
+msgstr "注文ステータスを更新"
+
+#: uc_order.ca.inc:309
+msgid "Add a comment to the order"
+msgstr "注文にコメントを追加"
+
+#: uc_order.ca.inc:317
+msgid "Send an order email"
+msgstr "注文メールを送信"
+
+#: uc_order.ca.inc:325
+msgid "Email an order invoice"
+msgstr "注文の請求書をメール送信"
+
+#: uc_order.ca.inc:363;1089 uc_order.order_pane.inc:643 uc_order.module:1308
+msgid "Order status"
+msgstr "注文ステータス"
+
+#: uc_order.ca.inc:397
+msgid "Order total value"
+msgstr "注文合計"
+
+#: uc_order.ca.inc:398
+msgid "Specify a value to compare the order total against."
+msgstr "注文合計と比較する値を指定します。"
+
+#: uc_order.ca.inc:406;704;790
+msgid "Total is less than specified value."
+msgstr "合計が指定の値より小さい。"
+
+#: uc_order.ca.inc:407;705;791
+msgid "Total is less than or equal to specified value."
+msgstr "合計が指定の値以下。"
+
+#: uc_order.ca.inc:408;706;792
+msgid "Total is equal to specified value."
+msgstr "合計が指定の値と等しい。"
+
+#: uc_order.ca.inc:409;707;793
+msgid "Total is greater than or equal to specified value."
+msgstr "合計が指定の値以上。"
+
+#: uc_order.ca.inc:410;708;794
+msgid "Total is greater than specified value."
+msgstr "合計が指定の値より大きい。"
+
+#: uc_order.ca.inc:414
+msgid "Order total comparison type"
+msgstr "注文合計との比較方法"
+
+#: uc_order.ca.inc:443;523
+msgid "Specify a postal code or postal code pattern. Use \"*\" as a wild card to specify a range of postal codes.<br /><b>Example:</b> In the US, 402* represents all areas from 40200 to 40299."
+msgstr ""
+"郵便番号または郵便番号のパターンを指定します。ワイルドカード文字の「*」を使用して、郵便番号の指定に幅をもたせることができます。<br "
+"/><strong>例</strong>: "
+"アメリカでは、402*と入力することで、40200から40299まで指定することになります。"
+
+#: uc_order.ca.inc:614
+msgid "Require selected products"
+msgstr "選択した商品の必要条件"
+
+#: uc_order.ca.inc:616
+msgid "Order has any of these products."
+msgstr "注文にはこれらの商品のいずれかが含まれています。"
+
+#: uc_order.ca.inc:617
+msgid "Order has all of these products."
+msgstr "注文にはこれらの商品のすべてが含まれています。"
+
+#: uc_order.ca.inc:622
+msgid "Forbid other products"
+msgstr "その他の商品"
+
+#: uc_order.ca.inc:624
+msgid "Order may have other products."
+msgstr "注文にはこのほかの商品が含まれています。"
+
+#: uc_order.ca.inc:625
+msgid "Order has only these products."
+msgstr "注文にはこれらの商品しか含まれていません。"
+
+#: uc_order.ca.inc:637
+msgid "Product models"
+msgstr "商品型番"
+
+#: uc_order.ca.inc:683;759
+msgid "- All products -"
+msgstr "- 全商品 -"
+
+#: uc_order.ca.inc:692;768
+msgid "Selecting \"- All products -\" will override any other selections and returns the total number of products in the order."
+msgstr ""
+"「- 全商品 "
+"-」を選択すると、その他の選択を上書きし、注文に含まれる商品数の合計を返します。"
+
+#: uc_order.ca.inc:697
+msgid "Product count value"
+msgstr "商品計"
+
+#: uc_order.ca.inc:698
+msgid "Specify a value to compare the product count against."
+msgstr "商品の合計数と比較する値を指定してください。"
+
+#: uc_order.ca.inc:712;798
+msgid "Product count comparison type"
+msgstr "比較方法"
+
+#: uc_order.ca.inc:772
+msgid "Unit of measurement"
+msgstr "単位"
+
+#: uc_order.ca.inc:775
+msgid "Pounds"
+msgstr "ポンド"
+
+#: uc_order.ca.inc:776
+msgid "Kilograms"
+msgstr "キログラム"
+
+#: uc_order.ca.inc:777
+msgid "Ounces"
+msgstr "オンス"
+
+#: uc_order.ca.inc:778
+msgid "Grams"
+msgstr "グラム"
+
+#: uc_order.ca.inc:783
+msgid "Product weight value"
+msgstr "商品の重さ"
+
+#: uc_order.ca.inc:784
+msgid "Specify a value to compare the product weight against."
+msgstr "商品の重さと比較する値を指定してください。"
+
+#: uc_order.ca.inc:841
+msgid "User name"
+msgstr "ユーザー名"
+
+#: uc_order.ca.inc:844
+msgid "Leave blank for %anonymous."
+msgstr ""
+"投稿者の名前を入力してください。 空欄にすると "
+"%anonymous の投稿として扱われます。"
+
+#: uc_order.ca.inc:844
+msgid "Anonymous"
+msgstr "匿名ユーザ"
+
+#: uc_order.ca.inc:866
+msgid "User email"
+msgstr "ユーザーメールアドレス"
+
+#: uc_order.ca.inc:907;961;1044
+msgid "Operator"
+msgstr "オペレータ"
+
+#: uc_order.ca.inc:909
+msgid "User was created before the specified date."
+msgstr "ユーザーが指定の日時より以前に登録されている。"
+
+#: uc_order.ca.inc:910
+msgid "User was created on or before the specified date."
+msgstr "ユーザーが指定の日時またはそれ以前に登録されている。"
+
+#: uc_order.ca.inc:911
+msgid "User was created on the specified date."
+msgstr "ユーザーが指定の日時に登録されている。"
+
+#: uc_order.ca.inc:912
+msgid "User was not created on the specified date."
+msgstr "ユーザーが指定の日時には登録されていない。"
+
+#: uc_order.ca.inc:913
+msgid "User was created on or after the specified date."
+msgstr "ユーザーが指定の日時またはそれ以降に登録されている。"
+
+#: uc_order.ca.inc:914
+msgid "User was created after the specified date."
+msgstr "ユーザーが指定の日時より後に登録されている。"
+
+#: uc_order.ca.inc:920
+msgid "User creation date"
+msgstr "ユーザーの登録日時"
+
+#: uc_order.ca.inc:963
+msgid "User last logged in before the specified date."
+msgstr "ユーザーが最後にログインしたのは指定の日時より以前。"
+
+#: uc_order.ca.inc:964
+msgid "User last logged in on, or before the specified date."
+msgstr "ユーザーが最後にログインしたのは指定の日時またはそれ以前。"
+
+#: uc_order.ca.inc:965
+msgid "User last logged in on the specified date."
+msgstr "ユーザーが最後にログインしたのは指定の日時。"
+
+#: uc_order.ca.inc:966
+msgid "User did not log in last on the specified date."
+msgstr "ユーザーが最後にログインしたのは指定の日時ではない。"
+
+#: uc_order.ca.inc:967
+msgid "User last logged in on or after the specified date."
+msgstr "ユーザーが最後にログインしたのは指定の日時またはそれ以降。"
+
+#: uc_order.ca.inc:968
+msgid "User last logged after the specified date."
+msgstr "ユーザーが最後にログインしたのは指定の日時より以降。"
+
+#: uc_order.ca.inc:974
+msgid "User last login date"
+msgstr "ユーザーの最終ログイン日時"
+
+#: uc_order.ca.inc:1003
+msgid "User language setting"
+msgstr "ユーザーの言語設定"
+
+#: uc_order.ca.inc:1045
+msgid "If you use an <em>AND</em> case and want to check a custom role, make sure <em>authenticated user</em> is checked too or the condition will return FALSE."
+msgstr "もしも、<em>AND</em>を選択しつつ独自のロールもチェックしたい場合は、<em>登録ユーザー</em>にもチェックを入れてください。そうしなければ条件はFALSEを返してしまいます。"
+
+#: uc_order.ca.inc:1047
+msgid "AND: If the user has all of these roles."
+msgstr ""
+"AND: "
+"ユーザーがすべてのロールを保有している場合。"
+
+#: uc_order.ca.inc:1048
+msgid "OR: If the user has any of these roles."
+msgstr ""
+"OR: "
+"ユーザーがいずれかのロールを保有している場合。"
+
+#: uc_order.ca.inc:1054
+msgid "Roles"
+msgstr "ロール"
+
+#: uc_order.ca.inc:1115
+msgid "Select an order comment type"
+msgstr "注文コメントのタイプを選択"
+
+#: uc_order.ca.inc:1117
+msgid "Enter this as an admin comment."
+msgstr "管理者コメントとして入力。"
+
+#: uc_order.ca.inc:1118
+msgid "Enter this as a customer order comment."
+msgstr "顧客の注文コメントとして入力。"
+
+#: uc_order.ca.inc:1119
+msgid "Enter this as a customer order comment with a notified icon."
+msgstr "顧客の通知アイコン付き注文コメントとして入力。"
+
+#: uc_order.ca.inc:1125 uc_order.order_pane.inc:961;1021
+msgid "Comment"
+msgstr "コメント"
+
+#: uc_order.ca.inc:1126
+msgid "Enter the comment message. Uses <a href=\"!url\">order and global tokens</a>."
+msgstr ""
+"コメントメッセージを入力します。<a "
+"href=\"!url\">orderとglobalのトークン</a>を使用できます。"
+
+#: uc_order.ca.inc:1175;1267
+msgid "Sender"
+msgstr "差出人"
+
+#: uc_order.ca.inc:1177;1269
+msgid "The \"From\" address."
+msgstr "「送信者」アドレス。"
+
+#: uc_order.ca.inc:1182;1274
+msgid "Recipients"
+msgstr "受信者"
+
+#: uc_order.ca.inc:1184;1276
+msgid "Enter the email addresses to receive the notifications, one on each line. You may use order tokens for dynamic email addresses."
+msgstr "お知らせを受け取るメールアドレスを入力してください。複数の場合は改行で区切ります。注文トークンを使用して動的にメールアドレスを指定することができます。"
+
+#: uc_order.ca.inc:1189;1281
+msgid "Subject"
+msgstr "件名"
+
+#: uc_order.ca.inc:1195 uc_order.order_pane.inc:511
+msgid "Message"
+msgstr "メッセージ"
+
+#: uc_order.ca.inc:1204;1288
+msgid "Replacement patterns"
+msgstr "置換パターン"
+
+#: uc_order.ca.inc:1205
+msgid "You can make use of the replacement patterns in the e-mail from and recipients fields, the subject, and the message body."
+msgstr "メールフォームの受取人フィールドや件名、本文に置換パターンを使用することができます。"
+
+#: uc_order.ca.inc:1212;1296
+msgid "@name replacement patterns"
+msgstr "@name置換パターン"
+
+#: uc_order.ca.inc:1289
+msgid "You can make use of the replacement patterns in the recipients, the subject, and the template file."
+msgstr "受信者や件名、テンプレートファイルに置換パターンを使用することができます。"
+
+#: uc_order.ca.inc:1307
+msgid "Invoice template"
+msgstr "請求書テンプレート"
+
+#: uc_order.ca.inc:1308
+msgid "Select the invoice template to use for this email."
+msgstr "このメールに使用する請求書のテンプレートを選択してください。"
+
+#: uc_order.ca.inc:1314
+msgid "Included information"
+msgstr "記載する情報"
+
+#: uc_order.ca.inc:1316
+msgid "Show the business header and shipping method."
+msgstr "ビジネスヘッダーと配送方法を表示。"
+
+#: uc_order.ca.inc:1317
+msgid "Show all of the above plus the help text, email text, and store footer."
+msgstr "上記のすべてに加え、ヘルプテキストおよびメールテキスト、店舗フッターを表示。"
+
+#: uc_order.ca.inc:1318
+msgid "Show all of the above plus the \"thank you\" message."
+msgstr "上記のすべてに加え、「ありがとう」メッセージを表示"
+
+#: uc_order.ca.inc:1164;1248;1256
+msgid "ca"
+msgstr ""
+
+#: uc_order.ca.inc:1164
+msgid "Attempt to e-mail @email concerning order @order_id failed."
+msgstr ""
+"注文 @order_id に関連する @email "
+"へメール送信するのに失敗しました。"
+
+#: uc_order.ca.inc:1248
+msgid "Attempted to e-mail an invoice with no recipient."
+msgstr "受信者なしで請求書をメール送信しようとしました。"
+
+#: uc_order.ca.inc:1256
+msgid "Attempt to e-mail invoice for order @order_id to @email failed."
+msgstr ""
+"注文 @order_id の請求書を @email "
+"へメール送信するのに失敗しました。"
+
+#: uc_order.line_item.inc:22;48 uc_order.module:684
+msgid "Subtotal"
+msgstr "小計"
+
+#: uc_order.order_pane.inc:30
+msgid "Modify 'Ship to' information"
+msgstr "「配送先」情報の修正"
+
+#: uc_order.order_pane.inc:115
+msgid "Modify 'Bill to' information"
+msgstr "「請求先」情報の修正"
+
+#: uc_order.order_pane.inc:159;160
+msgid "Select from address book."
+msgstr "住所録から選択。"
+
+#: uc_order.order_pane.inc:163;164
+msgid "Copy shipping information."
+msgstr "配送先情報をコピー。"
+
+#: uc_order.order_pane.inc:197
+msgid "Customer number: !user_link"
+msgstr "顧客番号"
+
+#: uc_order.order_pane.inc:198
+msgid "Primary e-mail:"
+msgstr "主なメールアドレス:"
+
+#: uc_order.order_pane.inc:205
+msgid "Modify 'Customer info'"
+msgstr "「顧客情報」を修正"
+
+#: uc_order.order_pane.inc:280
+msgid "Loading product information... (<em>If nothing happens, make sure you have Javascript enabled.</em>)"
+msgstr ""
+"商品の情報を読み込んでいます... "
+"(<em>何も起こらなければ、JavaScriptが有効になっているか確認してください。</em>)"
+
+#: uc_order.order_pane.inc:297 uc_order.module:241
+msgid "Add product"
+msgstr "商品を追加"
+
+#: uc_order.order_pane.inc:301
+msgid "Add blank line"
+msgstr "空の項目を追加"
+
+#: uc_order.order_pane.inc:386
+msgid "Select a type"
+msgstr "タイプ選択"
+
+#: uc_order.order_pane.inc:391;492;494
+msgid "Add line"
+msgstr "項目を追加"
+
+#: uc_order.order_pane.inc:400
+msgid "Modify 'line items'"
+msgstr "「項目」を修正"
+
+#: uc_order.order_pane.inc:427;428
+msgid "Remove line item."
+msgstr "項目を除去。"
+
+#: uc_order.order_pane.inc:431
+msgid "Remove this line item?"
+msgstr "この項目を除去しますか？"
+
+#: uc_order.order_pane.inc:435
+msgid "Amount"
+msgstr "量"
+
+#: uc_order.order_pane.inc:458 uc_order.module:217
+msgid "Add a line item"
+msgstr "項目を追加"
+
+#: uc_order.order_pane.inc:487
+msgid "Line item removed."
+msgstr "項目を除去しました。"
+
+#: uc_order.order_pane.inc:515
+msgid "Order created."
+msgstr "注文を作成しました。"
+
+#: uc_order.order_pane.inc:547;611
+msgid "Add an admin comment"
+msgstr "管理者コメントを追加"
+
+#: uc_order.order_pane.inc:553;617
+msgid "Admin comments are only seen by store administrators."
+msgstr "店舗の管理者だけが見ることのできる管理用コメント。"
+
+#: uc_order.order_pane.inc:565
+msgid "No admin comments have been entered for this order."
+msgstr "この注文にはまだ管理者コメントがありません。"
+
+#: uc_order.order_pane.inc:600
+msgid "Add an order comment"
+msgstr "注文コメントを追加"
+
+#: uc_order.order_pane.inc:606
+msgid "Order comments are used primarily to communicate with the customer."
+msgstr "注文コメントは、主に顧客とコミュニケーションをとるために使用します。"
+
+#: uc_order.order_pane.inc:652
+msgid "Send e-mail notification on update."
+msgstr "更新時に通知メールを送信。"
+
+#: uc_order.order_pane.inc:658
+msgid "Update"
+msgstr "更新"
+
+#: uc_order.order_pane.inc:701
+msgid "Order updated."
+msgstr "注文を更新しました。"
+
+#: uc_order.order_pane.inc:722;838
+msgid "Product"
+msgstr "商品"
+
+#: uc_order.order_pane.inc:729;845 uc_order.module:978
+msgid "SKU"
+msgstr ""
+
+#: uc_order.order_pane.inc:738;854 uc_order.module:986
+msgid "Cost"
+msgstr "費用"
+
+#: uc_order.order_pane.inc:746;862 uc_order.module:990
+msgid "Price"
+msgstr "価格"
+
+#: uc_order.order_pane.inc:953
+msgid "Notified"
+msgstr "通知"
+
+#: uc_order.order_pane.inc:994
+msgid "This order has no comments associated with it."
+msgstr "この注文にはコメントが残されていません。"
+
+#: uc_order.order_pane.inc:1045
+msgid "This order has no admin comments associated with it."
+msgstr "この注文には管理者コメントが残されていません。"
+
+#: uc_order.module:305
+msgid "Order @order_id"
+msgstr "注文 @order_id"
+
+#: uc_order.module:407
+msgid "Standard delivery"
+msgstr "通常配送"
+
+#: uc_order.module:419
+msgid "<i>No comments left.</i>"
+msgstr "<i>コメントがありません。</i>"
+
+#: uc_order.module:421;422
+msgid "<i>No comment found.</i>"
+msgstr "<i>コメントがありません。</i>"
+
+#: uc_order.module:438
+msgid "New username associated with an order if applicable."
+msgstr "注文に結び付く新しいユーザ名。"
+
+#: uc_order.module:439
+msgid "New password associated with an order if applicable."
+msgstr "注文に結び付く新しいパスワード。"
+
+#: uc_order.module:440 uc_order.install:19;253;293;346;403;443
+msgid "The order ID."
+msgstr "注文ID。"
+
+#: uc_order.module:441
+msgid "The user ID of the order."
+msgstr "顧客のユーザID。"
+
+#: uc_order.module:442
+msgid "The URL to the order"
+msgstr "注文情報ページへのURL。"
+
+#: uc_order.module:443
+msgid "A link to the order using the order ID."
+msgstr "注文IDを利用した、注文情報を表示するページへのリンク。"
+
+#: uc_order.module:444
+msgid "The URL to the admin view page using the order ID."
+msgstr "管理者用の注文情報ページへのURL"
+
+#: uc_order.module:445
+msgid "A link to the order admin view page using the order ID."
+msgstr "注文IDを利用した、注文情報を表示する管理ページへのリンク。"
+
+#: uc_order.module:446
+msgid "The subtotal of products on an order."
+msgstr "注文に含まれる商品の小計。"
+
+#: uc_order.module:447
+msgid "The order total."
+msgstr "注文の合計金額。"
+
+#: uc_order.module:448
+msgid "The primary e-mail address of the order."
+msgstr "注文の主なメールアドレス。"
+
+#: uc_order.module:449
+msgid "The order shipping address."
+msgstr "配送先住所。"
+
+#: uc_order.module:450
+msgid "The phone number for the shipping address."
+msgstr "配送先の電話番号。"
+
+#: uc_order.module:451
+msgid "The order billing address."
+msgstr "請求先住所。"
+
+#: uc_order.module:452 uc_order.install:147
+msgid "The phone number for the billing address."
+msgstr "請求先の電話番号。"
+
+#: uc_order.module:453
+msgid "The title of the first shipping line item."
+msgstr "最初の配送項目のタイトル。"
+
+#: uc_order.module:454
+msgid "The first name associated with the order."
+msgstr "注文に結び付く名。"
+
+#: uc_order.module:455
+msgid "The last name associated with the order."
+msgstr "注文に結び付く姓。"
+
+#: uc_order.module:456
+msgid "Comments left by the customer."
+msgstr "顧客が残したコメント。"
+
+#: uc_order.module:457
+msgid "Last order comment left by an administrator (not counting the order admin comments)."
+msgstr "最後に管理者が残したコメント（注文管理のコメントは含まない）。"
+
+#: uc_order.module:458
+msgid "Last order comment left by an administrator (not counting the order admin comments).  Use with caution: this is unescaped raw input."
+msgstr ""
+"管理者による最新の注文コメント（注文時の管理者コメントを除く）。注意: "
+"ユーザーが入力した RAW データ"
+
+#: uc_order.module:459
+msgid "The current order status."
+msgstr "現在の注文ステータス。"
+
+#: uc_order.module:460
+msgid "The date and time when the order was created."
+msgstr "注文を受けた日時。"
+
+#: uc_order.module:461
+msgid "The date and time when the order was last modified."
+msgstr "注文を最後に更新した日時。"
+
+#: uc_order.module:507;91;110;161
+msgid "Orders"
+msgstr "注文"
+
+#: uc_order.module:510
+msgid "Click here to view your order history."
+msgstr "注文履歴を見るにはこちらをクリックしてください。"
+
+#: uc_order.module:530
+msgid "Your Order Invoice"
+msgstr "請求書"
+
+#: uc_order.module:573
+msgid "Ship to"
+msgstr "配送先"
+
+#: uc_order.module:574
+msgid "Manage the order's shipping address and contact information."
+msgstr "配送先の住所と連絡先の情報を管理します。"
+
+#: uc_order.module:582
+msgid "Bill to"
+msgstr "請求先"
+
+#: uc_order.module:583
+msgid "Manage the order's billing address and contact information."
+msgstr "請求先の住所と連絡先の情報を管理します。"
+
+#: uc_order.module:591
+msgid "Customer info"
+msgstr "顧客情報"
+
+#: uc_order.module:592
+msgid "Manage the information for the customer's user account."
+msgstr "顧客ユーザアカウントの情報を管理します。"
+
+#: uc_order.module:601
+msgid "Manage the products an order contains."
+msgstr "注文に含まれる商品を管理します。"
+
+#: uc_order.module:609
+msgid "Line items"
+msgstr "項目"
+
+#: uc_order.module:610
+msgid "View and modify an order's line items."
+msgstr "注文の項目を表示して修正します。"
+
+#: uc_order.module:618
+msgid "Order comments"
+msgstr "注文コメント"
+
+#: uc_order.module:619
+msgid "View the order comments, used for communicating with customers."
+msgstr "顧客とのコミュニケーションに使用する注文コメントを表示します。"
+
+#: uc_order.module:627
+msgid "Admin comments"
+msgstr "管理者コメント"
+
+#: uc_order.module:628
+msgid "View the admin comments, used for administrative notes and instructions."
+msgstr "管理用のメモや指示に使用する管理者コメントを表示します。"
+
+#: uc_order.module:636
+msgid "Update order"
+msgstr "注文を更新"
+
+#: uc_order.module:637
+msgid "Update an order's status or add comments to an order."
+msgstr "注文の状態を更新または注文にコメントを追加します。"
+
+#: (duplicate) uc_order.module:652 uc_order.install:572 ;678 
+msgid "Canceled"
+msgstr "キャンセル"
+
+#: (duplicate) uc_order.module:658 uc_order.install:573 ;679 
+msgid "In checkout"
+msgstr "入金待ち"
+
+#: uc_order.module:664
+msgid "Post checkout"
+msgstr "入金済み"
+
+#: (duplicate) uc_order.module:670 uc_order.install:576 ;682 
+msgid "Completed"
+msgstr "完了"
+
+#: uc_order.module:692
+msgid "Empty line"
+msgstr "空の項目"
+
+#: uc_order.module:716
+msgid "[order-first-name] [order-last-name],\n\nYour order number [order-link] at [store-name] has been updated.\n\nOrder status: [order-status]\n\nOrder comment:\n[order-last-comment]\n\nBrowse to the following page to login to your account and view your order details:\n[site-login]\n\n\nThanks again,\n\n[store-name]\n[site-slogan]"
+msgstr ""
+"[order-last-name] [order-first-name] 様\n"
+"\n"
+"[store-name]でのあなたのご注文が更新されました。\n"
+"[order-link]\n"
+"\n"
+"注文ステータス: [order-status]\n"
+"\n"
+"注文コメント:\n"
+"[order-last-comment]\n"
+"\n"
+"以下のページでログインして、注文の詳細な情報をご確認ください:\n"
+"[site-login]\n"
+"\n"
+"\n"
+"今後ともどうぞよろしくお願い申し上げます。,\n"
+"\n"
+"[store-name]\n"
+"[site-slogan]"
+
+#: uc_order.module:731;747
+msgid "State"
+msgstr "状態"
+
+#: uc_order.module:731
+msgid "Default order status"
+msgstr "デフォルトの注文ステータス"
+
+#: uc_order.module:747
+msgid "ID"
+msgstr "ID"
+
+#: uc_order.module:747;966
+msgid "Remove"
+msgstr "除去"
+
+#: uc_order.module:751
+msgid "Use this button to create a custom order status: !create_form"
+msgstr "独自の注文ステータスを作成: !create_form"
+
+#: uc_order.module:789
+msgid "!title is !enabled."
+msgstr "!title は !enabled です。"
+
+#: uc_order.module:789
+msgid "enabled"
+msgstr "有効"
+
+#: uc_order.module:789
+msgid "disabled"
+msgstr "無効"
+
+#: uc_order.module:793
+msgid "Order panes on %screen screen:"
+msgstr "%screen 画面の注文区画:"
+
+#: uc_order.module:809
+msgid "Search options"
+msgstr "検索条件"
+
+#: uc_order.module:817
+msgid "Search for customers based on any of the following fields.  Use * as a wildcard to match any character.<br/>For example, searching by last name for 's*' will return all customers whose last name starts with an s.<br/>(<em>Leave a field empty to ignore it in the search.</em>)"
+msgstr ""
+"以下のフィールドにしたがって顧客を検索します。ワイルドカードとして "
+"* を使用すると、すべての文字に一致します。<br "
+"/>例えば、「s*」で姓を検索すると、姓がsで始まるすべての顧客が結果に現れます。<br "
+"/>(<em>検索で使用しないフィールドは空欄にします。</em>)"
+
+#: uc_order.module:824
+msgid "Billing first name"
+msgstr "請求先名"
+
+#: uc_order.module:834
+msgid "Billing last name"
+msgstr "請求先姓"
+
+#: uc_order.module:844
+msgid "Billing company"
+msgstr "請求先会社名"
+
+#: uc_order.module:854
+msgid "Shipping first name"
+msgstr "配送先名"
+
+#: uc_order.module:864
+msgid "Shipping last name"
+msgstr "配送先姓"
+
+#: uc_order.module:874
+msgid "Shipping company"
+msgstr "配送先会社名"
+
+#: uc_order.module:884
+msgid "Search using date range."
+msgstr "期間で検索。"
+
+#: uc_order.module:885
+msgid "Specify dates to the right if checked."
+msgstr "チェックがあれば、右側に日付を指定します。"
+
+#: uc_order.module:894
+msgid "Start date"
+msgstr "開始日"
+
+#: uc_order.module:903
+msgid "End date"
+msgstr "終了日"
+
+#: uc_order.module:974
+msgid "Name"
+msgstr "名前"
+
+#: uc_order.module:982
+msgid "Weight"
+msgstr "ウェイト"
+
+#: uc_order.module:1345
+msgid "@key changed from %old to %new."
+msgstr "@key を %old から %new へ変更しました。"
+
+#: uc_order.module:1524;1822;44;208
+msgid "Edit"
+msgstr "編集"
+
+#: uc_order.module:1632
+msgid "Custom template"
+msgstr "カスタムテンプレート"
+
+#: uc_order.module:1810
+msgid "View order @order_id."
+msgstr "注文 @order_id を表示します。"
+
+#: uc_order.module:1820
+msgid "Edit order @order_id."
+msgstr "注文 @order_id を編集"
+
+#: uc_order.module:1853
+msgid "Delete order @order_id."
+msgstr "注文 @order_id を削除。"
+
+#: uc_order.module:1176
+msgid "uc_order"
+msgstr ""
+
+#: uc_order.module:1176
+msgid "Order @order_id deleted by user @uid."
+msgstr "ユーザ @uid が注文 @order_id を削除しました。"
+
+#: uc_order.module:471
+msgid "view own orders"
+msgstr "自分の注文を表示"
+
+#: uc_order.module:471
+msgid "view all orders"
+msgstr "すべての注文を表示"
+
+#: uc_order.module:471
+msgid "create orders"
+msgstr "注文を作成"
+
+#: uc_order.module:471
+msgid "edit orders"
+msgstr "注文を編集"
+
+#: uc_order.module:471
+msgid "delete orders"
+msgstr "注文を削除"
+
+#: uc_order.module:471
+msgid "unconditionally delete orders"
+msgstr "無条件で注文を削除"
+
+#: uc_order.module:471
+msgid "administer order workflow"
+msgstr "注文ワークフローの管理"
+
+#: uc_order.module:30;54
+msgid "Order settings"
+msgstr "注文の設定"
+
+#: uc_order.module:31
+msgid "Configure the order settings."
+msgstr "注文の設定を行います。"
+
+#: uc_order.module:38
+msgid "Overview"
+msgstr "概観"
+
+#: uc_order.module:39
+msgid "View the order settings."
+msgstr "注文の設定を表示します。"
+
+#: uc_order.module:45
+msgid "Edit the order settings."
+msgstr "注文の設定を編集します。"
+
+#: uc_order.module:55
+msgid "Edit the basic order settings."
+msgstr "注文に関する基本的な設定を編集します。"
+
+#: uc_order.module:60
+msgid "Order workflow"
+msgstr "注文ワークフロー"
+
+#: uc_order.module:61
+msgid "Modify and configure order states and statuses."
+msgstr "注文ステータスを設定します。"
+
+#: uc_order.module:70
+msgid "Order panes"
+msgstr "注文の区画"
+
+#: uc_order.module:71
+msgid "Edit the pane settings for order pages."
+msgstr "注文ページの区画設定を編集します。"
+
+#: uc_order.module:81
+msgid "Create an order status"
+msgstr "注文ステータスを作成"
+
+#: uc_order.module:82
+msgid "Create a custom order status for your store."
+msgstr "独自の注文ステータスを作成します。"
+
+#: uc_order.module:92
+msgid "View and process orders."
+msgstr "注文を表示して処理します。"
+
+#: uc_order.module:101
+msgid "View orders"
+msgstr "注文を表示"
+
+#: uc_order.module:102
+msgid "View and process the orders received through your website."
+msgstr "サイトで受けた注文を表示して処理します。"
+
+#: uc_order.module:111
+msgid "View orders with a particular order status."
+msgstr "特定の状態を持つ注文を表示。"
+
+#: uc_order.module:119
+msgid "Create an empty new order."
+msgstr "空白の注文を新規に作成します。"
+
+#: uc_order.module:128
+msgid "Create an order for a customer."
+msgstr "顧客の注文を作成します。"
+
+#: uc_order.module:137
+msgid "Search orders"
+msgstr "注文を検索"
+
+#: uc_order.module:138
+msgid "Search existing orders."
+msgstr "既存の注文を検索します。"
+
+#: uc_order.module:146
+msgid "Select address"
+msgstr "住所を選択"
+
+#: uc_order.module:153
+msgid "Select customer"
+msgstr "顧客を選択"
+
+#: uc_order.module:162
+msgid "View your order history."
+msgstr "注文履歴を表示"
+
+#: uc_order.module:173
+msgid "View order."
+msgstr "注文を表示。"
+
+#: uc_order.module:182;258
+msgid "View invoice"
+msgstr "請求書を表示"
+
+#: uc_order.module:183
+msgid "View order invoice."
+msgstr "注文の請求書を表示。"
+
+#: uc_order.module:233
+msgid "Product select"
+msgstr "商品を選択"
+
+#: uc_order.module:263
+msgid "Printable invoice"
+msgstr "印刷用請求書"
+
+#: uc_order.module:280
+msgid "Log"
+msgstr "ログ"
+
+#: uc_order.module:289
+msgid "Delete an order"
+msgstr "注文を削除"
+
+#: uc_order.install:16
+msgid "Main orders table."
+msgstr "メインの注文テーブル。"
+
+#: uc_order.install:25
+msgid "The ID of the user that placed the order."
+msgstr "注文したユーザID"
+
+#: uc_order.install:32
+msgid "The order status."
+msgstr "注文ステータス"
+
+#: uc_order.install:39
+msgid "The total amount to be paid for the order."
+msgstr "注文の合計金額。"
+
+#: uc_order.install:47;1024
+msgid "The total product quantity of the order."
+msgstr "注文の合計商品数。"
+
+#: uc_order.install:54
+msgid "The email address of the customer."
+msgstr "顧客のメールアドレス"
+
+#: uc_order.install:61
+msgid "The first name of the person receiving shipment."
+msgstr "配送先の名。"
+
+#: uc_order.install:68
+msgid "The last name of the person receiving shipment."
+msgstr "配送先の姓。"
+
+#: uc_order.install:75
+msgid "The phone number at the delivery location."
+msgstr "配送先の電話番号。"
+
+#: uc_order.install:82
+msgid "The company at the delivery location."
+msgstr "配送先の会社。"
+
+#: uc_order.install:89
+msgid "The street address of the delivery location."
+msgstr "配送先の番地。"
+
+#: uc_order.install:96;168
+msgid "The second line of the street address."
+msgstr "配送先の番地その2。"
+
+#: uc_order.install:103
+msgid "The city of the delivery location."
+msgstr "配送先の市町村区。"
+
+#: uc_order.install:110
+msgid "The state/zone/province id of the delivery location."
+msgstr "配送先の都道府県ID。"
+
+#: uc_order.install:118
+msgid "The postal code of the delivery location."
+msgstr "配送先の郵便番号。"
+
+#: uc_order.install:125
+msgid "The country ID of the delivery location."
+msgstr "配送先の国ID。"
+
+#: uc_order.install:133
+msgid "The first name of the person paying for the order."
+msgstr "請求先の名。"
+
+#: uc_order.install:140
+msgid "The last name of the person paying for the order."
+msgstr "請求先の姓。"
+
+#: uc_order.install:154
+msgid "The company of the billing address."
+msgstr "請求先の会社。"
+
+#: uc_order.install:161
+msgid "The street address where the bill will be sent."
+msgstr "請求先の番地。"
+
+#: uc_order.install:175
+msgid "The city where the bill will be sent."
+msgstr "請求先の市町村区。"
+
+#: uc_order.install:182
+msgid "The state/zone/province ID where the bill will be sent."
+msgstr "請求先の都道府県ID。"
+
+#: uc_order.install:190
+msgid "The postal code where the bill will be sent."
+msgstr "請求先の郵便番号。"
+
+#: uc_order.install:197
+msgid "The country ID where the bill will be sent."
+msgstr "請求先の国ID。"
+
+#: uc_order.install:205
+msgid "The method of payment."
+msgstr "決済方法"
+
+#: uc_order.install:212;382;508
+msgid "Serialized array of extra data."
+msgstr "その他のデータのシリアライズされた配列。"
+
+#: uc_order.install:217
+msgid "Timestamp of when the order was created."
+msgstr "注文作成時のタイムスタンプ。"
+
+#: uc_order.install:223
+msgid "Timestamp of when the order was last modified."
+msgstr "注文修正時のタイムスタンプ"
+
+#: uc_order.install:229;864
+msgid "Host IP address of the person paying for the order."
+msgstr "この注文に支払いをした人物のホストIPアドレス。"
+
+#: uc_order.install:244
+msgid "Comments on orders that only administrators can see."
+msgstr "管理者だけが閲覧可能な注文コメント。"
+
+#: uc_order.install:247;287
+msgid "The comment ID."
+msgstr "コメントID。"
+
+#: uc_order.install:260;300
+msgid "The user ID who made the comment."
+msgstr "コメントを残したユーザID。"
+
+#: uc_order.install:267
+msgid "The comment body."
+msgstr "コメントの本文"
+
+#: uc_order.install:271;321
+msgid "Timestamp of when the comment was created."
+msgstr "コメント作成時のタイムスタンプ。"
+
+#: uc_order.install:284
+msgid "Comments on the order that the customer can see."
+msgstr "顧客が閲覧可能な注文コメント。"
+
+#: uc_order.install:307
+msgid "The status the order had when the comment was made."
+msgstr "コメント作成時の注文ステータス。"
+
+#: uc_order.install:314
+msgid "Boolean flag; if set, the comment was emailed to the customer."
+msgstr "論理フラグ。コメントが顧客にメールで送信されたか。"
+
+#: uc_order.install:337
+msgid "Order line items other than products."
+msgstr "商品以外の注文項目。"
+
+#: uc_order.install:340
+msgid "The line item ID."
+msgstr "項目ID。"
+
+#: uc_order.install:353
+msgid "The line item type."
+msgstr "項目タイプ。"
+
+#: uc_order.install:360
+msgid "The label of the line item."
+msgstr "項目のタイトル。"
+
+#: uc_order.install:367
+msgid "The amount of the line item in the store's currency."
+msgstr "店舗の通貨での項目の金額。"
+
+#: uc_order.install:375
+msgid "The sort criteria of line items."
+msgstr "項目の並び順。"
+
+#: uc_order.install:394
+msgid "Record of changes made to an order."
+msgstr "注文に加えられた変更の記録。"
+
+#: uc_order.install:397
+msgid "The log entry ID."
+msgstr "ログエントリID。"
+
+#: uc_order.install:410
+msgid "The user ID who made the changes."
+msgstr "変更を加えたユーザID。"
+
+#: uc_order.install:417
+msgid "Description of what was changed."
+msgstr "変更箇所の説明。"
+
+#: uc_order.install:421
+msgid "Timestamp of when the change was made."
+msgstr "変更時のタイムスタンプ。"
+
+#: uc_order.install:434
+msgid "The products that have been ordered."
+msgstr "注文商品。"
+
+#: uc_order.install:437
+msgid "The ordered product ID."
+msgstr "注文商品ID。"
+
+#: uc_order.install:450
+msgid "The product node ID."
+msgstr "商品のノードID。"
+
+#: uc_order.install:457
+msgid "The product title."
+msgstr "商品のタイトル。"
+
+#: uc_order.install:464
+msgid "The product manufacturer. (Deprecated)"
+msgstr "商品の製造元。(非推奨)"
+
+#: uc_order.install:471
+msgid "The product model/SKU."
+msgstr "商品の型番/SKU。"
+
+#: uc_order.install:478
+msgid "The number of the same product ordered."
+msgstr "注文にある同じ商品の数。"
+
+#: uc_order.install:486
+msgid "The cost to the store for the product."
+msgstr "店舗に対してかかる商品の費用。"
+
+#: uc_order.install:494
+msgid "The price paid for the ordered product."
+msgstr "注文商品の価格。"
+
+#: uc_order.install:502;925
+msgid "The physical weight."
+msgstr "物理的な重さ。"
+
+#: uc_order.install:520
+msgid "Statuses the order can be in during its lifecycle."
+msgstr "注文がとり得るステータス。"
+
+#: uc_order.install:523
+msgid "The order status ID."
+msgstr "注文ステータスID。"
+
+#: uc_order.install:530
+msgid "The status title."
+msgstr "ステータスタイトル。"
+
+#: uc_order.install:537
+msgid "The base order state the status is associated with."
+msgstr "基本の注文ステータス。"
+
+#: uc_order.install:544
+msgid "The sort criteria for statuses."
+msgstr "ステータスの並び順。"
+
+#: uc_order.install:551
+msgid "Boolean flag; if set, users can not delete the status."
+msgstr "論理フラグ。ユーザがステータスを削除できるかどうか。"
+
+#: (duplicate) uc_order.install:574 ;680 
+msgid "Pending"
+msgstr "未決済"
+
+#: (duplicate) uc_order.install:575 ;681 
+msgid "Processing"
+msgstr "処理中"
+
+#: (duplicate) uc_order.install:978 
+msgid "Fixed %count predicates with the action \"uc_order_email_invoice\"."
+msgstr ""
+"%count "
+"個の述部をアクション「uc_order_email_invoice」で修正しました。"
+
+#: (duplicate) uc_order.install:1010 
+msgid "Removed new users' passwords from order data."
+msgstr "新しいユーザーのパスワードを注文データから削除しました。"
+
+#: (duplicate) uc_order.install:1062 
+msgid "Populated the product count column for {uc_orders}."
+msgstr "{uc_orders}テーブルに商品数のカラムを実装しました。"
+
+#: (duplicate) uc_order.install:1090 
+msgid "Fixed %count predicates with the condition \"uc_order_condition_has_products\"."
+msgstr ""
+"%count "
+"個の述部を条件「uc_order_condition_has_products」で修正しました。"
+
+#: uc_order.info:0
+msgid "REQUIRED. Receive and manage orders through your website."
+msgstr "必須。ウェブサイトで注文を受け、管理します。"
+
+#: uc_order.info:0
+msgid "Ubercart - core"
+msgstr ""
+
+#: templates/admin.itpl.php:11
+msgid "Order number:"
+msgstr "注文番号:"
+
+#: templates/admin.itpl.php:12
+msgid "Customer:"
+msgstr "顧客:"
+
+#: templates/admin.itpl.php:13
+msgid "Order total:"
+msgstr "注文合計:"
+
+#: templates/admin.itpl.php:14
+msgid "Shipping method:"
+msgstr "配送方法:"
+
+#: templates/admin.itpl.php:18
+msgid "Products:"
+msgstr "商品:"
+
+#: templates/admin.itpl.php:34 templates/customer.itpl.php:232
+msgid "SKU: "
+msgstr ""
+
+#: templates/admin.itpl.php:37 templates/customer.itpl.php:235
+msgid "@attribute: @options"
+msgstr ""
+
+#: templates/admin.itpl.php:45
+msgid "Order comments:"
+msgstr "注文コメント:"
+
+#: templates/customer.itpl.php:41
+msgid "Thanks for your order, [order-first-name]!"
+msgstr "[order-first-name] 様、ご注文ありがとうございます！"
+
+#: templates/customer.itpl.php:44
+msgid "An account has been created for you with the following details:"
+msgstr "あなたのアカウントを以下の内容で作成いたしました:"
+
+#: templates/customer.itpl.php:45
+msgid "Username:"
+msgstr "ユーザ名:"
+
+#: templates/customer.itpl.php:46
+msgid "Password:"
+msgstr "パスワード:"
+
+#: templates/customer.itpl.php:49
+msgid "Want to manage your order online?"
+msgstr "ご注文をオンラインで管理したいですか？"
+
+#: templates/customer.itpl.php:50
+msgid "If you need to check the status of your order, please visit our home page at [store-link] and click on \"My account\" in the menu or login with the following link:"
+msgstr ""
+"ご注文のステータスを確認する必要がおありでしたら、[store-link] "
+"にある私達のホームページを訪れてメニューにある「自分のアカウント」をクリックするか、または以下のリンクからログインしてください:"
+
+#: templates/customer.itpl.php:57
+msgid "Purchasing Information:"
+msgstr "購入情報:"
+
+#: templates/customer.itpl.php:62
+msgid "E-mail Address:"
+msgstr "メールアドレス:"
+
+#: templates/customer.itpl.php:74
+msgid "Billing Address:"
+msgstr "請求先住所:"
+
+#: templates/customer.itpl.php:77
+msgid "Billing Phone:"
+msgstr "請求先電話番号:"
+
+#: templates/customer.itpl.php:82
+msgid "Shipping Address:"
+msgstr "配送先住所:"
+
+#: templates/customer.itpl.php:85
+msgid "Shipping Phone:"
+msgstr "配送先電話番号:"
+
+#: templates/customer.itpl.php:96
+msgid "Order Grand Total:"
+msgstr "注文合計金額:"
+
+#: templates/customer.itpl.php:104
+msgid "Payment Method:"
+msgstr "決済方法:"
+
+#: templates/customer.itpl.php:113
+msgid "Order Summary:"
+msgstr "注文概要:"
+
+#: templates/customer.itpl.php:120
+msgid "Shipping Details:"
+msgstr "配送情報:"
+
+#: templates/customer.itpl.php:131
+msgid "Order #:"
+msgstr "注文 #:"
+
+#: templates/customer.itpl.php:141
+msgid "Shipping Method:"
+msgstr "配送方法:"
+
+#: templates/customer.itpl.php:151
+msgid "Products Subtotal:"
+msgstr "商品小計:"
+
+#: templates/customer.itpl.php:192
+msgid "Total for this Order:"
+msgstr "注文合計:"
+
+#: templates/customer.itpl.php:201
+msgid "Products on order:"
+msgstr "注文の商品:"
+
+#: templates/customer.itpl.php:229
+msgid "(!price each)"
+msgstr "(各 !price)"
+
+#: templates/customer.itpl.php:258
+msgid "Where can I get help with reviewing my order?"
+msgstr "注文の確認方法についてのヘルプはどこにありますか？"
+
+#: templates/customer.itpl.php:259
+msgid "To learn more about managing your orders on [store-link], please visit our <a href=\"[store-help-url]\">help page</a>."
+msgstr ""
+"[store-link] "
+"でご注文を管理する方法をより詳しく知るには、<a "
+"href=\"[store-help-url]\">ヘルプページ</a>にアクセスしてください。"
+
+#: templates/customer.itpl.php:264
+msgid "Please note: This e-mail message is an automated notification. Please do not reply to this message."
+msgstr ""
+"ご注意: "
+"このメールは自動的に送信されたものです。このメッセージに返信しないでください。"
+
+#: templates/customer.itpl.php:266
+msgid "Thanks again for shopping with us."
+msgstr "今後ともどうぞよろしくお願い申し上げます。"
+

@@ -1,0 +1,116 @@
+<?php
+// $Id: uc_restrictions_age.module,v 1.5 2009/01/27 23:43:42 islco Exp $
+
+/**
+ * @file
+ * Allows a site to limit the sale of goods to people below a given age.
+ * 
+ */
+
+/******************************************************************************
+ * Drupal Hooks                                                               *
+ */
+
+/**
+ * Implementation of hook_form().
+ *
+ * @param string $form_id
+ * @param array $form
+ */
+function uc_restrictions_age_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+    case 'uc_restrictions_admin_settings':
+      // Admin Settings
+      $taxonomy = module_invoke('taxonomy', 'form_all', 1);
+
+      $form['age']=array('#title' => t('Age Requirement'),
+            '#type' => 'fieldset',
+            '#collapsible' => TRUE,
+            '#collapsed' => TRUE,
+            '#weight' => -5
+      );
+
+      $form['age']['uc_restrictions_age_required']=array('#title' => t('Age'),
+            '#type' => 'textfield',
+            '#default_value' => variable_get('uc_restrictions_age_required', ''),
+            '#description' => t('To enable age requirement, enter the required age.')
+      );
+
+      $form['age']['uc_restrictions_age_tid']=array('#title' => t('Affected Product Categories for Age Restriction'),
+            '#type' => 'select',
+            '#options' => $taxonomy,
+            '#default_value' => variable_get('uc_restrictions_age_tid', NULL),
+            '#multiple' => TRUE,
+            '#description' => t('Categories associated with items that cannot be ordered by persons under the age restriction.  <br />NOTE: Selecting a category that has descendents will affect all child categories; it is therefore not necessary to select child categories of an affected parent.')
+      );
+
+      $form['age']['uc_restrictions_age_redirect']=array('#title' => t('Age Requirement Redirection Path'),
+            '#type' => 'textfield',
+            '#default_value' => variable_get('uc_restrictions_age_redirect', ''),
+            '#description' => t('Enter the path to the page to which you want to redirect if the user does not meet age requirements.  You must '. l('create', 'node/add/page', array('target' => '_new')) .' this page.')
+      );
+
+      break;
+
+    case 'uc_cart_checkout_form':
+      // Checkout Form
+      // This should be done with a checkout pane hook instead.
+      $form['#validate'][]='uc_restrictions_checkout_form_validate';
+
+      if (variable_get('uc_restrictions_age_required', FALSE) 
+          && uc_restrictions_contains_restricted('uc_restrictions_age_tid', unserialize($form['cart_contents']['#value']))) {
+
+        $link=l(t('(details)'), variable_get('uc_restrictions_age_redirect', ''), array('class' => 'thickbox'), 'content_only=1&KeepThis=true&TB_iframe=true&width=640&height=480&modal=true');
+        
+        if ($form['#post']['panes']['customer']['age'][1] || $_COOKIE['uc_restrictions_age_pass']==1) {
+          $default_checked=1;
+        }
+
+        $form['panes']['customer']['age']=array(
+            '#title' => t('Only persons 21 years of age or older may complete this order'),
+            '#type' => 'checkboxes',
+            '#options' => array(1 => t('I am 21 years of age or older')),
+            '#required' => TRUE,
+            '#description' => $link,
+            '#default_value' => array($default_checked),
+        );
+
+      }
+      break;
+
+    case 'uc_restrictions_user_form':
+      // User "Overlay" Form
+      if (variable_get('uc_restrictions_age_required', FALSE)) {
+        $form['age']=array('#title' => t('Are you 21 years of age or older?'),
+            '#type' => 'select',
+            '#options' => array(1 => 'Yes', 0 => 'No'),
+            '#required' => TRUE
+        );
+        // put this one first
+        $form['#submit'][] = 'uc_restrictions_age_user_form_submit';
+      }
+      break;
+  }
+}
+
+
+/*******************************************************************************
+ * Module and Helper Functions 
+ */
+
+/**
+ * Submit handler callback for the "overlay" form
+ *
+ * @param array $form
+ * @param array $form_values
+ */
+function uc_restrictions_age_user_form_submit($form, &$form_state) {
+  if (variable_get('uc_restrictions_age_required', FALSE) &!$form_state['values']['age']) {
+    $path = variable_get('uc_restrictions_age_redirect', 'age-requirement');
+    drupal_goto($path);
+    exit;
+  }
+  else{
+    setcookie('uc_restrictions_age_pass', '1', 0 , '/');
+  }
+}

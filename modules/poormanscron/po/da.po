@@ -1,0 +1,68 @@
+# Danish translation of Drupal (poormanscron.module)
+# Copyright 2006 Morten Wulff <wulff@tem.dtu.dk>
+msgid ""
+msgstr ""
+"Project-Id-Version: Danish translation of Drupal (poormanscron.module) $Id: da.po,v 1.1 2006/01/29 14:21:35 wulff Exp $\n"
+"POT-Creation-Date: 2005-04-18 11:11+0200\n"
+"PO-Revision-Date: 2006-01-29 15:21+0100\n"
+"Last-Translator: Morten Wulff <wulff@tem.dtu.dk>\n"
+"Language-Team: Danish <danish@psyke.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+
+#: poormanscron.module:17
+msgid "Runs Drupal cron jobs without the cron application."
+msgstr "Kører Drupal cron-opgaver uden cron programmet."
+
+#: poormanscron.module:63
+msgid "Minimum number of minutes between cron runs. Cron will actually execute during the first page request after the interval has elapsed."
+msgstr "Mindste antal minutter mellem cron-kørsler. Cron køres under den første forespørgsel efter intervallet er udløbet."
+
+#: poormanscron.module:65
+msgid "The number of minutes to wait after a cron run error before retrying."
+msgstr "Antal minutter der ventes efter en cron-fejl før der forsøges igen."
+
+#: poormanscron.module:67
+msgid "If you want to log successful cron runs to the Drupal watchdog, say Yes here. If those messages annoy you, disable them by selecting No."
+msgstr "Vælg 'ja' hvis du ønsker at registrere succesfulde cron-kørsler. Hvis beskederne irriterer dig, skal du vælge 'nej'."
+
+#: poormanscron.module:71
+msgid "Cron runs interval"
+msgstr "Cron-interval"
+
+#: poormanscron.module:75
+msgid "Retry interval"
+msgstr "Forsøg igen-interval"
+
+#: poormanscron.module:78
+msgid "Time intervals"
+msgstr "Tidsintervaller"
+
+#: poormanscron.module:80
+msgid "Log successful cron runs"
+msgstr "Log succesfulde cron-kørsler"
+
+#: poormanscron.module:83
+msgid "Yes"
+msgstr "Ja"
+
+#: poormanscron.module:83
+msgid "No"
+msgstr "Nej"
+
+#: poormanscron.module:85
+msgid "Logging"
+msgstr "Logning"
+
+#: poormanscron.module:50
+msgid "regular"
+msgstr "almindelig"
+
+#: poormanscron.module:0
+msgid "poormanscron"
+msgstr "fattigmands-cron"
+

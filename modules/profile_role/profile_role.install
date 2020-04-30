@@ -1,0 +1,50 @@
+<?php
+// $Id: profile_role.install,v 1.1 2008/12/04 05:30:43 boombatower Exp $
+/**
+ * @file
+ * Create database structure and remove when uninstalled.
+ *
+ * Copyright 2008 by Jimmy Berry ("boombatower", http://drupal.org/user/214218)
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function profile_role_schema() {
+  $schema = array();
+  $schema['profile_role'] = array(
+    'description' => t('Relate profile categories to the roles.'),
+    'fields' => array(
+      'rid' => array(
+        'description' => t('Role ID.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0
+      ),
+      'category' => array(
+        'description' => t('The category that relates to the role.'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'default' => ''
+      )
+    ),
+    'primary key' => array('rid', 'category')
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function profile_role_install() {
+  drupal_install_schema('profile_role');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function profile_role_uninstall() {
+  drupal_uninstall_schema('profile_role');
+}

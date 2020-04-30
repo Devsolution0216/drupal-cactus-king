@@ -1,0 +1,317 @@
+# $Id: vocabindex.pot,v 1.1.2.4 2008/12/19 00:01:07 xano Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  vocabindex.admin.inc,v 1.1.2.3.2.51.2.9 2008/12/18 16:07:41 xano
+#  vocabindex.module: n/a
+#  vocabindex.view.inc,v 1.1.2.2.2.55.2.19 2008/12/15 21:42:16 xano
+#  vocabindex.info: n/a
+#  vocabindex.install: n/a
+#  vocabindex_admin_vi_form.tpl.php,v 1.1.2.7.4.1 2008/10/19 10:52:45 xano
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2008-12-19 00:48+0100\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: vocabindex.admin.inc:23 vocabindex.module:312
+msgid "Character transliteration"
+msgstr ""
+
+#: vocabindex.admin.inc:24
+msgid "Group terms by the <a href=\"!wiki_latin_alphabet\">modern Latin</a> equivalent of their first letter for alphabetical views. <a href=\"!transliteration_info\">More information</a>."
+msgstr ""
+
+#: vocabindex.admin.inc:30
+msgid "Terms per page"
+msgstr ""
+
+#: vocabindex.admin.inc:31
+msgid "The amount of terms to display per page for browsable and alphabetical views. Use 0 to disable paging."
+msgstr ""
+
+#: vocabindex.admin.inc:40
+msgid "Caching"
+msgstr ""
+
+#: vocabindex.admin.inc:45
+msgid "Cache lifetime"
+msgstr ""
+
+#: vocabindex.admin.inc:46
+msgid "Specified in minutes. Use 0 to disable caching or if you are using a taxonomy access control module."
+msgstr ""
+
+#: vocabindex.admin.inc:55
+msgid "Clear cache"
+msgstr ""
+
+#: vocabindex.admin.inc:83
+msgid "The cache has been cleared."
+msgstr ""
+
+#: vocabindex.admin.inc:95
+msgid "%element_title may only contain numbers."
+msgstr ""
+
+#: vocabindex.admin.inc:120
+msgid "Paths may not contain a percentage sign."
+msgstr ""
+
+#: vocabindex.admin.inc:130
+msgid "Path is already used by a menu link."
+msgstr ""
+
+#: vocabindex.admin.inc:134
+msgid "Path is already used as an alias."
+msgstr ""
+
+#: vocabindex.admin.inc:156
+msgid "You haven't yet got any vocabularies to enable an index for; you may create them at <a href=\"!link\">the Taxonomy page</a>."
+msgstr ""
+
+#: vocabindex.admin.inc:189
+msgid "Currently located at !location."
+msgstr ""
+
+#: vocabindex.admin.inc:192
+msgid "There is no index page set for this vocabulary."
+msgstr ""
+
+#: vocabindex.admin.inc:212
+msgid "Tree"
+msgstr ""
+
+#: vocabindex.admin.inc:214
+msgid "Browsable"
+msgstr ""
+
+#: vocabindex.admin.inc:215
+msgid "Alphabetical"
+msgstr ""
+
+#: vocabindex.admin.inc:218
+msgid "Flat"
+msgstr ""
+
+#: vocabindex.admin.inc:239
+msgid "Save configuration"
+msgstr ""
+
+#: vocabindex.admin.inc:267
+msgid "The configuration options have been saved."
+msgstr ""
+
+#: vocabindex.view.inc:287
+msgid "There are currently no terms in this vocabulary."
+msgstr ""
+
+#: vocabindex.module:3
+msgid "Vocabulary Index has been enabled. Please proceed to <a href=\"!settings\">the settings page</a> and <a href=\"!permissions\">set up the permissions</a> to get started."
+msgstr ""
+
+#: vocabindex.module:55;55
+msgid "Administer Vocabulary Index"
+msgstr ""
+
+#: vocabindex.module:56;56
+msgid "Configure Vocabulary Index pages, blocks and general settings."
+msgstr ""
+
+#: vocabindex.module:59;59
+msgid "View index pages"
+msgstr ""
+
+#: vocabindex.module:60;60
+msgid "View Vocabulary Index pages."
+msgstr ""
+
+#: vocabindex.module:164
+msgid "@vocabulary (Vocabulary Index)"
+msgstr ""
+
+#: vocabindex.module:257
+msgid "Vocabulary Index provides several ways to list all terms inside a specified vocabulary. For each vocabulary you may enable a <a href=\"!url_pages\">page</a> and/or a <a href=\"!url_blocks\">block</a> that will view its terms in the way you think suits best. This way may be a tree, a flat, browsable index, or an index where you can filter terms by letter. Next to that you can choose to display node counts for each term. Term descriptions will be displayed along with the term names if provided."
+msgstr ""
+
+#: vocabindex.module:260
+msgid "Configuration"
+msgstr ""
+
+#: vocabindex.module:263
+msgid "You may want to execute the following steps to configure Vocabulary Index."
+msgstr ""
+
+#: vocabindex.module:266
+msgid "Set up <a href=\"!permissions\">permissions</a>."
+msgstr ""
+
+#: vocabindex.module:270
+msgid "Create <a href=\"!index_pages\">index pages</a>."
+msgstr ""
+
+#: vocabindex.module:274
+msgid "Create <a href=\"!index_blocks\">index blocks</a>."
+msgstr ""
+
+#: vocabindex.module:284
+msgid "Configuration step not completed."
+msgstr ""
+
+#: vocabindex.module:289
+msgid "Example screenshot of a tree view."
+msgstr ""
+
+#: vocabindex.module:290
+msgid "Example screenshot of a browsable view."
+msgstr ""
+
+#: vocabindex.module:291
+msgid "Example screenshot of an alphabetical view."
+msgstr ""
+
+#: vocabindex.module:295
+msgid "The <strong>tree view</strong> displays all terms in a nested tree. If visitors of your site have JavaScript enabled, parent terms will be collapsed by default, but they will expand when clicked on. Since tree view displays all terms on a single page, terms with multiple parents are displayed more than once: once beneath every parent."
+msgstr ""
+
+#: vocabindex.module:299
+msgid "The <strong>browsable view</strong> lets visitors browse a vocabulary much like they would browse through directories on their hard drive. Taxonomy pages of parent terms do not list the nodes within those terms, but the child terms it contains. Since blocks cannot span multiple pages, they can be displayed using a flat view. This is exactly the same as the browsable view apart from that it is not browsable. Browsable index pages are <a href=\"!settings_page\">pageable</a>."
+msgstr ""
+
+#: vocabindex.module:303
+msgid "The <strong>alphabetical view</strong> sorts terms by first letter. Optionally <a href=\"#transliteration\">character transliteration</a> may be enabled. Alphabetically viewed index pages are <a href=\"!settings_page\">pageable</a>."
+msgstr ""
+
+#: vocabindex.module:309
+msgid "For more extensive information on configuring Vocabulary Index or on development, please visit <a href=\"!handbook_page\">the on-line handbook</a>."
+msgstr ""
+
+#: vocabindex.module:314
+msgid "Character transliteration groups terms by the <a href=\"!wiki_latin_alphabet\">modern Latin</a> equivalent of their first letter for the alphabetical view. This way terms like <em>Ångström</em> and <em>Ampère</em> will both be grouped under the letter A, for instance. If you would like to modify the <a href=\"!default_file\">default transliteration file</a>, copy the file to <em>i18n-ascii-custom.txt</em> and use this file instead to override the values from i18n-ascii.txt or to add new values."
+msgstr ""
+
+#: vocabindex.module:317
+msgid "Other contributed modules"
+msgstr ""
+
+#: vocabindex.module:318
+msgid "Some other modules, like <a href=\"!pathauto_project_page\">Pathauto</a>, complement Vocabulary Index. For instructions on setting up these modules to work with Vocabulary Index, please visit <a href=\"!handbook_complementary_modules\">the on-line handbook</a>."
+msgstr ""
+
+#: vocabindex.module:324
+msgid "Index pages list the terms inside a vocabulary. They are accessible by a path of their own and they are enabled as soon as you enter one."
+msgstr ""
+
+#: vocabindex.module:327
+msgid "Index blocks list the terms inside a vocabulary. Enabled blocks can be configured at the <a href=\"!blocks\">blocks settings page</a>. Flat index blocks are similar to browsable pages, they only differ in that they are not browsable and therefore don't display nested terms."
+msgstr ""
+
+#: vocabindex.module:54
+msgid "administer vocabulary index"
+msgstr ""
+
+#: vocabindex.module:55;59
+msgid "title"
+msgstr ""
+
+#: vocabindex.module:56;60
+msgid "description"
+msgstr ""
+
+#: vocabindex.module:58
+msgid "view vocabulary index"
+msgstr ""
+
+#: vocabindex.module:70 vocabindex.info:0
+msgid "Vocabulary Index"
+msgstr ""
+
+#: vocabindex.module:71
+msgid "Create index pages for vocabularies."
+msgstr ""
+
+#: vocabindex.module:78
+msgid "Pages"
+msgstr ""
+
+#: vocabindex.module:85
+msgid "Blocks"
+msgstr ""
+
+#: vocabindex.module:86
+msgid "Create index blocks for vocabularies."
+msgstr ""
+
+#: vocabindex.module:95
+msgid "Settings"
+msgstr ""
+
+#: vocabindex.module:96
+msgid "General settings."
+msgstr ""
+
+#: vocabindex.module:0
+msgid "vocabindex"
+msgstr ""
+
+#: vocabindex.install:16
+msgid "The table in which the settings for Vocabulary Index are stored."
+msgstr ""
+
+#: vocabindex.install:19
+msgid "The VID associated with this index."
+msgstr ""
+
+#: vocabindex.install:25
+msgid "The path to a Vocabulary Index page."
+msgstr ""
+
+#: vocabindex.install:31
+msgid "The view, a tree or a flat list for instance."
+msgstr ""
+
+#: vocabindex.install:37
+msgid "Whether to count nodes per term."
+msgstr ""
+
+#: vocabindex.install:43
+msgid "Index page or index block."
+msgstr ""
+
+#: vocabindex.install:49
+msgid "Indicates whether this index is enabled or not."
+msgstr ""
+
+#: vocabindex.info:0
+msgid "Easily browse through taxonomy. Display vocabularies like trees, a directory index or sort their terms alphabetically."
+msgstr ""
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "Vocabulary"
+msgstr ""
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "View"
+msgstr ""
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "Node counts"
+msgstr ""
+
+#: theme/vocabindex_admin_vi_form.tpl.php:34
+msgid "Path"
+msgstr ""
+
+#: theme/vocabindex_admin_vi_form.tpl.php:37
+msgid "Enabled"
+msgstr ""
+

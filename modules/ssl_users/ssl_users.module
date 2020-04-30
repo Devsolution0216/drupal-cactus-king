@@ -1,0 +1,165 @@
+<?php
+// $Id: ssl_users.module,v 1.1 2009/06/23 11:28:11 vackar Exp $
+
+/**
+ * @file
+ * Module defines SSL users and one password for all users in .htpasswd
+ *
+ * @author Vadim Mirgorod, dealancer@gmail.com.
+ */
+
+
+/**
+ *    Implementation of hook_perm()
+ */
+function ssl_users_perm() {
+  return array('administer ssl users');
+}
+
+
+/**
+ *    Implementation of hook_menu()
+ */
+function ssl_users_menu() {
+	$items = array();
+
+	$items['admin/user/ssl-users'] = array(
+ 		'title' => t('SSL users settings'),
+ 		'description' => t('Module defines SSL users in .htpasswd'),
+
+ 		'page callback' => 'drupal_get_form',
+ 		'page arguments' => array('ssl_users_admin_settings'),
+ 		'access arguments' => array('administer ssl users')
+ 	);
+
+    return $items;
+}
+
+
+/**
+ *    Admin settings form
+ */
+function ssl_users_admin_settings() {
+
+
+
+	$form['authentification'] = array(
+		'#type' => 'fieldset',
+		'#title' => t('Authentification settings'),
+		'#collapsible' => FALSE,
+		'#collapsed' => FALSE,
+	);
+
+
+ 	 $form['authentification']['logins'] = array(
+        '#title' => 'Logins',
+        '#type' => 'textarea',
+        '#rows' => 4,
+        '#weight' => -5,
+        '#default_value' => variable_get('ssl_users_logins', ''),
+ 		'#description' => t('Please define user logins. Olny one login should be stroed in each line.'),
+    );
+
+ 	 $form['authentification']['password1'] = array(
+ 		'#type' => 'password',
+ 		'#title' => t('Password'),
+ 		'#size' => 60,
+ 		'#weight' => -4,
+ 		'#default_value' => '',
+ 		'#description' => t('Please fill, if you want to change password. Only one password will be used for all users.'),
+
+ 	);
+
+ 	$form['authentification']['password2'] = array(
+ 		'#type' => 'password',
+ 		'#title' => t('Retype password'),
+ 		'#size' => 60,
+ 		'#weight' => -3,
+ 		'#default_value' => '',
+ 		'#description' => t('Please retype password.'),
+ 	);
+
+	$form['advanced'] = array(
+		'#type' => 'fieldset',
+		'#title' => t('Advanced settings'),
+		'#collapsible' => TRUE,
+		'#collapsed' => TRUE,
+	);
+
+ 	 $form['advanced']['path_to_htpasswd'] = array(
+ 		'#type' => 'textfield',
+ 		'#title' => t('Path to .htpasswd'),
+ 		'#size' => 60,
+ 		'#weight' => -5,
+ 		'#default_value' => variable_get('ssl_users_path_to_htpasswd', '.htpasswd'),
+ 		'#description' => t('Path to .htpasswd file, where logins and passwords are stored. File .htpasswd should be created before setting this field. Examples: .htpasswd, path/.htpasswd.'),
+
+ 	);
+
+    $form['#validate'][] = 'ssl_users_admin_settings_validate';
+    $form['#submit'][] = 'ssl_users_admin_settings_submit';
+
+	return system_settings_form($form);
+}
+
+
+/**
+ *    Function wich validates admin settings form
+ */
+function ssl_users_admin_settings_validate($form, &$form_state) {
+	if (empty($form['#post']['logins'])) {
+ 		form_set_error('logins', t('Please define user logins!'));
+	}
+	if(!empty($form['#post']['password1'])) {
+		if ($form['#post']['password1'] != $form['#post']['password2']) {
+  			form_set_error('password2', t('Password doesn\'t match!'));
+		}
+	}
+	if (!file_exists($form['#post']['path_to_htpasswd'])) {
+ 		form_set_error('path_to_htpasswd', t('Please fill correct path to .htpasswd file!'));
+	}
+}
+
+
+/**
+ *    Function wich called when settings form is submitted
+ */
+function ssl_users_admin_settings_submit($form, &$form_state) {
+	variable_set('ssl_users_logins', $form['#post']['logins']);
+	if (!empty($form['#post']['password1'])) {
+		variable_set('ssl_users_password', $form['#post']['password1']);
+	}
+	variable_set('ssl_users_path_to_htpasswd', $form['#post']['path_to_htpasswd']);
+
+	ssl_users_admin_settings_write();
+}
+
+
+/**
+ *    Function writes logins and password to .htpasswd
+ */
+function ssl_users_admin_settings_write() {
+	$logins = variable_get('ssl_users_logins', '');
+	$password = variable_get('ssl_users_password', '');
+	$path_to_htpasswd = variable_get('ssl_users_path_to_htpasswd', '');
+	$password_hash = crypt($password, base64_encode($password));
+
+	$file = fopen($path_to_htpasswd,'w');
+	flock($file, LOCK_EX);
+
+	$logins_list = split("\n", $logins);
+   	foreach($logins_list as $login) {
+   		$login = trim($login);
+   		if (!empty($login))
+     		fputs($file, $login.':'.$password_hash."\n");
+    }
+
+    flock($file, LOCK_UN);
+    fclose($file);
+}
+
+
+
+
+
+

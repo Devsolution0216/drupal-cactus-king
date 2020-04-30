@@ -1,0 +1,77 @@
+# LANGUAGE translation of Drupal (poormanscron.module)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from file: poormanscron.module,v 1.18 2006/02/06 15:58:50 uwe
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2006-10-19 09:48+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: poormanscron.module:17
+msgid "Runs Drupal cron jobs without the cron application."
+msgstr ""
+
+#: poormanscron.module:102
+msgid "Time intervals"
+msgstr ""
+
+#: poormanscron.module:104
+msgid "Cron runs interval"
+msgstr ""
+
+#: poormanscron.module:107
+msgid "Minimum number of minutes between cron runs. Cron will actually execute during the first page request after the interval has elapsed."
+msgstr ""
+
+#: poormanscron.module:110
+msgid "Retry interval"
+msgstr ""
+
+#: poormanscron.module:113
+msgid "The number of minutes to wait after a cron run error before retrying."
+msgstr ""
+
+#: poormanscron.module:116
+msgid "Logging"
+msgstr ""
+
+#: poormanscron.module:118
+msgid "Log successful cron runs"
+msgstr ""
+
+#: poormanscron.module:120;126
+msgid "Yes"
+msgstr ""
+
+#: poormanscron.module:120;126
+msgid "No"
+msgstr ""
+
+#: poormanscron.module:121
+msgid "If you want to log successful cron runs to the Drupal watchdog, say Yes here. If those messages annoy you, disable them by selecting No."
+msgstr ""
+
+#: poormanscron.module:124
+msgid "Log poormanscron progress"
+msgstr ""
+
+#: poormanscron.module:127
+msgid "If you want to log the progress of a poormanscron run to the Drupal watchdog, say Yes here. If those messages annoy you, disable them by selecting No."
+msgstr ""
+
+#: poormanscron.module:58;69
+msgid "cron"
+msgstr ""
+
+#: poormanscron.module:0
+msgid "poormanscron"
+msgstr ""
+

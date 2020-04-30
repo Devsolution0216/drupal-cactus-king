@@ -1,0 +1,729 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_paypal.module,v 1.5.2.7 2008/11/21 21:17:26 islandusurper
+#  uc_paypal.pages.inc,v 1.1.2.4 2008/11/21 21:17:26 islandusurper
+#  uc_paypal.install,v 1.6.2.4 2008/11/07 21:13:25 islandusurper
+#  uc_paypal.info,v 1.3.4.3 2008/11/07 21:13:25 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-13 22:42+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: payment/uc_paypal/uc_paypal.module:493
+msgid "Authorization"
+msgstr "Autorisierung"
+
+#: payment/uc_paypal/uc_paypal.module:33
+msgid "PayPal IPN"
+msgstr "PayPal IPN"
+
+#: payment/uc_paypal/uc_paypal.module:49
+msgid "Review payment"
+msgstr "Zahlung überprüfen"
+
+#: payment/uc_paypal/uc_paypal.module:65
+msgid "PayPal payment complete"
+msgstr "PayPal-Bezahlung abgeschlossen"
+
+#: payment/uc_paypal/uc_paypal.module:72
+msgid "PayPal payment cancelled"
+msgstr "Die Bezahlung per PayPal wurde abgebrochen"
+
+#: payment/uc_paypal/uc_paypal.module:129,183
+msgid "PayPal Express Checkout"
+msgstr "PayPal Express Checkout"
+
+#: payment/uc_paypal/uc_paypal.module:144
+msgid "PayPal Website Payments Pro"
+msgstr "PayPal Website Payments Pro"
+
+#: payment/uc_paypal/uc_paypal.module:145
+msgid "Process credit card payments using Website Payments Pro."
+msgstr "Kreditkartenzahlungen über Website Payments Pro abwickeln."
+
+#: payment/uc_paypal/uc_paypal.module:160
+msgid "PayPal - pay without sharing your financial information."
+msgstr "PayPal - Sicher einkaufen im Internet"
+
+#: payment/uc_paypal/uc_paypal.module:171
+msgid "PayPal Website Payments Standard"
+msgstr "PayPal Website Payments Standard"
+
+#: payment/uc_paypal/uc_paypal.module:174
+msgid "Redirect users to submit payments through PayPal."
+msgstr "Benutzer weiterleiten, um Bezahlungen mit PayPal abzuwickeln."
+
+#: payment/uc_paypal/uc_paypal.module:186
+msgid "Complete orders through PayPal Express Checkout."
+msgstr "Bestellungen mittels Paypal Express Checkout abwickeln"
+
+#: payment/uc_paypal/uc_paypal.module:206,466
+msgid "Currency code"
+msgstr "Währungscode"
+
+#: payment/uc_paypal/uc_paypal.module:207,467
+msgid "Transactions can only be processed in one of the listed currencies."
+msgstr ""
+"Transaktionen können nur in einer der folgenden Währungen "
+"durchgeführt werden."
+
+#: payment/uc_paypal/uc_paypal.module:214,480
+msgid "Sign up for and use a Sandbox account for testing."
+msgstr "Melden Sie sich an und benutzen Sie eine Sandbox zu Testzwecken."
+
+#: payment/uc_paypal/uc_paypal.module:216
+msgid "Sandbox"
+msgstr "Sandbox"
+
+#: payment/uc_paypal/uc_paypal.module:217
+msgid "Live"
+msgstr "Live"
+
+#: payment/uc_paypal/uc_paypal.module:489
+msgid "Payment action"
+msgstr "Zahlungstyp"
+
+#: payment/uc_paypal/uc_paypal.module:223
+msgid "Express Checkout"
+msgstr "Express Checkout"
+
+#: payment/uc_paypal/uc_paypal.module:230
+msgid ""
+"Require Express Checkout users to use a PayPal confirmed shipping "
+"address."
+msgstr ""
+"Bei Express Checkout Benutzern zur bedingung machen das Sie eine von "
+"Paypal verifizierte Adresse benutzen müssen."
+
+#: payment/uc_paypal/uc_paypal.module:235
+msgid "Enable the shipping select form on the Review payment page."
+msgstr ""
+"Das Versand auswahl feld auf den Bezahlung überprüfen Seite "
+"einblenden."
+
+#: payment/uc_paypal/uc_paypal.module:240
+msgid "Enable the company name box on the Review payment page."
+msgstr "Das Feld Firmen Name auf den Bezahlung überprüfen Seite anzeigen."
+
+#: payment/uc_paypal/uc_paypal.module:245
+msgid "Enable the contact phone number box on the Review payment page."
+msgstr ""
+"Das Kontakt telefonnummern Feld auf der Bezahlungs überprüfungs "
+"Seite anzeigen."
+
+#: payment/uc_paypal/uc_paypal.module:250
+msgid "Enable the comment text box on the Review payment page."
+msgstr "Das Kommentarfeld auf der Zahlung Überprüfenseite anzeigen."
+
+#: payment/uc_paypal/uc_paypal.module:256
+msgid ""
+"!link for information on obtaining credentials.  You need to acquire "
+"an API Signature.  If you have already requested API credentials, you "
+"can review your settings under the API Access section of your PayPal "
+"profile."
+msgstr ""
+"!link um zu erfahren, wie Sie die notwendige Legitimation erhalten. "
+"Sie benötigen eine API-Signatur. Wenn Sie bereits eine "
+"API-Legitimation erhalten haben, können Sie die entsprechenden Daten "
+"im API-Bereich Ihres PayPal-Kontos einsehen."
+
+#: payment/uc_paypal/uc_paypal.module:256
+msgid "Click here"
+msgstr "Hier klicken"
+
+#: payment/uc_paypal/uc_paypal.module:272
+msgid "Signature"
+msgstr "Signatur"
+
+#: payment/uc_paypal/uc_paypal.module:284
+msgid ""
+"PayPal Website Payments Pro requires curl for PHP.  Please talk to "
+"your system administrator to get this."
+msgstr ""
+"PayPal Website Payments Pro benötigt die PHP Erweiterung cURL.  Bitte "
+"wenden Sie sich an ihren Systembetreuer damit diese installiert oder "
+"aktiviert wird."
+
+#: payment/uc_paypal/uc_paypal.module:460
+msgid "PayPal e-mail address"
+msgstr "E-Mail-Adresse (PayPal)"
+
+#: payment/uc_paypal/uc_paypal.module:461
+msgid ""
+"The e-mail address you use for the PayPal account you want to receive "
+"payments."
+msgstr ""
+"Geben Sie die E-Mail-Adresse an, die Sie für den Zugriff auf Ihr "
+"PayPal-Konto verwenden."
+
+#: payment/uc_paypal/uc_paypal.module:473
+msgid "PayPal login page language"
+msgstr "Sprache der Paypal Login Seite"
+
+#: payment/uc_paypal/uc_paypal.module:479
+msgid "PayPal server"
+msgstr "PayPal-Server"
+
+#: payment/uc_paypal/uc_paypal.module:500
+msgid ""
+"Provide PayPal WPS specific text for the submit button on the order "
+"review page."
+msgstr "Versehen Sie die Schaltfläche mit Hinweis auf PayPal-WPS."
+
+#: payment/uc_paypal/uc_paypal.module:505
+msgid "PayPal cart submission method"
+msgstr "Methode (PayPal) zum Senden des Warenkorbs"
+
+#: payment/uc_paypal/uc_paypal.module:506
+msgid ""
+"You must use a single line item on your site if you have any fees or "
+"discounts besides shipping and tax."
+msgstr ""
+"Sie Müssen eine bestimmte Positionszeile verwenden wenn Sie weitere "
+"Gebühren auser Versand und Steuer haben."
+
+#: payment/uc_paypal/uc_paypal.module:508
+msgid "Submit the whole order as a single line item."
+msgstr "Die gesamte Bestellung als Einzelposition senden."
+
+#: payment/uc_paypal/uc_paypal.module:509
+msgid "Submit an itemized order showing each product and description."
+msgstr "Die Bestellung mit einzelnen Artikeln und Beschreibungen senden."
+
+#: payment/uc_paypal/uc_paypal.module:525
+msgid ""
+"Submit address information to PayPal to override PayPal stored "
+"addresses."
+msgstr ""
+"Übermitteln der Adress Informationen an PayPal umd die bei PayPal "
+"gespeicherte Adresse zu überschreiben."
+
+#: payment/uc_paypal/uc_paypal.module:540
+msgid "Show debug info in the logs for Instant Payment Notifications."
+msgstr ""
+"Fehlerinformationen in den Logs für Instant Payment Notifications "
+"anzeigen."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:18
+msgid "IPN attempted with invalid order ID."
+msgstr "IPN versucht mit ungültiger Bestellungs-ID."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:32
+msgid "IPN attempted for non-existent order."
+msgstr "IPN versucht für nicht vorhandene Bestellung."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:71
+msgid "IPN transaction verified."
+msgstr "IPN Transaktion verifiziert."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:76
+msgid "IPN transaction ID has been processed before."
+msgstr "Dies IPN Transaktions Id wurde bereits verarbeitet."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:86
+msgid ""
+"PayPal has cancelled the reversal and returned !amount !currency to "
+"your account."
+msgstr ""
+"PayPal hat die Stornierung annulliert und !amount !currency auf Ihr "
+"Konto überwiesen."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:98
+msgid "You have denied the customer's payment."
+msgstr "Sie haben die Zahlung des Kunden abgelehnt."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:102
+msgid "The authorization has failed and cannot be captured."
+msgstr ""
+"Die Autorisierung ist fehlgeschlagen und kann nicht durchgeführt "
+"werden."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:106
+msgid "The customer's attempted payment from a bank account failed."
+msgstr "Die Zahlung des Kunden von seinem Bankkonto ist fehlgeschlagen."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:121
+msgid "PayPal has reversed a payment!"
+msgstr "PayPal hat die Zahlung storniert."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:126
+msgid "A payment has been accepted."
+msgstr "Eine Zahlung wurde bestätigt."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:130
+msgid "The authorization has been voided."
+msgstr "Die Autorisation wurde zurückgenommen."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:135
+msgid "IPN transaction failed verification."
+msgstr "IPN Transaktion konnte nicht verifiziert werden."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:136
+msgid "An IPN transaction failed verification for this order."
+msgstr ""
+"Die IPN transaktion konnte die zahlung für diese Bestellung nicht "
+"verfizieren."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:146,168,357
+msgid ""
+"An error has occurred in your PayPal payment. Please review your cart "
+"and try again."
+msgstr ""
+"Es gab einen Fehler bei ihrer Paypalzahlung. Bitte prüfen Sie ihren "
+"Warenkorb und versuchen Sie es noch einmal."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:215
+msgid ""
+"Your order is almost complete!  Please fill in the following details "
+"and click 'Continue checkout' to finalize the purchase."
+msgstr ""
+"Ihre Bestellung ist fast vollständig. Bitte füllen Sie die Folgenden "
+"Felder aus und klicken sie auf 'den Bestellvorgang fortsetzen' um den "
+"Kauf abzuschließen."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:364
+msgid ""
+"Your order is not complete until you click the 'Submit order' button "
+"below. Your PayPal account will be charged for the amount shown above "
+"once your order is placed. You will receive confirmation once your "
+"payment is complete."
+msgstr ""
+"Ihre Bestellung ist noch nicht abgeschlossen so land Sie den "
+"'Bestellung senden' Button nicht gedrückt haben. Ihr Paypal Konto "
+"wird belastet sobald sihre Bestellung plaziert ist. Sie erhalten eine "
+"Bestätigung wenn die Zahlung erfolgt ist."
+
+#: payment/uc_paypal/uc_paypal.module:644
+msgid ""
+"PayPal Express Checkout requires curl for PHP.  Please talk to your "
+"system administrator to get this."
+msgstr ""
+"Paypal Express Checkout benötigt die PHP Erweiterung cURL.  Bitte "
+"wenden Sie sich an ihren Systembetreuer damit diese installiert oder "
+"aktiviert wird."
+
+#: payment/uc_paypal/uc_paypal.module:657
+msgid "Checkout with PayPal."
+msgstr "Den Bestellvorgang über Paypal abschließen"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:228
+msgid "Calculate shipping"
+msgstr "Versandkosten berechnen"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:270
+msgid "Leave blank if shipping to a residence."
+msgstr "Leer lassen wenn an einen Wohnort verschickt wird."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:278
+msgid "Contact phone number"
+msgstr "Kontakt Telefonnummer"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:288
+msgid "Special instructions or notes regarding your order."
+msgstr "Speziellen Anweisungen oder Bemerkungen zu ihrer Bestellung"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:298
+msgid "Continue checkout"
+msgstr "Den Bestellvorgan fortsetzten"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:307
+msgid "You must calculate and select a shipping option."
+msgstr "Sie müssen eine Versandoption wählen und Berechnen lassen."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:324
+msgid "Error calculating shipping"
+msgstr "Fehler bei der versandkosten Berechnung"
+
+#: payment/uc_paypal/uc_paypal.module:878
+msgid "Product count"
+msgstr "Artikelmenge"
+
+#: payment/uc_paypal/uc_paypal.module:980
+msgid "All the address information matched."
+msgstr "Alle Adressinformationen stimmen überein."
+
+#: payment/uc_paypal/uc_paypal.module:982
+msgid "None of the address information matched; transaction declined."
+msgstr "Keine der Adressinformationen stimmen überein. Transaktion abgelehnt."
+
+#: payment/uc_paypal/uc_paypal.module:984
+msgid "Part of the address information matched."
+msgstr "Teile der Adressinformationen stimmen überein."
+
+#: payment/uc_paypal/uc_paypal.module:986
+msgid "The merchant did not provide AVS information. Not processed."
+msgstr ""
+"Der Händler hat keine AVS-Informationen zur Verfügung gestellt. "
+"Nicht ausgeführt."
+
+#: payment/uc_paypal/uc_paypal.module:988
+msgid ""
+"Address not checked, or acquirer had no response. Service not "
+"available."
+msgstr ""
+"Adresse nicht geprüft, oder Käufer hat keine Antwort erhalten. "
+"Dienst nicht vorhanden."
+
+#: payment/uc_paypal/uc_paypal.module:991
+msgid "No AVS response was obtained."
+msgstr "Keine AVS-Antwort erhalten."
+
+#: payment/uc_paypal/uc_paypal.module:998
+msgid "Address matched; postal code did not"
+msgstr "Adresse stimmt überein; Postleitzahl stimmt nicht überein"
+
+#: payment/uc_paypal/uc_paypal.module:1001
+msgid "Nothing matched; transaction declined"
+msgstr "Keine Übereinstimmung. Transaktion abgelehnt."
+
+#: payment/uc_paypal/uc_paypal.module:1006
+msgid "Address and postal code matched"
+msgstr "Adresse und Postleitzahl stimmen überein."
+
+#: payment/uc_paypal/uc_paypal.module:1008
+msgid "Not allowed for MOTO transactions; transaction declined"
+msgstr "Nicht erlaubt für MOTO-Transaktionen. Transaktion abgelehnt."
+
+#: payment/uc_paypal/uc_paypal.module:1010
+msgid "Global unavailable"
+msgstr "Global nicht verfügbar"
+
+#: payment/uc_paypal/uc_paypal.module:1012
+msgid "International unavailable"
+msgstr "International nicht verfügbar."
+
+#: payment/uc_paypal/uc_paypal.module:1016
+msgid "Postal code matched; address did not"
+msgstr "Postleitzahl stimmt überein; Adresse stimmt nicht überein."
+
+#: payment/uc_paypal/uc_paypal.module:1018
+msgid "Retry for validation"
+msgstr "Wiederholen zur Validierung"
+
+#: payment/uc_paypal/uc_paypal.module:1020,1055
+msgid "Service not supported"
+msgstr "Dienst wird nicht unterstützt"
+
+#: payment/uc_paypal/uc_paypal.module:1022
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
+#: payment/uc_paypal/uc_paypal.module:1024
+msgid "An unknown error occurred."
+msgstr "Ein unbekannter Fehler trat auf."
+
+#: payment/uc_paypal/uc_paypal.module:1033
+msgid "Matched"
+msgstr "Übereinstimmend"
+
+#: payment/uc_paypal/uc_paypal.module:1035,1051
+msgid "No match"
+msgstr "Nicht übereinstimmend"
+
+#: payment/uc_paypal/uc_paypal.module:1037
+msgid "The merchant has not implemented CVV2 code handling."
+msgstr "Der Händler hat keine Verarbeitung des CVV2-Codes implementiert."
+
+#: payment/uc_paypal/uc_paypal.module:1039
+msgid "Merchant has indicated that CVV2 is not present on card."
+msgstr ""
+"Der Händler hat angezeigt, dass CVV2 auf der Karte nicht zur "
+"Verfügung steht."
+
+#: payment/uc_paypal/uc_paypal.module:1041,1057
+msgid "Service not available"
+msgstr "Dienst  nicht verfügbar"
+
+#: payment/uc_paypal/uc_paypal.module:1043
+msgid "Unkown error"
+msgstr "Unbekannter Fehler"
+
+#: payment/uc_paypal/uc_paypal.module:1053
+msgid "Not processed"
+msgstr "Nicht ausgeführt"
+
+#: payment/uc_paypal/uc_paypal.module:1059
+msgid "No response"
+msgstr "Keine Antwort"
+
+#: payment/uc_paypal/uc_paypal.module:1061
+msgid "Not checked"
+msgstr "Nicht markiert"
+
+#: payment/uc_paypal/uc_paypal.module:1069
+msgid ""
+"Customer did not include a confirmed shipping address per your address "
+"settings."
+msgstr ""
+"Der Kunde hat keine bestätigte Lieferadresse über Ihre "
+"Adresseinstellungen hinterlegt."
+
+#: payment/uc_paypal/uc_paypal.module:1071
+msgid "Waiting on you to capture the funds per your authorization settings."
+msgstr "Wartet darauf dass Sie die Zahlung einziehen die Autorisiert wurde."
+
+#: payment/uc_paypal/uc_paypal.module:1073
+msgid "eCheck has not yet cleared."
+msgstr "eCheck wurde noch nicht eingelöst."
+
+#: payment/uc_paypal/uc_paypal.module:1075
+msgid ""
+"You must manually accept or deny this international payment from your "
+"Account Overview."
+msgstr ""
+"Sie müssen die internationale Zahlung in Ihrem Konto bestätigen oder "
+"ablehnen."
+
+#: payment/uc_paypal/uc_paypal.module:1077
+msgid ""
+"You must manually accept or deny a payment of this currency from your "
+"Account Overview."
+msgstr ""
+"Sie müssen die Zahlung in dieser Währung in Ihrem Konto bestätigen "
+"oder ablehnen."
+
+#: payment/uc_paypal/uc_paypal.module:1079
+msgid "Your e-mail address is not yet registered or confirmed."
+msgstr "Ihre E-Mail-Adresse ist weder registriert noch bestätigt."
+
+#: payment/uc_paypal/uc_paypal.module:1081
+msgid ""
+"You must upgrade your account to Business or Premier status to receive "
+"credit card payments."
+msgstr ""
+"Sie müssen ein Geschäfts- oder Premiumkonto besitzen, um "
+"Kreditkartenzahlungen zu erhalten."
+
+#: payment/uc_paypal/uc_paypal.module:1083
+msgid "You must verify your account before you can accept this payment."
+msgstr ""
+"Sie müssen Ihr Konto bestätigen lassen, bevor Sie diese Zahlung "
+"akzeptieren können."
+
+#: payment/uc_paypal/uc_paypal.module:1086,1103
+msgid "Reason unknown; contact PayPal Customer Service for more information."
+msgstr ""
+"Ursache unbekannt. Kontaktieren Sie den PayPal-Kundendienst, um "
+"weitere Informationen zu erhalten."
+
+#: payment/uc_paypal/uc_paypal.module:1094
+msgid "The customer has initiated a chargeback."
+msgstr "Der Kunde hat eine Rückerstattung veranlasst."
+
+#: payment/uc_paypal/uc_paypal.module:1096
+msgid "The customer triggered a money-back guarantee."
+msgstr "Der Kunde hat eine Geld-Zurück-Garantie in Anspruch genommen."
+
+#: payment/uc_paypal/uc_paypal.module:1098
+msgid "The customer filed a complaint about the transaction."
+msgstr "Der Kunde hat eine Beschwerde über die Transaktion eingereicht."
+
+#: payment/uc_paypal/uc_paypal.module:1100
+msgid "You gave the customer a refund."
+msgstr "Sie haben dem Kunden eine Rückvergütung gegeben."
+
+#: payment/uc_paypal/uc_paypal.module:91
+msgid "administer paypal"
+msgstr "PayPal verwalten"
+
+#: payment/uc_paypal/uc_paypal.install:89,113
+msgid "PayPal pending"
+msgstr "PayPal wartend"
+
+#: payment/uc_paypal/uc_paypal.info:0
+msgid "Integrates various PayPal payment services and IPN feedback."
+msgstr ""
+"Intergriert verschiedene Paypal Zahlungsdienstleistungen und IPN "
+"(sofortiges Zahlungs feedback)"
+
+#: payment/uc_paypal/uc_paypal.module:492
+msgid "Complete sale"
+msgstr "Verkauf abschließen"
+
+#: payment/uc_paypal/uc_paypal.module:213
+msgid "API server"
+msgstr "API Server"
+
+#: payment/uc_paypal/uc_paypal.module:255
+msgid "API credentials"
+msgstr "API Zugangsdaten (credentials)"
+
+#: payment/uc_paypal/uc_paypal.module:262
+msgid "API username"
+msgstr "API Benutzername"
+
+#: payment/uc_paypal/uc_paypal.module:267
+msgid "API password"
+msgstr "API passwort"
+
+#: payment/uc_paypal/uc_paypal.module:515
+msgid "Shipping address prompt in PayPal"
+msgstr "Versand Anschrift Abfrage  in PayPal"
+
+#: payment/uc_paypal/uc_paypal.module:517
+msgid "Do not show shipping address prompt at PayPal."
+msgstr "Bei Paypal keine versandadresse abfragen."
+
+#: payment/uc_paypal/uc_paypal.module:518
+msgid "Prompt customer to include a shipping address."
+msgstr "Kunde nach eine Versandanschrift fragen."
+
+#: payment/uc_paypal/uc_paypal.module:519
+msgid "Require customer to provide a shipping address."
+msgstr "Kunde muss eine Versandanschrift angeben."
+
+#: payment/uc_paypal/uc_paypal.module:526
+msgid "Works best with the first option above."
+msgstr "Funktioniert am besten mit der ersten Option oben."
+
+#: payment/uc_paypal/uc_paypal.module:531
+msgid "Sent address selection"
+msgstr "Adress auswahl senden"
+
+#: payment/uc_paypal/uc_paypal.module:533
+msgid "Send billing address to PayPal."
+msgstr "Zahlungs adresse an PayPal übermitteln."
+
+#: payment/uc_paypal/uc_paypal.module:534
+msgid "Send shipping address to PayPal."
+msgstr "Versandadresse an Paypal übermitteln."
+
+#: payment/uc_paypal/uc_paypal.module:560
+msgid ""
+"For Express Checkout, you need to <a href=\"!cp_link\">enable the cart "
+"pane</a> and <a href=\"!wpp_link\">configure the Website Payments Pro "
+"settings</a>."
+msgstr ""
+"Für Express Checkout, müssen Sie <a href=\"!cp_link\">den Warenkorb "
+"abschnitt aktivieren </a> und <a href=\"!wpp_link\">die Website "
+"Payments Pro einstellungen anpassen.</a>."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:232
+msgid "Click to refresh shipping options"
+msgstr "Klicken um die Versandmöglichkeiten zu aktualisieren"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:90,116
+msgid "PayPal transaction ID: @txn_id"
+msgstr "PayPal Transaktions ID: @txn_id"
+
+#: payment/uc_paypal/uc_paypal.module:396,410
+msgid "<b>Address:</b> @avscode"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:398,412
+msgid "<b>CVV2:</b> @cvvmatch"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:417
+msgid "PayPal transaction ID: @transactionid"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.pages.inc:111
+msgid "Payment is pending at PayPal: @reason"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.pages.inc:122
+msgid "Payment has been reversed by PayPal: @reason"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:394
+msgid "<b>@type failed.</b><br /><b>@severity:</b> @error"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:408
+msgid "<b>@type</b><br /><b>Success: </b>@amount @currency"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.pages.inc:14
+msgid "Receiving IPN at URL for order @order_id. <pre>@debug</pre>"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.pages.inc:93
+msgid "Payment of @amount @currency submitted through PayPal."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.pages.inc:94
+msgid "PayPal IPN reported a payment of @amount @currency."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.pages.inc:400
+msgid ""
+"Your PayPal payment was cancelled. Please feel free to continue "
+"shopping or contact us for assistance."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.pages.inc:66
+msgid "IPN failed with HTTP error @error, code @code."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:162
+msgid "<b>Includes:</b>"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:224
+msgid ""
+"These settings are specifically for the alternate checkout system "
+"offered by Express Checkout.<br />To enable this on your site, you "
+"must enable the corresponding cart pane in the <em>Cart settings</em> "
+"menu."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:455,556
+msgid "Transaction ID:<br />@txn_id"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:490
+msgid ""
+"\"Complete sale\" will authorize and capture the funds at the time the "
+"payment is processed.<br />\"Authorization\" will only reserve funds "
+"on the card to be captured later through your PayPal account."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:623
+msgid "Error message from PayPal:<br />@message"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.module:877
+msgid "Order @order_id at !store"
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:15
+msgid "Logs PayPal Instant Payment Notifications."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:25
+msgid "The transaction ID from PayPal."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:32
+msgid "The transaction type from PayPal."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:39
+msgid "The payment amount from PayPal."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:46
+msgid "The IPN status from PayPal."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:53
+msgid "The e-mail address of the PayPal account."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:60
+msgid "The e-mail address of the buyer."
+msgstr ""
+
+#: payment/uc_paypal/uc_paypal.install:67
+msgid "The IPN receipt timestamp."
+msgstr ""
+

@@ -1,0 +1,87 @@
+<?php
+// $Id: taxonomyblocks.install,v 1.3 2009/01/13 15:56:55 aaronhawkins Exp $
+function taxonomyblocks_install() {
+ drupal_install_schema('taxonomyblocks');
+ db_query("INSERT INTO {tb_added_list} (tb_id, block_title, custom) VALUES (%d, '%s', %d)", 0, 'Categories', 0);
+ db_query("INSERT INTO {tb_added_list} (tb_id, block_title, custom) VALUES (%d, '%s', %d)", 1, 'Forums', 0);
+ drupal_set_message(t('The taxonomy blocks module is now installed. <p> By default two taxonomy blocks have been added to your blocks list, however you can add new blocks and configure them at ').l('admin/settings/taxonomyblocks', 'admin/settings/taxonomyblocks'), $type = 'status', $repeat = FALSE);
+}
+function taxonomyblocks_uninstall() {
+  drupal_uninstall_schema('taxonomyblocks');
+}
+
+function taxonomyblocks_schema() {
+  $schema['tb_added_list'] = array(
+      'description' => t('Stores information about which blocks exist, which vocabs they use etc...'),
+      'fields'      => array(
+        'tb_id'       => array(
+          'type'      => 'int',
+          'unsigned'  => TRUE,
+          'not null'  => TRUE,
+        ),
+        'block_title' => array(
+          'type'      => 'varchar',
+          'length'    => 255,
+          'not null'  => FALSE,
+        ),
+        'custom'      => array(
+          'type'      => 'int',
+          'unsigned'  => TRUE,
+          'not null'  => TRUE,
+          'default'   => 0,
+        ),
+        'omit_tids' => array(
+          'type'      => 'varchar',
+          'length'    => 255,
+          'not null'  => FALSE,
+        ),
+      ),
+      'primary key' => array('tb_id'),  
+  );
+  $schema['tb_customized'] = array(
+    'description'   => t('Stores customization information'),
+    'fields'        => array(
+      'tb_id'         => array(
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+      ),
+      'vid'           => array(
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+      ),
+      'custom_title'   => array(
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => FALSE,
+      ),
+      'path_pattern'   => array(
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => FALSE,
+      ),
+      'title_pattern'   => array(
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => FALSE,
+      ),
+      'counter'       => array(
+        'type'        => 'varchar',
+        'length'      => 255,
+        'not null'    => FALSE,
+      ),
+      'weight'        => array(
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'default'     => 0,
+      ),
+       'enabled'        => array(
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'default'     => 1,
+      ),
+    ),
+  );
+  return $schema;
+}

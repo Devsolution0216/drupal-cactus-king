@@ -1,0 +1,759 @@
+@charset "UTF-8";
+/* CSS Document */
+/* $id$ */
+/*
+ * DEFAULT STYLES
+ * 
+ */
+body {
+	font-size: 100%;
+}
+/*
+ * PAGE CONTAINERS
+ * See documentation for details regarding use of #wrap and #content
+ */
+#header {
+	height: 68px; 
+/*	background-image: url(../../images/high/bi-radial.png);
+	background-image: url(../../images/lower-radial.png);
+	margin-left: 5px;
+	margin-right: 5px;
+*/
+	background-image: url(../../images/shad.png);
+	background-position:bottom;
+	background-repeat:repeat-x;
+}
+#container {
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	padding: 0;
+}
+#maincontent {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#footer {
+ 	background: #434343 url(../../images/high/sprite-footer.png) repeat-x top;
+	padding: .7em 0em;
+	clear: both;
+	color: white;
+/*	height: 3em; */
+}
+#footer.ft-large {
+	height: 9em;
+}
+body div#primary_links {
+/*
+	margin-left: 5px;
+	margin-right: 5px;
+	background-image: url(../../images/radial.png);
+	background-position:top;
+	background-repeat:repeat-x;
+*/
+}
+
+body div#sidebar-right, body div#sidebar-left {
+	background-image: url(../../images/lower-radial.png);
+	background-position:bottom;
+	background-repeat:repeat-x;
+	padding: 0pt;	/* overriding .mobileregion padding */
+	/*
+	margin-left: 5px;
+	margin-right: 5px;
+	*/
+}
+
+/*
+ * BASIC ELEMENTS
+ * Basic styling of common elements.
+ */
+p {
+	line-height: 125%;
+	margin-top: 0.2em;
+	margin-bottom: 0.8em;
+	clear: both;
+}
+#footer p, #footer div {
+	font-size: .8em;
+	margin-left: 10px;
+	margin-top: 0em;
+	margin-bottom: 0em;
+	padding: 0em;
+}
+strong {
+	font-weight: bolder;
+}
+em {
+	font-style: italic;
+}
+/*
+ * NATIVE LISTS
+ * 
+ */
+ul.menu, ul.bullet {
+	list-style: disc;
+	margin-left: 10px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-left: 10px;
+}
+ul.menu ul, ul.bullet ul {
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+ol {
+	list-style: decimal;
+	margin-left: 10px;
+	margin-top: 1em;
+	padding-left: 10px;
+}
+
+ol ol {
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+/*
+ * CLEAR
+ * 
+ */
+.stack {
+	clear:both;
+}
+/* add this class to a header to remove top and bottom margins */
+.flush {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+/*
+ * HEADERS
+ * 
+ */
+ /*designed to be used at the very top of a page*/
+h1.top-aligned {
+	font-size: 1.7em;
+	padding-top: .3em;
+	padding-bottom: .5em;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: bold;
+	margin-top: 0em;
+	margin-bottom: .5em;
+}
+/*alternate H1*/
+h1 {
+	padding-top: .3em;
+	padding-bottom: .3em;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: bold;
+	font-size: 1.7em;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin-top: 0.2em;
+	margin-bottom: 0.3em;
+	clear: both;
+	border-bottom: 1px solid #D8D8D8;
+}
+
+
+h3 {
+	font-size: 1.3em;
+	color: #000077;
+	margin-top: 0.2em;
+	margin-bottom: 0.3em;
+	clear: both;
+}
+
+h4 {
+	font-size: 1.3em;
+	color: #219B00;
+	margin-top: 0.2em;
+	margin-bottom: 0.3em;
+	clear: both;
+}
+
+h5 {
+	font-size: 1.2em;
+	background-color: #F6F6F6;
+	border-bottom: 1px solid #D8D8D8;
+	border-top: 1px solid #D8D8D8;
+	padding-left: 10px;
+	padding-top: .3em;
+	padding-bottom: .3em;
+	margin-top: 0.2em;
+	margin-bottom: 0.4em;
+	margin-left: -10px;
+	margin-right: -10px;
+	clear: both;
+}
+/* enables h5 to stack neatly above other items */
+h5.flush {
+	margin-bottom: 0;
+	border-bottom: none;
+}
+h6 {
+	font-size: 1.0em;
+	color: #333333;
+	margin-top: 0.2em;
+	margin-bottom: 0.4em;
+	border-bottom: 1px solid #D8D8D8;
+	clear: both;
+}
+/*
+ * BLOCKQUOTE
+ * 
+ */
+blockquote {
+	margin-right: 10px;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 1em .5em 1em 2em;
+	background: url(../../images/high/img-quote.png) no-repeat 0em .5em;
+	font-style: italic;
+}
+blockquote p {
+	margin: 0;
+	padding: 0;
+}
+/*
+ * END DEFAULT STYLES
+ * 
+ */
+/*
+ * 1. BRANDING AND MARKETING
+ * 
+ */
+/*
+ * BRANDING AREA
+ * logo, tagline, background and hyperlink
+ */
+#header div.branding {
+	padding-top: 20px; 
+	width: 100%;
+	overflow: hidden;
+}
+#header div.branding img {
+	padding-left: 10px;
+	vertical-align: middle;
+}
+#header div.branding a {
+	width: 100%;
+/*	height: 68px; */
+	background-image: none;
+	padding-right: none;
+}
+/*
+ * ADVERTISMENT CONTAINER
+ * 
+ */
+.advertisement {
+	padding:0;
+	margin: 0.5em 0 0.5em 0;
+	width: 100%;
+}
+.advertisement p {
+	border: 1px solid #D8D8D8;
+	padding: 0.4em 0.4em;
+	background-color: #F6F6F6;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.advertisement span {
+	text-transform: uppercase;
+	padding: 0;
+	float: right;
+	font-size: 0.7em;
+	color: #B0B0B0;
+	padding-bottom: 0.3em;
+}
+/*
+ * 2. LISTS
+ * 
+ */
+/*
+ * ACCORDION DEFINITION LIST
+ * 
+ */
+dl.list-accordion {
+	border-bottom: 1px solid #D5D8D8;
+}
+
+dl.list-accordion dt{
+	padding-left: 10px;
+	line-height: 40px;
+	height: 40px;
+	
+}
+/*definition container*/
+dl.list-accordion dd {
+	padding-left: 15px;
+	padding-right: 10px;
+	padding-top: 0.5em;
+	padding-bottom: 0.4em;
+	line-height: normal;
+	background-color: #FFFFF;
+}
+/*definition term*/
+dl.list-accordion dt {
+}
+
+dl.list-accordion dt.expanded {
+	border-bottom: 1px solid #D5D8D8;
+}
+
+dl.list-accordion dt.collapsed {
+	border-bottom: none;
+}
+/*container for expand/collapse icon*/
+dl.list-accordion dt span {
+	width: 14px;
+	height: 14px;
+	margin-top: 12px;
+	margin-right: 0.5em;
+	display: block;
+	float: left;
+}
+/*switches icon when expanded*/
+dl.list-accordion dt.expanded span{
+	background: url(../../images/high/sprite-expand-collapse.png) no-repeat left bottom;
+}
+/*switches icon when collapsed*/
+dl.list-accordion dt.collapsed span{
+	background: url(../../images/high/sprite-expand-collapse.png) no-repeat left top;
+}
+
+dl.list-accordion dt:hover {
+	color: #FFFFFF;
+	cursor: pointer;
+}
+/*content inside of definition container*/
+dl.list-accordion dd p {
+	margin: 0;
+	padding: 0 0 0.4em 0;
+}
+
+/*
+ * 3. NAVIGATION COMPONENTS
+ * 
+ */
+/*
+ * BREADCRUMBS
+ * 
+ */
+ul.breadcrumb {
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-left: 10px;
+	padding-right: .5em;
+	font-size: 80%;
+	list-style-type: none;
+	/*
+	margin-left: 5px;
+	margin-right: 5px;
+	*/
+}
+
+ul.breadcrumb li {
+	display: inline;
+	line-height: 1.5em;
+}
+/*
+ * NAVIGATION BAR (ROUNDED CORNERS)
+ * 
+ */
+ul.nav-horizontal-rounded  {
+	padding:0;
+	margin: 0 0 .6em 0;
+	list-style-type: none;
+	width: 100%;
+	height: 40px;
+	float: left;
+}
+/*line height determines vertical text positioning*/
+ul.nav-horizontal-rounded  li {
+	float: left;
+	display: block;
+	padding: 0;
+	margin-bottom: 0;
+	line-height: 40px;
+	text-align: center;
+	text-decoration: none;
+}
+
+ul.nav-horizontal-rounded  li:hover {
+	color: #FFF;
+}
+
+/*height centers text vertically*/
+ul.nav-horizontal-rounded  li a {
+	display: block;
+	background: url(../../images/high/vertical-divider.png) repeat-y left center;
+	height: 40px;
+	padding-right: 0px;
+	text-decoration: none;
+}
+ul.nav-horizontal-rounded  .first a  {
+	background-image: none;
+}
+ul.nav-horizontal-rounded  li a:hover {
+	color: #FFF;
+	background-image: none;
+	cursor: pointer;
+	outline: none;
+}
+/*left rounded corner*/
+ul.nav-horizontal-rounded  li.first {
+}
+
+ul.nav-horizontal-rounded  li.first :hover {
+	color: #FFF;
+}
+/*right rounded corner*/
+ul.nav-horizontal-rounded  li.last :hover {
+	color: #FFF;
+}
+
+ul.nav-horizontal-rounded li.last {
+}
+
+/*
+ * SIMPLE NAVIGATION BAR
+ * 
+ */
+ul.tabs {
+	padding: 0;
+	margin: 0 0 0.6em 0;
+	list-style-type: none;
+	width: 100%;
+	height: 40px;
+	border-top: 1px solid #D8D8D8;
+	border-bottom: 2px solid #D8D8D8;
+	border-left: 1px solid #D8D8D8;
+	border-right: 1px solid #D8D8D8;
+}
+
+ul.tabs li {
+	float: left;
+	display: block;
+	padding: 0;
+	margin: 0 1 0 1;
+	line-height: 40px;
+	text-align: center;
+}
+
+ul.tabs li a {
+	text-decoration: none;
+}
+ul.tabs li.last {
+	background-image: none;
+	background-color: transparent;
+}
+
+ul.tabs li.active a {
+	background: transparent;
+}
+
+ul.tabs li.active, ul.tabs li:hover {
+	color: #FFF;
+}
+/*divider*/
+/*removed on first item and on hover*/
+ul.tabs li a {
+	display: block;
+	background: url(../../images/high/vertical-divider.png) repeat-y left center;
+	height: 40px;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+ul.tabs .first a {
+	background-image: none;
+}
+ul.tabs li a:hover {
+	color: #FFF;
+	background-image: none;
+	outline: none;
+}
+
+/*sets number of navigation bar items*/
+/*add class to li*/
+.four-piece {
+	width: 25%;
+}
+.three-piece {
+	width: 33.3%;
+}
+.two-piece {
+	width: 50%;
+}
+/*
+ * 4. STYLIZED LINKS
+ * includes icon to represent the type of link
+ */
+/*external link*/
+a.external {
+	background: url(../../images/high/img-link-external.png) no-repeat right top;
+	padding-right: 1em;
+}
+/*links to ical data*/
+/*see 'data-ical' in resources*/
+a.ical {
+	background: url(../../images/high/img-link-ical.png) no-repeat right top;
+	padding-right: 1em;
+}
+
+a[href^="mailto:"] {
+	background: url(../../images/high/img-link-email.png) no-repeat right top;
+	padding-right: 1em;
+}
+
+a[href^="tel:"] {
+	background: url(../../images/high/img-link-tel.png) no-repeat right top;
+	padding-right: 1em;
+}
+
+a[href^="sms:"] {
+	background: url(../../images/high/img-link-sms.png) no-repeat right top;
+	padding-right: 1em;
+}
+/*
+ * 5. BUTTONS
+ * 
+ */
+/*
+ * STYLED BUTTON
+ * 
+ */
+/*change button width to auto for full-width button or customize width*/
+/*
+ * STYLED BUTTON (ROUNDED CORNERS)
+ * 
+ */
+ul.links li.comment_new_comments, ul.links li.comment_comments, ul.links li.comment_add, ul.links li.node_read_more, ul.button-rounded {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+ul.links li.comment_new_comments, ul.links li.comment_comments, ul.links li.comment_add, ul.links li.node_read_more, ul.button-rounded li {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	line-height: 40px;
+	text-align: center;
+}
+
+ul.links li.comment_new_comments:hover, ul.links li.comment_comments:hover, ul.links li.comment_add:hover, ul.links li.node_read_more:hover, ul.button-rounded li:hover {
+}
+
+ul.links li.comment_new_comments a, ul.links li.comment_comments a, ul.links li.comment_add a, ul.links li.node_read_more a, ul.button-rounded li a {
+	display: block;
+	padding: 0 1em;
+	height: 40px;
+	text-decoration: none;
+	float: left;
+	color: #333333;
+}
+
+ul.links li.comment_new_comments a:hover, ul.links li.comment_comments a:hover, ul.links li.comment_add a:hover, ul.links li.node_read_more a:hover, ul.button-rounded li a:hover {
+	color: #FFF;
+	outline: none;
+}
+/*
+ * FORM BUTTON (ROUNDED CORNERS)
+ * 
+ */
+input[type='submit'], button.button-submit { 
+  border:0; 
+  cursor:pointer; 
+  font-weight:bold; 
+  font-size: .95em;
+  padding:0 1.5em 0 0; 
+  text-align:center;
+  margin: 0.4em 0;
+  border-bottom: 2px solid #D8D8D8;
+  border-left: 1px solid #D8D8D8;
+  border-right: 1px solid #D8D8D8;
+  border-top: 1px solid #D8D8D8;
+}
+input[type='submit'] span, button.button-submit span { 
+  position:relative; 
+  display:block; 
+  white-space:nowrap; 
+  padding:0 0 0 1.5em; 
+}
+
+input[type='submit'], button.button-submit { 
+  height:40px; 
+  line-height:40px;
+}
+input[type='submit'], button.button-submit span { 
+  height:40px; 
+  line-height:40px;
+}
+input[type='submit']:hover, button.button-submit:hover {
+	color:#fff; 
+	border-bottom: 2px solid #B5B5B5;
+	border-left: 1px solid #B5B5B5;
+	border-right: 1px solid #B5B5B5;
+	border-top: 1px solid #B5B5B5;
+}
+input[type='submit']:hover span, button.button-submit:hover span {
+	color:#fff; 
+}
+
+/*
+ * 6. FORMS
+ * 
+ */
+fieldset {
+	margin-top: 0;
+}
+legend {
+	font-size: 110%;
+	font-weight: bold;
+	padding-bottom: .5em;
+	color: #000077;
+}
+form ul {
+	list-style-type: none;
+	margin-bottom: .5em;
+	margin-top: .5em;
+	padding: 0;
+}
+form ul li {
+	margin: 0;
+	padding: 0;
+}
+
+form label {
+	font-size: .9em;
+	margin-bottom: .5em;
+	margin-top: .5em;	
+}
+		
+input[type='password'], input[type='text'] { 
+	border: 1px solid #D8D8D8;
+	background: #FFF url(../../images/high/img-form-input-shadow.png) repeat-x top;
+	display: block;
+	padding: 0.2em;
+	width: 98%;		
+	color: #333333;
+	margin-bottom: 1em;
+}
+
+textarea { 
+	border: 1px solid #D8D8D8;
+	background: #FFF url(../../images/high/img-form-input-shadow.png) repeat-x top;
+	display: block;
+	padding: 0.2em;
+	color: #333333;
+	width: 98%;	
+	line-height: normal;
+	margin-bottom: .7em;
+}
+
+form ul li input[type='radio'], form ul li input[type='checkbox'] { 
+	margin:0.1em 0em;
+	padding: 0;
+}
+
+select {
+	border: 1px solid #D8D8D8;
+	background: #fff;
+	color: #666666;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	padding-left: 0.5em;
+	margin: 0.2em 0;
+	display: block;
+	width: 98%;
+}
+
+input[type='button'] {
+	border: 1px solid #D8D8D8;
+	background-color: white;
+	padding: 1em 1.3em;
+	color: #666666;
+	margin: 1em 0em;
+}
+
+
+/*
+ * 7. TABLES
+ * 
+ */
+table {
+	border: 1px solid #D8D8D8;
+	margin: 0;
+	width: 100%;
+	color: #333333;
+	vertical-align: top;
+}
+
+td {
+	border-bottom: 1px solid #D8D8D8;
+	border-right: 1px solid #D8D8D8;
+	padding-left: .3em;
+	padding-right: .3em;
+	padding-top: .2em;
+	padding-bottom: .2em;
+	line-height: 1.5em;
+}
+tr {
+	height: 1.5em;
+}
+th, tfoot {
+	border-top: 1px solid #FFF;
+	border-left: 1px solid #FFF;
+	background-color: #434343;
+	text-align: left;
+	padding-left: .3em;
+	padding-right: .2em;
+	padding-top: .2em;
+	padding-bottom: .2em;
+	line-height: 1.5em;
+	font-weight: bold;
+	color: #FFF;
+}
+caption {
+	font-style: italic;
+	caption-side: bottom;
+	text-align: left;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+.odd {
+		background: #F6F6F6;
+}
+
+tr:hover {
+		color: #FFF; 
+}
+/*
+ * 8. FLEXIBLE CONTAINERS
+ * 
+ */
+/*
+ * SIMPLE FLEXIBLE BOX
+ * 
+ */
+.box-flat {
+	background: #FBFBFB url(../../images/high/img-box-flat.png) repeat-x left bottom;
+	margin: 0.2em 0em 0.6em 0em;
+	padding: 1em 1em 0.2em 1em;
+	border-top: 1px solid #D8D8D8;
+	border-bottom: 2px solid #D8D8D8;
+	border-left: 1px solid #D8D8D8;
+	border-right: 1px solid #D8D8D8;
+}
+.box-flat p {
+	padding: 0;
+}

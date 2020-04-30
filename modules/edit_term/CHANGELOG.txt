@@ -1,0 +1,34 @@
+2009-03-04 
+- @dman
+fixed some major bad indentation
+adjusted to use taxonomy_term_path - which should make it work better with image gallery and forum taxonomies
+adjusted to use hook_term_alter instead of the over-ride hack it was using before
+Tested lots on the new D6 menu system - it was quite different, but got the parent selector sorted out again.
+Removed menu field descriptions because they are boring.
+Adjusted form weightings
+
+
+27 Sep 2008
+- @dman ported to D6. Had to remove menu widget pending some research.
+  The original 'block' feature is now totally phased out also. 
+  Local menu items only. 
+  Looking forward to a D7 core version of this functionality 
+  - Ben and catch are on that.
+
+23 Mar 2008
+- @dman wove in 'gallery' path support
+
+Saturday 8 Mar 2008
+- @dman Integrated menu and alias editor from a private library
+  Basically a replacement to the module, as it's 80% new additions :)
+
+Sun 2 Mar 2008
+- @dman Added tab edit as per http://drupal.org/node/226484
+
+October 13, 2007
+ - edit_term.module:
+    o initial commit, for Drupal 5.0
+ - edit_term.install:
+    o initial commit, for Drupal 5.0
+ - edit_term.info
+    o info file for new Drupal 5.0 module

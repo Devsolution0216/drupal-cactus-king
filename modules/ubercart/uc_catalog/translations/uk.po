@@ -1,0 +1,379 @@
+# $Id: uk.po,v 1.1.2.2 2009/09/21 22:41:15 podarok Exp $
+#
+# Ukrainian translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_catalog.admin.inc,v 1.1.2.7 2009/01/19 20:31:25 islandusurper
+#  uc_catalog.module,v 1.15.2.16 2009/04/18 07:29:19 islandusurper
+#  uc_catalog.pages.inc,v 1.1.2.10 2009/04/02 21:01:47 islandusurper
+#  uc_catalog.install,v 1.9.2.8 2009/02/04 13:44:30 islandusurper
+#  uc_catalog.info,v 1.6.2.2 2008/11/07 21:13:24 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: uc_catalog\n"
+"POT-Creation-Date: 2009-09-21 22:36+0300\n"
+"PO-Revision-Date: 2009-09-22 01:39+0300\n"
+"Last-Translator: Andriy Podanenko <podarok@ua.fm>\n"
+"Language-Team: Ukrainian <drupalua@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: uc_catalog.admin.inc:33
+msgid "The taxonomy vocabulary <a href=\"!edit-url\">%name</a> is set as the product catalog."
+msgstr "Словник таксономії <a href=\"!edit-url\">%name</a> встановлено як каталог товарів."
+
+#: uc_catalog.admin.inc:47
+msgid "Catalog top level"
+msgstr "Верхній рівень каталогу"
+
+#: uc_catalog.admin.inc:54
+#: uc_catalog.module:535;561
+msgid "Catalog vocabulary"
+msgstr "Словник каталогу"
+
+#: uc_catalog.admin.inc:55
+msgid "The taxonomy vocabulary that will be considered the product catalog."
+msgstr "Словник таксономії що буде представляти каталог товарів."
+
+#: uc_catalog.admin.inc:61
+msgid "Display the catalog breadcrumb"
+msgstr "Показувати ланцюг навігації каталогу"
+
+#: uc_catalog.admin.inc:64
+msgid "Catalog breadcrumb is being displayed."
+msgstr "Ланцюг навігації каталогу буде відображено."
+
+#: uc_catalog.admin.inc:65
+msgid "Catalog breadcrumb is hidden."
+msgstr "Ланцюг навігації каталогу сховано."
+
+#: uc_catalog.admin.inc:70
+msgid "Display node counts in the catalog breadcrumb"
+msgstr "Показувати кількість нод у ланцюгу навігації каталогу"
+
+#: uc_catalog.admin.inc:73
+msgid "Node count is being displayed in the catalog breadcrumb."
+msgstr "Кількість нод буде відображено у ланцюгу навігації каталогу."
+
+#: uc_catalog.admin.inc:74
+msgid "Node count is not being displayed in the catalog breadcrumb."
+msgstr "Кількість нод не буде відображено у ланцюгу навігації каталогу."
+
+#: uc_catalog.admin.inc:79
+msgid "Display subcategories in the catalog view"
+msgstr "Показувати підкатегорії у каталозі"
+
+#: uc_catalog.admin.inc:82
+msgid "The catalog view is displaying subcategories."
+msgstr "Підкатегорії відображаються у каталозі."
+
+#: uc_catalog.admin.inc:83
+msgid "The catalog view is not displaying subcategories."
+msgstr "Підкатегорії не відображаються у каталозі."
+
+#: uc_catalog.admin.inc:88
+msgid "Number of columns in the grid of categories"
+msgstr "Кількість стовпців у решітці категорій"
+
+#: uc_catalog.admin.inc:90
+msgid "Subcategories are being displayed in @columns columns."
+msgstr "Підкатегорії буде відображено у @columns стовпців."
+
+#: uc_catalog.admin.inc:95
+msgid "Catalog products list"
+msgstr "Перелік товарів каталогу."
+
+#: uc_catalog.admin.inc:103
+msgid "Product nodes per page"
+msgstr "Кількість матеріалів на сторінку"
+
+#: uc_catalog.admin.inc:104
+msgid "There are @nodes product nodes displayed per page."
+msgstr "@nodes нод товару відображається на сторінку."
+
+#: uc_catalog.admin.inc:106
+msgid "Determines how many products will be listed on every catalog category. Notice that if you are using grid display it must be multiple of the grid width value, otherwise the last row will not match."
+msgstr "Визначає як багато товарів буде перелічено у кожній категорії каталогу. Занотуйте що якшо ви використовуєте решітку для відображення товарів то значення має співпадати зі значенням широти решітки інакше останній рядок не буде відображено."
+
+#: uc_catalog.admin.inc:111
+msgid "Catalog block settings"
+msgstr "Налаштування блоку навігації по каталогу"
+
+#: uc_catalog.admin.inc:119
+msgid "Make the block title a link to the top-level catalog page."
+msgstr "Зробити заголовок блоку посиланням на сторінку верхнього рівню каталогу."
+
+#: uc_catalog.admin.inc:122
+msgid "Block title is pointing to the top-level catalog page."
+msgstr "Заголовок каталогу прямує до сторінки верхнього рівня."
+
+#: uc_catalog.admin.inc:123
+msgid "Block title is not pointing to the top-level catalog page."
+msgstr "Заголовок каталогу не прямує до сторінки верхнього рівня."
+
+#: uc_catalog.admin.inc:128
+msgid "Always expand categories in the catalog block"
+msgstr "Завжди розкривати категорії у блоці навігації по каталогу"
+
+#: uc_catalog.admin.inc:131
+msgid "Expanding categories in the catalog block."
+msgstr "Розкриває категорії у блоці навігації по каталогу."
+
+#: uc_catalog.admin.inc:132
+msgid "Not expanding categories in the catalog block."
+msgstr "Не розкривати категорії у блоці навігації по каталогу."
+
+#: uc_catalog.admin.inc:137
+msgid "Display node counts in the catalog block"
+msgstr "Відображати кількість нод у блоці навігації по каталозі."
+
+#: uc_catalog.admin.inc:140
+msgid "The number of nodes in a category are being shown in the catalog block."
+msgstr "Кількість нод у категорій буде відображено у блоці навігації по каталогу."
+
+#: uc_catalog.admin.inc:141
+msgid "The number of nodes in a category are not being shown in the catalog block."
+msgstr "Кількість нод у категорій не буде відображено у блоці навігації по каталогу."
+
+#: uc_catalog.admin.inc:155
+msgid "Display products in the catalog in a grid."
+msgstr "Відображати товари у каталозі решіткою."
+
+#: uc_catalog.admin.inc:158
+msgid "Products are displayed in a grid."
+msgstr "Товари відображаються у решітці."
+
+#: uc_catalog.admin.inc:159
+msgid "Products are displayed in a table list."
+msgstr "Товари відображаються у таблиці."
+
+#: uc_catalog.admin.inc:162
+msgid "If unchecked, the default table display will be used and the settings on this form will be ignored."
+msgstr "Якшо не обрано, буде відображено базову таблицю та налаштування цієї форми буде проігноровано."
+
+#: uc_catalog.admin.inc:166
+msgid "Number of columns in the product grid"
+msgstr "Кулькість стовбців у решітці"
+
+#: uc_catalog.admin.inc:169
+msgid "The grid will be displayed in @columns columns."
+msgstr "Решітку буде відображено з  @columns стовпцями."
+
+#: uc_catalog.admin.inc:174
+msgid "Displayed fields"
+msgstr "Відображені поля"
+
+#: uc_catalog.admin.inc:175
+msgid "The checked fields will be included in the product grid for each product in your catalog."
+msgstr "Позначені поля буде включенодо для кожного товару у решітці товарів."
+
+#: uc_catalog.admin.inc:179
+msgid "Product title"
+msgstr "Назва товару"
+
+#: uc_catalog.admin.inc:184
+msgid "Product SKU"
+msgstr "Артикул товару"
+
+#: uc_catalog.admin.inc:189
+msgid "Default product image"
+msgstr "Базове зображення товару"
+
+#: uc_catalog.admin.inc:190
+msgid "The image will always be included in the product grid."
+msgstr "Зображення завжди буде відображатися на рішітці товарів."
+
+#: uc_catalog.admin.inc:196
+msgid "Sell price"
+msgstr "Відпускна ціна"
+
+#: uc_catalog.admin.inc:201
+msgid "Add to cart form"
+msgstr "Форма додавання до кошика"
+
+#: uc_catalog.admin.inc:206
+msgid "Attribute selection elements"
+msgstr "Елементи вибору атрибута"
+
+#: uc_catalog.admin.inc:207
+msgid "Adds any available attribute selection form elements to the add to cart form if displayed in the grid."
+msgstr ""
+
+#: uc_catalog.admin.inc:218
+msgid ""
+"Orphaned products are products that you have created but\n"
+"     not yet assigned to a category in your product catalog. All such\n"
+"     products will appear as links below that you can follow to edit\n"
+"     the product listings to assign them to categories."
+msgstr ""
+"Осиротілі товари це товари що були створені вами але\n"
+"     яким ще не було призначено категорію у вашому каталозі. Усі такі\n"
+"     товари представлені посиланнями нижче за якими ви можете відредагувати\n"
+"     товар призначивши йому категорії."
+
+#: uc_catalog.admin.inc:236
+msgid "All products are currently listed in the catalog."
+msgstr "Зараз усі товари перелічені у каталозі."
+
+#: uc_catalog.pages.inc:69
+msgid "More..."
+msgstr "Більше..."
+
+#: (duplicate) uc_catalog.module:65;214;385;414;615;784
+#: uc_catalog.install:66
+#: ;70  uc_catalog.info:0
+msgid "Catalog"
+msgstr "Каталог"
+
+#: uc_catalog.module:210;781
+msgid "Home"
+msgstr "Головна"
+
+#: uc_catalog.module:277;307
+msgid "Uploaded file is not a valid image"
+msgstr "Завантажений файл не є зображення"
+
+#: uc_catalog.module:336
+msgid "Image"
+msgstr "Зображення"
+
+#: uc_catalog.module:345
+msgid "Term image"
+msgstr "Зображення терміну"
+
+#: uc_catalog.module:346
+msgid "The image will not be resized. Consider installing <a href=\"@url\">Image cache</a>."
+msgstr "Зображення не буде змінено. Спробуйте встановити модуль <a href=\"@url\">Image cache</a>."
+
+#: uc_catalog.module:349
+msgid "Remove category image: !image"
+msgstr "Видалити зображення категорії: !image"
+
+#: uc_catalog.module:354
+msgid "A description of the term. Displayed to customers at the top of catalog pages."
+msgstr "Опис терміну. Показується клієнту у горі сторінки каталогу."
+
+#: uc_catalog.module:455
+msgid "Catalog path settings"
+msgstr "Налаштування шляху каталога."
+
+#: uc_catalog.module:456
+msgid "Pattern for catalog pages"
+msgstr "Зразок для сторінок каталогу"
+
+#: uc_catalog.module:457
+msgid "catalog/[catpath-raw]"
+msgstr "catalog/[catpath-raw]"
+
+#: uc_catalog.module:467
+msgid "Bulk generate aliases for catalog pages that are not aliased"
+msgstr "Згенерувати альяси для тих сторінок каталогу що їх не моють"
+
+#: uc_catalog.module:468
+msgid "Generate aliases for all existing catalog pages which do not already have aliases. Note: Bulk Update may not complete on large or slow sites. See the README.txt for more information."
+msgstr "Згенерувати альяси для усіх існуючих сторінок каталогу які ще їх не мають. Занотуюте: Масове оновленя може бути не закінчене на великих або повільних сайтах. Дивіться README.txt для біль докладної інформації."
+
+#: uc_catalog.module:518
+msgid "catalog pages"
+msgstr "сторінки каталогу"
+
+#: uc_catalog.module:536
+msgid "Vocabulary !name has been identified as the Ubercart catalog."
+msgstr "Словник !name було ідентіфіковано як каталог Уберкарт."
+
+#: uc_catalog.module:543
+msgid " Products are listed by assigning a category from the <a href=\"!cat_url\">Product Catalog</a> vocabulary to them."
+msgstr ""
+
+#: uc_catalog.module:546
+msgid "Find orphaned products here."
+msgstr "Тут ви знайдете осиротілі товари."
+
+#: uc_catalog.module:549
+msgid "Add terms for the products to inhabit."
+msgstr ""
+
+#: uc_catalog.module:553
+msgid "Unlisted products"
+msgstr "Не перелічені товари"
+
+#: uc_catalog.module:562
+msgid "No vocabulary has been recognized as the Ubercart catalog. Choose one on <a href=\"!admin_catalog\">this page</a> or add one on the <a href=\"!admin_vocab\">taxonomy admin page</a> first, if needed."
+msgstr "Ви ще не призначіли жоден словник як каталог Уберкарт. Оберіть його на <a href=\"!admin_catalog\">цій сторінці</a> або спочатку додайте новий на <a href=\"!admin_vocab\">сторінці керування таксономією</a>, якшо це потрібно."
+
+#: uc_catalog.module:672
+msgid "No products are available in this category."
+msgstr "У цій категорії нема товарів."
+
+#: uc_catalog.module:758
+msgid "Block settings:"
+msgstr "Налаштування блоку:"
+
+#: uc_catalog.module:489
+msgid "Bulk generation of terms completed, @count alias generated."
+msgid_plural "Bulk generation of terms completed, @count aliases generated."
+msgstr[0] "Масова генерація термінів завершена, @count альяс був створен."
+msgstr[1] "Масова генерація термінів завершена, @count альяси було створено."
+msgstr[2] "Масова генерація термінів завершена, @count альясів було створено."
+
+#: uc_catalog.module:542
+msgid "There is @count product not listed in the catalog."
+msgid_plural "There are @count products not listed in the catalog."
+msgstr[0] "@count товар відсутні у каталозі."
+msgstr[1] "@count товари відсутні у каталозі."
+msgstr[2] "@count товарів відсутні у каталозі."
+
+#: uc_catalog.module:129
+msgid "view catalog"
+msgstr "вигляд каталогу"
+
+#: uc_catalog.module:129
+msgid "administer catalog"
+msgstr "керування каталогом"
+
+#: uc_catalog.module:73;97
+msgid "Catalog settings"
+msgstr "Налаштування каталога"
+
+#: uc_catalog.module:74
+msgid "Configure the catalog settings."
+msgstr "Конфігурувати налаштування каталогу."
+
+#: uc_catalog.module:81
+msgid "Overview"
+msgstr "Огляд"
+
+#: uc_catalog.module:88
+msgid "Edit"
+msgstr "Редагувати"
+
+#: uc_catalog.module:104
+msgid "Product grid settings"
+msgstr "Налаштування решітки товарів"
+
+#: uc_catalog.module:113
+msgid "Find orphaned products"
+msgstr "Знайти осиротілі товари"
+
+#: uc_catalog.module:114
+msgid "Find products that have not been categorized."
+msgstr "Знайти товари що не було розташованно у каталозі."
+
+#: (duplicate) uc_catalog.install:66
+msgid "Hold Ctrl while clicking to select multiple categories."
+msgstr "Утримуйте Ctrl щоб обрати декілько категорій."
+
+#: uc_catalog.info:0
+msgid "Display a hierarchical product catalog page and block."
+msgstr "Відображення ієрархії продуктів на сторінкі каталогу і в блоці"
+
+#: uc_catalog.info:0
+msgid "Ubercart - core (optional)"
+msgstr "Уберкарт - ядро (не обов'язково)"
+

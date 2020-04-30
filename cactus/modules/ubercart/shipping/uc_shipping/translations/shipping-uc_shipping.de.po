@@ -1,0 +1,352 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_shipping.module,v 1.6.2.6 2008/11/07 21:13:26 islandusurper
+#  uc_shipping.admin.inc,v 1.1.2.2 2008/11/07 21:13:26 islandusurper
+#  uc_shipping.info,v 1.4.2.2 2008/11/07 21:13:25 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-13 22:26+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: shipping/uc_shipping/uc_shipping.module:34
+msgid "New packages"
+msgstr "Neue Pakete"
+
+#: shipping/uc_shipping/uc_shipping.module:43
+msgid "Edit package"
+msgstr "Paket bearbeiten"
+
+#: shipping/uc_shipping/uc_shipping.module:61
+msgid "Delete package"
+msgstr "Paket löschen"
+
+#: shipping/uc_shipping/uc_shipping.module:80
+msgid "New shipment"
+msgstr "Neue Sendung"
+
+#: shipping/uc_shipping/uc_shipping.module:135
+msgid "Shipment !id"
+msgstr "Sendung !id"
+
+#: shipping/uc_shipping/uc_shipping.module:113
+msgid "Delete shipment"
+msgstr "Versand löschen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:15
+msgid "Package ID"
+msgstr "Paket Nummer"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:15,388
+msgid "Shipment ID"
+msgstr "Versand Nummer"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:15
+msgid "Labels"
+msgstr "Etiketten"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:34
+msgid "Shipping Label"
+msgstr "Versand Etiket"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:47
+msgid "This order's products have not been organized into packages."
+msgstr "Die Artikel dieser Bestellung wurden noch nicht in Pakete aufgeteilt."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:52
+msgid "Create packages."
+msgstr "Pakete erstellen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:113
+msgid "Sep."
+msgstr "Sep."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:172
+msgid "Packages should have at least one product in them."
+msgstr "Pakete sollten mindestens einen Artikel enthalten"
+
+#: shipping/uc_shipping/uc_shipping.module:230
+msgid "Package %id:"
+msgstr "Paket %id:"
+
+#: shipping/uc_shipping/uc_shipping.module:231
+msgid "Contents:"
+msgstr "Inhalt:"
+
+#: shipping/uc_shipping/uc_shipping.module:237
+msgid "Package type:"
+msgstr "Paket Typ"
+
+#: shipping/uc_shipping/uc_shipping.module:239
+msgid "Dimensions:"
+msgstr "Maße:"
+
+#: shipping/uc_shipping/uc_shipping.module:239
+msgid "!l x !w x !h"
+msgstr "!l x !w x !h"
+
+#: shipping/uc_shipping/uc_shipping.module:241
+msgid "Insured value:"
+msgstr "Versicherter wert:"
+
+#: shipping/uc_shipping/uc_shipping.module:243
+msgid "Tracking number:"
+msgstr "Sendungsverfolgungsnummer:"
+
+#: shipping/uc_shipping/uc_shipping.module:246,249
+msgid "Label:"
+msgstr "Etikett:"
+
+#: shipping/uc_shipping/uc_shipping.module:246
+msgid "Click to view."
+msgstr "Klicken um zu sehen."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:367
+msgid "Are you sure you want to delete this package?"
+msgstr "Sind Sie sicher das Paket Löschen wollen."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:368
+msgid "The products it contains will be available for repackaging."
+msgstr ""
+"Die Produkte die sich darin befinden werden wieder zur verpackung zu "
+"verfügung stehen."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:388
+msgid "Destination"
+msgstr "Bestimmungsort"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:399
+msgid "view"
+msgstr "Anzeigen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:405
+msgid "No shipments have been made for this order."
+msgstr "Für diese Bestellung gab es noch keine Sendungen."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:410
+msgid "Make a new shipment"
+msgstr "Neue Sendung erzeugen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:415
+msgid "Put products into packages to make shipments."
+msgstr "Legen Sie Artikel in Packete um einen Versand zu machen."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:489
+msgid "Ship Manually"
+msgstr "Manuel versenden."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:879
+msgid "There is no sense in making a shipment with no packages on it, right?"
+msgstr "Es macht keinen Sinn eine sendung ohne Pakte zu machen, oder ?"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:567
+msgid "Pickup Address:"
+msgstr "Abholanschrift:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:569
+msgid "Schedule:"
+msgstr "Plan:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:571
+msgid "Ship date:"
+msgstr "Versand Datum:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:572
+msgid "Expected delivery:"
+msgstr "Erwartete Zustellung"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:575
+msgid "Shipment Details:"
+msgstr "Details der Lieferung:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:577
+msgid "Carrier:"
+msgstr "Versandunternehmen:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:579
+msgid "Transaction ID:"
+msgstr "Transaktions Nummer:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:582
+msgid "Tracking Number:"
+msgstr "Tracking-Nummer:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:587,590
+msgid "Services:"
+msgstr "Dienste:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:592
+msgid "Cost:"
+msgstr "Kosten:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:646
+msgid "Package @id"
+msgstr "Paket @id"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:653
+msgid "E.g.: Box, pallet, tube, treasure chest, cocoon, etc."
+msgstr "z.B.: Schachte, Palette, Tube, Kistchen usw."
+
+#: shipping/uc_shipping/uc_shipping.module:586
+msgid "Saved Addresses"
+msgstr "Gespeicherte Adressen"
+
+#: shipping/uc_shipping/uc_shipping.module:611
+msgid "Destination Address"
+msgstr "Ziel Adressse"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:705
+msgid "Shipment data"
+msgstr "Versand Daten"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:713
+msgid "Carrier"
+msgstr "Versandunternehmen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:717
+msgid "Shipment options"
+msgstr "Sendungs Optionen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:722
+msgid "Transaction ID"
+msgstr "Transaktionsnummer"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:15,388,697,726
+msgid "Tracking number"
+msgstr "Sendungsverfolgungs Nummer"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:751
+msgid "Shipping cost"
+msgstr "Versandkosten"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:759
+msgid "Save shipment"
+msgstr "Sendung speichern"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:825
+msgid "Are you sure you want to delete this shipment?"
+msgstr "Sind sie sicher das Sie die Sendung löschen wollen"
+
+#: shipping/uc_shipping/uc_shipping.module:424
+msgid "Package @id has been deleted."
+msgstr "Paket @id wurde gelöscht."
+
+#: shipping/uc_shipping/uc_shipping.module:146
+msgid "fulfill orders"
+msgstr "Bestellungen abwickeln"
+
+#: shipping/uc_shipping/uc_shipping.module:0
+msgid "uc_shipping"
+msgstr "uc_shipping"
+
+#: shipping/uc_shipping/uc_shipping.info:0
+msgid "Gets products ready for physical shipment."
+msgstr "Produkte für den Versand vorbereiten"
+
+#: shipping/uc_shipping/uc_shipping.module:52
+msgid "Cancel package shipment"
+msgstr "Paket versand stornieren"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:336
+msgid "Cancel shipment"
+msgstr "Versand stornieren"
+
+#: shipping/uc_shipping/uc_shipping.module:180
+msgid "Tracking numbers"
+msgstr "Sendungsvervolgungs Nummern"
+
+#: shipping/uc_shipping/uc_shipping.module:181
+msgid "Display tracking numbers of shipped packages."
+msgstr "Sendungsverfolgungsnummern für verschickte Pakete Anzeigen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:38
+msgid "cancel shipment"
+msgstr "Versand stornieren"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:335
+msgid "Are you sure you want to cancel the shipment of this package?"
+msgstr "Sicher das Sie den Versand dieses Paketes stornieren wollen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:336
+msgid "It will be available for reshipment."
+msgstr "Wird für erneuten versand zur Verfügung stehen."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:336
+msgid "Nevermind"
+msgstr "Vergiss es einfach."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:388
+msgid "Estimated delivery"
+msgstr "Erwartetes Lieferdatum"
+
+#: shipping/uc_shipping/uc_shipping.module:579
+msgid "Origin address"
+msgstr "Herkunfts Adresse"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:826
+msgid ""
+"The shipment will be canceled and the packages it contains will be "
+"available for reshipment."
+msgstr ""
+"Die Sendung wird gelöscht und die darin enthaltenen Pakete stehen "
+"für den erneuten Versand wieder zur Verfügung"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:842
+msgid ""
+"The shipment %tracking could not be canceled with %carrier. To delete "
+"it anyway, remove the tracking number and try again."
+msgstr ""
+"Die Sendung %tracking konnte %carrier nicht storniert werden. Um Sie "
+"trotzdem zu löschen, entfernen Sie die Sendungsverfolgungsnummer und "
+"versuchen Sie es noch einmal."
+
+#: shipping/uc_shipping/uc_shipping.module:558
+msgid "<Reset fields>"
+msgstr "<Felder zurücksetzen>"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:75
+msgid ""
+"Organize products into packages.\n"
+" Package numbers in multiple shipping types are of the first shipping "
+"type they appear in. All\n"
+" packages are given a unique ID when they are saved. Choose the "
+"default package \"Sep.\" to\n"
+" automatically create a package for each of the selected quantity of "
+"products in that row."
+msgstr ""
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:125
+msgid "Make packages"
+msgstr "Pakete erstellen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:126,186
+msgid "Create one package"
+msgstr "Ein Paket erstellen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:719
+msgid "Short notes about the shipment, e.g. residential, overnight, etc."
+msgstr ""
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:568
+msgid "Delivery Address:"
+msgstr ""
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:67,231,430,556
+msgid "Administer"
+msgstr ""
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:70,234,433,559
+msgid "Order @id"
+msgstr ""
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:284
+msgid "Save"
+msgstr ""
+

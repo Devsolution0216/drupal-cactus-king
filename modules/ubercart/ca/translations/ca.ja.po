@@ -1,0 +1,660 @@
+# $Id: ca.ja.po,v 1.1.2.1 2009/11/02 07:44:12 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  ca.admin.inc,v 1.1.2.16 2009/07/21 14:37:19 islandusurper
+#  ca.ca.inc,v 1.1.2.10 2009/07/21 14:37:19 islandusurper
+#  ca.module,v 1.1.2.17 2009/07/21 14:37:19 islandusurper
+#  ca.info,v 1.1.2.5 2008/11/07 21:13:20 islandusurper
+#  ca.js,v 1.1.2.3 2009/07/21 14:37:19 islandusurper
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-10-13 21:24+0900\n"
+"PO-Revision-Date: 2009-10-13 21:24+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=0; plural=;\n"
+
+#: ca.admin.inc:50;62;156;391;779 ca.ca.inc:263
+msgid "Title"
+msgstr "タイトル"
+
+#: ca.admin.inc:51;70;194
+msgid "Class"
+msgstr "クラス"
+
+#: ca.admin.inc:52;64;209 ca.ca.inc:365
+msgid "Status"
+msgstr "状態"
+
+#: ca.admin.inc:53;65;220
+msgid "Weight"
+msgstr "ウェイト"
+
+#: ca.admin.inc:54;66
+msgid "Operations"
+msgstr "操作"
+
+#: ca.admin.inc:58;63;170
+msgid "Trigger"
+msgstr "Trigger"
+
+#: ca.admin.inc:78
+msgid "edit"
+msgstr "編集"
+
+#: ca.admin.inc:83;303;312
+msgid "reset"
+msgstr "リセット"
+
+#: ca.admin.inc:88;303
+msgid "delete"
+msgstr "削除"
+
+#: ca.admin.inc:96;107;213
+msgid "Disabled"
+msgstr "無効"
+
+#: ca.admin.inc:96;107;212
+msgid "Enabled"
+msgstr "有効"
+
+#: ca.admin.inc:121
+msgid "- None -"
+msgstr "- なし -"
+
+#: ca.admin.inc:127 ca.module:56
+msgid "Add a predicate"
+msgstr "述部を追加"
+
+#: ca.admin.inc:142;285
+msgid "That predicate does not exist."
+msgstr "述部が存在しません。"
+
+#: ca.admin.inc:157
+msgid "Enter a title used for display on the overview tables."
+msgstr "概要テーブルに表示されるタイトルを入力してください。"
+
+#: ca.admin.inc:171
+msgid "Select the trigger for this predicate.<br />Cannot be modified if the predicate has conditions or actions."
+msgstr ""
+"この述部のトリガーを選択してください。<br "
+"/>述部に条件またはアクションがあれば変更できません。"
+
+#: ca.admin.inc:180 ca.ca.inc:481
+msgid "Description"
+msgstr "説明"
+
+#: ca.admin.inc:181
+msgid "Enter a description that summarizes the use and intent of the predicate."
+msgstr "述部の使用方法や意図を簡潔にまとめた説明を入力してください。"
+
+#: ca.admin.inc:195
+msgid "Classes let you categorize your predicates based on the type of functionality they provide."
+msgstr "クラスによって、その機能のタイプに応じて述部をカテゴリ分けすることができるようになります。"
+
+#: ca.admin.inc:210
+msgid "Disabled predicates will not be processed when their trigger is pulled."
+msgstr "無効な述部は、たとえそのトリガーが引き起こされたとしても実行されません。"
+
+#: ca.admin.inc:221
+msgid "Predicates will be sorted by weight and processed sequentially."
+msgstr "ウェイトおよび実行順で述部を並び替えます。"
+
+#: ca.admin.inc:227
+msgid "Save predicate"
+msgstr "述部を保存"
+
+#: ca.admin.inc:228
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: ca.admin.inc:274
+msgid "Predicate meta data saved."
+msgstr "述部メタデータを保存しました。"
+
+#: ca.admin.inc:301
+msgid "This action cannot be undone."
+msgstr "この操作は元に戻すことができませんので、十分に注意して実行してください。"
+
+#: ca.admin.inc:303
+msgid "Are you sure you want to !op this predicate?"
+msgstr "この述部を本当に!opしますか？"
+
+#: ca.admin.inc:312
+msgid "Predicate %title !op."
+msgstr "述部 %title を!opしました。"
+
+#: ca.admin.inc:312
+msgid "deleted"
+msgstr "削除"
+
+#: ca.admin.inc:363 ca.module:105
+msgid "Actions"
+msgstr "アクション"
+
+#: ca.admin.inc:364
+msgid "These actions will be performed in order when this predicate passes the conditions evaluation."
+msgstr "この述部が条件の評価をパスすれば、これらのアクションが順番通りに実行されます。"
+
+#: ca.admin.inc:378
+msgid "Action: @title"
+msgstr "アクション: @title"
+
+#: ca.admin.inc:397;785 ca.ca.inc:72;109 ca.module:572
+msgid "Arguments"
+msgstr "引数"
+
+#: ca.admin.inc:398
+msgid "Some triggers pass in multiple options for arguments related to a particular action, so you must specify which options to use in the fields below."
+msgstr "特定のアクションに関連した引数として複数のオプションを渡すトリガもありますので、下記のフィールドでどのオプションを使用するか指定する必要があります。"
+
+#: ca.admin.inc:437
+msgid "Remove this action"
+msgstr "このアクションを除去"
+
+#: ca.admin.inc:452
+msgid "Available actions"
+msgstr "利用可能なアクション"
+
+#: ca.admin.inc:458
+msgid "Add action"
+msgstr "アクションを追加"
+
+#: ca.admin.inc:464;652
+msgid "Save changes"
+msgstr "変更を保存"
+
+#: ca.admin.inc:485
+msgid "Action removed."
+msgstr "アクションを除去しました。"
+
+#: ca.admin.inc:503
+msgid "Action added."
+msgstr "アクションを追加しました。"
+
+#: ca.admin.inc:515
+msgid "Actions saved."
+msgstr "アクションを保存しました。"
+
+#: ca.admin.inc:622
+msgid "Condition groups"
+msgstr "条件グループ"
+
+#: ca.admin.inc:627
+msgid "AND. If all of these condition groups are TRUE."
+msgstr "AND。条件グループのすべてがTRUEの場合。"
+
+#: ca.admin.inc:628
+msgid "OR. If any of these condition groups are TRUE."
+msgstr "OR。条件グループのいずれかがTRUEの場合。"
+
+#: ca.admin.inc:646
+msgid "Add condition group"
+msgstr "条件グループを追加"
+
+#: ca.admin.inc:684
+msgid "Conditions group"
+msgstr "条件グループ"
+
+#: ca.admin.inc:691 ca.ca.inc:301;431
+msgid "Operator"
+msgstr "オペレータ"
+
+#: ca.admin.inc:693
+msgid "AND. If all of these conditions are TRUE."
+msgstr "AND。条件のすべてがTRUEの場合。"
+
+#: ca.admin.inc:694
+msgid "OR. If any of these conditions are TRUE."
+msgstr "OR。条件のいずれかがTRUEの場合。"
+
+#: ca.admin.inc:712
+msgid "Available conditions"
+msgstr "利用可能な条件"
+
+#: ca.admin.inc:717
+msgid "Add condition"
+msgstr "条件を追加"
+
+#: ca.admin.inc:723
+msgid "Remove group"
+msgstr "グループを削除"
+
+#: ca.admin.inc:740
+msgid "Condition: @title"
+msgstr "条件: @title"
+
+#: ca.admin.inc:741
+msgid "@description"
+msgstr "@description"
+
+#: ca.admin.inc:786
+msgid "Some triggers pass in multiple options for arguments related to a particular condition, so you must specify which options to use in the fields below."
+msgstr "特定の条件に関係した引数として複数のオプションを渡すトリガもありますので、下記のフィールドでどのオプションを使用するのかを指定しなければなりません。"
+
+#: ca.admin.inc:817
+msgid "Negate this condition."
+msgstr "この条件を否定。"
+
+#: ca.admin.inc:818
+msgid "Return FALSE if the condition is TRUE and vice versa."
+msgstr "条件がTRUEの場合にFALSEを返し、その逆もまたしかりです。"
+
+#: ca.admin.inc:835
+msgid "Remove this condition"
+msgstr "この条件を削除"
+
+#: ca.admin.inc:857
+msgid "Condition group added."
+msgstr "条件グループを追加しました。"
+
+#: ca.admin.inc:884;919
+msgid "An error occurred when trying to add the condition.  Please try again."
+msgstr "条件を追加する際にエラーが発生しました。再度行ってください。"
+
+#: ca.admin.inc:891
+msgid "Condition group removed."
+msgstr "条件グループを削除しました。"
+
+#: ca.admin.inc:929
+msgid "%title condition added."
+msgstr "条件 %title を追加しました。"
+
+#: ca.admin.inc:969
+msgid "An error occurred when trying to remove the condition.  Please try again."
+msgstr "条件を削除する際にエラーが発生しました。再度行ってください。"
+
+#: ca.admin.inc:975
+msgid "Condition removed."
+msgstr "条件を削除しました。"
+
+#: ca.admin.inc:988
+msgid "Conditions saved."
+msgstr "条件を保存しました。"
+
+#: ca.admin.inc:1065
+msgid "Use this form during the update process from Ubercart 1.0 to 2.0 to convert your Workflow-ng configurations to Conditional Actions predicates.  Once your configurations are converted, you should complete your uninstallation of Workflow-ng."
+msgstr ""
+"Ubercart 1.0 から 2.0 "
+"へのアップデートプロセスにおいて、このフォームを使用して "
+"Workflow-ng "
+"の設定を条件付きアクションの述部へ変換します。設定の変換が完了すれば、Workflow-ngを完全にアンインストールしてください。"
+
+#: ca.admin.inc:1070 ca.module:66
+msgid "Convert configurations"
+msgstr "変換の設定"
+
+#: ca.admin.inc:1087
+msgid "Converting Workflow-ng configurations"
+msgstr "Workflow-ngの設定を変換"
+
+#: ca.admin.inc:1088
+msgid "Beginning conversion..."
+msgstr "変換を開始 ..."
+
+#: ca.admin.inc:1089
+msgid "@percentage% converted"
+msgstr "@percentage% 変換しました"
+
+#: ca.admin.inc:1189
+msgid "Now processing %cfg"
+msgstr "処理中 %cfg"
+
+#: ca.ca.inc:23
+msgid "Drupal user"
+msgstr "Drupalユーザ"
+
+#: ca.ca.inc:29;59
+msgid "Node"
+msgstr "ノード"
+
+#: ca.ca.inc:35
+msgid "Trigger arguments"
+msgstr "トリガーの引数"
+
+#: ca.ca.inc:49
+msgid "Check the current date"
+msgstr "現在の日付をチェック"
+
+#: ca.ca.inc:50
+msgid "Used to determine if the action should be performed on the current date."
+msgstr "アクションを現在の日付で行うべきかどうか判断するのに使用します。"
+
+#: ca.ca.inc:51;99
+msgid "Drupal"
+msgstr "Drupal"
+
+#: ca.ca.inc:57
+msgid "Compare a node field value"
+msgstr "ノードフィールドの値を比較"
+
+#: ca.ca.inc:58
+msgid "Returns TRUE if the node field selected below compares to the value entered as specified by the operator."
+msgstr "下記で選択したノードフィールドがオペレーターで指定した値と等しければ、TRUEを返します。"
+
+#: ca.ca.inc:67;105
+msgid "Execute custom PHP code"
+msgstr "独自のPHPコードを実行"
+
+#: ca.ca.inc:68
+msgid "Returns whatever your custom PHP code returns."
+msgstr "カスタムPHPコードが返すものを返します。"
+
+#: ca.ca.inc:69;106
+msgid "System"
+msgstr "システム"
+
+#: ca.ca.inc:77
+msgid "Check the user's roles"
+msgstr "ユーザーロールをチェック"
+
+#: ca.ca.inc:78;82
+msgid "User"
+msgstr "ユーザ"
+
+#: ca.ca.inc:79
+msgid "Returns TRUE if the user roles match your settings."
+msgstr "ユーザーのロールが条件に一致する場合にTRUEを返します。"
+
+#: ca.ca.inc:98
+msgid "Display a message to the user"
+msgstr "ユーザへメッセージを表示"
+
+#: ca.ca.inc:147
+msgid "Comparison"
+msgstr "比較"
+
+#: ca.ca.inc:149
+msgid "Before"
+msgstr "前"
+
+#: ca.ca.inc:150
+msgid "Only"
+msgstr "限定"
+
+#: ca.ca.inc:151
+msgid "After"
+msgstr "後"
+
+#: ca.ca.inc:154
+msgid "Example: \"The current date is before the date below.\""
+msgstr "例: 「現在日時が以下の日付より前」"
+
+#: ca.ca.inc:159
+msgid "Date"
+msgstr "日付"
+
+#: ca.ca.inc:161
+msgid "When the predicate is evaluated, the current date is compared to this date."
+msgstr "述部を評価する際、現在日時がこの日付と比較されます。"
+
+#: ca.ca.inc:259
+msgid "Core node fields"
+msgstr "コアのノードフィールド"
+
+#: ca.ca.inc:260
+msgid "Node ID"
+msgstr "コンテンツ ID"
+
+#: ca.ca.inc:261
+msgid "Node revision ID"
+msgstr "ノードリビジョンID"
+
+#: ca.ca.inc:262
+msgid "Node type"
+msgstr "コンテンツタイプ"
+
+#: ca.ca.inc:264
+msgid "Author's user ID"
+msgstr "投稿者のユーザーID"
+
+#: ca.ca.inc:265
+msgid "Node is published?"
+msgstr "ノードは掲載済みか？"
+
+#: ca.ca.inc:266
+msgid "Node is promoted?"
+msgstr "ノードはフロントページへ掲載か？"
+
+#: ca.ca.inc:267
+msgid "Node is sticky?"
+msgstr "ノードはリスト上部へ固定か？"
+
+#: ca.ca.inc:273
+msgid "Node field"
+msgstr "ノードフィールド"
+
+#: ca.ca.inc:280
+msgid "Simple comparison"
+msgstr "簡易な比較"
+
+#: ca.ca.inc:281
+msgid "is equal to"
+msgstr "以下と等しい"
+
+#: ca.ca.inc:282
+msgid "is not equal to"
+msgstr "以下と等しくない"
+
+#: ca.ca.inc:283
+msgid "is greater than"
+msgstr "以下より大きい"
+
+#: ca.ca.inc:284
+msgid "is less than"
+msgstr "以下より小さい"
+
+#: ca.ca.inc:285
+msgid "is greater than or equal to"
+msgstr "以下と同じか大きい"
+
+#: ca.ca.inc:286
+msgid "is less than or equal to"
+msgstr "以下と同じか小さい"
+
+#: ca.ca.inc:288
+msgid "Text matching"
+msgstr "テキストマッチング"
+
+#: ca.ca.inc:289
+msgid "begins with"
+msgstr "以下で始まる"
+
+#: ca.ca.inc:290
+msgid "contains"
+msgstr "含む"
+
+#: ca.ca.inc:291
+msgid "ends with"
+msgstr "以下で終わる"
+
+#: ca.ca.inc:293
+msgid "Yes/No"
+msgstr "はい / いいえ"
+
+#: ca.ca.inc:294
+msgid "yes"
+msgstr "はい"
+
+#: ca.ca.inc:295
+msgid "no"
+msgstr "いいえ"
+
+#: ca.ca.inc:302
+msgid "Please note that not every operator makes sense for every field."
+msgstr "すべてのオペレーターがすべてのフィールドを使用するわけではないことに注意してください。"
+
+#: ca.ca.inc:309
+msgid "Comparison value"
+msgstr "比較値"
+
+#: ca.ca.inc:310
+msgid "You do not need to specify a value if your operator is in the Yes/No category."
+msgstr ""
+"オペレーターが「はい / "
+"いいえ」のカテゴリーにある場合は、値を指定する必要はありません。"
+
+#: ca.ca.inc:351
+msgid "Message text"
+msgstr "メッセージテキスト"
+
+#: ca.ca.inc:357
+msgid "Formatting guidelines"
+msgstr "入力書式のガイドライン"
+
+#: ca.ca.inc:363
+msgid "Message type"
+msgstr "メッセージタイプ"
+
+#: ca.ca.inc:366
+msgid "Error"
+msgstr "エラー"
+
+#: ca.ca.inc:391;466
+msgid "Custom PHP"
+msgstr "カスタムPHP"
+
+#: ca.ca.inc:392
+msgid "Enter the custom PHP to be evaluated when this condition is executed.  Should not include &lt;?php ?> delimiters."
+msgstr ""
+"この条件が実行される際に評価するカスタムPHPを入力してください。 "
+" &lt;?php ?&gt; デリミタは入力しないでください。"
+
+#: ca.ca.inc:432
+msgid "If you specify <em>AND</em> and want to check a custom role, remember to specify <em>authenticated user</em> where applicable."
+msgstr "<em>AND</em>を選択して独自のロールをチェックするには、<em>登録ユーザー</em>を指定するのを忘れないようにしてください。"
+
+#: ca.ca.inc:434
+msgid "OR: If the user has any of these roles."
+msgstr ""
+"OR: "
+"ユーザーがいずれかのロールを保有している場合。"
+
+#: ca.ca.inc:435
+msgid "AND: If the user has all of these roles."
+msgstr ""
+"AND: "
+"ユーザーがすべてのロールを保有している場合。"
+
+#: ca.ca.inc:441
+msgid "Roles"
+msgstr "ロール"
+
+#: ca.ca.inc:467
+msgid "Enter the custom PHP to be evaluated when this action is executed.  Should not include &lt;?php ?> delimiters."
+msgstr ""
+"このアクションが実行される際に評価するカスタムPHPを入力してください。 "
+" &lt;?php ?&gt; デリミタは入力しないでください。"
+
+#: ca.ca.inc:481
+msgid "Variable"
+msgstr "変数"
+
+#: ca.ca.inc:481
+msgid "Type"
+msgstr "タイプ"
+
+#: ca.ca.inc:489
+msgid "No variables available."
+msgstr "利用可能な変数がありません。"
+
+#: ca.ca.inc:494
+msgid "Available PHP variables"
+msgstr "利用可能なPHPの変数"
+
+#: ca.ca.inc:495
+msgid "You may use these variables in your custom PHP."
+msgstr "カスタムPHPの中でこれらの変数を使用することができます。"
+
+#: ca.module:145
+msgid "administer conditional actions"
+msgstr "条件付アクションの管理"
+
+#: ca.module:27
+msgid "Conditional actions"
+msgstr "条件付アクション"
+
+#: ca.module:28;41;47
+msgid "Administer the predicates setup to automate your store."
+msgstr "述部の設定を管理して店舗を自動化します。"
+
+#: ca.module:35
+msgid "Overview"
+msgstr "概観"
+
+#: ca.module:40
+msgid "By trigger"
+msgstr "トリガー別"
+
+#: ca.module:46
+msgid "By class"
+msgstr "クラス別"
+
+#: ca.module:57
+msgid "Allows an administrator to create a new predicate."
+msgstr "管理者が新しい述部を作成できるようになります。"
+
+#: ca.module:67
+msgid "Convert Workflow-ng configurations into Conditional Actions predicates."
+msgstr "Workflow-ngの設定を条件付きアクションの述部へ変換します。"
+
+#: ca.module:76
+msgid "Edit predicate"
+msgstr "述部を編集"
+
+#: ca.module:77
+msgid "Edit a predicate's meta data, conditions, and actions."
+msgstr "述部のメタデータや条件およびアクションを編集します。"
+
+#: ca.module:85
+msgid "Meta data"
+msgstr "メタデータ"
+
+#: ca.module:86
+msgid "Edit the meta data for a predicate like title, trigger, etc."
+msgstr "タイトルやトリガと言った、述部のメタデータを編集します。"
+
+#: ca.module:95
+msgid "Conditions"
+msgstr "条件"
+
+#: ca.module:96
+msgid "Edit the conditions for a predicate."
+msgstr "述部の条件を編集します。"
+
+#: ca.module:106
+msgid "Edit the actions for a predicate."
+msgstr "述部のアクションを編集します。"
+
+#: ca.module:115
+msgid "Reset a predicate"
+msgstr "述部をリセット"
+
+#: ca.module:123
+msgid "Delete a predicate"
+msgstr "述部を削除"
+
+#: ca.info:0
+msgid "Conditional Actions"
+msgstr "条件付アクション"
+
+#: ca.info:0
+msgid "REQUIRED. Create conditional action configurations for taxes, shipping, and more!"
+msgstr "必須。税や配送その他に関する条件付アクションを設定できるようになります！"
+
+#: ca.info:0
+msgid "Ubercart - core"
+msgstr ""
+
+#: ca.js:0
+msgid "Are you sure you want to remove this item?"
+msgstr "この商品を本当に除去しますか？"
+

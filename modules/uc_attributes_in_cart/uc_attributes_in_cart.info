@@ -1,0 +1,14 @@
+; $Id: uc_attributes_in_cart.info,v 1.1 2010/05/13 12:44:46 Fanyalla Exp $ 
+
+name = Attributes in cart
+description = Allow users to modify attributes of Ubercart products directly in their cart.
+core = 6.x
+dependencies[] = uc_cart
+dependencies[] = uc_attribute
+
+; Information added by drupal.org packaging script on 2010-08-12
+version = "6.x-1.2"
+core = "6.x"
+project = "uc_attributes_in_cart"
+datestamp = "1281605194"
+

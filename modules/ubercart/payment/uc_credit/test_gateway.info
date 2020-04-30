@@ -1,0 +1,14 @@
+name = Test Gateway
+description = Adds a credit card gateway that simulates a successful payment for testing checkout.
+dependencies[] = uc_payment
+dependencies[] = uc_credit
+package = Ubercart - payment
+core = 6.x
+php = 5.0
+
+; Information added by drupal.org packaging script on 2011-07-30
+version = "6.x-2.6"
+core = "6.x"
+project = "ubercart"
+datestamp = "1312031519"
+

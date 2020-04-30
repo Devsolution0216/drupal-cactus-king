@@ -1,0 +1,446 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_attribute.admin.inc,v 1.1.2.4 2008/11/21 21:17:28 islandusurper
+#  uc_attribute.module,v 1.12.2.9 2008/12/09 15:20:35 islandusurper
+#  uc_attribute.info,v 1.6.2.2 2008/11/07 21:13:22 islandusurper
+#  uc_attribute.install,v 1.10.2.4 2008/12/09 15:20:35 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-27 12:25+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_attribute/uc_attribute.admin.inc:546,773
+msgid "Default"
+msgstr "Standard"
+
+#: uc_attribute/uc_attribute.module:76
+msgid "Attribute settings"
+msgstr "Eigenschafts Einstellungen"
+
+#: uc_attribute/uc_attribute.module:85
+msgid "Edit attribute"
+msgstr "Eigenschaft bearbeiten"
+
+#: uc_attribute/uc_attribute.module:123,123
+msgid "Edit option"
+msgstr "Option bearbeiten"
+
+#: uc_attribute/uc_attribute.module:131
+msgid "Delete option"
+msgstr "Option löschen"
+
+#: uc_attribute/uc_attribute.admin.inc:27
+msgid "options"
+msgstr "Optionen"
+
+#: uc_attribute/uc_attribute.admin.inc:153
+msgid "Option price format"
+msgstr "Option Preis Darstellung"
+
+#: uc_attribute/uc_attribute.admin.inc:155
+msgid "Do not display"
+msgstr "Nicht anzeigen"
+
+#: uc_attribute/uc_attribute.admin.inc:156
+msgid "Display price adjustment"
+msgstr "Preis Anpassung anzeigen"
+
+#: uc_attribute/uc_attribute.admin.inc:157
+msgid "Display total price"
+msgstr "Gesamtsumme anzeigen"
+
+#: uc_attribute/uc_attribute.admin.inc:174
+msgid "Product attribute deleted."
+msgstr "Produkteingenschaft gelöscht."
+
+#: uc_attribute/uc_attribute.admin.inc:363
+msgid ""
+"This must be in a valid number format. No commas and only one decimal "
+"point."
+msgstr ""
+"Dies muss ein gültiges Zahlenformat sein. Keine Kommas, nur ein "
+"Dezimal Punkt."
+
+#: uc_attribute/uc_attribute.admin.inc:510
+msgid "No attributes left to add."
+msgstr "Keine Eigenschaften mehr zum Hinzufügen übrig."
+
+#: uc_attribute/uc_attribute.info:0
+msgid "Attribute"
+msgstr "Eigenschaft"
+
+#: uc_attribute/uc_attribute.admin.inc:1042
+msgid "Product adjustments have been saved."
+msgstr "Artikel Anpassungen wurden gespeichert."
+
+#: uc_attribute/uc_attribute.info:0
+msgid "Allow the customer to choose attributes for a product at checkout."
+msgstr ""
+"Dem Kunden während des Bestellvorgangs erlauben Eigenschaften eines "
+"Artikels zu wählen."
+
+#: uc_attribute/uc_attribute.module:54
+msgid "Create and edit attributes and options."
+msgstr "Eigenschaften und Optionen erstellen."
+
+#: uc_attribute/uc_attribute.module:77
+msgid "Configure the attribute settings"
+msgstr "Eigenschafts Einstellungen anpassen"
+
+#: uc_attribute/uc_attribute.module:191
+msgid "Adjustments"
+msgstr "Anpassungen"
+
+#: uc_attribute/uc_attribute.admin.inc:246
+msgid "Default cost"
+msgstr "Standard Kosten"
+
+#: uc_attribute/uc_attribute.admin.inc:246
+msgid "Default weight"
+msgstr "Standard Gewicht"
+
+#: uc_attribute/uc_attribute.admin.inc:76
+msgid "Help text"
+msgstr "Hilfe Text"
+
+#: uc_attribute/uc_attribute.module:28
+msgid ""
+"Add attributes to this product using the <a href=\"!url\">add "
+"attributes form</a>. You may then adjust the settings for these "
+"attributes on this page and go on to configure their options in the "
+"<em>Options</em> tab."
+msgstr ""
+"Dem Artikel Eigenschaften mittels \"<a href=\"!url\">Eigenschaften "
+"hinzufügen Formular</a>\" hinzufügen. Anschliessend können "
+"Einstellungen dieser Eigenschaften angepasst und Optionen über den "
+"Reiter <em>Optionen</em> hinzugefügt werden."
+
+#: uc_attribute/uc_attribute.module:30
+msgid ""
+"Add attributes to the product class using the <a href=\"!url\">add "
+"attributes form</a>. You may then adjust the settings for these "
+"attributes on this page and go on to configure their options in the "
+"<em>Options</em> tab."
+msgstr ""
+
+#: uc_attribute/uc_attribute.module:35
+msgid "Select the attributes you want to add and submit the form."
+msgstr ""
+"Wählen Sie die gewünschten Eigenschaften aus und schicken Sie das "
+"Formular ab."
+
+#: uc_attribute/uc_attribute.module:40
+msgid ""
+"Use the checkboxes to enable options for attributes and the radio "
+"buttons to specify defaults for the enabled options. Use the other "
+"fields to override the default settings for each option. Attributes "
+"with no enabled options will be displayed as text fields."
+msgstr ""
+
+#: uc_attribute/uc_attribute.module:44
+msgid ""
+"Enter an alternate SKU to be used when the specified set of options "
+"are chosen and the product is added to the cart. <b>Warning:</b> "
+"Adding or removing attributes from this product will reset all the "
+"SKUs on this page to the default product SKU."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:16
+msgid "Number of options"
+msgstr "Anzahl der Optionen"
+
+#: uc_attribute/uc_attribute.admin.inc:17,89
+msgid "Display type"
+msgstr "Darstellungsart"
+
+#: uc_attribute/uc_attribute.admin.inc:42
+msgid "No product attributes have been added yet."
+msgstr "Es wurden noch keine Produkteigenschaften hinzugefügt."
+
+#: uc_attribute/uc_attribute.admin.inc:64
+msgid "Edit attribute: %name"
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:70,310
+msgid "This name will appear to customers on product add to cart forms."
+msgstr ""
+"Kunden wird dieser Name in den Formularen \"dem Warenkorb "
+"hinzufügen\" angezeigt."
+
+#: uc_attribute/uc_attribute.admin.inc:77
+msgid ""
+"<b>Optional.</b> Enter the help text that will display beneath the "
+"attribute on product add to cart forms."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:83
+msgid ""
+"Make this attribute required, forcing the customer to choose an "
+"option."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:84
+msgid ""
+"Selecting this for an attribute will disregard any default option you "
+"specify.<br />May be overridden at the product level."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:90
+msgid ""
+"This specifies how the options for this attribute will be "
+"presented.<br />May be overridden at the product level."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:97
+msgid ""
+"Multiple attributes on an add to cart form are sorted by this value "
+"and then by their name.<br />May be overridden at the product level."
+msgstr ""
+"Mehrere Eigenschaften im \"dem Warenkorb hinzufügen\" Formular werden "
+"nach diesem Wert und ihrem Namen sortiert.<br />Kann auf Produktebene "
+"überschrieben werden."
+
+#: uc_attribute/uc_attribute.admin.inc:128,292
+msgid "There is no attribute with that ID."
+msgstr "Es gibt keine Eigenschaft mit dieser ID."
+
+#: uc_attribute/uc_attribute.admin.inc:137
+msgid "Are you sure you want to delete the attribute %name?"
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:183,304
+msgid "Options for %name"
+msgstr "Optionen für %name"
+
+#: uc_attribute/uc_attribute.admin.inc:267
+msgid "No options for this attribute have been added yet."
+msgstr "Dieser Eigenschaft wurden noch keine Optionen hinzugefügt."
+
+#: uc_attribute/uc_attribute.admin.inc:301
+msgid "Edit option: %name"
+msgstr "Bearbeite Option: %name"
+
+#: uc_attribute/uc_attribute.admin.inc:318
+msgid ""
+"Options will be listed sorted by this value and then by their name.<br "
+"/>May be overridden at the product level."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:324
+msgid "Default adjustments"
+msgstr "Standardanpassungen"
+
+#: uc_attribute/uc_attribute.admin.inc:325
+msgid ""
+"Enter a positive or negative value for each adjustment applied when "
+"this option is selected.<br />Any of these may be overriden at the "
+"product level."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:398
+msgid "There is no option with that ID."
+msgstr "Es gibt keine Option mit dieser ID."
+
+#: uc_attribute/uc_attribute.admin.inc:407
+msgid "Are you sure you want to delete the option %name?"
+msgstr "Soll die Option %name wirklich entfernt werden?"
+
+#: uc_attribute/uc_attribute.admin.inc:509
+msgid "Hold Ctrl + click to select multiple attributes."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:517
+msgid "Add attributes"
+msgstr "Eigenschaften hinzufügen"
+
+#: uc_attribute/uc_attribute.admin.inc:567
+msgid "You must first <a href=\"!url\">add attributes to this !type</a>."
+msgstr ""
+"Für !type müssen erst <a href=\"!url\">Eigenschaften hinzugefügt "
+"werden</a>."
+
+#: uc_attribute/uc_attribute.admin.inc:236,618
+msgid "The changes have been saved."
+msgstr "Die Änderungen wurden gespeichert."
+
+#: uc_attribute/uc_attribute.admin.inc:740
+msgid "This attribute does not have any options."
+msgstr "Diese Eigenschaft hat keine Optionen."
+
+#: uc_attribute/uc_attribute.admin.inc:807
+msgid "This !type does not have any attributes."
+msgstr "!type hat noch keine Eigenschaften."
+
+#: uc_attribute/uc_attribute.admin.inc:807,889
+msgid "product class"
+msgstr "Warengruppe"
+
+#: uc_attribute/uc_attribute.admin.inc:851
+msgid ""
+"All attributes with enabled options must specify an enabled option as "
+"default."
+msgstr ""
+"Alle Eigenschaften mit aktivierten Optionen benötigen einen "
+"Standardwert."
+
+#: uc_attribute/uc_attribute.admin.inc:889
+msgid "The !type options have been saved."
+msgstr "Die Optionen für !type wurden gespeichert."
+
+#: uc_attribute/uc_attribute.admin.inc:943
+msgid "Default product SKU: @sku"
+msgstr "Standard Artikelnummer: @sku"
+
+#: uc_attribute/uc_attribute.admin.inc:820,1016
+msgid "This product does not have any attributes."
+msgstr "Dieser Artikel hat keine Eigenschaften."
+
+#: uc_attribute/uc_attribute.module:634
+msgid "Text field"
+msgstr "Textfeld"
+
+#: uc_attribute/uc_attribute.module:635
+msgid "Select box"
+msgstr "Auswahlbox"
+
+#: uc_attribute/uc_attribute.module:636
+msgid "Radio buttons"
+msgstr "Optionsschaltflächen"
+
+#: uc_attribute/uc_attribute.admin.inc:138
+msgid "There is @count product with this attribute."
+msgid_plural "There are @count products with this attribute."
+msgstr[0] "Es gibt @count Artikel mit dieser Eigenschaft."
+msgstr[1] "Es gibt @count Artikel mit dieser Eigenschaft."
+
+#: uc_attribute/uc_attribute.admin.inc:614
+msgid "@count attribute has been removed."
+msgid_plural "@count attributes have been removed."
+msgstr[0] "@count Eigenschaft wurde entfernt."
+msgstr[1] "@count Eigenschaften wurden entfernt."
+
+#: uc_attribute/uc_attribute.admin.inc:642
+msgid "@count attribute has been added."
+msgid_plural "@count attributes have been added."
+msgstr[0] "@count Eigenschaft wurde hinzugefügt."
+msgstr[1] "@count Eigenschaften wurden hinzugefügt."
+
+#: uc_attribute/uc_attribute.admin.inc:159
+msgid ""
+"Formats the price in the attribute selection form when the customer "
+"adds a product to their cart. The total price will only be displayed "
+"on products with only one price affecting attribute."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:382,383
+msgid "Created new option %option."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:389,390
+msgid "Updated option %option."
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:823
+msgid "This product class does not have any attributes."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:13
+msgid "Attributes: the decisions that need to be made about products."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:16,128,229
+msgid "Primary identifier for attributes."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:28,135,236
+msgid "Determines the sort order of attributes."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:35,149,250
+msgid ""
+"Flag that, if set, requires a user response for attributes (disables "
+"default options)."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:43,157,258
+msgid ""
+"Display type of the attribute options: 0 -- text fields, 1 -- select "
+"box (default), 2 -- radio buttons"
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:51
+msgid "Description of the attribute."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:62,169,270
+msgid "The available choices for each attribute."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:65
+msgid "The attribute ID."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:72,179,280
+msgid "The option ID."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:78
+msgid "The name of the option."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:85,186,287
+msgid "The adjustment to a product's cost with the chosen option."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:93,194,295
+msgid "The adjustment to a product's price with the chosen option."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:101,202,303
+msgid "The adjustment to a product's physical weight with the chosen option."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:107,208,309
+msgid "Affects the sort order of the options."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:118
+msgid "Attributes copied to a product of a certain class when it is created."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:121,172
+msgid "The product node type."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:142,243
+msgid "The default value of the attribute field on the add to cart form."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:219
+msgid "Attributes copied to a product."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:320
+msgid ""
+"Changes to a product's SKU based on the possible combination of chosen "
+"options."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:330
+msgid ""
+"A serialized array whose keys are attribute IDs and values are option "
+"IDs."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:337
+msgid "The SKU representing the product with the combination of options."
+msgstr ""
+

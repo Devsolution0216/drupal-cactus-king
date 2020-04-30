@@ -1,0 +1,567 @@
+# $Id: uk.po,v 1.1.2.1 2009/09/11 14:00:57 podarok Exp $
+#
+# Ukrainian translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_attribute.admin.inc,v 1.1.2.12 2009/05/07 20:52:29 islandusurper
+#  uc_attribute.module,v 1.12.2.26 2009/05/07 20:52:29 islandusurper
+#  uc_attribute.ca.inc: n/a
+#  uc_attribute.install,v 1.10.2.7 2009/04/18 07:29:19 islandusurper
+#  uc_attribute.info,v 1.6.2.2 2008/11/07 21:13:22 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: uc_attribute\n"
+"POT-Creation-Date: 2009-08-26 13:13+0300\n"
+"PO-Revision-Date: 2009-09-11 16:59+0200\n"
+"Last-Translator: podarok <podarok@ua.fm>\n"
+"Language-Team: Ukrainian <drupalua@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: uc_attribute.admin.inc:13;74;273;336;591
+msgid "Name"
+msgstr "Ім'я"
+
+#: uc_attribute.admin.inc:14;81;591
+msgid "Label"
+msgstr "Заголовок"
+
+#: uc_attribute.admin.inc:15;591
+msgid "Required"
+msgstr "Обов'язковий"
+
+#: uc_attribute.admin.inc:16;107;273;344;591;816
+msgid "List position"
+msgstr "Позиція в списку"
+
+#: uc_attribute.admin.inc:17
+msgid "Number of options"
+msgstr "Кількість варіантів вибору"
+
+#: uc_attribute.admin.inc:18;100
+msgid "Display type"
+msgstr "Тип відображення"
+
+#: uc_attribute.admin.inc:19;273
+msgid "Operations"
+msgstr "Дії"
+
+#: uc_attribute.admin.inc:30;230
+msgid "edit"
+msgstr "редагувати"
+
+#: uc_attribute.admin.inc:31
+msgid "options"
+msgstr "варіанти вибору"
+
+#: uc_attribute.admin.inc:32;231
+msgid "delete"
+msgstr "стерти"
+
+#: uc_attribute.admin.inc:37
+msgid "Yes"
+msgstr "Так"
+
+#: uc_attribute.admin.inc:37
+msgid "No"
+msgstr "Ні"
+
+#: uc_attribute.admin.inc:47
+msgid "No product attributes have been added yet."
+msgstr "Атрибути товару ще не було додано"
+
+#: uc_attribute.admin.inc:52
+#: uc_attribute.module:68
+msgid "Add an attribute"
+msgstr "Додати атрибут"
+
+#: uc_attribute.admin.inc:69
+msgid "Edit attribute: %name"
+msgstr "Редагувати атрибут: %name"
+
+#: uc_attribute.admin.inc:75
+msgid "The name of the attribute used in administrative forms"
+msgstr "Назва атрибуту що використовується у адміністративних формах"
+
+#: uc_attribute.admin.inc:82
+msgid "Enter a label that customers will see instead of the attribute name. Use &lt;none&gt; if you don't want a title to appear at all."
+msgstr "Уведіть назву яку побачить кліент замість назви атрибуту. Використовуйте &lt;none&gt; якшо ви не бажаєте використовувати назву взагалі."
+
+#: uc_attribute.admin.inc:87
+msgid "Help text"
+msgstr "Довідковий текст"
+
+#: uc_attribute.admin.inc:88
+msgid "<b>Optional.</b> Enter the help text that will display beneath the attribute on product add to cart forms."
+msgstr "<b>Не обов'язково.</b> Уведіть допоміжний текст що буде відображатися нижче атрибута у формі додавання до карти."
+
+#: uc_attribute.admin.inc:94
+msgid "Make this attribute required, forcing the customer to choose an option."
+msgstr "Зробити цей атрибут обов'язковим, це змусить клієнта зробити вибір."
+
+#: uc_attribute.admin.inc:95
+msgid "Selecting this for an attribute will disregard any default option you specify.<br />May be overridden at the product level."
+msgstr "Зробивши цей вибір для атрибута ви проігноруєте усі визначені базові параметри.<br />Може бути змінено на рівні товару."
+
+#: uc_attribute.admin.inc:101
+msgid "This specifies how the options for this attribute will be presented.<br />May be overridden at the product level."
+msgstr "Параметр визначає те яким чином представлені варіанти вибору для цього атрибута.<br />Може бути змінено на рівні товару."
+
+#: uc_attribute.admin.inc:108
+msgid "Multiple attributes on an add to cart form are sorted by this value and then by their name.<br />May be overridden at the product level."
+msgstr "Якщо у ващій формі додавання до кошика ви маєте декілька атрибутів, то іх буде відсортированно за цім значенням.<br />Може бути змінено на рівні товару."
+
+#: uc_attribute.admin.inc:114;377;793;1054
+msgid "Submit"
+msgstr "Надіслати"
+
+#: uc_attribute.admin.inc:115;150;378;436;563
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: uc_attribute.admin.inc:139;319
+msgid "There is no attribute with that ID."
+msgstr "Атрибута з вказанним ідентифікатором не існує."
+
+#: uc_attribute.admin.inc:148
+msgid "Are you sure you want to delete the attribute %name?"
+msgstr "Ви впевнені що бажаєте видалити атрибут %name?"
+
+#: uc_attribute.admin.inc:150;436
+msgid "Delete"
+msgstr "Стерти"
+
+#: uc_attribute.admin.inc:164
+msgid "Option price format"
+msgstr "Формат ціни вибору варіанта"
+
+#: uc_attribute.admin.inc:166
+msgid "Do not display"
+msgstr "Приховати"
+
+#: uc_attribute.admin.inc:167
+msgid "Display price adjustment"
+msgstr "Відображати коригування ціни"
+
+#: uc_attribute.admin.inc:168
+msgid "Display total price"
+msgstr "Відображати кінцеву сумму"
+
+#: uc_attribute.admin.inc:170
+msgid "Formats the price in the attribute selection form when the customer adds a product to their cart. The total price will only be displayed on products with only one price affecting attribute."
+msgstr "Формат ціни у формі варіанта вибору під час додавання товару до свого кошика клієнтом. Кінцева сума буде відображатися у тих товарів що мають тільки один корегуючий ціну атрибут."
+
+#: uc_attribute.admin.inc:185
+msgid "Product attribute deleted."
+msgstr "Атрибут товару було видалено."
+
+#: uc_attribute.admin.inc:194;331
+msgid "Options for %name"
+msgstr "Варіанти вибору для %name"
+
+#: uc_attribute.admin.inc:250;536
+msgid "Save changes"
+msgstr "Зберегти зміни"
+
+#: uc_attribute.admin.inc:263;665
+msgid "The changes have been saved."
+msgstr "Зміни запам'ятовано."
+
+#: uc_attribute.admin.inc:273
+msgid "Default cost"
+msgstr "Базова вартість"
+
+#: uc_attribute.admin.inc:273
+msgid "Default price"
+msgstr "Базова ціна"
+
+#: uc_attribute.admin.inc:273
+msgid "Default weight"
+msgstr "Базова вага"
+
+#: uc_attribute.admin.inc:294
+msgid "No options for this attribute have been added yet."
+msgstr "До цього атрибуту ще не були додані варіанти вибору."
+
+#: uc_attribute.admin.inc:304
+#: uc_attribute.module:115
+msgid "Add an option"
+msgstr "Додаті варіант вибору"
+
+#: uc_attribute.admin.inc:328
+msgid "Edit option: %name"
+msgstr "Редагувати варіант вибору: %name"
+
+#: uc_attribute.admin.inc:337
+msgid "This name will appear to customers on product add to cart forms."
+msgstr "Назва що буде відображатися у формі додавання до кошика."
+
+#: uc_attribute.admin.inc:345
+msgid "Options will be listed sorted by this value and then by their name.<br />May be overridden at the product level."
+msgstr "Варіанти вибору буде відсортовано за цим значенням, а потів за ім'ям.<br />Може бути змінено на рівні товару."
+
+#: uc_attribute.admin.inc:351
+msgid "Default adjustments"
+msgstr "Базове вдосконалення"
+
+#: uc_attribute.admin.inc:352
+msgid "Enter a positive or negative value for each adjustment applied when this option is selected.<br />Any of these may be overriden at the product level."
+msgstr "Уведіть додатне або від'ємне значення для кожного коригування що буде застосованно коли цей варіант вибору буде обрано.<br />Може бути змінено на рівні товару."
+
+#: uc_attribute.admin.inc:358;816
+msgid "Cost"
+msgstr "Вартість"
+
+#: uc_attribute.admin.inc:364;816
+msgid "Price"
+msgstr "Прайс"
+
+#: uc_attribute.admin.inc:370;816
+msgid "Weight"
+msgstr "Вага"
+
+#: uc_attribute.admin.inc:390
+msgid "This must be in a valid number format. No commas and only one decimal point."
+msgstr "Це повинно мати корректний формат. Коми заборонено, дозволяється тільки одна крапка."
+
+#: uc_attribute.admin.inc:409;410
+msgid "Created new option %option."
+msgstr "Створено новий варіант вибору %option."
+
+#: uc_attribute.admin.inc:416;417
+msgid "Updated option %option."
+msgstr "Варіант вибору %option оновленно."
+
+#: uc_attribute.admin.inc:425
+msgid "There is no option with that ID."
+msgstr "Немає варіантів вибору з цим ідентифікатором."
+
+#: uc_attribute.admin.inc:434
+msgid "Are you sure you want to delete the option %name?"
+msgstr "Ви впевнені що бажаєте видалити варіант вибору %name?"
+
+#: uc_attribute.admin.inc:515
+msgid "n/a"
+msgstr "н/д"
+
+#: uc_attribute.admin.inc:553
+#: uc_attribute.module:54;142;162;172
+msgid "Attributes"
+msgstr "Атрибути"
+
+#: uc_attribute.admin.inc:554
+msgid "Hold Ctrl + click to select multiple attributes."
+msgstr "Щоб обрати декілька варіантів утримуйте нажатою клавішу Ctrl."
+
+#: uc_attribute.admin.inc:555
+msgid "No attributes left to add."
+msgstr "Атрибутів більше немає."
+
+#: uc_attribute.admin.inc:562
+msgid "Add attributes"
+msgstr "Додати атрибути."
+
+#: uc_attribute.admin.inc:591
+msgid "Remove"
+msgstr "Видалити"
+
+#: uc_attribute.admin.inc:591;816
+msgid "Default"
+msgstr "Стандартний (default)"
+
+#: uc_attribute.admin.inc:591
+msgid "Display"
+msgstr "Відображення"
+
+#: uc_attribute.admin.inc:613
+msgid "You must first <a href=\"!url\">add attributes to this !type</a>."
+msgstr "По перше ви маєте <a href=\"!url\">додати атрибути до !type</a>."
+
+#: uc_attribute.admin.inc:783
+msgid "This attribute does not have any options."
+msgstr "Цей атрибут не має жодного варіанту вибору."
+
+#: uc_attribute.admin.inc:816
+#: uc_attribute.module:101;151;182
+msgid "Options"
+msgstr "Варіант вибору"
+
+#: uc_attribute.admin.inc:850
+msgid "This !type does not have any attributes."
+msgstr "Тип !type немає жодних атрибутів."
+
+#: uc_attribute.admin.inc:850;932
+msgid "product"
+msgstr "товар"
+
+#: uc_attribute.admin.inc:850;932
+msgid "product class"
+msgstr "класс продукту"
+
+#: uc_attribute.admin.inc:863;1059
+msgid "This product does not have any attributes."
+msgstr "Цей товар не має жодних атрибутів."
+
+#: uc_attribute.admin.inc:866
+msgid "This product class does not have any attributes."
+msgstr "Цей класс товарів не має жодних атрибутів."
+
+#: uc_attribute.admin.inc:894
+msgid "All attributes with enabled options must specify an enabled option as default."
+msgstr "У атрибутах що мають варіанти вибору обов'язково має бути базовий варіант вибору"
+
+#: uc_attribute.admin.inc:932
+msgid "The !type options have been saved."
+msgstr "Варіант вибору !type було збережено."
+
+#: uc_attribute.admin.inc:986
+msgid "Default product SKU: @sku"
+msgstr "Базовий артикул товара: @sku"
+
+#: uc_attribute.admin.inc:1085
+msgid "Product adjustments have been saved."
+msgstr "Коригування товару було збережено."
+
+#: uc_attribute.admin.inc:410;417
+msgid "uc_attribute"
+msgstr "uc_attribute"
+
+#: uc_attribute.admin.inc:149
+msgid "There is @count product with this attribute."
+msgid_plural "There are @count products with this attribute."
+msgstr[0] "@count товар має цей атрибут."
+msgstr[1] "@count товара мають цей атрибут."
+msgstr[2] "@count товарів мають цей атрибут."
+
+#: uc_attribute.admin.inc:661
+msgid "@count attribute has been removed."
+msgid_plural "@count attributes have been removed."
+msgstr[0] "Було видалено @count атрибут."
+msgstr[1] "Було видалено @count атрибута."
+msgstr[2] "Було видалено @count атрибутів."
+
+#: uc_attribute.admin.inc:689
+msgid "@count attribute has been added."
+msgid_plural "@count attributes have been added."
+msgstr[0] "@count атрибут було додано."
+msgstr[1] "@count атрибути було додано."
+msgstr[2] "@count атрибутів було додано."
+
+#: uc_attribute.ca.inc:12
+msgid "Order has a product with a particular attribute option"
+msgstr "Замовлення має товар з індивідуальними варіантами вибору"
+
+#: uc_attribute.ca.inc:13
+msgid "Search the products of an order for a particular option."
+msgstr "Шукати товари у замовлені з конкретним варіантом вибору."
+
+#: uc_attribute.ca.inc:14
+msgid "Order: Product"
+msgstr "Замовлення: Товар"
+
+#: uc_attribute.ca.inc:17
+msgid "Order"
+msgstr "Послідовність"
+
+#: uc_attribute.ca.inc:75
+msgid "Attribute option"
+msgstr "Варіант вибору для атрибута"
+
+#: uc_attribute.module:29
+msgid "Add attributes to this product using the <a href=\"!url\">add attributes form</a>. You may then adjust the settings for these attributes on this page and go on to configure their options in the <em>Options</em> tab."
+msgstr "Додайте атрибути до цьго товару використовуючи <a href=\"!url\">форму додавання атрибутів</a>. Потім ви зможете скорегувати налаштування для ціх атрибутів на цій сторінці та налаштувати іх варіанти вибору скориставшись закладкою <em>Варіанти вибору</em> ."
+
+#: uc_attribute.module:31
+msgid "Add attributes to the product class using the <a href=\"!url\">add attributes form</a>. You may then adjust the settings for these attributes on this page and go on to configure their options in the <em>Options</em> tab."
+msgstr "Додайте атрибути до класу використовуючи <a href=\"!url\">форму додавання атрибутів</a>. Потім ви зможете скорегувати налаштування для ціх атрибутів на цій сторінці та налаштувати іх варіанти вибору скориставшись закладкою <em>Варіанти вибору</em> ."
+
+#: uc_attribute.module:36
+msgid "Select the attributes you want to add and submit the form."
+msgstr "Оберіть атрибути що ви бажаете додати та натисніть замовити."
+
+#: uc_attribute.module:41
+msgid "Use the checkboxes to enable options for attributes and the radio buttons to specify defaults for the enabled options. Use the other fields to override the default settings for each option. Attributes with no enabled options will be displayed as text fields."
+msgstr "Позначте варіанти вибору для атрибутів та позначте ті що є базовими. Зробіть це для кожного варіанту вибору. Атрибути що не мають варіантів вибору будуть представлені як текстове поле."
+
+#: uc_attribute.module:45
+msgid "Enter an alternate SKU to be used when the specified set of options are chosen and the product is added to the cart. <b>Warning:</b> Adding or removing attributes from this product will reset all the SKUs on this page to the default product SKU."
+msgstr "Уведіть альтернативний артикул що буде використовуватися коли вказана комбінація атрибутів буде обрана та товар буде додано до кошика. <b>Увага:</b> Додавання або видаленя атрибутів з цього товару призведе до того що усі артикули будуть скинуто на базові артикули товара."
+
+#: uc_attribute.module:438
+msgid "@attribute: @option"
+msgstr "@attribute: @option"
+
+#: uc_attribute.module:646
+msgid "Please select"
+msgstr "Будь ласка, зробіть вибір"
+
+#: uc_attribute.module:680
+msgid "Text field"
+msgstr "Текстове поле"
+
+#: uc_attribute.module:681
+msgid "Select box"
+msgstr "Випадаюче меню"
+
+#: uc_attribute.module:682
+msgid "Radio buttons"
+msgstr "Радіо кнопки"
+
+#: uc_attribute.module:226
+msgid "administer attributes"
+msgstr "управління атрибутами"
+
+#: uc_attribute.module:226
+msgid "administer product attributes"
+msgstr "управління атрибутами товару"
+
+#: uc_attribute.module:226
+msgid "administer product options"
+msgstr "управління варіантами вибору для товару"
+
+#: uc_attribute.module:55
+msgid "Create and edit attributes and options."
+msgstr "Створити та редагувати атрибути та варіанти вибору."
+
+#: uc_attribute.module:63;109
+msgid "Overview"
+msgstr "Огляд"
+
+#: uc_attribute.module:77
+msgid "Attribute settings"
+msgstr "Налаштування атрибутів"
+
+#: uc_attribute.module:78
+msgid "Configure the attribute settings"
+msgstr "Налаштування атрибутів"
+
+#: uc_attribute.module:86
+msgid "Edit attribute"
+msgstr "Редагувати атрибут"
+
+#: uc_attribute.module:124
+msgid "Edit option"
+msgstr "Редагувати елемент вибору"
+
+#: uc_attribute.module:132
+msgid "Delete option"
+msgstr "Видалити елемент вибору"
+
+#: uc_attribute.module:192
+msgid "Adjustments"
+msgstr "Коригування"
+
+#: uc_attribute.install:13
+msgid "Attributes: the decisions that need to be made about products."
+msgstr "Атрибути: вібір що має бути зроблений для замовлення товару."
+
+#: uc_attribute.install:16;136;244
+msgid "Primary identifier for attributes."
+msgstr "Первинний ідентифікатор для атрибутів."
+
+#: uc_attribute.install:22
+msgid "Name of the attribute"
+msgstr "Назва атрибуту"
+
+#: uc_attribute.install:29;143;251
+msgid "Label to use when attribute is displayed"
+msgstr "Назва що використовується при відображенні атрибута."
+
+#: uc_attribute.install:36;150;258
+msgid "Determines the list position of attributes."
+msgstr "Визначає положення атрибутів у переліку."
+
+#: uc_attribute.install:43;164;272
+msgid "Flag that, if set, requires a user response for attributes (disables default options)."
+msgstr "Позначте це, якшо позначено це примусить клієнта зробити свій вибір (базовий варіант вибору буде вимкнуто)."
+
+#: uc_attribute.install:51;172;280
+msgid "Display type of the attribute options: 0 -- text fields, 1 -- select box (default), 2 -- radio buttons"
+msgstr "Тип відображення: 0 -- текстове поле, 1 -- випадаюче меню (базово), 2 -- радіо кнопки"
+
+#: uc_attribute.install:59
+msgid "Description of the attribute."
+msgstr "Опис атрибуту."
+
+#: uc_attribute.install:70;184;292
+msgid "The available choices for each attribute."
+msgstr "Доступні варінти вибору для кожного атрибуту."
+
+#: uc_attribute.install:73
+msgid "The attribute ID."
+msgstr "Ідентифікатор атрибута."
+
+#: uc_attribute.install:80;194;302
+msgid "The option ID."
+msgstr "Ідентифікатор елементу вибору"
+
+#: uc_attribute.install:86
+msgid "The name of the option."
+msgstr "Назва варіанту вибору."
+
+#: uc_attribute.install:93;201;309
+msgid "The adjustment to a product's cost with the chosen option."
+msgstr "Коригування до вартості товарів з цим варіантом вибору."
+
+#: uc_attribute.install:101;209;317
+msgid "The adjustment to a product's price with the chosen option."
+msgstr "Коригування ціни товарів з цим варіантом вибору."
+
+#: uc_attribute.install:109;217;325
+msgid "The adjustment to a product's physical weight with the chosen option."
+msgstr "Коригування до фізичної ваги товарів з цим варіантом вибору."
+
+#: uc_attribute.install:115;223;331
+msgid "Affects the list position of the options."
+msgstr "Впливає на положення у переліку варіантів вибору."
+
+#: uc_attribute.install:126
+msgid "Attributes copied to a product of a certain class when it is created."
+msgstr "Атрибути що було скопійованно до товару певного класу підчас створення."
+
+#: uc_attribute.install:129;187
+msgid "The product node type."
+msgstr "Тип ноди товару."
+
+#: uc_attribute.install:157;265
+msgid "The default value of the attribute field on the add to cart form."
+msgstr "Значення цього атрибуту базово у формі додавання до кошика."
+
+#: uc_attribute.install:234
+msgid "Attributes copied to a product."
+msgstr "Атрибути скопійовано до товару."
+
+#: uc_attribute.install:237;295;345
+msgid "The product node ID."
+msgstr "Ідентіфікатор ноди товару."
+
+#: uc_attribute.install:342
+msgid "Changes to a product's SKU based on the possible combination of chosen options."
+msgstr "Зміна артикулу товара з огляду на можливі комбінації обраних варіантів вибору."
+
+#: uc_attribute.install:352
+msgid "A serialized array whose keys are attribute IDs and values are option IDs."
+msgstr "Послідовний масив де ключ це ідентифікатор атрибута, а значення ідентифікатор варіанту вибора."
+
+#: uc_attribute.install:359
+msgid "The SKU representing the product with the combination of options."
+msgstr "Артикул що відображає товар з певною комбінацією варіантів вибору."
+
+#: uc_attribute.info:0
+msgid "Attribute"
+msgstr "Атрибут"
+
+#: uc_attribute.info:0
+msgid "Allow the customer to choose attributes for a product at checkout."
+msgstr "Дозволіти кліентам обирати атрибути товарів при отриманні."
+
+#: uc_attribute.info:0
+msgid "Ubercart - core (optional)"
+msgstr "Уберкарт - ядро (не обов'язково)"
+

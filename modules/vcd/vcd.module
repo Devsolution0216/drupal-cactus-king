@@ -1,0 +1,46 @@
+<?php
+/**
+ * @file
+ * This is the base module for Views Context Displays
+ * This module allows Views to use contextaware DS controlled build modes.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function vcd_views_api() {
+  return array(
+    'api' => 2,
+    'path' => drupal_get_path('module', 'vcd') . '/views',
+  );
+}
+
+/**
+ * Implements hook_context_plugins().
+ */
+function vcd_context_plugins() {
+  $plugins = array();
+  $plugins['vcd_views_context_reaction'] = array(
+    'handler' => array(
+      'path' => drupal_get_path('module', 'vcd') .'/plugins',
+      'file' => 'vcd_views_context_reaction.inc',
+      'class' => 'vcd_views_context_reaction',
+      'parent' => 'context_reaction',
+    ),
+  );
+  return $plugins;
+}
+
+/**
+ * Implements hook_context_registry().
+ */
+function vcd_context_registry() {
+  return array(
+    'reactions' => array(
+      'vcd_views_context_reaction' => array(
+        'title' => t('VCD Display reaction'),
+        'plugin' => 'vcd_views_context_reaction',
+      ),
+    ),
+  );
+}

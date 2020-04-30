@@ -1,0 +1,107 @@
+/* ## Marinelli Dropdown menu, author Matteo Leoni: www.signalkuppe.com ##*/
+
+body div#page{ /* this for z-index issues */
+	position: static;
+	z-index:1;
+}
+body div#header{
+	position:static;
+	z-index:1; /* this for z-index issues */
+}
+
+
+/* ## LI ## */
+
+/* li containing sublevels */
+#utilities #plinks ul li.expanded{
+	position:relative;
+	z-index:1;
+}
+
+
+/* set li width */
+#utilities #plinks ul li.expanded ul li{
+	font-size:100%;
+	line-height:135%;
+	width:160px;
+	z-index:100;
+	margin:0px;
+	padding:0px;
+	border-bottom:1px solid black;
+}
+
+
+/* ## UL ## */
+
+/* Hide first sublevel */
+#utilities #plinks ul li.expanded ul{
+	display:none;
+}
+
+/* First Sublevel */
+ul.primosottolivello{
+	margin:0px;
+	padding:0px 5px 5px 0px; /* padding for backgorund shadow */
+	background: url(img/menushadow.png) no-repeat 3px 10%;
+	width:160px;
+	position:absolute;
+	left:0px;
+	top:30px;
+	z-index:100;
+}
+
+
+/* Other Sublevels */
+ul.sottolivello{
+	margin:0px;
+	padding:0px 5px 5px 0px; /* padding for backgorund shadow */
+	background: url(img/menushadow.png) no-repeat 3px 10%;
+	width:160px;
+	position:absolute;
+	left:160px;
+	top:0px;
+	z-index:100;
+}
+
+/* ## Anchors ## */
+
+#utilities #plinks ul li.expanded a{
+	background:#054b81;
+}
+
+body #utilities #plinks ul li.expanded a.active{
+	background:#054b81 url(img/expanded-drop.gif) no-repeat 4px 8px;
+}
+
+
+/* first level hover state*/
+#utilities #plinks ul li.expanded a.primoespanso:hover{
+	background:#054b81 url(img/expanded-drop.gif) no-repeat 4px 8px;
+}
+
+/* sublevels hover state*/
+#utilities #plinks ul li ul li a:hover{
+	font-weight:normal;
+	background:#043860;
+}
+
+
+/* expanded sublevels hover state */
+#utilities #plinks ul li ul li.expanded a.espanso:hover{
+	font-weight:normal;
+	background:#043860 url(img/expanded-right.gif) no-repeat 95% 8px;
+}
+
+
+#utilities #plinks ul li.expanded a.primoespanso{
+	background:#156aa3 url(img/expanded-drop.gif) no-repeat 4px 8px;
+	padding-left:23px;
+}
+
+
+#utilities #plinks ul li.expanded a.espanso,
+body #utilities #plinks ul li.expanded ul li a.espanso{
+	background: #054b81 url(img/expanded-right.gif) no-repeat 95% 8px;
+	padding-right:24px;
+	padding-left:10px;
+}

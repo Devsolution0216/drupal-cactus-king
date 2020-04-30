@@ -1,0 +1,209 @@
+<?php
+// $Id: uc_restrictions_delivery_zone.module,v 1.3 2009/01/27 23:43:42 islco Exp $
+
+/**
+ * @file
+ * Allows a site to limit the destination zone of certain goods.
+ * 
+ */
+
+/******************************************************************************
+ * Drupal Hooks                                                               *
+ */
+
+/**
+ * Implementation of hook_form().
+ *
+ * @param string $form_id
+ * @param array $form
+ */
+function uc_restrictions_delivery_zone_form_alter(&$form, $form_state, $form_id) {
+
+  switch ($form_id) {
+    case 'uc_restrictions_admin_settings':
+      $taxonomy = module_invoke('taxonomy', 'form_all', 1);
+
+      $form['zones']=array('#title' => t('Deliverable Zones'),
+            '#type' => 'fieldset',
+            '#collapsible' => TRUE,
+            '#collapsed' => TRUE,
+            '#weight' => -3
+      );
+
+
+      $form['zones']['uc_restrictions_zones_tid']=array('#title' => t('Affected Product Categories for State Restriction'),
+            '#type' => 'select',
+            '#options' => $taxonomy,
+            '#default_value' => variable_get('uc_restrictions_zones_tid', NULL),
+            '#multiple' => TRUE,
+            '#description' => t('Categories associated with items that cannot be delivered to all zones.  <br />NOTE: Selecting a category that has descendents will affect all child categories; it is therefore not necessary to select child categories of an affected parent.')
+      );
+
+      $form['zones']['uc_restrictions_zones_redirect']=array('#title' => t('Deliverable Zone Redirection Path'),
+            '#type' => 'textfield',
+            '#default_value' => variable_get('uc_restrictions_zones_redirect', ''),
+            '#description' => t('Enter the path to the page to which you want to redirect if the user does not enter a zone from the list of deliverable zones.  You must '. l('create', 'node/add/page', array('target' => '_new')) .' this page.  See the readme file for details on how to display the dynamic map.')
+      );
+
+      $form['zones']['uc_restrictions_field_zones_description']=array('#title' => t('Field Description'),
+            '#type' => 'textarea',
+            '#default_value' => variable_get('uc_restrictions_zones_field_description', ''),
+            '#description' => t('This is a description that will appear next to the ubercart delivery zone field.')
+      );
+
+      $form['zones']['uc_restrictions_zones_field_error']=array('#title' => t('State Field Error Message'),
+            '#type' => 'textfield',
+            '#default_value' => variable_get('uc_restrictions_zones_field_error', ''),
+            '#description' => t('This error is assigned to the form if the order contains items that cannot be delivered to the selected zone.')
+      );
+
+      $form['zones']['uc_restrictions_map_region']=array('#title' => t('Region for Map'),
+            '#type' => 'select',
+            '#options' => uc_restrictions_delivery_zones_map_continents(),
+            '#default_value' => variable_get('uc_restrictions_map_region', NULL),
+            '#multiple' => FALSE,
+            '#description' => t('If you use the uc_restrictions_zones_chart_render function to render a map on your page, set the world region to use here.')
+      );
+
+      $form['zones']['uc_restrictions_zones_list']=uc_restrictions_zone_select(FALSE);
+      $form['zones']['uc_restrictions_zones_list']['#title']='Select zones to which you may deliver the products.';
+      $form['zones']['uc_restrictions_zones_list']['#type']='checkboxes';
+      $form['zones']['uc_restrictions_zones_list']['#default_value'] = variable_get('uc_restrictions_zones_list', array());
+      break;
+
+
+    case 'uc_cart_checkout_form':
+      $form['#validate'][]='uc_restrictions_delivery_zone_checkout_form_validate';
+      $link=l(t('(details)'), variable_get('uc_restrictions_zones_redirect', ''), array('class' => 'thickbox'), 'content_only=1&KeepThis=true&TB_iframe=true&width=640&height=480&modal=true');
+      $text=t(variable_get('uc_restrictions_field_description', 'Some products we sell can only be shipped to some states.'));    
+      $form['panes']['delivery']['delivery_zone']['#description']=$text .' '. $link;
+      break;
+
+    case 'uc_restrictions_user_form':
+      $form['zone']=uc_restrictions_zone_select();
+      $form['zone']['#title']=t('To which state will you be shipping your order?');
+      $form['#submit'][] = 'uc_restrictions_delivery_zone_user_form_submit';
+      break;
+  }
+}
+
+/*******************************************************************************
+ * Module and Helper Functions
+ */
+
+/**
+ * Callback validation for the checkout form.
+ * If the order contains goods that are restricted by state, check to make sure delivery is to a state that allows wine
+ * Added to validation sequence in uc_restrictions_form_alter()
+ *
+ * @param string $form_id
+ * @param array $form_values
+ */
+function uc_restrictions_delivery_zone_checkout_form_validate($form, &$form_state) {
+    $products = unserialize($form_state['values']['cart_contents']);
+    if (uc_restrictions_contains_restricted('uc_restrictions_zones_tid', $products)) {
+
+        // determine if the delivery zone entered is not in the list of allowed zones
+        $permitted=array_values(variable_get('uc_restrictions_zones_list', 0));
+
+        if (!in_array($form_state['values']['panes']['delivery']['delivery_zone'], $permitted, FALSE)) {
+            $text=t(variable_get('uc_restrictions_zones_field_error', 'Sorry, your order contains items that we canot ship to that state.'));
+            form_set_error('panes][delivery][delivery_zone', $text);
+        }
+    }
+}
+
+/**
+ * Callback handles the submission of the "overlay" form.
+ *
+ * @param string $form
+ * @param array $form_values
+ */
+function uc_restrictions_delivery_zone_user_form_submit($form, &$form_state) {
+  if ($form_state['zone']!==NULL) {
+    // check against permitted states table
+    $permitted = array_values(variable_get('uc_restrictions_zones_list', 0));
+    if (!in_array($form_state['zone'], $permitted, FALSE)) {
+      $path = variable_get('uc_restrictions_zones_redirect', 'shippable-states');
+      drupal_goto($path);
+      exit;
+    }
+  }
+}
+
+
+/**
+ * Simple wrapper, returns the form field array to select state.
+ * Used in the admin form and the "overlay" form.
+ *
+ * @param integer $country_id
+ * @return array
+ */
+function uc_restrictions_zone_select($show_please_select=FALSE) {
+  $field=uc_zone_select(
+  uc_get_field_name('zone'),
+  $default,
+  $description,
+  $country_id,
+    'name', 
+  TRUE);
+  unset($field['#options']['']);
+  return $field;
+
+}
+
+
+/*******************************************************************************
+ * Functions used to render the chart of zones
+ */
+
+/**
+ * Returns the array of states used by the chart map
+ *
+ * @return array
+ */
+function uc_restrictions_delivery_zones_map_continents() {
+  return array('usa' => 'usa', 'europe' => 'europe', 'asia' => 'asia', 'middle_east' => 'middle_east', 'south_america' => 'south_america', 'africa' => 'africa', 'world' => 'world');
+}
+/**
+ * This merely returns a couple of values used by the chart api.
+ * One is the list of states, the other is a string of 9s.
+ *
+ * @return unknown
+ */
+function uc_restrictions_zones_as_chartapi_string() {
+  $zone_ids=array();
+  $code_str='';
+  $permitted=array_values(variable_get('uc_restrictions_zones_list', 0));
+  foreach ((array)$permitted as $value) {
+    if ($value) {
+      $zone_ids[]=$value;
+    }
+  }
+  $zone_id_list=implode(',', $zone_ids);
+  $result = db_query("SELECT zone_code FROM {uc_zones} WHERE zone_id IN (". $zone_id_list .")");
+  while ($zone_code = db_fetch_object($result)) {
+    $code_str .= $zone_code->zone_code;
+    $color_intensities .= '9';
+  }
+  return array('states' => $code_str, 'color_intensities' => $color_intensities);
+}
+
+/**
+ * Create img tag for the map chart
+ *
+ * @return string
+ */
+function uc_restrictions_zones_chart_render() {
+  $vals_array=uc_restrictions_zones_as_chartapi_string();
+  $url='http://chart.apis.google.com/chart?'.
+  'chco=f5f5f5,edf0d4,6c9642'.
+  '&chd=s:'. $vals_array['color_intensities'] .
+  '&chf=bg,s,eaf7fe'.
+  '&chtm='. variable_get('uc_restrictions_map_region', '') .
+  '&chld='. $vals_array['states'] .
+  '&chs=440x220'.
+  '&cht=t';
+
+  return '<img src="'. $url .'" id="uc-restrictions-states-chart" class="chart" />';
+}

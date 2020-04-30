@@ -1,0 +1,271 @@
+<?php
+// $Id: wurfl.module,v 1.12 2010/09/26 15:12:50 tdrycker Exp $
+
+/**
+ * @file
+ * The WURFL module provides a wrapper for the WURFL library in Drupal. Device capability information could be used
+ * in order to adapt your theming. The Mobile Tools (http://drupal.org/project/mobioe_tools) module is recommended in order
+ * to complement this module with some usefull mobility functions.
+ * 
+ * Examples of capabilities are:   
+ *    
+ * See http://wurfl.sourceforge.net/help_doc.php for more capability parameters and the return value.
+ *   
+ * In order to use this module, you must install the WURFL PHP library (http://wurfl.sourceforge.net/nphp/index.php)
+ * See the README.txt for installation instructions
+ *
+ * The module collaborates with the Mobile Tools module in order to make the requests for the device capabilities 
+ * agnostic of the capability framework. This is accomplished by providing the mobile_tools_devicecapability() function in 
+ * the mobile_tools module. It translates to [your_selected_capability_framework]_devicecapability(). Mobile Tools configuration
+ * let's you selected your prefered framework.
+ * 
+ * Note: to date no other frameworks but WURFL are available.            
+ */
+ 
+define("WURFL_DIR", 	variable_get('wurfl_library', '' ) . '/WURFL/');
+define("RESOURCES_DIR", variable_get('wurfl_library', '') . '/resources/');   
+
+
+
+/**
+ * Implementation of hook_menu()
+ */ 
+function wurfl_menu() {
+   $items['admin/settings/wurfl'] = array(
+    'title' => 'Wurfl', 
+    'file' => 'wurfl.admin.inc',
+    'page callback' =>  'wurfl_settings',
+    'access arguments' => array('configure wurfl'),
+    'type' => MENU_NORMAL_ITEM,
+    'description' => t('The WURFL module integrates Drupal with WURFL.')
+  );
+  $items['admin/settings/wurfl/configuration'] = array(
+    'title' => 'WURFL configuration',
+    'access arguments' => array('configure wurfl'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => -10,
+  );
+
+  $items['admin/settings/wurfl/test'] = array(
+    'title' => 'WURFL test',
+    'page callback' => 'wurfl_test_page',
+    'access arguments' => array('configure wurfl'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );  
+  return $items;
+}
+
+
+/**
+ * Implementation of hook_theme
+ */
+function wurfl_theme($existing, $type, $theme, $path){
+  $items['wurfl_status'] = array(
+    'arguments' => array('message' => NULL, 'type' => "status"),
+    'file' => 'wurfl.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implementation of hook_perm()
+ */
+function wurfl_perm() {
+  return array('configure wurfl');
+} 
+
+/**
+ * We make the $wurflManager available as global variable.
+ */
+function wurfl_boot(){
+  $wurfl_dir = variable_get('wurfl_library', '');
+  if($wurfl_dir !== ''  && file_exists($wurfl_dir . '/resources/wurfl.xml') && file_exists($wurfl_dir . '/resources/wurfl-config.xml')) {
+    include_once $wurfl_dir . '/WURFL/Application.php';
+    $wurflConfigFile = $wurfl_dir . '/resources/wurfl-config.xml';
+    $wurflConfig = new WURFL_Configuration_XmlConfig($wurflConfigFile);
+    $wurflManagerFactory = new WURFL_WURFLManagerFactory($wurflConfig);
+    global $wurflManager ;
+    $wurflManager = $wurflManagerFactory->create();	
+  }  
+}
+/**
+ * Initialisation of the $requestingDevice used to get to the
+ */ 
+function wurfl_get_requestingDevice() {
+  global $wurflManager;
+  if(!is_object($wurflManager)){
+    wurfl_check_library();
+    wurfl_boot();
+  }
+  $requestingDevice =  $wurflManager->getDeviceForHttpRequest($_SERVER);
+  return $requestingDevice; 
+}
+
+function wurfl_test_page() {
+  
+ 
+  $output .= t('Access this page with your mobile device, or use the !switcher module to test different user agents', array('!switcher' => l( 'Firefox Agent Switcher extension', 'https://addons.mozilla.org/en-US/firefox/addon/59')));
+  $requestingDevice = wurfl_get_requestingDevice();
+  $output .= '<h2>' . t('Device information') . '</h2>';
+  $output .= t('This is a short collection of parameters that can be retrieved using WURFL');
+  $output .= 'Requesting Browser User Agent: <br/><b> ' . $_SERVER["HTTP_USER_AGENT"] . '</b>';
+ 
+  $output .= '<h2>product_info</h2>';
+  $output .= '<ul>';
+  $output .= '<li>' . $requestingDevice->getCapability("is_wireless_device") . '</li>';
+  $output .= '<li>ID: ' . $requestingDevice->id  . '</li>';
+  $output .= '<li>Brand Name: ' . $requestingDevice->getCapability("brand_name")  . '</li>';
+  $output .= '<li>Model Name: ' . $requestingDevice->getCapability("model_name")  . '</li>';
+  $output .= '</ul>';
+  $output .= '<h2>display</h2>';
+  $output .= '<ul>';
+  $output .= '<li>Resolution Width: ' . $requestingDevice->getCapability("resolution_width")  . '</li>';
+  $output .= '<li>Resolution Height: ' . $requestingDevice->getCapability("resolution_height")  . '</li>';
+   $output .= '</ul>';
+  $output .= '<h2>Ajax</h2>';
+    $output .= '<ul>';
+  $output .= '<li>Ajax/Javascript support: ' . $requestingDevice->getCapability("ajax_support_javascript") . '</li>'; 
+  $output .= '<li>Mobile Browser: ' . $requestingDevice->getCapability("mobile_browser") . '</li>';
+  $output .= '</ul>';
+  $output .= '<h2>' . t('wml_ui') . '</h2>';
+  $output .= '<ul>';
+  $output .= '<li>Prefix for phonecall: ' . $requestingDevice->getCapability("wml_make_phone_call_string") . '</li>';
+  $output .= '</ul>';
+  $output .= '<h2>' . t('xhtml_ui') . '</h2>';
+  $output .= '<ul>';
+  $output .= '<li>Prefix for phonecall: ' . $requestingDevice->getCapability("wml_make_phone_call_string") . '</li>';
+  $output .= '<li>Xhtml Preferred Markup: ' . $requestingDevice->getCapability("preferred_markup")  . '</li>';
+  $output .= '</ul>';
+  return $output;
+}
+/**
+ *  Implementation of hook_is_mobile_device() as being used by the Mobile Tools module
+ */ 
+function wurfl_is_mobile_device() {
+  if(empty($_SERVER['HTTP_USER_AGENT'])) {
+    return array('group' => '', 'type' => 'desktop');
+  }
+  $requestingDevice = wurfl_get_requestingDevice();
+  $type = ($requestingDevice->getCapability("is_wireless_device") == 'true') ? 'mobile' : 'desktop'; // This is strange, return value is string, not boolean;
+  $group = $type; // currently WUFL only provides simple groups. 
+  return array('group' => $group, 'type' => $type);
+}
+
+
+/**
+ *  Implementation of hook_devicecapability as defined by 
+ *  the mobile_tools module 
+ */ 
+function wurfl_devicecapability($capability) {
+  $requestingDevice = wurfl_get_requestingDevice();
+  return $requestingDevice->getCapability($capability);
+}
+
+/**
+ * Function to return available capabilities for devices.
+ */
+function wurfl_get_capabilities() {
+  global $wurflManager;
+  if ($wurflManager) {
+    $groups =  $wurflManager->getListOfGroups();
+    foreach ($groups as $group) {
+      $capabilities[$group] = $wurflManager->getCapabilitiesNameForGroup($group);
+    }
+  }
+  return (array) $capabilities;
+}
+
+/**
+ * Function to return available groups for attributes.
+ */
+function wurfl_get_groups() {
+  global $wurflManager;
+  if ($wurflManager) {
+    $groups =  $wurflManager->getListOfGroups();
+  }
+  return (array) $groups;
+}
+
+
+/**
+ * Test if the WURFL library is properly installed
+ */
+function wurfl_check_library(){
+  // check if folderwith name wurfl- exist in the folder
+  // get all possible paths
+  $library_paths = array(dirname(__file__) . '/lib');
+  if($handle = opendir('sites')){
+    while($file = readdir($handle)){
+      if(is_dir("sites/$file/libraries")){
+        $library_paths[] = "sites/$file/libraries";
+      }
+    }
+  }
+  $library_path = wurfl_search_library($library_paths);  
+  if($library_path !== FALSE) {
+    variable_set('wurfl_library', $library_path);
+    return $library_path;
+  }
+  return FALSE;
+}
+
+/**
+ * Check if the library is present
+ */
+function wurfl_search_library($paths) {
+  foreach($paths as $dir){
+    if (is_dir($dir) && $handle = opendir($dir)) {
+      while ($file = readdir($handle)) {
+        if (is_dir("$dir/$file")) {
+          $pos = strpos($file, 'wurfl');
+          if($pos !== false) {
+            closedir($handle);
+            return "$dir/$file";
+          }
+        }
+      }
+      closedir($handle);
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Check if the wurlf.xml file is present in the resources directory
+ */
+function wurfl_check_xml($path) {
+  $handle = opendir("$path/resources");
+  while($file = readdir($handle)) {
+    if(!is_dir("$path/resources/$file")){
+      if($file == "wurfl.xml"){
+        variable_set('wurfl-xml', "$path/resources/$file" );
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Check if the wurfl-config.xml file is present in the resources directory
+ */
+function wurfl_check_config($path){
+  $handle = opendir("$path/resources");
+  while($file = readdir($handle)) {
+    if(!is_dir("$path/resources/$file")){
+      if($file == "wurfl-config.xml"){
+        variable_set('wurfl-config-xml', "$path/resources/$file" );
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Implementation of the hook_device_groups function
+ */
+function wurfl_device_groups(){
+  return array("mobile" => "Mobile Devices");
+}

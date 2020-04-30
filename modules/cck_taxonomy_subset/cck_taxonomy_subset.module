@@ -1,0 +1,177 @@
+<?php
+// $Id: cck_taxonomy_subset.module,v 1.1 2009/03/05 17:13:23 bwong Exp $
+
+/**
+ * @file
+ *	Allows you to define CCK field where a user can select a subset of a taxonomy terms
+ *
+ * This module allows you to define cck fields to select a taxonomy term
+ * that is a subset of all terms. A single term will force inclusion of the term.
+ *
+ */
+
+/***********************************************************
+ * Drupal Hooks
+ */
+
+/**
+ * Implementation of hook_field_info().
+ */
+function cck_taxonomy_subset_field_info() {
+  return array(
+    'cck_taxonomy_subset' => array(
+      'label' => t('Taxonomy Subset'),
+      'description' => t('Store a taxonomy term.'),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_field_settings().
+ */
+function cck_taxonomy_subset_field_settings($op, $field) {
+  switch ($op) {
+    case 'form':
+      _cck_taxonomy_subset_fix_field($field);
+      $vid=$field['widget']['vid'];
+
+      $vocabularies = taxonomy_get_vocabularies();
+      $vocabulary=$vocabularies[$vid];
+
+      $term_options=array();
+      foreach (taxonomy_get_tree($vid) as $tid => $term){
+        $term_options[$term->tid]=$term->name;
+      }
+
+      $form = array();
+      $form['hide'] = array(
+        '#type' => 'select',
+        '#title' => t('Filter Mode'),
+        '#description' => t('Controls how the selected terms are used.'),
+        '#default_value' => $field['hide'],
+        '#options' => array ( FALSE => 'Include selected terms', TRUE => 'Hide selected terms'),
+      );
+      $form['entries'] = array(
+        '#type' => 'checkboxes',
+        '#title' => $vocabulary->name.' '.t('terms'),
+        '#description' => t('If one is check then the value will be forced. All entries will be enabled if none are checked.'),
+        '#default_value' => $field['entries'] ? $field['entries'] : array(),
+        '#options' => $term_options,
+      );
+      return $form;
+
+    case 'save':
+      return array('hide','entries');
+
+    case 'database columns':
+      return array ( 'tid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE));
+  }
+}
+
+
+/**
+ * Implementation of cck hook_widget_info()
+ */
+function cck_taxonomy_subset_widget_info() {
+  $vocabularies = taxonomy_get_vocabularies();
+  $result = array();
+  foreach ($vocabularies as $vid => $vocabulary) {
+    $result['cck_taxonomy_subset_'.$vid]= array (
+      'label' => $vocabulary->name,
+      'field types' => array('cck_taxonomy_subset'),
+    );
+  }
+
+  return $result;
+}
+
+
+/**
+ * Implementation of cck hook_widget()
+ */
+function cck_taxonomy_subset_widget(&$form, &$form_state, $field, $items, $delta = 0) {
+}
+
+
+/**
+ * Implementation of hook_content_is_empty().
+ */
+function cck_taxonomy_subset_content_is_empty($item, $field) {
+  return TRUE;
+}
+
+
+/**
+ * Implementation of hook_field().
+ */
+function cck_taxonomy_subset_field($op, &$node, $field, &$items, $teaser, $page) {
+}
+
+
+
+/**
+ * Implementation of hook_form_alter().
+ * Filter taxonomy options if any cck_taxonomy_subset fields are include.
+ * It will force a value and hide the select field if only one item is enabled.
+ */
+function cck_taxonomy_subset_form_alter(&$form, $form_state, $form_id) {
+  if($form['taxonomy'] && $form['#field_info']){
+    foreach($form['#field_info'] as $id => $field){
+      if ($field['widget']['module'] == 'cck_taxonomy_subset'){
+        _cck_taxonomy_subset_fix_field($field);
+        $vid=$field['widget']['vid'];
+        $entries = array();
+        foreach($field['entries'] as $tid){
+          if ($tid)
+            $entries[]=$tid;
+        }
+
+        if (    $entries
+             && ($form['taxonomy'][$vid]['#type'] == 'select')
+             && ($options = $form['taxonomy'][$vid]['#options'])) {
+          $include = $field['hide'] ;
+
+          $keys = array ();
+          $new_options = array ();
+          foreach ($options as $option) {
+            if (is_array($option->option)) {
+              $key=array_keys($option->option);
+              if ($include xor in_array($key[0],$entries)) {
+                $new_options[] = $option;
+                $keys[]=$key[0];
+              }
+            } else {
+              $new_options[] = $option;
+            }
+          }
+
+          switch (count($keys)) {
+            case 0:
+              break;
+            case 1:
+              $form['taxonomy'][$vid]['#type'] = 'hidden';
+              $form['taxonomy'][$vid]['#value'] = $keys[0];
+              unset($form['taxonomy'][$vid]['#theme']);
+              break;
+            default:
+              $form['taxonomy'][$vid]['#options'] = $new_options;
+              break;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*********************************************************
+ * Utility functions
+ */
+
+
+/**
+ * Update field definition
+ */
+function _cck_taxonomy_subset_fix_field (&$field){
+   $field['widget']['vid']=preg_replace('/cck_taxonomy_subset_/','',$field['widget']['type']);
+}
+

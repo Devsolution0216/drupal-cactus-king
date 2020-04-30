@@ -1,0 +1,23 @@
+/*- Gnifetti styles v0.1 - Drupal6x - 03/04/08
+author:singalkuppe: leoni.matteo[at]gmail.com - www.signalkuppe.com
+ */
+
+
+/*- Sidebar Subpages Menu */
+
+.lsidebar {
+	width: 180px;
+	float: left;
+	margin-top:0px;
+	margin-right:15px;
+	margin-bottom:0px;
+	margin-left:0px;
+	}
+.rsidebar {
+	width: 180px;
+	float: left;
+	margin-top:0px;
+	margin-right:15px;
+	margin-bottom:0px;
+	margin-left:0px;
+	}	

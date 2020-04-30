@@ -1,0 +1,95 @@
+/*- Marinelli styles - Drupal6x - 16/09/08 @ author:signalkuppe: www.signalkuppe.com */
+
+/* ########## Links ########## */
+/* ########## In the css you will find everything about template's links (link colors, hover properties ecc...) ######### */
+
+
+a{
+color: #005a8c;
+text-decoration:none;
+	}
+	
+#primary .node .content a{
+text-decoration:underline;
+	}
+	
+/*books forum and fieldsets*/
+#primary .node .content .book-navigation a,
+#primary .node .content .forum a,
+#primary .singlepage form legend a{
+text-decoration:none;
+	}
+	
+#primary .node .content .book-navigation a:hover{
+color: #005a8c;
+background:none;
+text-decoration:underline;
+	}
+
+/*hover state (links in content, block, and front page titles)*/
+#primary .node .content a:hover,
+.defaultblock a:hover,
+#primary h2.nodeTitle a:hover,
+#primary .linksteaser a:hover,
+#primary #comments a:hover,
+#primary .taxonomy a:hover,
+#primary .links a:hover,
+#primary .path a:hover,
+#primary .metanode a:hover,
+#primary .admin a:hover,
+#primary dl dt a:hover,
+#first-time a:hover{
+background-color:#005a8c;
+color:white;
+text-decoration:none;
+	}
+
+
+#submenu ul li a {
+	color:white;
+	}
+	
+#submenu ul li a:hover {
+	text-decoration:underline;
+	}
+		
+#submenu ul li a.active{
+	font-weight:bold;
+	text-decoration:underline;
+	}
+	
+#primary .tabs .secondary li a{  /* tabs secondary */
+   margin: 12px 12px 12px 0px;
+	}
+
+#header h1 a, #header p a{color: #fff;}
+
+#header h1 a:hover, #header p.sitetitle a:hover{text-decoration:underline;}
+
+#utilities #plinks ul li a { /*primary links*/
+	color: white;
+	background: #156aa3;
+	text-transform:capitalize;
+	padding:7px 10px 7px 10px;
+	display:block;
+}
+
+#utilities #plinks ul li a:hover {
+	background: #054b81;
+	color: #fff;
+	text-decoration: none;
+}
+
+#utilities #plinks ul li a.active,
+#utilities #plinks ul li a.active:hover {
+	color: #fff !important;
+	background: #054b81;
+	text-decoration: none;
+	font-weight:bold;
+	}	
+
+#footer a:hover{text-decoration: underline;}
+
+
+/*forums*/
+#primary .help .help a, #primary .help .help a:hover{ color: #990000;font-weight:bold;}	

@@ -1,0 +1,201 @@
+<?php
+
+/**
+ * @file
+ * Shopping cart and checkout tests.
+ */
+
+// Ensure UbercartTestHelper is available.
+module_load_include('test', 'uc_store', 'uc_store');
+
+/**
+ * Tests the cart and checkout functionality.
+ */
+class UbercartCartCheckoutTest extends UbercartTestHelper {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Cart and checkout',
+      'description' => 'Ensures the cart and checkout process is functioning for both anonymous and authenticated users.',
+      'group' => 'Ubercart',
+    );
+  }
+
+  function testCart() {
+    // Test the empty cart text.
+    $this->drupalGet('cart');
+    $this->assertText('There are no products in your shopping cart.');
+
+    // Add an item to the cart as an anonymous user.
+    $this->drupalPost('node/' . $this->product->nid, array(), t('Add to cart'));
+    $this->assertText($this->product->title . ' added to your shopping cart.');
+
+    // Log in and check the item is still in the cart.
+    $this->drupalLogin($this->customer);
+    $this->drupalGet('cart');
+    $this->assertText($this->product->title, t('The product remains in the cart after logging in.'));
+    $this->assertFieldByName('items[0][qty]', 1, t('The product quantity is 1.'));
+
+    // Update the quantity.
+    $qty = mt_rand(2, 100);
+    $this->drupalPost('cart', array('items[0][qty]' => $qty), t('Update cart'));
+    $this->assertText('Your cart has been updated.');
+    $this->assertFieldByName('items[0][qty]', $qty, t('The product quantity was updated.'));
+
+    // Test the remove item button.
+    $this->drupalPost('cart', array(), t('Remove'));
+    $this->assertText($this->product->title . ' removed from your shopping cart.');
+    $this->assertText('There are no products in your shopping cart.');
+    $this->drupalLogout();
+  }
+
+  function testCheckout() {
+    // Test as anonymous user.
+    $this->drupalPost('node/' . $this->product->nid, array(), t('Add to cart'));
+    $this->checkout();
+    $this->assertRaw('Your order is complete!');
+
+    // Test as authenticated user.
+    $this->drupalLogin($this->customer);
+    $this->drupalPost('node/' . $this->product->nid, array(), t('Add to cart'));
+    $this->checkout();
+    $this->assertRaw('Your order is complete!');
+    $this->drupalLogout();
+  }
+}
+
+/**
+ * Tests the cart settings page.
+ */
+class UbercartCartSettingsTest extends UbercartTestHelper {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Cart settings',
+      'description' => 'Tests the cart settings page.',
+      'group' => 'Ubercart',
+    );
+  }
+
+  function testAddToCartRedirect() {
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/store/settings/cart/edit');
+    $this->assertField('uc_add_item_redirect', t('Add to cart redirect field exists'));
+
+    $redirect = $this->randomName(8);
+    $this->drupalPost('admin/store/settings/cart/edit', array('uc_add_item_redirect' => $redirect), t('Save configuration'));
+
+    $this->drupalPost('node/'. $this->product->nid, array(), t('Add to cart'));
+    $url_pass = ($this->getUrl() == url($redirect, array('absolute' => TRUE)));
+    $this->assertTrue($url_pass, t('Add to cart redirect takes user to the correct URL.'));
+  }
+
+  function testMinimumSubtotal() {
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/store/settings/cart/edit');
+    $this->assertField('uc_minimum_subtotal', t('Minimum order subtotal field exists'));
+
+    $minimum_subtotal = mt_rand(2, 9999);
+    $this->drupalPost(NULL, array('uc_minimum_subtotal' => $minimum_subtotal), t('Save configuration'));
+
+    // Create two products, one below the minimum price, and one above the minimum price.
+    $product_below_limit = $this->createProduct(array('sell_price' => $minimum_subtotal - 1));
+    $product_above_limit = $this->createProduct(array('sell_price' => $minimum_subtotal + 1));
+    $this->drupalLogout();
+
+    // Check to see if the lower priced product triggers the minimum price logic.
+    $this->drupalPost('node/' . $product_below_limit->nid, array(), t('Add to cart'));
+    $this->drupalPost('cart', array(), t('Checkout'));
+    $this->assertRaw('The minimum order subtotal for checkout is', t('Prevented checkout below the minimum order total.'));
+
+    // Add another product to the cart, and verify that we land on the checkout page.
+    $this->drupalPost('node/' . $product_above_limit->nid, array(), t('Add to cart'));
+    $this->drupalPost('cart', array(), t('Checkout'));
+    $this->assertText('Enter your billing address and information here.');
+  }
+
+  function testContinueShopping() {
+    // Continue shopping link should take you back to the product page.
+    $this->drupalPost('node/' . $this->product->nid, array(), t('Add to cart'));
+    $this->assertLink(t('Continue shopping'), 0, t('Continue shopping link appears on the page.'));
+    $links = $this->xpath('//a[@href="' . url('node/' . $this->product->nid, array('absolute' => FALSE)) . '"]');
+    $this->assertTrue(isset($links[0]), t('Continue shopping link returns to the product page.'));
+
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/store/settings/cart/edit');
+    $this->assertField('uc_continue_shopping_type', t('Continue shopping element display field exists'));
+    $this->assertField('uc_continue_shopping_url', t('Default continue shopping link URL field exists'));
+    $this->assertField('uc_continue_shopping_text', t('Custom continue shopping link text field exists'));
+
+    // Test continue shopping button that sends users to a fixed URL.
+    $settings = array(
+      'uc_continue_shopping_type' => 'button',
+      'uc_continue_shopping_use_last_url' => FALSE,
+      'uc_continue_shopping_url' => $this->randomName(8),
+      'uc_continue_shopping_text' => $this->randomName(16),
+    );
+    $this->drupalPost(NULL, $settings, t('Save configuration'));
+
+    $this->drupalPost('cart', array(), $settings['uc_continue_shopping_text']);
+    $url_pass = ($this->getUrl() == url($settings['uc_continue_shopping_url'], array('absolute' => TRUE)));
+    $this->assertTrue($url_pass, t('Continue shopping button is properly labelled, and takes the user to the correct URL.'));
+  }
+
+  function testCartBreadcrumb() {
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/store/settings/cart/edit');
+    $this->assertField('uc_cart_breadcrumb_text', t('Custom cart breadcrumb text field exists'));
+    $this->assertField('uc_cart_breadcrumb_url',t('Custom cart breadcrumb URL'));
+
+    $settings = array(
+      'uc_cart_breadcrumb_text' => $this->randomName(8),
+      'uc_cart_breadcrumb_url' => $this->randomName(7),
+    );
+    $this->drupalPost(NULL, $settings, t('Save configuration'));
+
+    $this->drupalPost('node/'. $this->product->nid, array(), t('Add to cart'));
+    $this->assertLink($settings['uc_cart_breadcrumb_text'], 0, t('The breadcrumb link text is set correctly.'));
+    $links = $this->xpath('//a[@href="' . url($settings['uc_cart_breadcrumb_url']) . '"]');
+    $this->assertTrue(isset($links[0]), t('The breadcrumb link is set correctly.'));
+  }
+}
+
+/**
+ * Tests the checkout settings page.
+ */
+class UbercartCheckoutSettingsTest extends UbercartTestHelper {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Checkout settings',
+      'description' => 'Tests the checkout settings page.',
+      'group' => 'Ubercart',
+    );
+  }
+
+  function testEnableCheckout() {
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/store/settings/checkout/edit');
+    $this->assertField('uc_checkout_enabled', t('Enable checkout field exists'));
+
+    $this->drupalPost('admin/store/settings/checkout/edit', array('uc_checkout_enabled' => FALSE), t('Save configuration'));
+
+    $this->drupalPost('node/'. $this->product->nid, array(), t('Add to cart'));
+    $this->assertNoRaw(t('Checkout'));
+    $buttons = $this->xpath('//input[@value="' . t('Checkout') . '"]');
+    $this->assertFalse(isset($buttons[0]), t('The checkout button is not shown.'));
+  }
+
+  function testAnonymousCheckout() {
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('admin/store/settings/checkout/edit');
+    $this->assertField('uc_checkout_anonymous', t('Anonymous checkout field exists'));
+
+    $this->drupalPost('admin/store/settings/checkout/edit', array('uc_checkout_anonymous' => FALSE), t('Save configuration'));
+
+    $this->drupalLogout();
+    $this->drupalPost('node/'. $this->product->nid, array(), t('Add to cart'));
+    $this->drupalPost('cart', array(), 'Checkout');
+    $this->assertNoText('Enter your billing address and information here.', t('The checkout page is not displayed.'));
+  }
+}

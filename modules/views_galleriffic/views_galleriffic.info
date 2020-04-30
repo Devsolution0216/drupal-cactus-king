@@ -1,0 +1,15 @@
+name = Views Galleriffic
+description = Use Views to make JQuery Galleriffic image gallery
+core = 6.x
+package = Views
+dependencies[]  = views 
+dependencies[]  = imagefield 
+dependencies[]  = content 
+dependencies[]  = imagecache
+
+; Information added by drupal.org packaging script on 2011-08-05
+version = "6.x-1.4"
+core = "6.x"
+project = "views_galleriffic"
+datestamp = "1312555321"
+

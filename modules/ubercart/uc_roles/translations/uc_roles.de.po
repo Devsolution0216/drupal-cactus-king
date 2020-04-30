@@ -1,0 +1,687 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_roles.module,v 1.2.2.10 2008/12/11 15:53:50 islandusurper
+#  uc_roles.admin.inc,v 1.1.2.3 2008/12/11 15:53:50 islandusurper
+#  uc_roles.info,v 1.2.2.7 2008/11/07 21:13:26 islandusurper
+#  uc_roles.ca.inc,v 1.1.2.2 2008/12/11 15:53:50 islandusurper
+#  uc_roles.install,v 1.2.2.9 2008/12/11 15:53:50 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-02-24 16:18+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_roles/uc_roles.module:85
+msgid "Edit and view role expirations set by Ubercart"
+msgstr ""
+"Die von Ubercart gesetzten Verfallsdaten der Rollen anzeigen und "
+"bearbeiten"
+
+#: uc_roles/uc_roles.module:555,679,93
+msgid "Role assignment"
+msgstr "Rollen Zuweisungen"
+
+#: uc_roles/uc_roles.module:94
+msgid "Edit the notification settings for roles granted by Ubercart."
+msgstr ""
+"Benachrichtigungs-Optionen für Rollen bearbeiten, die von Ubercart "
+"bereitgestellt werden."
+
+#: uc_roles/uc_roles.module:102
+msgid "Delete role expiration"
+msgstr "Verfallsdaten der Rolle löschen"
+
+#: uc_roles/uc_roles.module:103
+msgid "Delete a specified role expiration"
+msgstr "Verfallsdatum einer bestimmten Rolle löschen"
+
+#: uc_roles/uc_roles.module:348
+msgid ""
+"Below you can add or remove time to the expiration dates of the "
+"following roles."
+msgstr ""
+"Hinzufügen oder Entfernen von Zeiträumen zum Verfallsdatum der "
+"folgenden Rollen."
+
+#: uc_roles/uc_roles.module:344
+msgid "There are no pending expirations for roles this user."
+msgstr "Für die Rolle dieses Benutzers existiert keine aktuelle Verfallszeit."
+
+#: uc_roles/uc_roles.module:258
+msgid "Add role"
+msgstr "Rolle hinzufügen"
+
+#: uc_roles/uc_roles.module:268
+msgid " for "
+msgstr " für "
+
+#: uc_roles/uc_roles.module:420
+msgid "The expiration length must be a positive integer"
+msgstr "Die Dauer bis zum Verfallsdatum muss ein positive Ganzzahl sein."
+
+#: uc_roles/uc_roles.module:593
+msgid "The role expiration date in long format"
+msgstr "Das Rollen Verfallsdatum im langen Format"
+
+#: uc_roles/uc_roles.module:594
+msgid "The role expiration date in medium format"
+msgstr "Das Rollen Verfallsdatum im mittleren Format"
+
+#: uc_roles/uc_roles.module:595
+msgid "The role expiration date in short format"
+msgstr "Das Rollen Verfallsdatum im Kurz-Format"
+
+#: uc_roles/uc_roles.module:596
+msgid "The associated role name"
+msgstr "Der verknüpfte Rollenname"
+
+#: uc_roles/uc_roles.module:622
+msgid "[store-name]: [role-name] role granted"
+msgstr "[store-name]: [role-name] Rolle erlaubt"
+
+#: uc_roles/uc_roles.module:624
+msgid "[store-name]: [role-name] role expired"
+msgstr "[store-name]: [role-name] Rolle verfallen"
+
+#: uc_roles/uc_roles.module:626
+msgid "[store-name]: [role-name] role renewed"
+msgstr "[store-name]: [role-name] Rolle wieder hergestellt."
+
+#: uc_roles/uc_roles.module:628
+msgid "[store-name]: [role-name] role expiration notice"
+msgstr ""
+"[store-name]: [role-name] Benachrichtigung über Verfall Ihrer "
+"Benutzer-Rolle"
+
+#: uc_roles/uc_roles.module:630
+msgid "Expiring roles"
+msgstr "Verfallende Rollen"
+
+#: uc_roles/uc_roles.module:631
+msgid "!role_name"
+msgstr "!role_name"
+
+#: uc_roles/uc_roles.module:632
+msgid "This role will expire on !date"
+msgstr "Diese Rolle verfällt am !date"
+
+#: uc_roles/uc_roles.admin.inc:16
+msgid "Expiration date"
+msgstr "Verfallsdatum"
+
+#: uc_roles/uc_roles.admin.inc:63
+msgid "No expirations set to occur"
+msgstr "Keine Verfallsdaten geplant"
+
+#: uc_roles/uc_roles.module:701
+msgid "This is the model/SKU of the product that will grant the role."
+msgstr ""
+"Das ist das Modell/SKU des Artikels, das diese Rolle zur Verfügung "
+"stellt."
+
+#: uc_roles/uc_roles.module:708
+msgid ""
+"This is the role the customer will receive after purchasing the "
+"product."
+msgstr "Diese Rolle bekommt der Kunde zugewiesen, wenn er den Artikel erwirbt."
+
+#: uc_roles/uc_roles.module:715
+msgid ""
+"Check if this product model/SKU that uses role assignment is "
+"associated with a shippable product."
+msgstr ""
+"Bitte überprüfen Sie, ob die Artikelausführung, die diese Rolle "
+"zuweist, mit einem versandfähigen Artikel verknüpft ist."
+
+#: uc_roles/uc_roles.module:798
+msgid "The amount of time must be a positive integer."
+msgstr "Die Zeitraum-Angabe muss ein positiver Ganzzahl-Wert sein."
+
+#: uc_roles/uc_roles.module:809
+msgid "The combination of model/SKU and role already exists for this product."
+msgstr ""
+"Die Kombination zwischen diesem Modell/SKU und der Rolle existiert "
+"bereits für diesen Artikel."
+
+#: uc_roles/uc_roles.module:940
+msgid "Default expiration"
+msgstr "Standard Verfallsdatum"
+
+#: uc_roles/uc_roles.module:918
+msgid "Default role"
+msgstr "Standard Rolle"
+
+#: uc_roles/uc_roles.module:910
+msgid "Product roles"
+msgstr "Artikel Rollen"
+
+#: uc_roles/uc_roles.module:976
+msgid "Expiration display"
+msgstr "Anzeige des Verfallsdatums"
+
+#: uc_roles/uc_roles.module:982
+msgid "Show expirations on user page"
+msgstr "Verfallsdaten auf der Benuter Seite anzeigen"
+
+#: uc_roles/uc_roles.module:984
+msgid ""
+"If users have any role expirations they will be displayed on their "
+"account page."
+msgstr ""
+"Gelten für Benutzer bestimmte Verfallsdaten seiner Rolle, werden sie "
+"im Benutzerkonto angezeigt."
+
+#: uc_roles/uc_roles.module:988
+msgid "Header"
+msgstr "Kopfbereich"
+
+#: uc_roles/uc_roles.admin.inc:82
+msgid "Granted message"
+msgstr "Berechtigungen eingeräumt Nachricht"
+
+#: uc_roles/uc_roles.admin.inc:89
+msgid "Send email after customer receives new role"
+msgstr "Emai-Nachricht senden, wenn ein Kunde eine neue Rolle erwirbt."
+
+#: uc_roles/uc_roles.admin.inc:108
+msgid "Expiration message"
+msgstr "Nachricht bei Verfall"
+
+#: uc_roles/uc_roles.admin.inc:134
+msgid "Renewal message"
+msgstr "Nachricht bei Erneuerung"
+
+#: uc_roles/uc_roles.admin.inc:141
+msgid "Send email after customer renews existing role"
+msgstr ""
+"Eine Email-Nachricht an den Kunden senden, wenn er seinen Kundenstatus "
+"erneuert."
+
+#: uc_roles/uc_roles.admin.inc:160
+msgid "Expiration reminder message"
+msgstr "Erinnerungs-Nachricht bei drohendem Verfall"
+
+#: uc_roles/uc_roles.admin.inc:166
+msgid "Time before reminder"
+msgstr "Zeitraum bis zur Erinnerungsnachricht"
+
+#: uc_roles/uc_roles.admin.inc:183
+msgid ""
+"The amount of time before a role expiration takes place that a "
+"customer is notified of its expiration."
+msgstr ""
+"Der Zeitraum, bis ein Kunde über den Ablauf seiner Rolle "
+"benachrichtigt wird."
+
+#: uc_roles/uc_roles.module:0
+msgid "uc_roles"
+msgstr "uc_roles"
+
+#: uc_roles/uc_roles.info:0
+msgid "Assign permanent or expirable roles based on product purchases."
+msgstr ""
+"Permamente oder temporäre Rollen auf Basis der Artikel-Käufe "
+"zuteilen"
+
+#: uc_roles/uc_roles.module:835
+msgid "<strong>SKU:</strong> Any<br/>"
+msgstr "<strong>Artikelnummer:</strong> jede<br/>"
+
+#: uc_roles/uc_roles.module:835
+msgid "<strong>SKU:</strong> !sku<br/>"
+msgstr "<strong>artikelnummer:</strong> !sku<br/>"
+
+#: uc_roles/uc_roles.module:437
+msgid "The new expiration date, %date, has already occurred."
+msgstr "Das neue Verfallsdatum, %date, wurde bereits überschritten."
+
+#: uc_roles/uc_roles.module:804
+msgid ""
+"You must have a role to assign. You may need to <a "
+"href=\"!role_url\">create a new role</a> or perhaps <a "
+"href=\"!feature_url\">set role assignment defaults</a>."
+msgstr ""
+"Sie müssen erst eine <a href=\"!role_url\">Rolle</a> definieren, "
+"bevor Sie diese zuweisen können. Alternativ setzen Sie die "
+"Rollenzuweisung auf <a href=\"!feature_url\">Standard-Werte</a>"
+
+#: uc_roles/uc_roles.module:836
+msgid "<strong>Role:</strong> !role_name<br/>"
+msgstr "<strong>Rolle:</strong> !role_name<br/>"
+
+#: uc_roles/uc_roles.module:843
+msgid "<strong>Expiration:</strong> never<br/>"
+msgstr "<strong>Verfall:</strong> nie<br/>"
+
+#: uc_roles/uc_roles.module:846
+msgid "<strong>Expiration:</strong> !qty day(s)<br/>"
+msgstr "<strong>Verfall:</strong> !qty tag(e)<br/>"
+
+#: uc_roles/uc_roles.module:849
+msgid "<strong>Expiration:</strong> !qty week(s)<br/>"
+msgstr "<strong>Verfall:</strong> !qty Woche(n)<br/>"
+
+#: uc_roles/uc_roles.module:852
+msgid "<strong>Expiration:</strong> !qty month(s)<br/>"
+msgstr "<strong>Verfall:</strong> !qty Monat(e)<br/>"
+
+#: uc_roles/uc_roles.module:855
+msgid "<strong>Expiration:</strong> !qty year(s)<br/>"
+msgstr "<strong>Verfall:</strong> !qty Jahr(e)<br/>"
+
+#: uc_roles/uc_roles.admin.inc:100
+msgid ""
+"The message the user receives when granted a new role (<a "
+"href=\"!url\">uses order, uc_roles, and global tokens</a>)."
+msgstr ""
+"Die Nachricht, die der Benutzer erhält, wenn ihm eine neue Rolle "
+"zugewiesen wird. (<a href=\"!url\">benötigt order, uc_roles, und "
+"global tokens</a>)."
+
+#: uc_roles/uc_roles.admin.inc:126
+msgid ""
+"The message the user receives when a role expires (<a "
+"href=\"!url\">uses order, uc_roles, and global tokens</a>)."
+msgstr ""
+"Die Nachricht, die der Benutzer erhält, wenn seine Rolle abläuft. "
+"(<a href=\"!url\">benötigt order, uc_roles, und global tokens</a>)."
+
+#: uc_roles/uc_roles.admin.inc:152
+msgid ""
+"The message the user receives when a role is renewed (<a "
+"href=\"!url\">uses order, uc_roles, and global tokens</a>)."
+msgstr ""
+"Die Nachricht, die ein Benutzer erhält, wenn seine Rolle erneuert "
+"wird. (<a href=\"!url\">benötigt order, uc_roles, und global "
+"tokens</a>)."
+
+#: uc_roles/uc_roles.admin.inc:196
+msgid ""
+"The message the user receives reminding them of the role expiration "
+"(<a href=\"!url\">uses order, uc_roles, and global tokens</a>)."
+msgstr ""
+"Die Nachricht, die ein Benutzer zur Erinnerung an den Ablauf seiner "
+"Rolle erhält. (<a href=\"!url\">benötigt order, uc_roles, und global "
+"tokens</a>)."
+
+#: uc_roles/uc_roles.module:126
+msgid "view all role expirations"
+msgstr "Zeige alle Rollen-Ablauf-Termine an"
+
+#: uc_roles/uc_roles.module:1000
+msgid ""
+"The message, with its accompanying title, and the header displayed "
+"above all role expirations. In the <strong>Title</strong> & "
+"<strong>Message</strong> fields \"!role_name\" and \"!date\" will "
+"translate to the corresponding Drupal role name and role expiration "
+"date."
+msgstr ""
+"Die Nachricht, mit zugehörigem Titel und Nachrichtenkopf, die über "
+"jedem Verfallshinweis einer Rolle angezeugt wird. In den Feldern "
+"<strong>Titel</strong> & <strong>Nachrichtentext</strong> werden "
+"\"!role_name\" and \"!date\" in den Drupal Rollenname und "
+"Verfallsdatum übersetzt."
+
+#: uc_roles/uc_roles.module:575
+msgid ""
+"There are no product role(s) that can be assigned upon product "
+"purchase. Set product roles in the <a href=\"!url\">product feature "
+"settings</a> under the role assignment settings fieldset."
+msgstr ""
+"Es gibt keine Artikel-Rolle(n), die für den Kauf des Artikel "
+"zugewiesen werden können. Legen die die Rollen im den a "
+"href=\"!url\">Artikel-Einstellungen</a> unter dem Punkt "
+"Rollenzuweisungen fest."
+
+#: uc_roles/uc_roles.module:582
+msgid ""
+"The role(s) %roles are set to be used with the Role Assignment product "
+"feature."
+msgstr ""
+"Die Rolle(n) %roles können von der Rollenzuweisung des Artikels "
+"verwendet werden."
+
+#: uc_roles/uc_roles.module:772,970
+msgid "Multiply by quantity"
+msgstr "Mit der Azahl Multiplizieren"
+
+#: uc_roles/uc_roles.module:774,971
+msgid ""
+"Check if the role duration should be multiplied by the quantity "
+"purchased."
+msgstr ""
+"Setzen Sie den Hacken wenn die Dauer der Rolle mit der gekauften "
+"Anzahl multipliziert werden soll."
+
+#: uc_roles/uc_roles.module:861
+msgid "<strong>Shippable:</strong> Yes<br/>"
+msgstr "<strong>Versendbar:</strong> Ja<br/>"
+
+#: uc_roles/uc_roles.module:861
+msgid "<strong>Shippable:</strong> No<br/>"
+msgstr "<strong>Versenbar:</strong>Nein<br/>"
+
+#: uc_roles/uc_roles.admin.inc:115
+msgid "Send email after customer loses role"
+msgstr "Eine email senden wenn die Rolle des kunden auslief"
+
+#: uc_roles/uc_roles.module:623
+msgid ""
+"[order-first-name] [order-last-name], \n"
+"\n"
+"Thanks to your order, [order-link], at [store-name] you now have a new "
+"role, [role-name].\n"
+"\n"
+"Thanks again, \n"
+"\n"
+"[store-name]\n"
+"[site-slogan]"
+msgstr ""
+
+#: uc_roles/uc_roles.module:625
+msgid ""
+"The role, [role-name], you acquired by purchasing a product at our "
+"store has expired. Any special access or privileges that came with it "
+"are now gone. You can purchase it again by going to [store-link]\n"
+"\n"
+"Thanks again, \n"
+"\n"
+"[store-name]\n"
+"[site-slogan]"
+msgstr ""
+
+#: uc_roles/uc_roles.module:627
+msgid ""
+"[order-first-name] [order-last-name], \n"
+"\n"
+"Thanks to your order, [order-link], at [store-name] you have renewed "
+"the role, [role-name]. It is now set to expire on "
+"[role-expiration-short].\n"
+"\n"
+"Thanks again, \n"
+"\n"
+"[store-name]\n"
+"[site-slogan]"
+msgstr ""
+
+#: uc_roles/uc_roles.module:629
+msgid ""
+"This message is to remind you that the role, [role-name], you acquired "
+"by making a purchase at our store will expire at "
+"[role-expiration-short]. You may visit [store-link] to renew this role "
+"before it expires.\n"
+"\n"
+"Thanks again, \n"
+"\n"
+"[store-name]\n"
+"[site-slogan]"
+msgstr ""
+
+#: uc_roles/uc_roles.admin.inc:220
+msgid "Delete expiration of %role_name role for the user %user_name?"
+msgstr ""
+
+#: uc_roles/uc_roles.admin.inc:222
+msgid ""
+"Deleting the expiration will give %user_name privileges set by the "
+"%role_name role indefinitely unless manually removed."
+msgstr ""
+
+#: uc_roles/uc_roles.admin.inc:229
+msgid "Invalid user id or role id."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:20
+msgid "Ubercart role expiration"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:34
+msgid "Renew purchased roles"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:35
+msgid "Renew purchased roles if the order status matches."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:57
+msgid "Update all role expirations for this order."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:77
+msgid "Notify customer when a role is granted"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:78
+msgid "Notify the customer when they have had a role granted on their user."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:100
+msgid "Notify customer when a role is revoked"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:101
+msgid "Notify the customer when they have had a role revoked from their user."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:123
+msgid "Notify customer when a role is renewed"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:124
+msgid "Notify the customer when they have had a role renewed on their user."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:146
+msgid "Notify customer when a role is about to expire"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:147
+msgid "Notify the customer when they have had a role that is about to expire."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:176
+msgid "Renew the roles on an order."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:188,204
+msgid "Send an order email regarding roles."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:189,205,240,246,252,258
+msgid "Notification"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:239
+msgid "E-mail for granted roles"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:245
+msgid "E-mail for revoked roles"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:251
+msgid "E-mail for renewed roles"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:257
+msgid "E-mail for role expiration reminders"
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:370
+msgid ""
+"You can make use of the replacement patterns in the recipients field, "
+"the subject, and the message body."
+msgstr ""
+
+#: uc_roles/uc_roles.module:28
+msgid ""
+"Ubercart grants certain roles to customers when they purchase products "
+"with a role assignment feature. These can be permanent or temporary "
+"roles. Here you can view and edit when temporary roles are set to "
+"expire."
+msgstr ""
+
+#: uc_roles/uc_roles.module:212
+msgid "Ubercart roles"
+msgstr ""
+
+#: uc_roles/uc_roles.module:221
+msgid "Pending Expirations"
+msgstr ""
+
+#: uc_roles/uc_roles.module:315
+msgid "Add/remove time"
+msgstr ""
+
+#: uc_roles/uc_roles.module:685,896
+msgid ""
+"You need to <a href=\"!url\">create new roles</a> before any can be "
+"added as product features."
+msgstr ""
+
+#: uc_roles/uc_roles.module:719,926
+msgid "Expiration period"
+msgstr ""
+
+#: uc_roles/uc_roles.module:724
+msgid "Override the default ending expiration"
+msgstr ""
+
+#: uc_roles/uc_roles.module:730,931
+msgid "End"
+msgstr ""
+
+#: uc_roles/uc_roles.module:732,933
+msgid "Relative from activation time"
+msgstr ""
+
+#: uc_roles/uc_roles.module:733,934
+msgid "Absolute role ending"
+msgstr ""
+
+#: uc_roles/uc_roles.module:755
+msgid "From the time the expiration period started."
+msgstr ""
+
+#: uc_roles/uc_roles.module:761,961
+msgid "When this expiration period will end."
+msgstr ""
+
+#: uc_roles/uc_roles.module:793
+msgid "The specified date !date has already occurred. Please choose another."
+msgstr ""
+
+#: uc_roles/uc_roles.module:838
+msgid "<strong>Expiration:</strong> !date<br />"
+msgstr ""
+
+#: uc_roles/uc_roles.module:862
+msgid "<strong>Multiply by quantity:</strong> Yes"
+msgstr ""
+
+#: uc_roles/uc_roles.module:862
+msgid "<strong>Multiply by quantity:</strong> No"
+msgstr ""
+
+#: uc_roles/uc_roles.module:913
+msgid ""
+"These are roles that Ubercart can grant to customers who purchase "
+"specified products. If you leave all roles unchecked, they will all be "
+"eligible for adding to a product."
+msgstr ""
+
+#: uc_roles/uc_roles.module:920
+msgid "The default role Ubercart grants on specified products."
+msgstr ""
+
+#: uc_roles/uc_roles.module:956
+msgid ""
+"The default amount of time a granted Ubercart role will last until it "
+"expires."
+msgstr ""
+
+#: uc_roles/uc_roles.module:1205
+msgid ""
+"The expiration of %role_name role for the user %user_name has been "
+"deleted."
+msgstr ""
+
+#: uc_roles/uc_roles.module:1238
+msgid "%user has had the %role role revoked."
+msgstr ""
+
+#: uc_roles/uc_roles.module:1281
+msgid "%user has been granted the %role role."
+msgstr ""
+
+#: uc_roles/uc_roles.module:1283
+msgid " It will expire on %date"
+msgstr ""
+
+#: uc_roles/uc_roles.module:1318
+msgid "%user has had the %role role renewed. It will expire on %date."
+msgstr ""
+
+#: uc_roles/uc_roles.install:19
+msgid "The unique role feature ID."
+msgstr ""
+
+#: uc_roles/uc_roles.install:25
+msgid "The ID of the product feature this is attached to."
+msgstr ""
+
+#: uc_roles/uc_roles.install:32
+msgid "The ID of the node this role feature is attached to."
+msgstr ""
+
+#: uc_roles/uc_roles.install:39
+msgid "The product model."
+msgstr ""
+
+#: uc_roles/uc_roles.install:45
+msgid "The role ID."
+msgstr ""
+
+#: uc_roles/uc_roles.install:54
+msgid "Fallthrough to the default start time?"
+msgstr ""
+
+#: uc_roles/uc_roles.install:61
+msgid "Role expiration start time. 0 signifies to start at product purchase."
+msgstr ""
+
+#: uc_roles/uc_roles.install:69
+msgid "Fallthrough to the default end time?"
+msgstr ""
+
+#: uc_roles/uc_roles.install:76
+msgid "Role expiration end time. 0 signifies to use relative expiration."
+msgstr ""
+
+#: uc_roles/uc_roles.install:82
+msgid "How long this role is valid for."
+msgstr ""
+
+#: uc_roles/uc_roles.install:91
+msgid "Is this role feature shippable?"
+msgstr ""
+
+#: uc_roles/uc_roles.install:98
+msgid "Multiply any relative expiration by the quantity purchased?"
+msgstr ""
+
+#: uc_roles/uc_roles.install:122
+msgid "The user id."
+msgstr ""
+
+#: uc_roles/uc_roles.install:129
+msgid "The role id."
+msgstr ""
+

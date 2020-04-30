@@ -1,0 +1,349 @@
+# $Id: shipping-uc_quote.ja.po,v 1.1.2.1 2009/11/25 09:59:07 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  uc_quote.admin.inc,v 1.1.2.10 2009/07/21 14:51:23 islandusurper
+#  uc_quote.module,v 1.5.2.25 2009/10/20 20:58:07 islandusurper
+#  uc_quote.pages.inc,v 1.1.2.8 2009/09/21 14:34:47 islandusurper
+#  uc_quote.info,v 1.4.2.2 2008/11/07 21:13:24 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-10-31 22:13+0900\n"
+"PO-Revision-Date: 2009-11-20 18:56+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_quote.admin.inc:40
+msgid "Log errors during checkout to watchdog"
+msgstr "購入手続きで生じたエラーのログを watchdog に記録"
+
+#: uc_quote.admin.inc:43
+msgid "Quote errors are submitted to watchdog."
+msgstr "見積エラーを watchdog に送信します。"
+
+#: uc_quote.admin.inc:44
+msgid "Quote errors are not submitted to watchdog."
+msgstr "見積エラーを watchdog に送信しません。"
+
+#: uc_quote.admin.inc:50
+msgid "Display debug information to administrators."
+msgstr "デバッグ情報を管理者に表示。"
+
+#: uc_quote.admin.inc:53
+msgid "Debugging information is displayed to administrators when quotes are generated."
+msgstr "見積が生成される際、デバッグ用の情報を管理者に表示します。"
+
+#: uc_quote.admin.inc:54
+msgid "Debugging information is not displayed to administrators when quotes are generated."
+msgstr "見積が生成される際、デバッグ用の情報を管理者に表示しません。"
+
+#: uc_quote.admin.inc:60
+msgid "Prevent the customer from completing an order if a shipping quote is not selected."
+msgstr "送料見積が選択されていなければ、顧客が購入手続きを完了できないようにする。"
+
+#: uc_quote.admin.inc:63
+msgid "Customers cannot complete checkout without selecting a shipping quote."
+msgstr "送料見積を選択しなければ、顧客は購入手続きを完了できない。"
+
+#: uc_quote.admin.inc:64
+msgid "Customers can still checkout without selecting a shipping quote."
+msgstr "送料見積を選択していなくても、顧客は購入手続きを完了できる。"
+
+#: uc_quote.admin.inc:71
+msgid "Shipping quote pane description"
+msgstr "送料見積区画の説明"
+
+#: uc_quote.admin.inc:79;95
+msgid "Message text"
+msgstr "メッセージテキスト"
+
+#: uc_quote.admin.inc:80
+#: uc_quote.module:763
+msgid "Shipping quotes are generated automatically when you enter your address and may be updated manually with the button below."
+msgstr "住所を入力すると、送料見積が自動的に作成されます。また、下記のボタンをクリックして手動で更新することができます。"
+
+#: uc_quote.admin.inc:87
+msgid "Shipping quote error message"
+msgstr "送料見積のエラーメッセージ"
+
+#: uc_quote.admin.inc:96
+#: uc_quote.module:698;955
+msgid ""
+"There were problems getting a shipping quote. Please verify the delivery and product information and try again.\n"
+"If this does not resolve the issue, please call in to complete your order."
+msgstr ""
+"送料見積の取得に問題があります。配送先や商品の情報を確認して再度お試しください。\n"
+"問題が解決しない場合は連絡してください。"
+
+#: uc_quote.admin.inc:103
+msgid "Default pickup address"
+msgstr "デフォルトの配送元住所"
+
+#: uc_quote.admin.inc:104
+msgid "When delivering products to customers, the original location of the product must be known in order to accurately quote the shipping cost and set up a delivery. This form provides the default location for products across the entire store. If a product's individual pickup address is blank, &Uuml;bercart looks for the manufacturer's. If that is also blank, it uses the store's default pickup address."
+msgstr "商品を顧客へ配送する際、コストの見積や配送の準備を正確に行うため、商品の元の位置を知らせておかなければなりません。このフォームで、店舗全体で商品のデフォルトとする位置を指定することができます。商品個別の配送元住所が空欄であれば、&Uuml;bercartは製造元を参照します。そこも空欄であれば、店舗のデフォルトの配送元住所を使用します。"
+
+#: uc_quote.admin.inc:105
+msgid "Default pickup address is: <br />!address"
+msgstr "デフォルトの配送元住所: <br />!address"
+
+#: uc_quote.admin.inc:136;242
+msgid "Save configuration"
+msgstr "設定の保存"
+
+#: uc_quote.admin.inc:165;306
+msgid "The configuration options have been saved."
+msgstr "設定オプションが保存されました。"
+
+#: uc_quote.admin.inc:198
+msgid "@method is enabled."
+msgstr "@method は有効です。"
+
+#: uc_quote.admin.inc:212;257
+msgid "List position"
+msgstr "リスト位置"
+
+#: uc_quote.admin.inc:213
+msgid "Determines which shipping methods are quoted at checkout when products of different shipping types are ordered. Larger values take precedence."
+msgstr "異なる配送タイプの商品が注文された場合に、どの配送方法を見積に使用するか決定します。より大きな値のものが優先されます。"
+
+#: uc_quote.admin.inc:237
+msgid "Default order fulfillment type for products"
+msgstr "デフォルトの商品配送タイプ"
+
+#: uc_quote.admin.inc:257
+msgid "Enable"
+msgstr "有効"
+
+#: uc_quote.admin.inc:257
+msgid "Shipping method"
+msgstr "配送方法"
+
+#: uc_quote.admin.inc:287
+msgid "At least one shipping quote method must be enabled."
+msgstr "送料見積方法を少なくともひとつ有効にしてください。"
+
+#: uc_quote.admin.inc:226
+msgid "<br />The %list method is compatible with any shipping type."
+msgid_plural "<br />The %list methods are compatible with any shipping type."
+msgstr[0] "<br /> %list はどんな配送タイプとも互換性があります。"
+msgstr[1] "<br /> %list はどんな配送タイプとも互換性があります。"
+
+#: uc_quote.pages.inc:124
+#: uc_quote.module:260;279;287;392;867;1019
+msgid "Order"
+msgstr "注文"
+
+#: uc_quote.pages.inc:129
+#: uc_quote.module:261;393;872;1024
+msgid "Quote method"
+msgstr "見積方法"
+
+#: uc_quote.pages.inc:134
+#: uc_quote.module:877;1029
+msgid "User"
+msgstr "ユーザ"
+
+#: uc_quote.module:176
+msgid "Shipping settings"
+msgstr "配送設定"
+
+#: uc_quote.module:183
+msgid "- Store default -"
+msgstr "- 店舗デフォルト -"
+
+#: uc_quote.module:187
+msgid "Default product shipping type"
+msgstr "デフォルトの商品配送タイプ"
+
+#: uc_quote.module:196
+msgid "Default product pickup address"
+msgstr "デフォルトの商品配送元住所"
+
+#: uc_quote.module:197
+msgid "When delivering products to customers, the original location of the product must be known in order to accurately quote the shipping cost and set up a delivery. If this pickup address is left blank, this product will default to the <a href=\"!url\">store pickup address</a>."
+msgstr "商品を顧客へ配送する際、コストの見積や配送の準備を正確に行うため、商品の元の位置を知らせておかなければなりません。配送元の住所が空欄であれば、<a href=\"!url\">店舗の配送元住所</a>をこの商品のデフォルトとします。"
+
+#: uc_quote.module:232;539
+msgid "Shipping"
+msgstr "配送"
+
+#: uc_quote.module:233
+msgid "Shipping settings form."
+msgstr "配送設定フォーム"
+
+#: uc_quote.module:256
+msgid "Getting shipping quote via !method"
+msgstr "!method で送料見積を取得"
+
+#: uc_quote.module:257;390
+msgid "Quote"
+msgstr "見積"
+
+#: uc_quote.module:262
+msgid "User account"
+msgstr "ユーザアカウント"
+
+#: uc_quote.module:275
+msgid "Order has a product of a particular shipping type"
+msgstr "注文に特定の配送タイプの商品が含まれている"
+
+#: uc_quote.module:276
+msgid "Order: Product"
+msgstr "注文: 商品"
+
+#: uc_quote.module:283
+msgid "Order has a shipping quote from a particular method"
+msgstr "注文に特定の方法による送料見積が含まれている"
+
+#: uc_quote.module:284
+msgid "Order: Shipping Quote"
+msgstr "注文: 送料見積"
+
+#: uc_quote.module:324
+msgid "Shipping type"
+msgstr "配送タイプ"
+
+#: uc_quote.module:369
+msgid "(disabled)"
+msgstr "（無効）"
+
+#: uc_quote.module:375
+msgid "Shipping quote method"
+msgstr "送料見積方法"
+
+#: uc_quote.module:389
+msgid "Fetch a shipping quote"
+msgstr "送料見積の取得"
+
+#: uc_quote.module:453
+msgid "Shipping quotes"
+msgstr "送料見積"
+
+#: uc_quote.module:468
+msgid "Calculate shipping cost"
+msgstr "送料計算"
+
+#: uc_quote.module:469
+msgid "Extra information necessary to ship."
+msgstr "配送に必要な情報。"
+
+#: uc_quote.module:485
+msgid "Shipping quote"
+msgstr "送料見積"
+
+#: uc_quote.module:486
+msgid "Get a shipping quote for the order from a quoting module."
+msgstr "見積モジュールから送料見積を取得します。"
+
+#: uc_quote.module:559;1183
+msgid "Small package"
+msgstr "小包"
+
+#: uc_quote.module:683
+msgid "Calculate"
+msgstr "計算"
+
+#: uc_quote.module:697
+msgid "Receiving quotes:"
+msgstr "見積取得:"
+
+#: uc_quote.module:739
+msgid "Estimated shipping cost:"
+msgstr "配送費用の見積:"
+
+#: uc_quote.module:774
+msgid "Click to calculate shipping"
+msgstr "クリックして送料を計算"
+
+#: uc_quote.module:780;954
+msgid "Receiving quotes..."
+msgstr "見積の取得中..."
+
+#: uc_quote.module:781
+msgid ""
+"There were problems getting a shipping quote. Please verify the delivery address and product information and try again.\n"
+"If this does not resolve the issue, please call @phone to complete your order."
+msgstr ""
+"送料見積の取得に問題があります。配送先の住所や商品情報を確認して再度お試しください。\n"
+"問題が解決しない場合は、@phone までお電話ください。"
+
+#: uc_quote.module:833
+msgid "You must select a shipping option before continuing."
+msgstr "次へ進む前に配送オプションを選択してください。"
+
+#: uc_quote.module:889;1040
+msgid "Invalid option selected. Recalculate shipping quotes to continue."
+msgstr "不正なオプションが選択されています。送料見積を再計算してください。"
+
+#: uc_quote.module:938
+msgid "Get shipping quotes"
+msgstr "送料見積を取得"
+
+#: uc_quote.module:942;988;989
+msgid "Apply to order"
+msgstr "注文に適用"
+
+#: uc_quote.module:433;434
+msgid "quote"
+msgstr "見積"
+
+#: uc_quote.module:433
+msgid "!messages"
+msgstr ""
+
+#: uc_quote.module:434
+msgid "<pre>@data</pre>"
+msgstr ""
+
+#: uc_quote.module:21
+msgid "configure quotes"
+msgstr "見積の設定"
+
+#: uc_quote.module:31
+msgid "Shipping quote settings"
+msgstr "送料見積の設定"
+
+#: uc_quote.module:32
+msgid "Configure the shipping quote settings."
+msgstr "送料見積の設定を行います。"
+
+#: uc_quote.module:39
+msgid "Overview"
+msgstr "概観"
+
+#: uc_quote.module:40
+msgid "View general shipping quote settings."
+msgstr "共通の送料見積設定を表示します。"
+
+#: uc_quote.module:46
+msgid "Quote settings"
+msgstr "見積の設定"
+
+#: uc_quote.module:55
+msgid "Quote methods"
+msgstr "見積方法"
+
+#: uc_quote.module:64
+msgid "General settings"
+msgstr "全般の設定"
+
+#: uc_quote.info:0
+msgid "Shipping Quotes"
+msgstr "送料見積"
+
+#: uc_quote.info:0
+msgid "Retrieve and display quotes for shipping products."
+msgstr "商品の配送に関する見積の処理と表示を行います。"
+
+#: uc_quote.info:0
+msgid "Ubercart - core (optional)"
+msgstr ""
+

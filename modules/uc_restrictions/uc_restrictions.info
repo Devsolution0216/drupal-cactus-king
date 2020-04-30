@@ -1,0 +1,16 @@
+; $Id: uc_restrictions.info,v 1.2 2009/01/27 23:43:42 islco Exp $
+name = Ubercart Restrictions
+description = Restrict ordering by defined factors
+dependencies[] = uc_store
+dependencies[] = uc_order
+dependencies[] = uc_product
+dependencies[] = uc_cart
+dependencies[] = thickbox
+package = Ubercart - restrictions
+core = 6.x
+; Information added by drupal.org packaging script on 2009-01-27
+version = "6.x-1.0"
+core = "6.x"
+project = "uc_restrictions"
+datestamp = "1233100556"
+

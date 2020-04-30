@@ -1,0 +1,26 @@
+// $Id: INSTALL.txt,v 1.2 2010/01/28 16:18:08 atrasatti Exp $
+
+CONTENTS OF THIS FILE
+---------------------
+
+ * Pre-requisites
+ * Installation
+
+PRE-REQUISITES
+--------------
+The theme might work with Drupal 5 or limited changes might be required, but
+it was tested only on Drupal 6.*. It is therefore recommended to use the most
+recent Drupal 6 version available.
+The use of the Mobile Plugin is recommended, but NOT a requirement. See below
+for more details.
+
+
+INSTALLATION
+------------
+
+Install the theme like any other theme in Drupal, unzip in sites/all/themes and
+then activate it from Administer > Site Building > Themes.
+Configure as the default theme if you are serving mobile only, or use one of the
+many plugins to switch automatically. See below or http://drupal.org/node/698010
+for more details.
+

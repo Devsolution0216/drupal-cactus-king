@@ -1,0 +1,431 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_payment_checkout_pane.inc,v 1.5.2.4 2008/11/07 21:13:25 islandusurper
+#  uc_payment_order_pane.inc,v 1.5.2.4 2008/11/07 21:13:25 islandusurper
+#  uc_payment.ca.inc,v 1.1.2.5 2008/11/07 21:13:25 islandusurper
+#  uc_payment.module,v 1.5.2.8 2008/12/09 15:20:35 islandusurper
+#  uc_payment.admin.inc,v 1.1.2.5 2008/12/09 15:20:35 islandusurper
+#  uc_payment.info,v 1.4.2.2 2008/11/07 21:13:25 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-14 08:05+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: payment/uc_payment/uc_payment_checkout_pane.inc:52
+msgid "Select a payment method from the following options."
+msgstr "Wählen Sie eine Zahlungs Art aus den folgenden Möglichkeiten."
+
+#: payment/uc_payment/uc_payment_checkout_pane.inc:110
+msgid "Paying by"
+msgstr "Zahlung per"
+
+#: payment/uc_payment/uc_payment_checkout_pane.inc:123
+msgid "Show the order total preview on the payment pane."
+msgstr ""
+"Die Vorschau auf die Gesamtbestellsumme auf dem Zahlungsabschnitt "
+"anzeigen."
+
+#: payment/uc_payment/uc_payment_order_pane.inc:71
+msgid "None available"
+msgstr "Keine verfügbar"
+
+#: payment/uc_payment/uc_payment.ca.inc:124
+msgid "A payment gets entered for an order"
+msgstr "Eine Zahlung wird für eine Bestellung angegeben."
+
+#: payment/uc_payment/uc_payment.ca.inc:142
+msgid "Check the order balance"
+msgstr "Die Bestellungs balance?? überprüfen"
+
+#: payment/uc_payment/uc_payment.ca.inc:181
+msgid "Balance is less than !zero."
+msgstr "Kontostand ist kleiner als !zero."
+
+#: payment/uc_payment/uc_payment.ca.inc:183
+msgid "Balance is equal to !zero."
+msgstr "Kontostand ist gleich !zero."
+
+#: payment/uc_payment/uc_payment.ca.inc:184
+msgid "Balance is greater than !zero."
+msgstr "Kontostand ist größer als !zero."
+
+#: payment/uc_payment/uc_payment.ca.inc:189
+msgid "Balance comparison type"
+msgstr "Kontostands vergleichs Art."
+
+#: payment/uc_payment/uc_payment.module:29,53
+msgid "Payment settings"
+msgstr "Zahlungseinstellungen"
+
+#: payment/uc_payment/uc_payment.module:30
+msgid "Configure the payment settings."
+msgstr "Die Zahlungs Einstellungen bearbeiten."
+
+#: payment/uc_payment/uc_payment.module:37
+msgid "View the payment settings."
+msgstr "Die Zahlungs einstellungen anzeigen."
+
+#: payment/uc_payment/uc_payment.module:44
+msgid "Edit the payment settings."
+msgstr "Zahlungseinstellungen bearbeiten."
+
+#: payment/uc_payment/uc_payment.module:54
+msgid "Edit the basic payment settings."
+msgstr "Die grundlegenden Zahlungseinstellungen bearbeiten."
+
+#: payment/uc_payment/uc_payment.module:61
+msgid "Edit the payment method settings."
+msgstr "Die Zahlungsmethoden Einstellungen bearbeiten."
+
+#: payment/uc_payment/uc_payment.module:71
+msgid "Edit the payment gateway settings."
+msgstr "Die Zahlungs Gateway Einstellungen bearbeiten."
+
+#: payment/uc_payment/uc_payment.module:81
+msgid "Return order totals"
+msgstr "Gesamtsumme der Bestellung zurückgeben"
+
+#: payment/uc_payment/uc_payment.module:87,96
+msgid "Payment details"
+msgstr "Zahlungs Daten"
+
+#: payment/uc_payment/uc_payment.module:88
+msgid "Add the payment details to the checkout pane."
+msgstr "Die Zahlungs Informationen im kassen Abschnitt abfragen."
+
+#: payment/uc_payment/uc_payment.module:97
+msgid "Add the payment details to the order pane."
+msgstr "Die Zahlungs Informationen im Bestell abschnitt abfragen."
+
+#: payment/uc_payment/uc_payment.module:121,122
+msgid "Delete payment?"
+msgstr "Zahlung löschen ?"
+
+#: payment/uc_payment/uc_payment.module:156
+msgid "The payment method of the order."
+msgstr "Die zahlungs art für die Bestellung"
+
+#: payment/uc_payment/uc_payment.module:271
+msgid "Select a payment method from the enabled payment modules."
+msgstr "Wählen Sie eine Zahlungsart aus den aktivierten Zahlungs Modulen aus."
+
+#: payment/uc_payment/uc_payment.admin.inc:20
+msgid "Enable payment tracking."
+msgstr "Zahlungs Überwachung aktivieren."
+
+#: payment/uc_payment/uc_payment.admin.inc:30
+msgid "Allow payments to be deleted by users with permission."
+msgstr ""
+"Das Löschen von Zahlungen erlauben für Benutzer mit entsprechenden "
+"Rechten."
+
+#: payment/uc_payment/uc_payment.admin.inc:40
+msgid "Log payments entered and deleted to order log."
+msgstr ""
+"Zahlungen die eingegeben oder gelöscht werden im Bestellungsprotokoll "
+"aufzeichnen."
+
+#: payment/uc_payment/uc_payment.admin.inc:51
+msgid "Default payment details message"
+msgstr "Standard Zahlungs daten Nachricht"
+
+#: payment/uc_payment/uc_payment.admin.inc:52
+msgid ""
+"Message displayed when a payment method does not display any further "
+"details."
+msgstr ""
+"Nachricht die angezeigt wird wenn eine Zahlungs art keine weiteren "
+"Ausgaben macht."
+
+#: payment/uc_payment/uc_payment.admin.inc:65
+msgid ""
+"The settings forms below are for the payment methods defined by "
+"enabled modules. Click a name to expand its options and adjust the "
+"settings accordingly. Methods are listed in order of appearance on the "
+"checkout screen, determined by the weight setting (current value shown "
+"in parentheses)."
+msgstr ""
+"Die Einstellungs Formulare unten sind für die Zahlungs Arten und "
+"werden von den aktivierten Modulen erzeugt. Klicken Sie auf den Namen "
+"um die Einstellungsseite auszuklappen und die Einstellungen "
+"entsprechend anzupassen. Die Methoden werden in der Reihenfolge "
+"gelistet wie sie auch auf der Kassen seite erscheinen, durch den "
+"gewichts paramter können Sie das beeinflussen. (aktueller wert wird "
+"in anführungszeichen gezeigt)"
+
+#: payment/uc_payment/uc_payment.admin.inc:113
+msgid "None available."
+msgstr "Keine verfügbar."
+
+#: payment/uc_payment/uc_payment.admin.inc:129
+msgid "!method settings"
+msgstr "!method Einstellungen"
+
+#: payment/uc_payment/uc_payment.admin.inc:142
+msgid "Default gateway"
+msgstr "Standard Gateway"
+
+#: payment/uc_payment/uc_payment.admin.inc:155
+msgid "No payment methods founds."
+msgstr "Es wurden Keine Zahlungsmethoden gefunden."
+
+#: payment/uc_payment/uc_payment.admin.inc:175
+msgid ""
+"Payment gateways are web services that allow you to process various "
+"types of payments remotely.  The settings forms below are for the "
+"payment gateways you have installed.  Click a name to expand its "
+"options and adjust the settings accordingly."
+msgstr ""
+"Zahlungs Gateways sind Webservices die es Ihnen ermöglichen "
+"verschiedene Arten von Zahlungen zu verarbeiten. Die Einstellungs "
+"formulare unten sind für die Gateways die Sie instaliert habe. "
+"Klicken Sie auf einen Namen um die Optionen anzuzeigen und die "
+"Einstellungen anzupassen."
+
+#: payment/uc_payment/uc_payment.admin.inc:194
+msgid "This gateway supports the following payment methods:"
+msgstr "Dieses Gateway unterstützt die folgenden Zahlungsarten:"
+
+#: payment/uc_payment/uc_payment.admin.inc:200
+msgid "Enable this payment gateway for use."
+msgstr "Dieses Zahlungsgateway zur benutzung aktivieren."
+
+#: payment/uc_payment/uc_payment.module:325
+msgid "Order total preview:"
+msgstr "Vorschau der Gesamtsumme:"
+
+#: payment/uc_payment/uc_payment.admin.inc:372
+msgid "Enter"
+msgstr "Eingeben"
+
+#: payment/uc_payment/uc_payment.admin.inc:403
+msgid "Payment entered."
+msgstr "Zahlung eingegeben."
+
+#: payment/uc_payment/uc_payment.module:383
+msgid "Received"
+msgstr "Erhalten"
+
+#: payment/uc_payment/uc_payment.module:391
+msgid "Method"
+msgstr "Art"
+
+#: payment/uc_payment/uc_payment.module:399
+msgid "Balance"
+msgstr "Kontostand"
+
+#: payment/uc_payment/uc_payment.admin.inc:410
+msgid "An error loading the payment information occurred."
+msgstr "Beim Laden der Zahlungsinformationen ist ein fehler aufgetreten."
+
+#: payment/uc_payment/uc_payment.admin.inc:414
+msgid "Payment information:"
+msgstr "Zahlungs Informationen:"
+
+#: payment/uc_payment/uc_payment.admin.inc:426
+msgid "Are you sure you want to delete this payment?"
+msgstr "Sind Sie sicher, dass Sie diese Zahlung löschen wollen?"
+
+#: payment/uc_payment/uc_payment.admin.inc:432
+msgid "Payment deleted."
+msgstr "Zahlung gelöscht."
+
+#: payment/uc_payment/uc_payment.admin.inc:242
+msgid "Please choose a payment gateway to use for that payment."
+msgstr "Bitte wählen Sie ein Zahlungs gateway für diese Art von Zahlung."
+
+#: payment/uc_payment/uc_payment.admin.inc:276
+msgid "Process"
+msgstr "Bearbeiten"
+
+#: payment/uc_payment/uc_payment.module:508
+msgid ""
+"An error has occurred with your payment gateway.  The charge function "
+"could not be found."
+msgstr ""
+"Es gab ein Problem mit dem Zahlungs Gateway. Die charge Funktion wurde "
+"nicht gefunden."
+
+#: payment/uc_payment/uc_payment.module:167
+msgid "view payments"
+msgstr "Zahlungen ansehen"
+
+#: payment/uc_payment/uc_payment.module:167
+msgid "manual payments"
+msgstr "Manuelle Zahlung"
+
+#: payment/uc_payment/uc_payment.module:167
+msgid "delete payments"
+msgstr "Zahlungen löschen"
+
+#: payment/uc_payment/uc_payment.module:535,0
+msgid "uc_payment"
+msgstr "uc_payment"
+
+#: payment/uc_payment/uc_payment.info:0
+msgid "Defines an API to let payment modules interact with the cart."
+msgstr ""
+"Es wird eine API zur Verfügung gestellt mit der Zahlungsmodule mit "
+"dem Warenkorb interagieren können."
+
+#: payment/uc_payment/uc_payment_order_pane.inc:59
+msgid "Modify 'Payment info'"
+msgstr "Zahlungs Informationen anpassen"
+
+#: payment/uc_payment/uc_payment.ca.inc:22
+msgid "Update order status on full payment"
+msgstr "Bestellungs status aktualisieren bei vollständiger Zahlung"
+
+#: payment/uc_payment/uc_payment.ca.inc:182
+msgid "Balance is less than or equal to !zero."
+msgstr "Kontostand ist kleiner oder gleich !zero."
+
+#: payment/uc_payment/uc_payment.module:105
+msgid "Select payment gateway"
+msgstr "Zahlungs Gateway auswählen"
+
+#: payment/uc_payment/uc_payment.module:112
+msgid "Payments"
+msgstr "Zahlungen"
+
+#: payment/uc_payment/uc_payment.admin.inc:381
+msgid "Current balance:"
+msgstr "Aktueller Kontostand:"
+
+#: payment/uc_payment/uc_payment.admin.inc:270
+msgid "Use gateway"
+msgstr "Gateway benutzen"
+
+#: payment/uc_payment/uc_payment_checkout_pane.inc:137
+msgid ""
+"Checkout cannot be completed without any payment methods enabled. "
+"Please contact an administrator to resolve the issue."
+msgstr ""
+"Der Bestellvorgang kann nicht abgeschlossen werden so lange keine "
+"Zahlungsmethoden aktiviert sind. Bitte kontaktieren Sie einen "
+"Administrator um dieses Problem zu beheben."
+
+#: payment/uc_payment/uc_payment.module:157
+msgid "The payment balance of the order"
+msgstr "Der Zahlungs Kontostand der Bestellung"
+
+#: payment/uc_payment/uc_payment_checkout_pane.inc:26
+msgid "Javascript must be enabled to view the order total preview."
+msgstr ""
+"JavaScript muss aktiviert sein, um die Vorschau der Gesamtsumme "
+"anzeigen zu können."
+
+#: payment/uc_payment/uc_payment_order_pane.inc:28,43
+msgid "Method: @payment_method"
+msgstr "Zahlungsweise: @payment_method"
+
+#: payment/uc_payment/uc_payment.ca.inc:71
+msgid "Update order status upon checkout completion with full payment"
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:182
+msgid "@gateway_name settings"
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:415
+msgid "@method payment of @amount received on @date."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.module:456
+msgid "You are not able to process %type payments."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.module:475
+msgid ""
+"Attempted to process a %type payment but the gateway's function was "
+"not found."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:23
+msgid "Payment tracking is enabled."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:24
+msgid "Payment tracking is disabled."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:33
+msgid "Payments can be deleted by users with permission."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:34
+msgid "Payments cannot be deleted, even if the user has permission."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:43
+msgid "Log payments are being entered to and deleted from the order log."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:44
+msgid "Log payments are not being entered to and deleted from the order log."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:54
+msgid "Default payment details message is: <br /> %message"
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:82
+msgid "@payment is enabled for checkout."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:83
+msgid "@payment is disabled for checkout."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:226
+msgid "No payment gateway modules are installed."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.ca.inc:23
+msgid "Only happens when a payment is entered and the balance is <= $0.00."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.ca.inc:32,81
+msgid "If the balance is less than or equal to $0.00."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.ca.inc:43
+msgid "If the order status is not already Payment Received."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.ca.inc:57
+msgid "Update the order status to Payment Received."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.ca.inc:92
+msgid "If the order is not shippable."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.ca.inc:105
+msgid "Update the order status to Completed."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.ca.inc:148
+msgid "Check the payment method"
+msgstr ""
+
+#: payment/uc_payment/uc_payment.module:569
+msgid "@method payment for @amount entered by @user."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.module:590
+msgid "@method payment for @amount deleted by @user."
+msgstr ""
+
+#: payment/uc_payment/uc_payment.module:535
+msgid "Payment failed: @message"
+msgstr ""
+

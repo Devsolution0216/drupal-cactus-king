@@ -1,0 +1,250 @@
+<?php
+// $Id: uc_product_power_tools.module,v 1.3 2009/10/05 20:22:38 tcindie Exp $
+
+/**
+ * Ubercart Product Power Tools module
+ *
+ * @file
+ * Provides a number of optional default settings that can be applied
+ * by product class. Product settings can be preset and hidden on the
+ * Create New Product form. Usability is increased by simplifying product
+ * creation to limit displayed settings to those required by a particular
+ * product class.
+ *
+ * @author Will Vincent (tcindie) <tcindie at gmail dot com>
+ */
+
+
+/**
+ * Implementation of hook_perm().
+ */
+function uc_product_power_tools_perm() {
+  return array('administer product power tools settings', 'use PHP for sku patterns');
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function uc_product_power_tools_menu() {
+  $items = array();
+
+  $items['admin/store/products/power-tools'] = array(
+    'title'             => 'Product Power Tools',
+    'description'       => 'Enable/Disable Product "Power Tools" by product class.',
+    'page callback'     => 'drupal_get_form',
+    'page arguments'    => array('uc_product_power_tools_admin_settings'),
+    'access arguments'  => array('administer product power tools settings'),
+    'type'              => MENU_NORMAL_ITEM,
+    'file'              => 'uc_product_power_tools_admin.inc',
+  );
+  $items['admin/store/products/power-tools/%'] = array(
+    'title'             => '',
+    'page callback'     => 'drupal_get_form',
+    'page arguments'    => array('uc_product_power_tools_class_settings'),
+    'access arguments'  => array('administer product power tools settings'),
+    'type'              => MENU_CALLBACK,
+    'file'              => 'uc_product_power_tools_admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function uc_product_power_tools_form_alter(&$form, $form_state, $form_id) {
+  if (substr($form['#theme'][0], -10) != "_node_form") {
+    return;
+  }
+  else {
+    // Get Settings for this product class.
+    $class_settings = db_fetch_array(db_query("SELECT * FROM {uc_power_tools} WHERE pcid = '%s'", $form['type']['#value']));
+    // If this is NOT in fact a product class, or power tools is disabled for this class, there's nothing to do so return.
+    if ($class_settings['pcid'] != $form['type']['#value'] || $class_settings['enabled'] == 0) {
+      return;
+    }
+  }
+
+
+  // Handle SKU field.
+  switch ($class_settings['asku']) {
+    case 1:
+    //Do not overwrite SKU for existing products
+    $form['base']['model']['#value']= isset($form['nid']['#value'])?$form['base']['model']['#default_value']:'';
+    $form['base']['model']['#type']= 'hidden';
+  }
+
+  // Handle List Price field.
+  switch ($class_settings['lp']) {
+    case 1:
+    case 2:
+      $form['base']['prices']['list_price'] = array(
+        '#type'  => 'hidden',
+        '#value' => $class_settings['lp-settings'],
+      );
+  }
+
+  // Handle Cost field.
+  switch ($class_settings['cost']) {
+    case 1:
+    $form['base']['prices']['cost'] = array(
+        '#type'  => 'hidden',
+        '#value' => $class_settings['cost-settings'],
+      );
+  }
+
+  // Handle Sell Price field.
+  switch ($class_settings['sp']) {
+    case 1:
+      $form['base']['prices']['sell_price'] = array(
+        '#type'  => 'hidden',
+        '#value' => $class_settings['sp-settings'],
+      );
+  }
+
+  // Handle Default Quantity field.
+  switch ($class_settings['dq']) {
+    case 1:
+      $form['base']['default_qty'] = array(
+        '#type'  => 'hidden',
+        '#value' => $class_settings['dq-settings'],
+      );
+  break;
+  case 2:
+      $form['base']['default_qty']['#default_value']= isset($form['nid']['#value'])?$form['base']['default_qty']['#default_value']:$class_settings['dq-settings'];
+  break;
+  }
+
+  // Handle Package Quantity field.
+  switch ($class_settings['pq']) {
+    case 1:
+      $form['base']['pkg_qty'] = array(
+        '#type'  => 'hidden',
+        '#value' => $class_settings['pq-settings'],   
+      );
+  break;
+    case 2:
+      $form['base']['pkg_qty']['#default_value'] = isset($form['nid']['#value'])?$form['base']['pkg_qty']['#default_value']:$class_settings['pq-settings'];
+    break;    
+  }
+
+  // Handle Listing Position field.
+  switch ($class_settings['lpos']) {
+    case 1:
+      $form['base']['ordering'] = array(
+        '#type'  => 'hidden',
+        '#value' => $class_settings['lpos-settings'],
+      );
+  }
+
+  // Handle Shipping options.
+  $form['base']['weight']['weight']['#default_value'] = isset($form['nid']['#value']) ? $form['base']['weight']['weight']['#default_value'] : $class_settings['weight'];
+  $form['base']['weight']['weight_units']['#default_value'] = isset($form['nid']['#value']) ? $form['base']['weight']['weight_units']['#default_value'] : $class_settings['weight_units'];
+  $form['base']['dimensions']['length_units']['#default_value'] = isset($form['nid']['#value']) ? $form['base']['dimensions']['length_units']['#default_value'] : $class_settings['length_units'];
+  $form['base']['dimensions']['dim_length']['#default_value'] = isset($form['nid']['#value']) ? $form['base']['dimensions']['dim_length']['#default_value'] : $class_settings['length'];
+  $form['base']['dimensions']['dim_width']['#default_value'] = isset($form['nid']['#value']) ? $form['base']['dimensions']['dim_width']['#default_value'] : $class_settings['width'];
+  $form['base']['dimensions']['dim_height']['#default_value'] = isset($form['nid']['#value']) ? $form['base']['dimensions']['dim_height']['#default_value'] : $class_settings['height'];
+  switch ($class_settings['ship']) {
+    case 1:
+        $form['base']['shippable'] = array(
+          '#type'  => 'hidden',
+          '#value' => 1,
+        );
+        break;
+    case 2:
+        $form['base']['shippable'] = array(
+          '#type'  => 'hidden',
+          '#value' => 0,
+        );
+        break;
+    case 3:
+        $form['base']['shippable'] = array(
+          '#type'  => 'hidden',
+          '#value' => 0,
+        );
+        $form['base']['weight'] = NULL;
+        $form['base']['dimensions'] = NULL;
+        $form['shipping'] = NULL;
+  } 
+}
+
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function uc_product_power_tools_nodeapi(&$node, $op) {
+  if ($op == 'presave') {
+    $class_settings = db_fetch_array(db_query("SELECT * FROM {uc_power_tools} WHERE pcid = '%s'", $node->type));
+    if ($class_settings['pcid'] != $node->type) {
+      return;
+    }
+
+    if ($class_settings['lp'] == 1) {
+      $node->list_price = $node->sell_price;
+    }
+  }
+
+  if ($op == 'insert' || $op == 'update') {
+    $class_settings = db_fetch_array(db_query("SELECT * FROM {uc_power_tools} WHERE pcid = '%s'", $node->type));
+    if ($class_settings['pcid'] != $node->type) {
+      return;
+    }
+    //Handle auto sku in here since node has not been created in presave state yet; therefore, [nid] is not available at that state yet
+    if ($op == 'insert' && $class_settings['asku'] == 1) {
+      uc_product_power_tools_sku_set($class_settings['asku-settings'], $node);
+      db_query("UPDATE {uc_products} SET model = '%s' WHERE nid = %d", $node->model, $node->nid);
+      // Handle Stock settings here.
+      if (module_exists('uc_stock')) {
+        $result = db_fetch_array(db_query("SELECT * FROM {uc_product_stock} WHERE sku = '%s' AND nid = %d", $node->model, $node->nid));
+        if ($result['sku'] != $node->model) {
+          db_query("INSERT INTO {uc_product_stock} (sku, nid, active, stock, threshold) VALUES ('%s', %d, 1, %d, %d)", $node->model, $node->nid, $class_settings['stock-settings'], $class_settings['stock-threshold']);
+        }
+        else {
+          db_query("UPDATE {uc_product_stock} SET active=1, stock=%d, threshold=%d WHERE sku = '%s' AND nid = %d", $class_settings['stock-settings'], $class_settings['stock-threshold'], $node->model, $node->nid);
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Sets the automatically generated SKU for the node
+ */
+function uc_product_power_tools_sku_set($pattern, &$node) {
+  if (trim($pattern)) {
+    $node->changed = time();
+    $node->model = _uc_product_power_tools_sku_patternprocessor($pattern, $node);
+  }
+  else if ($node->nid) {
+    $node->model = t('@type @node-id', array('@type' => $node->type, '@node-id' => $node->nid));
+  }
+  else {
+    $temp = db_next_id('{node}_nid');
+    $node->model = t('@type', array('@type' => $node->type, '@node-id' => $temp));
+  }
+
+  // warn, if the generated title is empty
+  if (!trim($node->model)) {
+    $message = t('Autogenerated SKU field is blank.');
+    if (user_access('administer nodes')) {
+      $message .= ' '. t('Perhaps you need to change the <a href="@url">configuration settings</a> for this content type.', array('@url' => 'admin/content/types/'. $node->type));
+    }
+  }
+}
+
+/**
+ * Helper function to generate SKU according to the PHP code.
+ * Right now its only a wrapper, but if this is to be expanded, here is the place to be.
+ * @return SKU string
+ */
+function _uc_product_power_tools_sku_patternprocessor($output, $node) {
+  if (module_exists('token')) {
+    $output = token_replace($output, 'node', $node);
+  }
+  if (user_access('use PHP for sku patterns')) {
+    $output = drupal_eval($output);
+  }
+  if (user_access('use PHP for sku patterns') || module_exists('token')) {
+    $output = preg_replace('/[\t\n\r\0\x0B]/', '', strip_tags($output));
+  }
+  return $output;
+}

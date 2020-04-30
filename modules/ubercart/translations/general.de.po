@@ -1,0 +1,1447 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_2checkout.module,v 1.6.2.4 2008/11/07 21:13:29 islandusurper
+#  uc_cart.module,v 1.15.2.11 2008/12/09 15:20:37 islandusurper
+#  uc_2checkout.pages.inc,v 1.1.2.2 2008/11/07 21:13:29 islandusurper
+#  uc_2checkout.info,v 1.3.4.3 2008/11/07 21:13:29 islandusurper
+#  uc_credit.module,v 1.5.2.7 2008/11/21 21:17:28 islandusurper
+#  uc_paypal.module,v 1.5.2.7 2008/11/21 21:17:26 islandusurper
+#  uc_cart.pages.inc,v 1.1.2.4 2008/11/07 21:13:22 islandusurper
+#  uc_authorizenet.info,v 1.3.4.3 2008/11/07 21:13:22 islandusurper
+#  test_gateway.info,v 1.1.2.5 2008/11/07 21:13:23 islandusurper
+#  uc_credit.info,v 1.4.2.1 2008/11/07 21:13:23 islandusurper
+#  uc_cybersource.info,v 1.4.2.3 2008/11/07 21:13:27 islandusurper
+#  uc_payment_pack.info,v 1.2.2.5 2008/11/07 21:13:27 islandusurper
+#  uc_paypal.info,v 1.3.4.3 2008/11/07 21:13:25 islandusurper
+#  uc_recurring.info,v 1.2.2.5 2008/11/07 21:13:25 islandusurper
+#  uc_google_checkout.info,v 1.1.2.9 2008/11/07 21:12:46 islandusurper
+#  uc_authorizenet.module,v 1.4.2.4 2008/11/07 21:13:22 islandusurper
+#  uc_cybersource.module,v 1.4.2.4 2008/11/07 21:13:27 islandusurper
+#  uc_ups.admin.inc,v 1.1.2.2 2008/11/07 21:13:25 islandusurper
+#  ca.admin.inc,v 1.1.2.8 2008/11/07 21:13:20 islandusurper
+#  uc_payment.admin.inc,v 1.1.2.5 2008/12/09 15:20:35 islandusurper
+#  uc_store.module,v 1.14.2.10 2008/12/09 15:20:37 islandusurper
+#  uc_authorizenet.pages.inc,v 1.1.2.1 2008/11/07 21:13:22 islandusurper
+#  uc_credit.admin.inc,v 1.1.2.2 2008/11/07 21:13:23 islandusurper
+#  uc_credit.pages.inc,v 1.1.2.2 2008/11/07 21:13:23 islandusurper
+#  uc_file.module,v 1.2.2.9 2008/12/09 15:20:38 islandusurper
+#  uc_roles.module,v 1.2.2.10 2008/12/11 15:53:50 islandusurper
+#  uc_order.ca.inc,v 1.1.2.10 2008/12/09 15:20:36 islandusurper
+#  uc_order.order_pane.inc,v 1.1.2.5 2008/12/09 15:20:36 islandusurper
+#  uc_order.module,v 1.12.2.10 2008/12/09 15:20:36 islandusurper
+#  uc_cart.admin.inc,v 1.1.2.4 2008/11/21 21:17:27 islandusurper
+#  uc_recurring.admin.inc,v 1.1.2.2 2008/11/07 21:13:25 islandusurper
+#  uc_recurring.module,v 1.7.2.9 2008/12/09 15:20:37 islandusurper
+#  uc_roles.admin.inc,v 1.1.2.3 2008/12/11 15:53:50 islandusurper
+#  uc_google_checkout.admin.inc,v 1.1.2.6 2008/11/07 21:12:46 islandusurper
+#  uc_payment.module,v 1.5.2.8 2008/12/09 15:20:35 islandusurper
+#  admin.itpl.php,v 1.4.4.1 2008/11/07 21:13:25 islandusurper
+#  uc_payment.install,v 1.5.2.4 2008/12/09 15:20:35 islandusurper
+#  uc_payment.ca.inc,v 1.1.2.5 2008/11/07 21:13:25 islandusurper
+#  uc_payment_checkout_pane.inc,v 1.5.2.4 2008/11/07 21:13:25 islandusurper
+#  uc_payment_order_pane.inc,v 1.5.2.4 2008/11/07 21:13:25 islandusurper
+#  uc_paypal.pages.inc,v 1.1.2.4 2008/11/21 21:17:26 islandusurper
+#  uc_shipping.module,v 1.6.2.6 2008/11/07 21:13:26 islandusurper
+#  uc_order.admin.inc,v 1.1.2.6 2008/12/09 15:20:36 islandusurper
+#  uc_reports.admin.inc,v 1.1.2.1 2008/10/15 14:48:02 islandusurper
+#  uc_store.admin.inc,v 1.1.2.5 2008/11/21 21:17:25 islandusurper
+#  uc_payment_pack.module,v 1.6.2.5 2008/11/07 21:13:27 islandusurper
+#  uc_payment_pack.admin.inc,v 1.1.2.3 2008/11/07 21:13:27 islandusurper
+#  uc_cart_checkout_pane.inc,v 1.5.2.2 2008/11/07 21:13:21 islandusurper
+#  hooks.php,v 1.1.2.6 2008/11/07 21:13:28 islandusurper
+#  uc_payment.info,v 1.4.2.2 2008/11/07 21:13:25 islandusurper
+#  uc_quote.pages.inc,v 1.1.2.3 2008/12/11 15:53:51 islandusurper
+#  uc_quote.module,v 1.5.2.9 2008/12/11 15:53:51 islandusurper
+#  uc_attribute.admin.inc,v 1.1.2.4 2008/11/21 21:17:28 islandusurper
+#  uc_cart.ca.inc,v 1.1.2.7 2008/11/21 21:17:27 islandusurper
+#  uc_file.ca.inc,v 1.1.2.1 2008/11/21 21:17:26 islandusurper
+#  uc_order.info,v 1.6.2.2 2008/11/07 21:13:23 islandusurper
+#  uc_roles.ca.inc,v 1.1.2.2 2008/12/11 15:53:50 islandusurper
+#  uc_stock.ca.inc,v 1.1.2.5 2008/11/07 21:13:29 islandusurper
+#  uc_taxes.ca.inc,v 1.1.2.6 2008/11/21 21:17:25 islandusurper
+#  uc_taxes.module,v 1.12.2.6 2008/11/21 21:17:25 islandusurper
+#  test_gateway.module,v 1.1.2.5 2008/11/07 21:13:23 islandusurper
+#  ca.module,v 1.1.2.9 2008/11/21 21:17:30 islandusurper
+#  uc_attribute.module,v 1.12.2.9 2008/12/09 15:20:35 islandusurper
+#  uc_catalog.module,v 1.15.2.11 2008/12/11 15:53:50 islandusurper
+#  uc_product.module,v 1.14.2.11 2008/12/09 15:20:36 islandusurper
+#  uc_quote.admin.inc,v 1.1.2.5 2008/12/11 15:53:51 islandusurper
+#  uc_shipping.admin.inc,v 1.1.2.2 2008/11/07 21:13:26 islandusurper
+#  uc_product.admin.inc,v 1.1.2.6 2008/12/09 15:20:36 islandusurper
+#  uc_product.views.inc,v 1.1.2.2 2008/11/07 21:13:28 islandusurper
+#  uc_taxes.admin.inc,v 1.1.2.3 2008/11/21 21:17:25 islandusurper
+#  uc_flatrate.admin.inc,v 1.1.2.5 2008/12/09 15:20:38 islandusurper
+#  uc_cart_links.admin.inc,v 1.1.2.2 2008/11/07 21:13:24 islandusurper
+#  uc_file.admin.inc,v 1.1.2.3 2008/11/21 21:17:26 islandusurper
+#  uc_authorizenet.admin.inc,v 1.1.2.1 2008/11/07 21:13:22 islandusurper
+#  uc_recurring.pages.inc,v 1.1.2.2 2008/11/07 21:13:25 islandusurper
+#  uc_quote.info,v 1.4.2.2 2008/11/07 21:13:24 islandusurper
+#  uc_shipping.info,v 1.4.2.2 2008/11/07 21:13:25 islandusurper
+#  uc_attribute.info,v 1.6.2.2 2008/11/07 21:13:22 islandusurper
+#  uc_catalog.info,v 1.6.2.2 2008/11/07 21:13:24 islandusurper
+#  uc_file.info,v 1.2.2.5 2008/11/07 21:13:23 islandusurper
+#  uc_reports.info,v 1.2.2.5 2008/11/07 21:13:28 islandusurper
+#  uc_roles.info,v 1.2.2.7 2008/11/07 21:13:26 islandusurper
+#  uc_taxes.info,v 1.6.2.1 2008/10/15 14:47:36 islandusurper
+#  uc_google_checkout.module,v 1.1.2.13 2008/12/09 15:20:42 islandusurper
+#  uc_weightquote.module,v 1.5.2.4 2008/11/21 21:17:30 islandusurper
+#  uc_ups.module,v 1.5.2.5 2008/12/11 15:53:50 islandusurper
+#  uc_usps.module,v 1.6.2.8 2008/12/11 15:53:50 islandusurper
+#  uc_flatrate.info,v 1.4.2.2 2008/11/07 21:13:27 islandusurper
+#  uc_ups.info,v 1.3.4.2 2008/11/07 21:13:25 islandusurper
+#  uc_usps.info,v 1.4.2.3 2008/11/07 21:13:23 islandusurper
+#  uc_weightquote.info,v 1.3.4.3 2008/11/07 21:13:28 islandusurper
+#  uc_product_kit.module,v 1.11.2.8 2008/12/09 15:20:38 islandusurper
+#  uc_stock.admin.inc,v 1.1.2.2 2008/12/09 15:20:35 islandusurper
+#  summaries.inc,v 1.1.2.7 2008/11/21 21:17:30 islandusurper
+#  uc_usps.admin.inc,v 1.1.2.2 2008/11/07 21:13:23 islandusurper
+#  uc_weightquote.admin.inc,v 1.1.2.2 2008/11/07 21:13:28 islandusurper
+#  uc_cart.info,v 1.7.2.2 2008/11/07 21:13:22 islandusurper
+#  uc_order.line_item.inc,v 1.1.2.3 2008/11/07 21:13:23 islandusurper
+#  ca.info,v 1.1.2.5 2008/11/07 21:13:20 islandusurper
+#  uc_product.info,v 1.7.2.2 2008/11/07 21:13:24 islandusurper
+#  uc_store.info,v 1.7.2.1 2008/10/15 14:47:39 islandusurper
+#  uc_cart_links.module,v 1.2.2.6 2008/11/07 21:13:24 islandusurper
+#  uc_file.pages.inc,v 1.1.2.4 2008/11/21 21:17:26 islandusurper
+#  uc_cart_links.info,v 1.2.2.5 2008/11/07 21:13:24 islandusurper
+#  uc_googleanalytics.info,v 1.4.4.3 2008/11/07 21:13:29 islandusurper
+#  uc_product_kit.info,v 1.5.4.3 2008/11/07 21:13:26 islandusurper
+#  uc_stock.info,v 1.3.2.5 2008/11/07 21:13:29 islandusurper
+#  uc_catalog.install,v 1.9.2.6 2008/12/11 15:53:50 islandusurper
+#  uc_catalog.admin.inc,v 1.1.2.5 2008/11/21 21:17:26 islandusurper
+#  uc_paypal.install,v 1.6.2.4 2008/11/07 21:13:25 islandusurper
+#  uc_recurring.install,v 1.4.2.9 2008/12/09 15:20:37 islandusurper
+#  uc_order.install,v 1.9.2.6 2008/12/09 15:20:36 islandusurper
+#  customer.itpl.php,v 1.5.2.1 2008/11/07 21:13:25 islandusurper
+#  uc_taxes.install,v 1.10.2.3 2008/12/09 15:20:38 islandusurper
+#  uc_stock.module,v 1.12.2.9 2008/12/09 15:20:35 islandusurper
+#  uc_attribute.install,v 1.10.2.4 2008/12/09 15:20:35 islandusurper
+#  uc_google_checkout.pages.inc,v 1.1.2.6 2008/12/09 15:20:42 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-12-10 10:56+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: payment/uc_2checkout/uc_2checkout.module:15,22; uc_cart/uc_cart.module:166
+msgid "Order complete"
+msgstr "Bestellvorgang abgeschlossen"
+
+#: payment/uc_2checkout/uc_2checkout.pages.inc:11; payment/uc_2checkout/uc_2checkout.module:62; payment/uc_2checkout/uc_2checkout.info:0
+msgid "2Checkout"
+msgstr "2Checkout"
+
+#: payment/uc_2checkout/uc_2checkout.pages.inc:54; payment/uc_2checkout/uc_2checkout.module:64,90; payment/uc_credit/uc_credit.module:371
+msgid "Credit card"
+msgstr "Kreditkarte"
+
+#: payment/uc_2checkout/uc_2checkout.module:146; payment/uc_paypal/uc_paypal.module:499
+msgid "Order review submit button text"
+msgstr "Text für Bestellungs-Vorschau-Button"
+
+#: payment/uc_2checkout/uc_2checkout.module:148,210; payment/uc_paypal/uc_paypal.module:501,892
+msgid "Submit Order"
+msgstr "Bestellung abschicken"
+
+#: payment/uc_2checkout/uc_2checkout.pages.inc:84; uc_cart/uc_cart.pages.inc:454
+msgid "Order created through website."
+msgstr "Bestellung wurde über die Website erzeugt."
+
+#: payment/uc_2checkout/uc_2checkout.info:0; payment/uc_authorizenet/uc_authorizenet.info:0; payment/uc_credit/test_gateway.info:0; payment/uc_credit/uc_credit.info:0; payment/uc_cybersource/uc_cybersource.info:0; payment/uc_payment_pack/uc_payment_pack.info:0; payment/uc_paypal/uc_paypal.info:0; payment/uc_recurring/uc_recurring.info:0; uc_google_checkout/uc_google_checkout.info:0
+msgid "Ubercart - payment"
+msgstr "Ubercart - Zahlungen"
+
+#: payment/uc_authorizenet/uc_authorizenet.module:79; payment/uc_authorizenet/uc_authorizenet.info:0
+msgid "Authorize.net"
+msgstr "Authorize.net"
+
+#: payment/uc_authorizenet/uc_authorizenet.module:150; payment/uc_cybersource/uc_cybersource.module:106; shipping/uc_ups/uc_ups.admin.inc:47
+msgid "Production"
+msgstr "Produkton"
+
+#: ca/ca.admin.inc:76,315; payment/uc_payment/uc_payment.admin.inc:142; uc_store/uc_store.module:665,1467
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: ca/ca.admin.inc:76,316; payment/uc_authorizenet/uc_authorizenet.module:152
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:14,29,49; payment/uc_authorizenet/uc_authorizenet.module:310,466,508,0
+msgid "uc_authorizenet"
+msgstr "uc_authorizenet"
+
+#: payment/uc_credit/uc_credit.admin.inc:226; payment/uc_credit/uc_credit.module:415,626,957,1156
+msgid "(Last 4) "
+msgstr "(letzte 4) "
+
+#: payment/uc_credit/uc_credit.pages.inc:27; payment/uc_credit/uc_credit.module:774,800,916
+msgid "American Express"
+msgstr "American Express"
+
+#: payment/uc_credit/uc_credit.module:529; uc_file/uc_file.module:419; uc_roles/uc_roles.module:314
+msgid "Expiration"
+msgstr "Ablauf-Datum"
+
+#: payment/uc_credit/uc_credit.module:703; uc_order/uc_order.ca.inc:299,752; uc_order/uc_order.order_pane.inc:622; uc_order/uc_order.module:1238
+msgid "Order status"
+msgstr "Bestellungsstatus"
+
+#: payment/uc_credit/uc_credit.module:719; uc_cart/uc_cart.admin.inc:80,109
+msgid "Unit of time"
+msgstr "Zeiteinheit"
+
+#: payment/uc_credit/uc_credit.module:722; payment/uc_recurring/uc_recurring.admin.inc:173; payment/uc_recurring/uc_recurring.module:504,527; uc_file/uc_file.module:223,811,964; uc_roles/uc_roles.admin.inc:178; uc_roles/uc_roles.module:203,749,951
+msgid "day(s)"
+msgstr "Tage"
+
+#: payment/uc_credit/uc_credit.module:723; payment/uc_recurring/uc_recurring.admin.inc:174; payment/uc_recurring/uc_recurring.module:505,528; uc_file/uc_file.module:224,812,965; uc_roles/uc_roles.admin.inc:179; uc_roles/uc_roles.module:204,750,952
+msgid "week(s)"
+msgstr "Wochen"
+
+#: payment/uc_credit/uc_credit.module:724; payment/uc_recurring/uc_recurring.admin.inc:176; payment/uc_recurring/uc_recurring.module:507,530; uc_file/uc_file.module:226,814,967; uc_roles/uc_roles.admin.inc:181; uc_roles/uc_roles.module:206,752,954
+msgid "year(s)"
+msgstr "Jahre"
+
+#: payment/uc_credit/uc_credit.module:918; uc_store/uc_store.module:930,936,937
+msgid "N/A"
+msgstr "N/A"
+
+#: payment/uc_credit/uc_credit.admin.inc:12; uc_google_checkout/uc_google_checkout.admin.inc:303
+msgid "Return to order view screen."
+msgstr "Zur Bestellungs-Ansicht zurück."
+
+#: payment/uc_payment/uc_payment.admin.inc:380; payment/uc_payment/uc_payment.module:339; uc_google_checkout/uc_google_checkout.admin.inc:317; uc_order/templates/admin.itpl.php:12
+msgid "Order total:"
+msgstr "Bestellungsgesamtsumme"
+
+#: payment/uc_payment/uc_payment.admin.inc:391; uc_google_checkout/uc_google_checkout.admin.inc:395
+msgid "You must enter a number for the amount."
+msgstr "Sie müssen einen numerische anzahl für den Betrag angeben."
+
+#: payment/uc_credit/uc_credit.admin.inc:215; uc_google_checkout/uc_google_checkout.admin.inc:409
+msgid "Invalid order ID.  Unable to process payment."
+msgstr "Ungültige Bestell-ID. Zahlungs-Abwicklung unmöglich."
+
+#: payment/uc_cybersource/uc_cybersource.module:19; payment/uc_payment/uc_payment.module:302; payment/uc_payment/uc_payment.install:69,133
+msgid "Payment received"
+msgstr "Zahlung erhalten."
+
+#: payment/uc_cybersource/uc_cybersource.module:78; payment/uc_cybersource/uc_cybersource.info:0
+msgid "CyberSource"
+msgstr "CyberSource"
+
+#: payment/uc_cybersource/uc_cybersource.module:114; payment/uc_payment/uc_payment.admin.inc:142; payment/uc_payment/uc_payment.ca.inc:213; payment/uc_payment/uc_payment_checkout_pane.inc:60; payment/uc_payment/uc_payment_order_pane.inc:69; payment/uc_payment/uc_payment.module:270
+msgid "Payment method"
+msgstr "Zahlungsmethode"
+
+#: payment/uc_cybersource/uc_cybersource.module:248; payment/uc_paypal/uc_paypal.module:321
+msgid "The credit card type did not pass validation."
+msgstr "Der Kreditkarten-Typ hat die Überprüfung nicht bestanden."
+
+#: payment/uc_paypal/uc_paypal.pages.inc:14,18,32,66,71,76,121,135; payment/uc_paypal/uc_paypal.module:322,0
+msgid "uc_paypal"
+msgstr "uc_paypal"
+
+#: payment/uc_payment/uc_payment.admin.inc:53,54; payment/uc_payment/uc_payment_checkout_pane.inc:16
+msgid "Continue with checkout to complete payment."
+msgstr "Bestellvorgang fortsetzten um die Zahlung abzuschließen."
+
+#: payment/uc_payment/uc_payment_order_pane.inc:22; shipping/uc_shipping/uc_shipping.module:99; uc_order/uc_order.admin.inc:557; uc_order/uc_order.module:1382,1666,203; uc_reports/uc_reports.admin.inc:480; uc_store/uc_store.admin.inc:90,906
+msgid "View"
+msgstr "Anzeigen"
+
+#: payment/uc_payment/uc_payment.admin.inc:312; payment/uc_payment_pack/uc_payment_pack.module:88; payment/uc_paypal/uc_paypal.module:453,554; uc_store/uc_store.module:930,935
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: payment/uc_payment/uc_payment.module:395; payment/uc_payment_pack/uc_payment_pack.admin.inc:27; payment/uc_recurring/uc_recurring.admin.inc:17; payment/uc_recurring/uc_recurring.module:641; uc_google_checkout/uc_google_checkout.admin.inc:365; uc_order/uc_order.order_pane.inc:423
+msgid "Amount"
+msgstr "Betrag"
+
+#: payment/uc_payment/uc_payment.module:403; payment/uc_payment_pack/uc_payment_pack.admin.inc:35; uc_cart/uc_cart_checkout_pane.inc:420; uc_order/uc_order.ca.inc:785; uc_order/uc_order.order_pane.inc:904,961
+msgid "Comment"
+msgstr "Kommentar"
+
+#: docs/hooks.php:725; payment/uc_payment/uc_payment.ca.inc:125,143; payment/uc_payment/uc_payment.module:286; payment/uc_payment/uc_payment.info:0
+msgid "Payment"
+msgstr "Zahlung"
+
+#: payment/uc_payment/uc_payment.ca.inc:129,149; payment/uc_recurring/uc_recurring.admin.inc:16; payment/uc_recurring/uc_recurring.module:435,442,449,641; shipping/uc_quote/uc_quote.pages.inc:112; shipping/uc_quote/uc_quote.module:308,327,335,447,918,1057; uc_attribute/uc_attribute.admin.inc:15,96,246,317,546,773; uc_cart/uc_cart.ca.inc:26,44; uc_file/uc_file.ca.inc:71; uc_order/uc_order.ca.inc:35,50,54,122,132,222,239,244,252,260,268; uc_order/uc_order.info:0; uc_roles/uc_roles.ca.inc:182,194,230; uc_stock/uc_stock.ca.inc:46; uc_taxes/uc_taxes.ca.inc:37,59; uc_taxes/uc_taxes.module:326
+msgid "Order"
+msgstr "Bestellung"
+
+#: docs/hooks.php:759; payment/uc_credit/test_gateway.module:18; payment/uc_credit/test_gateway.info:0
+msgid "Test Gateway"
+msgstr "Test Gateway"
+
+#: docs/hooks.php:760; payment/uc_credit/test_gateway.module:19
+msgid "Process credit card payments through the Test Gateway."
+msgstr "Kreditkarten Zahlen durch das Testgateway verarbeiten."
+
+#: ca/ca.module:29; payment/uc_payment/uc_payment.module:36; shipping/uc_quote/uc_quote.module:39; uc_attribute/uc_attribute.module:62,108; uc_cart/uc_cart.module:35,86; uc_catalog/uc_catalog.module:83; uc_order/uc_order.module:38; uc_product/uc_product.module:60; uc_store/uc_store.module:148,193
+msgid "Overview"
+msgstr "Übersicht"
+
+#: payment/uc_payment/uc_payment.module:43; shipping/uc_shipping/uc_shipping.module:104; uc_cart/uc_cart.module:42,94; uc_catalog/uc_catalog.module:90; uc_order/uc_order.module:1383,1676,44,208; uc_product/uc_product.module:65,136; uc_store/uc_store.module:156,201
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: payment/uc_payment/uc_payment.admin.inc:64; payment/uc_payment/uc_payment.module:60
+msgid "Payment methods"
+msgstr "Zahlungsarten"
+
+#: payment/uc_payment/uc_payment.admin.inc:174; payment/uc_payment/uc_payment.module:70
+msgid "Payment gateways"
+msgstr "Zahlungsschnittstellen"
+
+#: docs/hooks.php:726; payment/uc_payment/uc_payment.module:287
+msgid "Specify and collect payment for an order."
+msgstr "Zahlung festlegen und vereinnahmen für eine Bestellung"
+
+#: docs/hooks.php:781; payment/uc_payment_pack/uc_payment_pack.module:43
+msgid "Check"
+msgstr "Scheck"
+
+#: docs/hooks.php:783; payment/uc_payment_pack/uc_payment_pack.module:45
+msgid "Pay by mailing a check or money order."
+msgstr "Bezahlung durch Scheck oder Überweisung"
+
+#: payment/uc_payment/uc_payment.module:561; payment/uc_payment_pack/uc_payment_pack.module:63,64
+msgid "Other"
+msgstr "Sonstige"
+
+#: payment/uc_payment/uc_payment.admin.inc:222; uc_cart/uc_cart.admin.inc:366; uc_order/uc_order.module:745
+msgid "enabled"
+msgstr "aktiviert"
+
+#: payment/uc_payment/uc_payment.admin.inc:222; uc_cart/uc_cart.admin.inc:366; uc_order/uc_order.module:745
+msgid "disabled"
+msgstr "deaktiviert"
+
+#: ca/ca.admin.inc:50,323; payment/uc_payment/uc_payment.admin.inc:142; shipping/uc_quote/uc_quote.admin.inc:255; shipping/uc_shipping/uc_shipping.admin.inc:510; uc_attribute/uc_attribute.admin.inc:343,773; uc_order/uc_order.admin.inc:365; uc_order/uc_order.module:703,924; uc_product/uc_product.admin.inc:157,249; uc_product/uc_product.module:529; uc_product/views/uc_product.views.inc:90; uc_store/uc_store.module:1467; uc_taxes/uc_taxes.admin.inc:15,82
+msgid "Weight"
+msgstr "Gewicht"
+
+#: payment/uc_payment/uc_payment.admin.inc:325,426; payment/uc_recurring/uc_recurring.admin.inc:216; shipping/uc_flatrate/uc_flatrate.admin.inc:80,135; shipping/uc_shipping/uc_shipping.admin.inc:368,826; uc_attribute/uc_attribute.admin.inc:139,409; uc_google_checkout/uc_google_checkout.admin.inc:256; uc_order/uc_order.admin.inc:1029,1067,1552; uc_order/uc_order.module:1696,1726; uc_product/uc_product.admin.inc:369
+msgid "Delete"
+msgstr "Löschen"
+
+#: payment/uc_payment/uc_payment.module:387; shipping/uc_quote/uc_quote.pages.inc:122; shipping/uc_quote/uc_quote.module:928,1067; uc_order/uc_order.admin.inc:1530; uc_order/uc_order.order_pane.inc:892,957; uc_roles/uc_roles.ca.inc:210; uc_taxes/uc_taxes.module:336
+msgid "User"
+msgstr "Benutzer"
+
+#: payment/uc_payment/uc_payment.module:407; uc_cart_links/uc_cart_links.admin.inc:107; uc_file/uc_file.admin.inc:105; uc_google_checkout/uc_google_checkout.admin.inc:339
+msgid "Action"
+msgstr "Aktion"
+
+#: ca/ca.admin.inc:331; payment/uc_authorizenet/uc_authorizenet.admin.inc:36,74; payment/uc_authorizenet/uc_authorizenet.pages.inc:91,133; payment/uc_recurring/uc_recurring.admin.inc:111,189,217; payment/uc_recurring/uc_recurring.pages.inc:22; shipping/uc_shipping/uc_shipping.admin.inc:127,161,181,368,826; uc_attribute/uc_attribute.admin.inc:104,139,351,409,518; uc_cart/uc_cart.pages.inc:105,195; uc_file/uc_file.admin.inc:247,307; uc_order/uc_order.admin.inc:375,1323,1442; uc_product/uc_product.admin.inc:369,631; uc_product/uc_product.module:1606; uc_taxes/uc_taxes.admin.inc:144
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: payment/uc_payment/uc_payment.info:0; shipping/uc_quote/uc_quote.info:0; shipping/uc_shipping/uc_shipping.info:0; uc_attribute/uc_attribute.info:0; uc_catalog/uc_catalog.info:0; uc_file/uc_file.info:0; uc_reports/uc_reports.info:0; uc_roles/uc_roles.info:0; uc_taxes/uc_taxes.info:0
+msgid "Ubercart - core (optional)"
+msgstr "Ubercart - Kern (optional)"
+
+#: payment/uc_paypal/uc_paypal.module:42; uc_cart/uc_cart.admin.inc:250,251; uc_cart/uc_cart.pages.inc:196; uc_cart/uc_cart.module:158
+msgid "Review order"
+msgstr "Bestellung überprüfen"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:374; payment/uc_paypal/uc_paypal.module:56; uc_cart/uc_cart.admin.inc:257,258; uc_cart/uc_cart.pages.inc:390; uc_cart/uc_cart.module:516
+msgid "Submit order"
+msgstr "Bestellung absenden"
+
+#: payment/uc_paypal/uc_paypal.module:173,185; payment/uc_paypal/uc_paypal.info:0
+msgid "PayPal"
+msgstr "PayPal"
+
+#: payment/uc_paypal/uc_paypal.module:668; uc_google_checkout/uc_google_checkout.module:403
+msgid "You do not have any items in your shopping cart."
+msgstr "Sie haben keine Artikel in ihrem Warenkorb"
+
+#: payment/uc_paypal/uc_paypal.pages.inc:287; uc_cart/uc_cart_checkout_pane.inc:404; uc_cart/uc_cart.module:579; uc_order/uc_order.module:578
+msgid "Order comments"
+msgstr "Kommentare zur Bestellung"
+
+#: payment/uc_authorizenet/uc_authorizenet.module:813; payment/uc_paypal/uc_paypal.module:1049
+msgid "Match"
+msgstr "Übereinstimmung"
+
+#: payment/uc_cybersource/uc_cybersource.module:146; uc_google_checkout/uc_google_checkout.admin.inc:21
+msgid "Merchant ID"
+msgstr "Händler ID"
+
+#: payment/uc_cybersource/uc_cybersource.module:913; uc_taxes/uc_taxes.ca.inc:60; uc_taxes/uc_taxes.module:105
+msgid "Tax"
+msgstr "Steuer"
+
+#: shipping/uc_quote/uc_quote.module:280,581; shipping/uc_shipping/uc_shipping.info:0; shipping/uc_weightquote/uc_weightquote.module:157; uc_google_checkout/uc_google_checkout.module:46
+msgid "Shipping"
+msgstr "Versand"
+
+#: shipping/uc_quote/uc_quote.module:444; shipping/uc_ups/uc_ups.module:165; shipping/uc_usps/uc_usps.module:108; shipping/uc_weightquote/uc_weightquote.module:123
+msgid "Fetch a shipping quote"
+msgstr "Versandkosten abrufen."
+
+#: shipping/uc_flatrate/uc_flatrate.info:0; shipping/uc_ups/uc_ups.info:0; shipping/uc_usps/uc_usps.info:0; shipping/uc_weightquote/uc_weightquote.info:0
+msgid "Ubercart - fulfillment"
+msgstr "Ubercart - Versand"
+
+#: shipping/uc_quote/uc_quote.pages.inc:117; shipping/uc_quote/uc_quote.module:309,448,923,1062
+msgid "Quote method"
+msgstr "Gebühren Modell"
+
+#: shipping/uc_quote/uc_quote.module:324; uc_cart/uc_cart.ca.inc:21; uc_order/uc_order.ca.inc:195,204,213
+msgid "Order: Product"
+msgstr "Bestellung: Artikel"
+
+#: shipping/uc_quote/uc_quote.module:373; shipping/uc_shipping/uc_shipping.admin.inc:15,278
+msgid "Shipping type"
+msgstr "Versandart"
+
+#: shipping/uc_quote/uc_quote.module:601,1207; shipping/uc_usps/uc_usps.module:183
+msgid "Small package"
+msgstr "Kleines Paket"
+
+#: shipping/uc_quote/uc_quote.admin.inc:136,240; uc_file/uc_file.module:980; uc_google_checkout/uc_google_checkout.admin.inc:153; uc_product/uc_product.admin.inc:207; uc_store/uc_store.module:653
+msgid "Save configuration"
+msgstr "Einstellungen speichern"
+
+#: shipping/uc_quote/uc_quote.admin.inc:165,304; uc_google_checkout/uc_google_checkout.admin.inc:203; uc_product/uc_product.admin.inc:284; uc_store/uc_store.module:695
+msgid "The configuration options have been saved."
+msgstr "Die Einstellungen wurden gespeichert."
+
+#: shipping/uc_quote/uc_quote.admin.inc:255; uc_google_checkout/uc_google_checkout.admin.inc:160; uc_product/uc_product.admin.inc:249
+msgid "Enable"
+msgstr "Aktivieren"
+
+#: shipping/uc_quote/uc_quote.admin.inc:80; shipping/uc_quote/uc_quote.module:815
+msgid ""
+"Shipping quotes are generated automatically when you enter your "
+"address and may be updated manually with the button below."
+msgstr ""
+"Versandkosten werden automatisch berechnet wenn die "
+"Versandinformationen angegeben wurden. Bei Bedarf können die "
+"Versandkosten auch durch den folgenden Button aktualisiert werden:"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:496; shipping/uc_shipping/uc_shipping.module:122
+msgid "Ship packages"
+msgstr "Paket versenden"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:15,510; uc_cart/uc_cart_checkout_pane.inc:547; uc_cart/uc_cart.module:738; uc_order/uc_order.admin.inc:933; uc_order/uc_order.ca.inc:550,602,678; uc_order/uc_order.module:560,225; uc_product/uc_product.module:26; uc_product_kit/uc_product_kit.module:366; uc_reports/uc_reports.admin.inc:53,57
+msgid "Products"
+msgstr "Artikel"
+
+#: ca/ca.admin.inc:452; ca/ca.module:81; shipping/uc_shipping/uc_shipping.admin.inc:15,388; uc_order/uc_order.admin.inc:411
+msgid "Actions"
+msgstr "Aktionen"
+
+#: ca/ca.admin.inc:59; payment/uc_recurring/uc_recurring.module:413; shipping/uc_flatrate/uc_flatrate.admin.inc:26; shipping/uc_shipping/uc_shipping.admin.inc:35,400; uc_attribute/uc_attribute.admin.inc:26,212; uc_product/uc_product.admin.inc:50,408; uc_roles/uc_roles.admin.inc:39; uc_stock/uc_stock.admin.inc:70; uc_store/includes/summaries.inc:242; uc_taxes/uc_taxes.admin.inc:21
+msgid "edit"
+msgstr "Bearbeiten"
+
+#: ca/ca.admin.inc:69,401; payment/uc_authorizenet/uc_authorizenet.module:412; payment/uc_recurring/uc_recurring.module:414; shipping/uc_shipping/uc_shipping.admin.inc:36,401; uc_attribute/uc_attribute.admin.inc:28,213; uc_product/uc_product.admin.inc:51,409; uc_roles/uc_roles.admin.inc:39; uc_taxes/uc_taxes.admin.inc:21
+msgid "delete"
+msgstr "Löschen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:71,235; shipping/uc_shipping/uc_shipping.module:24
+msgid "Packages"
+msgstr "Pakete"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:139,297; uc_order/uc_order.order_pane.inc:701,802; uc_order/uc_order.module:920; uc_product/uc_product.admin.inc:151
+msgid "Model"
+msgstr "Model"
+
+#: ca/ca.admin.inc:47,259,480,818; shipping/uc_flatrate/uc_flatrate.admin.inc:30; shipping/uc_shipping/uc_shipping.admin.inc:139,297; uc_order/uc_order.admin.inc:341; uc_order/uc_order.order_pane.inc:409; uc_order/uc_order.module:703; uc_roles/uc_roles.module:993; uc_store/uc_store.admin.inc:44; uc_store/uc_store.module:665,1467
+msgid "Title"
+msgstr "Titel"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:139,297; uc_cart/uc_cart_checkout_pane.inc:546; uc_order/uc_order.order_pane.inc:687,788; uc_order/uc_order.module:912
+msgid "Qty"
+msgstr "Menge"
+
+#: docs/hooks.php:681; shipping/uc_shipping/uc_shipping.admin.inc:139,510; shipping/uc_shipping/uc_shipping.module:198
+msgid "Package"
+msgstr "Paket"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:398; shipping/uc_shipping/uc_shipping.module:249; uc_attribute/uc_attribute.admin.inc:470; uc_product/uc_product.module:1162
+msgid "n/a"
+msgstr "n/v"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:188; shipping/uc_flatrate/uc_flatrate.admin.inc:76,88; uc_attribute/uc_attribute.admin.inc:103,350,750,1011; uc_google_checkout/uc_google_checkout.admin.inc:386; uc_order/uc_order.admin.inc:906; uc_product/uc_product.admin.inc:575; uc_store/uc_store.admin.inc:868; uc_taxes/uc_taxes.admin.inc:86,95
+msgid "Submit"
+msgstr "Speichern"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:388; uc_attribute/uc_attribute.admin.inc:13,69,246,309,546; uc_order/uc_order.module:916; uc_product/uc_product.admin.inc:46; uc_product/uc_product.module:364,446,1118; uc_product_kit/uc_product_kit.module:70,324; uc_store/uc_store.admin.inc:91; uc_taxes/uc_taxes.admin.inc:15,44
+msgid "Name"
+msgstr "Name"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:388; uc_store/uc_store.module:606,1054
+msgid "Company"
+msgstr "Firma"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:388,743; shipping/uc_ups/uc_ups.module:939
+msgid "Ship date"
+msgstr "Versanddatum"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:434,560; shipping/uc_shipping/uc_shipping.module:70
+msgid "Shipments"
+msgstr "Sendungen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:661; shipping/uc_ups/uc_ups.module:890; uc_product/uc_product.admin.inc:158; uc_product/uc_product.module:546
+msgid "Dimensions"
+msgstr "Abmessungen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:662; uc_product/uc_product.module:547
+msgid "Physical dimensions of the packaged product."
+msgstr "Physikalische Größe des verpackten Produkts"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:666; shipping/uc_ups/uc_ups.module:895; uc_product/uc_product.module:552
+msgid "Units of measurement"
+msgstr "Masseinheiten"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:668; shipping/uc_ups/uc_ups.module:897; uc_product/uc_product.module:554; uc_store/uc_store.admin.inc:783
+msgid "Inches"
+msgstr "Zoll"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:670; shipping/uc_ups/uc_ups.module:899; uc_product/uc_product.module:556; uc_store/uc_store.admin.inc:785
+msgid "Centimeters"
+msgstr "Zentimeter"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:676; shipping/uc_ups/uc_ups.module:905; uc_product/uc_product.module:562
+msgid "Length"
+msgstr "Länge"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:681; shipping/uc_ups/uc_ups.module:909; uc_product/uc_product.module:567
+msgid "Width"
+msgstr "Breite"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:686; shipping/uc_ups/uc_ups.module:913; uc_product/uc_product.module:572
+msgid "Height"
+msgstr "Höhe"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:747; shipping/uc_ups/uc_ups.module:943
+msgid "Expected delivery"
+msgstr "Voraussichtliche Lieferung"
+
+#: shipping/uc_shipping/uc_shipping.module:565; uc_store/uc_store.module:1289
+msgid "Address book"
+msgstr "Adressbuch"
+
+#: docs/hooks.php:958; shipping/uc_ups/uc_ups.admin.inc:243; shipping/uc_ups/uc_ups.module:209,23; shipping/uc_ups/uc_ups.info:0
+msgid "UPS"
+msgstr "UPS"
+
+#: shipping/uc_ups/uc_ups.admin.inc:40; uc_cart/uc_cart_checkout_pane.inc:90
+msgid "Password"
+msgstr "Passwort"
+
+#: shipping/uc_ups/uc_ups.admin.inc:83; uc_attribute/uc_attribute.admin.inc:32; uc_roles/uc_roles.admin.inc:223
+msgid "Yes"
+msgstr "Ja"
+
+#: shipping/uc_ups/uc_ups.admin.inc:83; uc_attribute/uc_attribute.admin.inc:32; uc_roles/uc_roles.admin.inc:223
+msgid "No"
+msgstr "Nein"
+
+#: shipping/uc_ups/uc_ups.admin.inc:112; shipping/uc_usps/uc_usps.admin.inc:54
+msgid "Each in its own package"
+msgstr "Einzeln verpackt."
+
+#: shipping/uc_ups/uc_ups.admin.inc:113; shipping/uc_usps/uc_usps.admin.inc:55
+msgid "All in one"
+msgstr "Alle in einer."
+
+#: shipping/uc_ups/uc_ups.admin.inc:115; shipping/uc_usps/uc_usps.admin.inc:57
+msgid ""
+"Indicate whether each product is quoted as shipping separately or all "
+"in one package."
+msgstr ""
+"Legen Sie fest ob jeder Artikel einzeln versand wird oder alle in "
+"einem Paket."
+
+#: docs/hooks.php:965; shipping/uc_ups/uc_ups.module:1142
+msgid "UPS Ground"
+msgstr "UPS Ground"
+
+#: docs/hooks.php:966; shipping/uc_ups/uc_ups.module:1143
+msgid "UPS Standard"
+msgstr "UPS Standard"
+
+#: docs/hooks.php:967; shipping/uc_ups/uc_ups.module:1144
+msgid "UPS Next Day Air"
+msgstr "UPS Next Day Air"
+
+#: docs/hooks.php:968; shipping/uc_ups/uc_ups.module:1145
+msgid "UPS Next Day Air Saver"
+msgstr "UPS Next Day Air Saver"
+
+#: docs/hooks.php:969; shipping/uc_ups/uc_ups.module:1146
+msgid "UPS Next Day Early A.M."
+msgstr "UPS Next Day Early A.M."
+
+#: docs/hooks.php:970; shipping/uc_ups/uc_ups.module:1147
+msgid "UPS 2nd Day Air"
+msgstr "UPS 2nd Day Air"
+
+#: docs/hooks.php:971; shipping/uc_ups/uc_ups.module:1148
+msgid "UPS 2nd Day Air A.M."
+msgstr "UPS 2nd Day Air A.M."
+
+#: docs/hooks.php:972; shipping/uc_ups/uc_ups.module:1149
+msgid "UPS 3-Day Select"
+msgstr "UPS 3-Day Select"
+
+#: docs/hooks.php:979; shipping/uc_ups/uc_ups.module:1158
+msgid "UPS Letter"
+msgstr "UPS Letter"
+
+#: docs/hooks.php:980; shipping/uc_ups/uc_ups.module:1159
+msgid "Customer Supplied Package"
+msgstr "Vom Kunden gestellte Verpackung"
+
+#: docs/hooks.php:981; shipping/uc_ups/uc_ups.module:1160
+msgid "Tube"
+msgstr "Röhre"
+
+#: docs/hooks.php:982; shipping/uc_ups/uc_ups.module:1161
+msgid "PAK"
+msgstr "PAK"
+
+#: docs/hooks.php:983; shipping/uc_ups/uc_ups.module:1162
+msgid "UPS Express Box"
+msgstr "UPS Express Box"
+
+#: docs/hooks.php:984; shipping/uc_ups/uc_ups.module:1163
+msgid "UPS 25KG Box"
+msgstr "UPS 25KG Box"
+
+#: docs/hooks.php:985; shipping/uc_ups/uc_ups.module:1164
+msgid "UPS 10KG Box"
+msgstr "UPS 10KG Box"
+
+#: docs/hooks.php:986; shipping/uc_ups/uc_ups.module:1165
+msgid "Pallet"
+msgstr "Pallete"
+
+#: shipping/uc_usps/uc_usps.module:200; shipping/uc_usps/uc_usps.info:0
+msgid "U.S. Postal Service"
+msgstr "U.S. Postal Service"
+
+#: shipping/uc_usps/uc_usps.module:631; uc_store/uc_store.admin.inc:484
+msgid "Variable"
+msgstr "Variable"
+
+#: shipping/uc_weightquote/uc_weightquote.module:22; shipping/uc_weightquote/uc_weightquote.info:0
+msgid "Weight quote"
+msgstr "Nach gewicht."
+
+#: shipping/uc_weightquote/uc_weightquote.admin.inc:26; shipping/uc_weightquote/uc_weightquote.module:57
+msgid ""
+"The amount per weight unit to add to the shipping cost for an item.<br "
+"/>Example: to add $5 per pound, put 5 in here."
+msgstr ""
+"Kosten pro Gewichtseinheit zusätzlich zum Basispreis.<br />Beispiel: "
+"um 6 € pro Kilo zu bereichen, tragen Sie hier eine 6 ein."
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:59; shipping/uc_weightquote/uc_weightquote.admin.inc:16
+msgid "Base price"
+msgstr "Grund Preis"
+
+#: uc_attribute/uc_attribute.admin.inc:508; uc_attribute/uc_attribute.module:53,141,161,171
+msgid "Attributes"
+msgstr "Eigenschaften"
+
+#: ca/ca.admin.inc:51; payment/uc_recurring/uc_recurring.admin.inc:22; payment/uc_recurring/uc_recurring.module:641; shipping/uc_flatrate/uc_flatrate.admin.inc:30; uc_attribute/uc_attribute.admin.inc:18,246; uc_product/uc_product.admin.inc:46,403; uc_roles/uc_roles.admin.inc:17; uc_stock/uc_stock.admin.inc:56; uc_store/uc_store.admin.inc:361; uc_taxes/uc_taxes.admin.inc:15
+msgid "Operations"
+msgstr "Operationen"
+
+#: uc_attribute/uc_attribute.admin.inc:277; uc_attribute/uc_attribute.module:114
+msgid "Add an option"
+msgstr "Option hinzufügen"
+
+#: uc_product/uc_product.admin.inc:631; uc_taxes/uc_taxes.admin.inc:144
+msgid "Continue"
+msgstr "Weiter"
+
+#: uc_attribute/uc_attribute.admin.inc:546; uc_cart/uc_cart.module:734; uc_file/uc_file.module:417; uc_order/uc_order.module:703,908; uc_roles/uc_roles.module:312; uc_store/uc_store.admin.inc:1016,1029
+msgid "Remove"
+msgstr "Entfernen"
+
+#: uc_attribute/uc_attribute.admin.inc:331,773; uc_order/uc_order.order_pane.inc:710,811; uc_order/uc_order.module:928; uc_product/uc_product.module:494; uc_product/views/uc_product.views.inc:60
+msgid "Cost"
+msgstr "Kosten"
+
+#: uc_attribute/uc_attribute.admin.inc:337,773; uc_cart/uc_cart_checkout_pane.inc:548; uc_order/uc_order.order_pane.inc:718,819; uc_order/uc_order.module:932; uc_product/uc_product.module:1127
+msgid "Price"
+msgstr "Preis"
+
+#: uc_attribute/uc_attribute.admin.inc:773; uc_attribute/uc_attribute.module:100,150,181
+msgid "Options"
+msgstr "Optionen"
+
+#: uc_attribute/uc_attribute.admin.inc:383,390; uc_attribute/uc_attribute.module:0
+msgid "uc_attribute"
+msgstr "uc_attribute"
+
+#: uc_cart/uc_cart_checkout_pane.inc:81; uc_reports/uc_reports.admin.inc:51,57; uc_roles/uc_roles.admin.inc:14
+msgid "Username"
+msgstr "Benutzername"
+
+#: uc_cart/uc_cart_checkout_pane.inc:181; uc_order/uc_order.admin.inc:851,872; uc_store/uc_store.admin.inc:92,253; uc_store/uc_store.module:1052
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: uc_cart/uc_cart_checkout_pane.inc:293,383; uc_store/uc_store.module:613,1055
+msgid "Address"
+msgstr "Adresse"
+
+#: uc_cart/uc_cart_checkout_pane.inc:578; uc_cart/uc_cart.module:767
+msgid "Subtotal:"
+msgstr "Zwischensumme:"
+
+#: uc_cart/uc_cart.ca.inc:40; uc_cart/uc_cart.info:0
+msgid "Cart"
+msgstr "Warenkorb"
+
+#: uc_cart/uc_cart.admin.inc:26; uc_cart/uc_cart.module:69
+msgid "Cart block"
+msgstr "Warenkorb-Block"
+
+#: uc_cart/uc_cart.admin.inc:18; uc_cart/uc_cart.module:326,383
+msgid "Click title to display cart contents."
+msgstr "Klicken um den Inhalt des Warenkorbs anzuzeigen."
+
+#: uc_cart/uc_cart.ca.inc:138; uc_product/uc_product.module:128
+msgid "Product class"
+msgstr "Warengruppe"
+
+#: docs/hooks.php:274; uc_cart/uc_cart.module:532
+msgid "Default cart form"
+msgstr "Standard Warenkorbformular"
+
+#: docs/hooks.php:336; uc_cart/uc_cart.module:549
+msgid "Display the contents of a customer's shopping cart."
+msgstr "Den Inhalt des Warenkorbs eines Kunden anzeigen."
+
+#: uc_cart/uc_cart.admin.inc:124,147; uc_cart/uc_cart.module:673,708
+msgid "Continue shopping"
+msgstr "Weiter Einkaufen"
+
+#: uc_cart/uc_cart.admin.inc:153,167; uc_cart/uc_cart.pages.inc:40; uc_catalog/uc_catalog.module:215,781
+msgid "Home"
+msgstr "Startseite"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:18; uc_cart/uc_cart.admin.inc:300,301; uc_cart/uc_cart.pages.inc:179
+msgid "Next"
+msgstr "weiter"
+
+#: uc_cart/uc_cart.pages.inc:36,379,386; uc_order/uc_order.admin.inc:895
+msgid "Back"
+msgstr "Zurück"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:21; uc_cart/uc_cart.module:750; uc_order/uc_order.admin.inc:414,934; uc_order/uc_order.line_item.inc:47; uc_order/uc_order.order_pane.inc:725,826; uc_order/uc_order.module:661; uc_reports/uc_reports.admin.inc:54,57,603,611; uc_store/uc_store.admin.inc:907
+msgid "Total"
+msgstr "Gesamt"
+
+#: docs/hooks.php:1111; uc_cart/uc_cart.module:1069
+msgid "Your item(s) have been updated."
+msgstr "Ihre Artikel wurden aktuelisiert."
+
+#: uc_cart/uc_cart.pages.inc:447; uc_cart/uc_cart.module:0
+msgid "uc_cart"
+msgstr "uc_cart"
+
+#: ca/ca.info:0; uc_cart/uc_cart.info:0; uc_order/uc_order.info:0; uc_product/uc_product.info:0; uc_store/uc_store.info:0
+msgid "Ubercart - core"
+msgstr "Ubercart - kern"
+
+#: uc_cart_links/uc_cart_links.module:47; uc_product/uc_product.admin.inc:123,124,131,132,159; uc_product/uc_product.module:1132,1203,1321; uc_product_kit/uc_product_kit.module:558,595
+msgid "Add to cart"
+msgstr "In den Warenkorb legen"
+
+#: ca/ca.admin.inc:283; uc_cart_links/uc_cart_links.admin.inc:107; uc_file/uc_file.pages.inc:37; uc_file/uc_file.module:738; uc_product/uc_product.admin.inc:46,368,403,569; uc_product/uc_product.module:365,893; uc_product_kit/uc_product_kit.module:71,331; uc_store/uc_store.admin.inc:44,484
+msgid "Description"
+msgstr "Beschreibung"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:15; uc_cart_links/uc_cart_links.admin.inc:68; uc_order/uc_order.module:703; uc_store/uc_store.admin.inc:94
+msgid "ID"
+msgstr "ID"
+
+#: uc_cart_links/uc_cart_links.info:0; uc_googleanalytics/uc_googleanalytics.info:0; uc_product_kit/uc_product_kit.info:0; uc_stock/uc_stock.info:0
+msgid "Ubercart - extra"
+msgstr "Ubercart - extra"
+
+#: uc_catalog/uc_catalog.module:67,219,388,418,619,784,99; uc_catalog/uc_catalog.install:66,70; uc_catalog/uc_catalog.info:0
+msgid "Catalog"
+msgstr "Katalog"
+
+#: uc_catalog/uc_catalog.module:341; uc_product/uc_product.admin.inc:152; uc_product/uc_product.module:1113,1650
+msgid "Image"
+msgstr "Bild"
+
+#: uc_catalog/uc_catalog.admin.inc:56; uc_catalog/uc_catalog.module:539,565
+msgid "Catalog vocabulary"
+msgstr "Katalog Vokabular"
+
+#: uc_file/uc_file.pages.inc:31; uc_file/uc_file.module:379
+msgid "File downloads"
+msgstr "Datei downloads"
+
+#: uc_file/uc_file.admin.inc:496; uc_file/uc_file.module:723; uc_roles/uc_roles.module:699
+msgid "Model/SKU"
+msgstr "Artikelnummer"
+
+#: uc_file/uc_file.module:745; uc_roles/uc_roles.module:713
+msgid "Shippable product"
+msgstr "Versendbarer Artikel"
+
+#: uc_file/uc_file.pages.inc:38; uc_file/uc_file.module:420,769,936
+msgid "Downloads"
+msgstr "Downloads"
+
+#: uc_file/uc_file.module:799,952; uc_order/uc_order.admin.inc:1530
+msgid "Time"
+msgstr "Zeit"
+
+#: uc_file/uc_file.module:222,542,810,963; uc_roles/uc_roles.admin.inc:177; uc_roles/uc_roles.module:748,950
+msgid "never"
+msgstr "nie"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:175; payment/uc_recurring/uc_recurring.module:506,529; uc_file/uc_file.module:225,813,966; uc_roles/uc_roles.admin.inc:180; uc_roles/uc_roles.module:205,751,953
+msgid "month(s)"
+msgstr "Monat(e)"
+
+#: uc_file/uc_file.admin.inc:512; uc_roles/uc_roles.admin.inc:93,119,145,189; uc_stock/uc_stock.admin.inc:27
+msgid "Message subject"
+msgstr "Betreff der Nachricht"
+
+#: shipping/uc_quote/uc_quote.admin.inc:79,95; uc_file/uc_file.admin.inc:517; uc_roles/uc_roles.admin.inc:98,124,150,194; uc_stock/uc_stock.admin.inc:33
+msgid "Message text"
+msgstr "Text der Nachricht"
+
+#: uc_file/uc_file.admin.inc:495; uc_order/uc_order.order_pane.inc:694,795; uc_product/uc_product.module:370,100; uc_product/uc_product.info:0; uc_product/views/uc_product.views.inc:13,125,144; uc_reports/uc_reports.admin.inc:127,133,149,154; uc_stock/uc_stock.admin.inc:53,59
+msgid "Product"
+msgstr "Artikel"
+
+#: uc_file/uc_file.pages.inc:36; uc_file/uc_file.module:418
+msgid "Filename"
+msgstr "Dateiname"
+
+#: uc_file/uc_file.pages.inc:176,186,193,200,215; uc_file/uc_file.module:0
+msgid "uc_file"
+msgstr "uc_file"
+
+#: uc_file/uc_file.module:602,609; uc_file/uc_file.info:0
+msgid "File Downloads"
+msgstr "Datei Downloads"
+
+#: uc_product/uc_product.admin.inc:210; uc_store/uc_store.module:657
+msgid "Reset to defaults"
+msgstr "Auf die Standard einstellungen zurücksetzten."
+
+#: uc_product/uc_product.admin.inc:268; uc_store/uc_store.module:703
+msgid "The configuration options have been reset to their default values."
+msgstr ""
+"Die Konfigurationseinstellungen wurden auf ihre Standard Werte "
+"zurückgesetzt."
+
+#: uc_order/uc_order.ca.inc:849,948; uc_roles/uc_roles.ca.inc:356
+msgid "Subject"
+msgstr "Betreff"
+
+#: uc_order/uc_order.admin.inc:98; uc_order/uc_order.ca.inc:974
+msgid "Invoice template"
+msgstr "Rechnungs Vorlage"
+
+#: uc_order/uc_order.line_item.inc:22,33; uc_order/uc_order.module:644
+msgid "Subtotal"
+msgstr "Zwischensumme"
+
+#: uc_order/uc_order.admin.inc:611; uc_order/uc_order.order_pane.inc:215
+msgid "Customer number"
+msgstr "Kunden Nummer"
+
+#: uc_order/uc_order.admin.inc:623; uc_order/uc_order.order_pane.inc:227
+msgid "Primary e-mail"
+msgstr "Primäre E-Mail-Adresse"
+
+#: uc_order/uc_order.admin.inc:591; uc_order/uc_order.order_pane.inc:241,242
+msgid "Create a new customer."
+msgstr "Einen neuen Kunden erezugen."
+
+#: uc_order/uc_order.order_pane.inc:298,301; uc_order/uc_order.module:241
+msgid "Add product"
+msgstr "Artikel hinzufügen."
+
+#: uc_order/uc_order.admin.inc:1322; uc_order/uc_order.order_pane.inc:376
+msgid "Add line item"
+msgstr "Postition hinzufügen."
+
+#: uc_order/uc_order.order_pane.inc:445; uc_order/uc_order.module:217
+msgid "Add a line item"
+msgstr "Position hinzufügen"
+
+#: uc_order/uc_order.admin.inc:930; uc_order/uc_order.order_pane.inc:498,888,953; uc_reports/uc_reports.admin.inc:526,529; uc_store/uc_store.admin.inc:906
+msgid "Date"
+msgstr "Datum"
+
+#: ca/ca.admin.inc:49,312; uc_order/uc_order.admin.inc:416,932; uc_order/uc_order.order_pane.inc:498,900
+msgid "Status"
+msgstr "Status"
+
+#: uc_order/uc_order.ca.inc:855; uc_order/uc_order.order_pane.inc:498; uc_roles/uc_roles.ca.inc:362; uc_roles/uc_roles.module:998
+msgid "Message"
+msgstr "Nachricht"
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:35; payment/uc_authorizenet/uc_authorizenet.pages.inc:90; uc_order/uc_order.order_pane.inc:637; uc_stock/uc_stock.admin.inc:109
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: uc_order/uc_order.admin.inc:1268; uc_order/uc_order.order_pane.inc:772,873
+msgid "This order contains no products."
+msgstr "Diese Bestellung enthält keine Produkte."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:69,233,432,558; uc_order/uc_order.module:468,91,110,151; uc_reports/uc_reports.admin.inc:52,57
+msgid "Orders"
+msgstr "Bestellungen"
+
+#: uc_order/uc_order.admin.inc:632; uc_order/uc_order.module:118,183
+msgid "Create order"
+msgstr "Bestellung erzeugen"
+
+#: uc_order/uc_order.admin.inc:550; uc_order/uc_order.module:195
+msgid "View order"
+msgstr "Bestellung anzeigen"
+
+#: uc_order/uc_order.admin.inc:1475; uc_order/uc_order.module:271
+msgid "Mail invoice"
+msgstr "Rechnung versenden"
+
+#: payment/uc_paypal/uc_paypal.install:18; payment/uc_recurring/uc_recurring.install:121; uc_order/uc_order.module:408; uc_order/uc_order.install:19,245,285,338,390,430
+msgid "The order ID."
+msgstr "Die Bestllungs ID."
+
+#: uc_order/uc_order.module:612; uc_order/uc_order.install:559,665
+msgid "Canceled"
+msgstr "Strorniert."
+
+#: uc_order/uc_order.module:618; uc_order/uc_order.install:560,666
+msgid "In checkout"
+msgstr "An der Kasse"
+
+#: uc_order/uc_order.module:630; uc_order/uc_order.install:563,669
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#: uc_order/uc_order.admin.inc:182; uc_reports/uc_reports.admin.inc:681
+msgid "Order statuses"
+msgstr "Bestellungs Stati"
+
+#: uc_order/uc_order.admin.inc:239,271,1021; uc_store/uc_store.admin.inc:533
+msgid "Submit changes"
+msgstr "Änderungen speichern"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:73; uc_order/uc_order.admin.inc:412; uc_store/uc_store.admin.inc:906
+msgid "Order ID"
+msgstr "Bestellungs ID"
+
+#: uc_order/uc_order.admin.inc:413; uc_order/uc_order.module:1385; uc_reports/uc_reports.admin.inc:50,57
+msgid "Customer"
+msgstr "Kunde"
+
+#: uc_order/uc_order.admin.inc:469; uc_store/uc_store.admin.inc:134
+msgid "User: !name"
+msgstr "Benutzer: !name"
+
+#: uc_order/uc_order.admin.inc:587; uc_order/uc_order.order_pane.inc:237,238
+msgid "Search for an existing customer."
+msgstr "Nach einem bestehenden Kunden suchen"
+
+#: uc_order/uc_order.admin.inc:649; uc_store/uc_store.admin.inc:207
+msgid "Search returned the following results:"
+msgstr "Die Suche gab folgende Ergebnisse zurück"
+
+#: uc_order/uc_order.module:759; uc_store/uc_store.admin.inc:218
+msgid "Search options"
+msgstr "Such Optionen"
+
+#: uc_order/uc_order.module:844; uc_reports/uc_reports.admin.inc:640
+msgid "Start date"
+msgstr "Start Datum"
+
+#: uc_order/uc_order.module:853; uc_reports/uc_reports.admin.inc:649
+msgid "End date"
+msgstr "End Datum"
+
+#: uc_order/uc_order.admin.inc:881,1409; uc_order/uc_order.module:861; uc_store/uc_store.admin.inc:263
+msgid "Search"
+msgstr "Suche"
+
+#: uc_order/uc_order.admin.inc:994; uc_order/uc_order.module:1384,249
+msgid "Invoice"
+msgstr "Rechnung"
+
+#: payment/uc_cybersource/uc_cybersource.module:172; uc_order/uc_order.admin.inc:837; uc_store/uc_store.admin.inc:233; uc_store/uc_store.module:603,1050
+msgid "First name"
+msgstr "Vorname"
+
+#: payment/uc_cybersource/uc_cybersource.module:177; uc_order/uc_order.admin.inc:844; uc_store/uc_store.admin.inc:243; uc_store/uc_store.module:604,1051
+msgid "Last name"
+msgstr "Nachname"
+
+#: uc_order/templates/admin.itpl.php:20; uc_order/templates/customer.itpl.php:205
+msgid "Model: "
+msgstr "Model: "
+
+#: uc_attribute/uc_attribute.admin.inc:807,889; uc_product/uc_product.module:176
+msgid "product"
+msgstr "Artikel"
+
+#: uc_product/uc_product.module:467; uc_product/views/uc_product.views.inc:27; uc_stock/uc_stock.admin.inc:52,59,194
+msgid "SKU"
+msgstr "Artikelnummer"
+
+#: uc_order/uc_order.ca.inc:688; uc_product/uc_product.module:535; uc_store/uc_store.admin.inc:750
+msgid "Pounds"
+msgstr "Pfund"
+
+#: uc_order/uc_order.ca.inc:689; uc_product/uc_product.module:536; uc_store/uc_store.admin.inc:752
+msgid "Kilograms"
+msgstr "Kilo"
+
+#: uc_order/uc_order.ca.inc:690; uc_product/uc_product.module:537; uc_store/uc_store.admin.inc:751
+msgid "Ounces"
+msgstr "Unzen"
+
+#: uc_order/uc_order.ca.inc:691; uc_product/uc_product.module:538; uc_store/uc_store.admin.inc:753
+msgid "Grams"
+msgstr "Gramm"
+
+#: uc_order/uc_order.ca.inc:685; uc_product/uc_product.module:541
+msgid "Unit of measurement"
+msgstr "Maßeinheit"
+
+#: uc_product/uc_product.module:583; uc_product_kit/uc_product_kit.module:398
+msgid "Default quantity to add to cart"
+msgstr "Standard Menge die dem Warenkorb hinzugefügt wird."
+
+#: uc_product/uc_product.module:585; uc_product_kit/uc_product_kit.module:400
+msgid ""
+"Leave blank or zero to disable the quantity field in the add to cart "
+"form."
+msgstr ""
+"Leer lassen oder auf Null stetzen um das Anzahlfeld im \"zum Warenkorb "
+"hinzufügen\" Formular zu deaktivieren."
+
+#: uc_product/uc_product.module:1023; uc_product_kit/uc_product_kit.module:640
+msgid "Images"
+msgstr "Bilder"
+
+#: uc_product/uc_product.module:1310; uc_product_kit/uc_product_kit.module:380,547
+msgid "Quantity"
+msgstr "Anzahl"
+
+#: uc_product/views/uc_product.views.inc:105; uc_product_kit/uc_product_kit.module:385
+msgid "Ordering"
+msgstr "Bestellung"
+
+#: uc_roles/uc_roles.ca.inc:198,214,234; uc_roles/uc_roles.module:84
+msgid "Role expiration"
+msgstr "Verfallsdatum der Rolle"
+
+#: uc_roles/uc_roles.admin.inc:15; uc_roles/uc_roles.module:313,706
+msgid "Role"
+msgstr "Rolle"
+
+#: uc_roles/uc_roles.module:574,581; uc_roles/uc_roles.info:0
+msgid "Roles"
+msgstr "Rollen"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:68,232,431,557; uc_store/uc_store.module:69
+msgid "Store administration"
+msgstr "Shop Verwaltung"
+
+#: uc_reports/uc_reports.info:0; uc_store/uc_store.module:105
+msgid "Reports"
+msgstr "Auswertungen"
+
+#: payment/uc_cybersource/uc_cybersource.module:187; uc_store/uc_store.admin.inc:93; uc_store/uc_store.module:609,1059
+msgid "City"
+msgstr "Ort"
+
+#: uc_store/uc_store.admin.inc:361,415; uc_store/uc_store.module:611,1062
+msgid "Country"
+msgstr "Land"
+
+#: payment/uc_authorizenet/uc_authorizenet.module:408,417; uc_store/uc_store.admin.inc:378
+msgid "update"
+msgstr "aktualisieren"
+
+#: uc_attribute/uc_attribute.admin.inc:14,546; uc_store/uc_store.module:665
+msgid "Required"
+msgstr "Benötigt"
+
+#: uc_reports/uc_reports.admin.inc:385,388; uc_store/uc_store.module:1239
+msgid "Month"
+msgstr "Monat"
+
+#: uc_google_checkout/uc_google_checkout.module:55; uc_taxes/uc_taxes.ca.inc:35,56; uc_taxes/uc_taxes.info:0
+msgid "Taxes"
+msgstr "Steuern"
+
+#: uc_taxes/uc_taxes.ca.inc:129; uc_taxes/uc_taxes.install:171
+msgid "Apply @tax"
+msgstr "@tax erheben."
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:256; uc_taxes/uc_taxes.admin.inc:15,49
+msgid "Rate"
+msgstr "Steuersatz"
+
+#: shipping/uc_quote/uc_quote.module:310; uc_taxes/uc_taxes.ca.inc:39
+msgid "User account"
+msgstr "Benutzer Konto"
+
+#: shipping/uc_quote/uc_quote.admin.inc:96; shipping/uc_quote/uc_quote.module:755,996
+msgid ""
+"There were problems getting a shipping quote. Please verify the "
+"delivery and product information and try again.\n"
+"If this does not resolve the issue, please call in to complete your "
+"order."
+msgstr ""
+"Es gab ein Problem mit der Berechnung der Versandkosten. Bitte "
+"überprüfen Sie die Lieferanschrift und die Artikel in ihrem "
+"Warenkorb und versuchen Sie es noch einmal. Sollt das Problem dadurch "
+"nicht gelöst werden rufen Sie doch bitte an um ihre Bestellung "
+"abzuschließen."
+
+#: shipping/uc_quote/uc_quote.admin.inc:255; shipping/uc_shipping/uc_shipping.admin.inc:491
+msgid "Shipping method"
+msgstr "Versandart."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:15,651; shipping/uc_ups/uc_ups.module:88,879; shipping/uc_usps/uc_usps.module:55
+msgid "Package type"
+msgstr "Paket Art"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:691; shipping/uc_ups/uc_ups.module:885
+msgid "Declared value"
+msgstr "Ausgewiesener Wert"
+
+#: shipping/uc_ups/uc_ups.admin.inc:58; uc_google_checkout/uc_google_checkout.admin.inc:160
+msgid "Pickup type"
+msgstr "Abhol art"
+
+#: shipping/uc_ups/uc_ups.admin.inc:95; shipping/uc_usps/uc_usps.admin.inc:37
+msgid "Markup type"
+msgstr "Ausweisungtyp:"
+
+#: shipping/uc_ups/uc_ups.admin.inc:98; shipping/uc_usps/uc_usps.admin.inc:40
+msgid "Percentage (%)"
+msgstr "Prozentual (%)"
+
+#: shipping/uc_ups/uc_ups.admin.inc:100; shipping/uc_usps/uc_usps.admin.inc:42
+msgid "Addition (!currency)"
+msgstr "Aufschalg (!currency)"
+
+#: shipping/uc_ups/uc_ups.admin.inc:104; shipping/uc_usps/uc_usps.admin.inc:46
+msgid "Shipping rate markup"
+msgstr "Versandkosten Auszeichnung"
+
+#: shipping/uc_ups/uc_ups.admin.inc:109; shipping/uc_usps/uc_usps.admin.inc:51
+msgid "Product packages"
+msgstr "Artikel Verpackungen"
+
+#: shipping/uc_weightquote/uc_weightquote.admin.inc:30; shipping/uc_weightquote/uc_weightquote.module:61
+msgid "/!unit"
+msgstr "/!unit"
+
+#: uc_attribute/uc_attribute.admin.inc:246; uc_google_checkout/uc_google_checkout.admin.inc:160
+msgid "Default price"
+msgstr "Standard Preis"
+
+#: payment/uc_cybersource/uc_cybersource.module:211; uc_cart/uc_cart_checkout_pane.inc:64; uc_store/uc_store.admin.inc:575
+msgid "E-mail address"
+msgstr "Email Adresse"
+
+#: uc_product/uc_product.admin.inc:154; uc_product/uc_product.module:482,1123; uc_product/views/uc_product.views.inc:45
+msgid "List price"
+msgstr "UVP"
+
+#: uc_product/uc_product.admin.inc:156; uc_product/uc_product.module:506; uc_product/views/uc_product.views.inc:75
+msgid "Sell price"
+msgstr "Verkaufspreis"
+
+#: uc_product/uc_product.module:1217,1224; uc_product_kit/uc_product_kit.module:609,616
+msgid ""
+"This product has options that need to be selected before purchase. "
+"Please select them in the form below."
+msgstr ""
+"Dieser Artikel hat Eigenschaften die ausgewählt werden müssen bevor "
+"Sie ihn kaufen. Bitte wählen Sie diese aus dem untenstehenden "
+"Formular aus."
+
+#: uc_attribute/uc_attribute.admin.inc:546; uc_product/views/uc_product.views.inc:202,215,228,241,254
+msgid "Display"
+msgstr "Anzeige"
+
+#: uc_stock/uc_stock.admin.inc:54,59,195; uc_stock/uc_stock.ca.inc:48; uc_stock/uc_stock.module:60; uc_stock/uc_stock.info:0
+msgid "Stock"
+msgstr "Lager"
+
+#: uc_stock/uc_stock.admin.inc:193; uc_stock/uc_stock.module:285
+msgid "Active"
+msgstr "Aktiv"
+
+#: ca/ca.admin.inc:550,714; uc_attribute/uc_attribute.admin.inc:223,491; uc_stock/uc_stock.admin.inc:185
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: uc_store/uc_store.admin.inc:494; uc_store/uc_store.module:612,1061
+msgid "Postal code"
+msgstr "Postleitzahl"
+
+#: uc_store/uc_store.admin.inc:595; uc_store/uc_store.module:605,1053
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+#: payment/uc_cybersource/uc_cybersource.module:182; uc_store/uc_store.module:614,1056
+msgid "Street address"
+msgstr "Adresszeile 1"
+
+#: uc_attribute/uc_attribute.module:604; uc_store/uc_store.module:1145
+msgid "Please select"
+msgstr "Bitte wählen"
+
+#: payment/uc_credit/uc_credit.module:807; uc_google_checkout/uc_google_checkout.admin.inc:59
+msgid "Customer messages"
+msgstr "Kunden Nachrichten"
+
+#: uc_order/uc_order.module:420; uc_order/uc_order.install:140
+msgid "The phone number for the billing address."
+msgstr "Die Telefonnummer zur Rechnungs adresse"
+
+#: uc_reports/uc_reports.admin.inc:103,237; uc_stock/uc_stock.admin.inc:94
+msgid "Show paged records"
+msgstr "In Seiten aufgeteilt anzeigen"
+
+#: uc_reports/uc_reports.admin.inc:103,237; uc_stock/uc_stock.admin.inc:94
+msgid "Show all records"
+msgstr "Alles anzeigen."
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:669; shipping/uc_ups/uc_ups.module:898; uc_product/uc_product.module:555; uc_store/uc_store.admin.inc:784
+msgid "Feet"
+msgstr "Fuß"
+
+#: shipping/uc_shipping/uc_shipping.admin.inc:671; shipping/uc_ups/uc_ups.module:900; uc_product/uc_product.module:557; uc_store/uc_store.admin.inc:786
+msgid "Millimeters"
+msgstr "Millimeter"
+
+#: docs/hooks.php:1046; payment/uc_credit/uc_credit.module:248,255
+msgid "Credit card encryption"
+msgstr "Kreditkarten Verschlüsselung"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:142; payment/uc_recurring/uc_recurring.module:481
+msgid "Recurring fee amount"
+msgstr "Höhe der regelmäßigen Zahlung"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:160; payment/uc_recurring/uc_recurring.module:514
+msgid "Regular interval"
+msgstr "Zeitraum der Raten"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:19; payment/uc_recurring/uc_recurring.module:641
+msgid "Interval"
+msgstr "Interval"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:20; uc_google_checkout/uc_google_checkout.admin.inc:92
+msgid "Left"
+msgstr "verbleibend"
+
+#: payment/uc_recurring/uc_recurring.admin.inc:110; uc_google_checkout/uc_google_checkout.admin.inc:342
+msgid "Charge"
+msgstr "Berechnen"
+
+#: docs/hooks.php:679; shipping/uc_shipping/uc_shipping.module:196
+msgid "Package order !order_id products."
+msgstr "Artikel der Bestellung  !order_id verpacken."
+
+#: docs/hooks.php:688; shipping/uc_shipping/uc_shipping.module:205
+msgid "Ship order !order_id packages."
+msgstr "Versende die Pakete der Bestellung !order_id"
+
+#: docs/hooks.php:690; shipping/uc_shipping/uc_shipping.module:207
+msgid "Ship"
+msgstr "Versenden"
+
+#: uc_order/uc_order.ca.inc:835,934; uc_roles/uc_roles.ca.inc:342
+msgid "Sender"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:862,955; uc_roles/uc_roles.ca.inc:369
+msgid "Replacement patterns"
+msgstr ""
+
+#: uc_attribute/uc_attribute.admin.inc:47; uc_attribute/uc_attribute.module:67
+msgid "Add an attribute"
+msgstr "Eigenschaft hinzufügen"
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:299; uc_order/uc_order.admin.inc:1492
+msgid "Order @order_id does not exist."
+msgstr "Bestellung @order_id existiert nicht."
+
+#: payment/uc_credit/uc_credit.admin.inc:21; payment/uc_payment/uc_payment_order_pane.inc:21
+msgid "Balance: @balance"
+msgstr ""
+
+#: uc_cart/uc_cart_checkout_pane.inc:33,558; uc_order/uc_order.order_pane.inc:742,843; uc_product/uc_product.module:1039
+msgid "@attribute: @option"
+msgstr "@attribute: @option"
+
+#: uc_cart/uc_cart.module:1063; uc_product_kit/uc_product_kit.module:575
+msgid ""
+"<strong>@product-title</strong> added to <a href=\"!url\">your "
+"shopping cart</a>."
+msgstr ""
+"<strong>@product-title</strong> wurde dem <a "
+"href=\"!url\">Warenkorb</a> hinzugefügt."
+
+#: payment/uc_authorizenet/uc_authorizenet.module:520; uc_order/uc_order.module:302
+msgid "Order @order_id"
+msgstr "Bestellung @order_id"
+
+#: uc_roles/uc_roles.ca.inc:426; uc_roles/uc_roles.module:1374
+msgid "Customer user role %role renewed."
+msgstr ""
+
+#: uc_roles/uc_roles.ca.inc:430; uc_roles/uc_roles.module:1378
+msgid "Customer granted user role %role."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:26; payment/uc_authorizenet/uc_authorizenet.pages.inc:81; payment/uc_credit/uc_credit.admin.inc:55
+msgid "Credit card details"
+msgstr "Kreditkartendaten"
+
+#: payment/uc_cybersource/uc_cybersource.module:249; payment/uc_paypal/uc_paypal.module:322
+msgid "Could not figure out cc type: @number / @type"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:37; payment/uc_recurring/uc_recurring.module:36
+msgid "Cancel the recurring fee?"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:38; payment/uc_recurring/uc_recurring.module:37
+msgid "Cancel a recurring fee."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:409,418; payment/uc_recurring/uc_recurring.module:418
+msgid "cancel"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:74; payment/uc_authorizenet/uc_authorizenet.pages.inc:133; payment/uc_recurring/uc_recurring.pages.inc:22
+msgid "Confirm"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:133; payment/uc_recurring/uc_recurring.pages.inc:22
+msgid ""
+"This action cannot be undone and may result in the termination of "
+"subscription services."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:838; payment/uc_credit/uc_credit.module:167,1388
+msgid "Authorization only"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:840; payment/uc_credit/uc_credit.module:1389
+msgid "Prior authorization capture"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:192; uc_store/uc_store.module:610,1060
+msgid "State/Province"
+msgstr ""
+
+#: ca/ca.admin.inc:87; ca/ca.module:42
+msgid "Add a predicate"
+msgstr ""
+
+#: ca/ca.module:0; uc_order/uc_order.ca.inc:827,917,926; uc_roles/uc_roles.ca.inc:293,328
+msgid "ca"
+msgstr ""
+
+#: payment/uc_payment/uc_payment.admin.inc:222; uc_cart/uc_cart.admin.inc:366
+msgid "@title is @enabled."
+msgstr ""
+
+#: payment/uc_recurring/uc_recurring.install:128; uc_order/uc_order.install:205,496
+msgid "Serialized array of extra data."
+msgstr ""
+
+#: uc_attribute/uc_attribute.install:222,273,323; uc_order/uc_order.install:437
+msgid "The product node ID."
+msgstr ""
+
+#: uc_cart/uc_cart.ca.inc:69; uc_order/uc_order.ca.inc:93; uc_roles/uc_roles.ca.inc:85,108,131,154
+msgid "Send an e-mail to the customer"
+msgstr ""
+
+#: uc_file/uc_file.ca.inc:32; uc_roles/uc_roles.ca.inc:44
+msgid "If the order status is completed."
+msgstr ""
+
+#: uc_file/uc_file.ca.inc:66; uc_roles/uc_roles.ca.inc:177
+msgid "renewal"
+msgstr ""
+
+#: uc_file/uc_file.pages.inc:39; uc_file/uc_file.module:421
+msgid "Addresses"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:67; uc_google_checkout/uc_google_checkout.module:971
+msgid ""
+"Order canceled. See order comments at [order-url] for more "
+"information."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.pages.inc:22,26,51; uc_google_checkout/uc_google_checkout.module:842,845,848,867,871,874
+msgid "google"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:173,249,250,263,389; uc_google_checkout/uc_google_checkout.info:0
+msgid "Google Checkout"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:837,936; uc_roles/uc_roles.ca.inc:344
+msgid "The \"From\" address."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:842,941; uc_roles/uc_roles.ca.inc:349
+msgid "Recipients"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:844,943; uc_roles/uc_roles.ca.inc:351
+msgid ""
+"Enter the email addresses to receive the notifications, one on each "
+"line. You may use order tokens for dynamic email addresses."
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:870,963; uc_roles/uc_roles.ca.inc:377
+msgid "@name replacement patterns"
+msgstr ""
+
+#: uc_order/uc_order.ca.inc:827; uc_roles/uc_roles.ca.inc:293,328
+msgid "Attempt to e-mail @email concerning order @order_id failed."
+msgstr ""
+
+#: uc_order/uc_order.install:489; uc_product/views/uc_product.views.inc:91
+msgid "The physical weight."
+msgstr ""
+
+#: uc_taxes/uc_taxes.ca.inc:19,38; uc_taxes/uc_taxes.module:331
+msgid "Tax rule"
+msgstr ""
+

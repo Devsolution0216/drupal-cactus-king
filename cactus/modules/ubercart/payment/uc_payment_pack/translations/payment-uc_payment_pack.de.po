@@ -1,0 +1,196 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_payment_pack.module,v 1.6.2.5 2008/11/07 21:13:27 islandusurper
+#  uc_payment_pack.admin.inc,v 1.1.2.3 2008/11/07 21:13:27 islandusurper
+#  uc_payment_pack.info,v 1.2.2.5 2008/11/07 21:13:27 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-03-09 17:53+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:370
+msgid "Instructions for customers on the checkout page."
+msgstr "Anleitungen für Kunden beim Punkt \"Kasse\""
+
+#: payment/uc_payment_pack/uc_payment_pack.module:85,88
+msgid "Type:"
+msgstr "Art:"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:132
+msgid "Description:"
+msgstr "Beschreibung:"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:144
+msgid "Full payment is expected upon delivery or prior to pick-up."
+msgstr "Vollständige Zahlung wird bei Lieferung oder vor Abholung erwartet."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:146
+msgid "Orders totalling more than !number are <b>not eligible</b> for COD."
+msgstr ""
+"Bestellungen mit einer Gesamtsumme von größer !number sind "
+"<b>nicht</b>per Nachnahme möglich."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:166
+msgid "Delivery Date"
+msgstr "Lieferdatum"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:173
+msgid "Desired delivery date:"
+msgstr "Gewünschtes Lieferdatum:"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:214
+msgid ""
+"Your final order total exceeds the maximum for COD payment.  Please go "
+"back and select a different method of payment."
+msgstr ""
+"Die Gesamtsumme Ihrer Bestellung überschreitet das Maximum für "
+"Zahlung per Nachnahme. Bitte gehen Sie zurück, und wählen Sie eine "
+"andere Zahlungsmethode."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:233
+msgid "Maximum order total eligible for COD"
+msgstr "Maximale Bestellsumme, die per Nachnahme möglich ist."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:235
+msgid "Set to 0 for no maximum order limit."
+msgstr "Auf 0 setzen um keinen Maximal betrag festzulegen."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:239
+msgid "Let customers enter a desired delivery date."
+msgstr "Kunden dürfen ein gewünschtes Lieferdatum angeben."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:247
+msgid "Enter a desired delivery date:"
+msgstr "Geben Sie das gewünschte Lieferdatum an:"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:268,281
+msgid "Checks should be made out to:"
+msgstr "Scheck sollte ausgestellt werden für:"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:297,309
+msgid "Mail to"
+msgstr "schicken an"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:329
+msgid "Clear Date:"
+msgstr "Verrechnungsdatum:"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:332,14
+msgid "Receive Check"
+msgstr "Scheck erhalten."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:351
+msgid ""
+"Set the mailing address to display to customers who choose this "
+"payment method during checkout."
+msgstr ""
+"Setzen Sie die Versandanschrift die Kunden angezeigt wird die diese "
+"zahlungs Methode während des Kassenvorgangs wählen."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:354
+msgid "Contact"
+msgstr "Kontakt"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:354
+msgid "Direct checks to a person or department."
+msgstr "Schicken Sie ihre Scheks an:"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:371
+msgid ""
+"Personal and business checks will be held for up to 10 business days "
+"to ensure payment clears before an order is shipped."
+msgstr ""
+"Privat und Geschäftsscheks werden für bis zu 10 Tage gehalten um "
+"sicherzustellen das die Zahlung nicht zurückgerufen wird. Bevor die "
+"Ware versand wird."
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:22
+msgid "Check has already been received."
+msgstr "Scheck ist bereits eingetroffen."
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:36
+msgid "Any notes about the check, like type or check number."
+msgstr "Alle Hinweise rund um den Scheck wie z.B. Art, seriennummer usw."
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:63
+msgid ""
+"Use the form to enter the check into the payments system and set the "
+"expected clear date."
+msgstr ""
+"Benutzen Sie dieses Frormular um den Scheck ins Bezahlsystem zu "
+"übernehmen und ein erwartetes verechnungsdatum zu setzen."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:345
+msgid "Expected clear date:"
+msgstr "Erwartetes verrechnungs Datum"
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:73
+msgid "The amount must be a number."
+msgstr "Der Betrag muss eine zahl sein."
+
+#: payment/uc_payment_pack/uc_payment_pack.module:53
+msgid "COD"
+msgstr "Nachnahme Sendung"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:55
+msgid "Pay cash on delivery on pick-up."
+msgstr "Bezahlung per Nachnahme oder bei Abholung"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:65
+msgid "A generic payment method type."
+msgstr "Eine generische Zahlungsmethode"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:344
+msgid "Check received"
+msgstr "Scheck erhalten"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:369
+msgid "Check payment policy"
+msgstr "Zahlungs Regeln Überprüfen"
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:54
+msgid "Receive check"
+msgstr "Scheck erhalten"
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:64
+msgid "Order balance:"
+msgstr "Bestellungs balance?"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:54
+msgid "Cash on delivery"
+msgstr "Nachname Sendung"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:44
+msgid "Check or money order"
+msgstr "Scheck oder Überweisung"
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:42
+msgid "Expected clear date"
+msgstr "erwartetes Verrechnungsdatum"
+
+#: payment/uc_payment_pack/uc_payment_pack.module:0
+msgid "uc_payment_pack"
+msgstr "uc_payment_pack"
+
+#: payment/uc_payment_pack/uc_payment_pack.info:0
+msgid "Payment Method Pack"
+msgstr "Zahlungsarten Packet"
+
+#: payment/uc_payment_pack/uc_payment_pack.info:0
+msgid "Provides the check/money order, COD, and 'other' payment methods."
+msgstr ""
+"Stellt die Scheck, Überweisung, Nachname und \"andere\" Bezahl arten "
+"zur Verfügung"
+
+#: payment/uc_payment_pack/uc_payment_pack.admin.inc:86
+msgid "Check received, expected clear date of @date."
+msgstr ""
+

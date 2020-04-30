@@ -1,0 +1,48 @@
+// $Id: CHANGELOG.txt,v 1.8 2009/04/07 11:04:35 madsph Exp $
+
+uc_views 6.x-2.0
+================
+
+IMPORTANT:
+This release breaks backwards compatibility with uc_views 1.x. If you have any views containing Ubercart order fields
+they might not work after installing this version! The reason for this is that orders are now a base table and no longer joins
+with nodes through order products.
+
+ o Bugfixes
+ o Features
+   - Applied pathch from sammys that adds the following
+       * Adds orders to views as a base table. This means you can base your views on orders instead of on products.
+       * Allows orders to join up to the user that ordered.
+       * Displays all order fields from the uc_orders table.
+       * Can optionally link the order ID to the order admin screen.
+       * Can have order id as an argument.
+       * Can show all country and zone fields (e.g two letter country codes).
+       * Adds primary_email field and render it as a mailto: link
+       * Uses field descriptions from the schema subsystem to reduce developer efforts in future.
+ o Views included
+   - Applied pathch from sammys that adds a new view displaying all orders
+   
+
+uc_views 6.x-1.1
+================
+ o Bugfixes
+   - Fixed bug concerning using views_handler_field_node in stead of views_handler_field for various fields.
+   - Fixed bug in install and unistall functions regarding missing curly brackets for table and view names
+ o Features
+   - Added handler for country code fields
+   - Added filter handler for countries
+   - Added handler for zone code fields
+   - Added filter handler for zones
+   - Extended the number of fields from the uc_orders table
+   - Added tabledefinition for uc_cart_product
+   - Added field handler for linking carts to users
+
+uc_views 6.x-0.1
+================
+ o First 0.1 beta release
+ o Views included
+   - new_products: Block view displaying the most recently added products
+   - popular_products: Block view displaying the products which has sold the highest quantity
+   - product_pairs_block: Block view providing 'Users who bought the selected product also bought these' list
+   - user_products: Block view displaying a list of the products which the user most often end up buying.
+ o Applied patch from river_t to include uc_orders

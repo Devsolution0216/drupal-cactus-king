@@ -1,0 +1,45 @@
+<?php
+// $Id: uc_termsofservice.install,v 1.1.2.2 2010/01/02 20:18:11 pcambra Exp $
+
+/**
+ * @file
+ * Hooks invoked when the module is being installed or uninstalled.
+ */
+
+/**
+ * Implementations hook_uninstall().
+ */
+function uc_termsofservice_uninstall() {
+// Delete all module variables and then clear the variable cache.
+  db_query("DELETE FROM {variable} WHERE name LIKE 'uc_termsofservice_%'");
+  cache_clear_all('variables', 'cache');
+}
+
+/**
+ * Implementation of hook_update_N().
+ */
+function uc_termsofservice_update_6101() {
+  $ret = array();
+  // Update the cart variables.
+  if (variable_get('uc_termsofservice_target', 0) == 1) {
+    variable_set('uc_termsofservice_cart_node', variable_get('uc_termsofservice_node', 0));
+    variable_set('uc_termsofservice_cart_popup', variable_get('uc_termsofservice_popup', 0));
+  }
+  // Update the checkout variables.
+  elseif (variable_get('uc_termsofservice_target', 0) == 2) {
+    variable_set('uc_termsofservice_checkout_required', variable_get('uc_termsofservice_required', 0));
+    variable_set('uc_termsofservice_checkout_node', variable_get('uc_termsofservice_node', 0));
+    variable_set('uc_termsofservice_checkout_popup', variable_get('uc_termsofservice_popup', 0));
+  }
+  // Delete the useless variables.
+  $variables = array(
+    'uc_termsofservice_target',
+    'uc_termsofservice_required',
+    'uc_termsofservice_node',
+    'uc_termsofservice_popup',
+  );
+  foreach ($variables as $variable) {
+    variable_del($variable);
+  }
+  return $ret;
+}

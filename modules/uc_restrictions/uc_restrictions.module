@@ -1,0 +1,286 @@
+<?php
+// $Id: uc_restrictions.module,v 1.6 2009/01/27 23:43:42 islco Exp $
+
+/**
+ * @file
+ * The API that contains common functions for modules that restrict the purchase of goods.
+ */
+
+
+/******************************************************************************
+ * Drupal Hooks                                                               *
+ */
+
+/**
+ * Implementation of hook_help().
+ *
+ * @param string $section
+ * @return string
+ */
+function uc_restrictions_help($path, $arg) {
+  switch ($section) {
+    case 'admin/store/settings/restrictions':
+      $output = '<p>'. t('This module will do its best to prevent the wrong sort of people from ordering the wrong sort of goods, or shipping of certain goods to the wrong kinds of places.');
+      $output .= '<p>'. t('For example, some products cannot be ordered by minors, or some products cannot be shipped to certain states.  Or both!');
+      $output .= '<p>'. t('The module was originally developed for a site that sells wine.');
+      return $output;
+  }
+}
+
+/**
+ * Implementation of hook_menu().
+ *
+ * Called when Drupal is building menus.  Cache parameter lets module know
+ * if Drupal intends to cache menu or not - different results may be
+ * returned for either case.
+ *
+ * @param may_cache true when Drupal is building menus it will cache
+ *
+ * @return An array with the menu path, callback, and parameters.
+ */
+function uc_restrictions_menu() {
+  $items = array();
+
+  $items['admin/store/settings/restrictions'] = array(
+      'title'              => 'Restrictions',
+      'access arguments'   => array('administer store'),
+      'page callback'      => 'drupal_get_form',
+      'description'        => 'Restrict the sale of certain products.',
+      'page arguments'     => array('uc_restrictions_admin_settings'),
+      'type'               => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+
+
+/**
+ * Admin Settings
+ *
+ * @return Forms for store administrator to set configuration options.
+ */
+function uc_restrictions_admin_settings() {
+  
+  $jquery_plugins = drupal_get_path('module', 'uc_restrictions') .'/jquery/';
+  if (!is_file($jquery_plugins .'jquery.cookie.min.js')) {
+    drupal_set_message(t('Could not find the jquery cookies plugin installed 
+        at <strong>!jquery_plugins</strong>. 
+        Please <a href="http://http://jquery.com/dev/svn/trunk/plugins/cookie/">download jquery.cookie.min.js</a>,
+        and put it into !jquery_plugins.', array('!jquery_plugins' => $jquery_plugins)), 'error');
+  }
+
+  $form['visibility'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Visibility'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#weight' => 0,
+  );
+
+  // adapted from tinyMce module, thank you
+  $access = user_access('use PHP for block visibility');
+
+  // If the visibility is set to PHP mode but the user doesn't have this block permission, don't allow them to edit nor see this PHP code
+  if (variable_get('uc_restrictions_intercept', 1) == 2 && !$access) {
+    $form['visibility'] = array();
+    $form['visibility']['uc_restrictions_intercept'] = array(
+      '#type' => 'value',
+      '#value' => 2
+    );
+    $form['visibility']['uc_restrictions_intercept_pages'] = array(
+      '#type' => 'value',
+      '#value' => variable_get('uc_restrictions_intercept_pages', '')
+    );
+  }
+  else{
+    $options = array(t('Show on every page except the listed pages.'), t('Show on only the listed pages.'));
+    $description = t("Enter one page per line as Drupal paths. The '*' character is a wildcard. Example paths are '!blog' for the blog page and !blog-wildcard for every personal blog. !front is the front page.", array('!blog' => theme('placeholder', 'blog'), '!blog-wildcard' =>  theme('placeholder', 'blog/*'), '!front' => theme('placeholder', '<front>')));
+
+    if ($access) {
+      $options[] = t('Show if the following PHP code returns <code>TRUE</code> (PHP-mode, experts only).');
+      $description .= t('If the PHP-mode is chosen, enter PHP code between !php. Note that executing incorrect PHP-code can break your Drupal site.', array('!php' => theme('placeholder', '<?php ?>')));
+    }
+    $form['visibility']['uc_restrictions_intercept'] = array(
+      '#type' => 'radios',
+      '#title' => t('Show an intrusive intercept form on specific pages'),
+      '#default_value' => variable_get('uc_restrictions_intercept', 1),
+      '#options' => $options
+    );
+    $form['visibility']['uc_restrictions_intercept_pages'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Pages'),
+      '#default_value' => variable_get('uc_restrictions_intercept_pages', ''),
+      '#description' => $description
+    );
+  }
+  $form['visibility']['#description'] = t('A thickbox form appears to the user to ask to which zone the user plans to ship.  This form is session-aware and will appear only once per session.  The purpose of this feature is to inform users of the restrictions.');
+  return system_settings_form($form);
+}
+
+/**
+ * Implementation of hook_footer().
+ * Render the overlay div on pages that might use it.
+ * Note decision of whether it renders is client-side (so you can cache).
+ * 
+ *
+ * @param unknown_type $main
+ * @return unknown
+ */
+function uc_restrictions_footer($main) {
+  if (_uc_restrictions_page_match()) {
+    drupal_add_js(drupal_get_path('module', 'uc_restrictions') .'/jquery/jquery.cookie.min.js');
+    return theme('uc_restrictions_overlay_form');
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ *
+ * @param object $node
+ * @param string $op
+ * @param string $a3
+ * @param string $a4
+ */
+function uc_restrictions_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  if ($_GET['content_only'] && $op=='view') {
+    print drupal_render($node->content);
+    exit;
+  }
+}
+
+/**
+ * Theme Registry
+ *
+ * @return array
+ */
+function uc_restrictions_theme() {
+  return array(
+      'uc_restrictions_overlay_form' => array(
+           'arguments' => array('height', 'width'),
+  ),
+  );
+}
+/*******************************************************************************
+ * Module and Helper Functions
+ */
+
+/**
+ * Return true if cart contents contain products that are restricted.
+ * @param string $type use this to grab the correct taxonomy list
+ * @param array $products you can get this from unserialize($form_values['cart_contents'])
+ * @return boolean
+ */
+function uc_restrictions_contains_restricted($type, $products) {
+  $restricted_tids=array();
+  $restricted_shipment=FALSE;
+  $tids=variable_get($type, NULL);
+  if ($tids) {
+    foreach ($tids as $tid) {
+      $term=taxonomy_get_term($tid);
+      $restricted_tids[]=$term->tid;    
+      $restricted_taxonomy_tree=taxonomy_get_tree($term->vid, $term->tid, -1, NULL);
+      foreach ($restricted_taxonomy_tree as $term) {
+        $restricted_tids[]=$term->tid;
+      }
+    }
+
+    // determine if order contains products whose nodes are associated with restricted tids
+    foreach ($products as $product) {
+      $product_categories=taxonomy_node_get_terms($product);
+      foreach ($product_categories as $category) {
+        if (in_array($category->tid, $restricted_tids)) {
+          return TRUE;
+        }
+      }
+    }
+  }
+  return FALSE;
+}
+
+/*******************************************************************************
+ * Overlay Form
+ */
+/**
+ * FAPI definition of the overlay form presented to the user to ask qualifying questions
+ * Sub-modules will add the fields
+ * 
+ * @ingroup forms
+ * @see uc_restrictions_user_form_submit()
+ *
+ * @return unknown
+ */
+function uc_restrictions_user_form() {
+  $form['submit']=array(
+        '#type' => 'submit',
+        '#value' => t('Submit'),
+        '#weight' => 10,
+  );
+  $goto=ltrim(request_uri(), '/');
+  $form['#redirect']=$goto;// not sure why we have to do this, otherwise goes to top of the store when user passes
+  return $form;
+}
+
+/**
+ * Callback for submission of the user (overlay) form.  Submit actions are defined by the sub-modules and usually involve redirection to an info page.
+ * Cookie is used vs. session variable, because the overlay is triggered with javascript on the client.
+ * This allows drupal page caching.
+ * Also this must work for a customer who logs in before checkout.
+ *
+ * @param unknown_type $form
+ * @param unknown_type $form_values
+ */
+function uc_restrictions_user_form_submit($form, $form_values) {
+  if (!isset($_COOKIE['uc_restrictions_overlay_seen'])) {
+    setcookie('uc_restrictions_overlay_seen', '1', 0 , '/');
+  }
+}
+
+/**
+ * Theme for Form Overlay Wrapper
+ * 
+ * Note, client-side javascript is used to determine if overlay should appear.
+ * This is to allow you to cache your pages. * 
+ * 
+ * @ingroup themeable
+ * 
+ * @param integer $height
+ * @param integer $width
+ * @return string
+ */
+function theme_uc_restrictions_overlay_form($height=144, $width=280) {
+  $output = '<div id="hiddenModalContent" class="thickbox" style="display:none">'. drupal_get_form('uc_restrictions_user_form') .'</div>';
+  $output .= '<script>
+  if ($.cookie("uc_restrictions_overlay_seen")!=1){
+  	tb_show("Select your state.","#TB_inline?inlineId=hiddenModalContent&height='. $height .'&width='. $width .'&modal=true", false);
+  }
+  </script>';
+  return $output;
+}
+
+/********************************************************************
+ * Module Functions :: Private
+ */
+/**
+ * Determine if overlay can display.
+ *
+ * @return
+ *   TRUE if can render, FALSE if not allowed.
+ */
+function _uc_restrictions_page_match() {
+  $page_match = FALSE;//assume no
+
+  if ($pages=variable_get('uc_restrictions_intercept_pages', '')) {
+    // If the PHP option wasn't selected
+    if ($intercept_type=variable_get('uc_restrictions_intercept', 1) < 2) {
+      $path = drupal_get_path_alias($_GET['q']);
+      $regexp = '/^('. preg_replace(array('/(\r\n?|\n)/', '/\\\\\*/', '/(^|\|)\\\\<front\\\\>($|\|)/'), array('|', '.*', '\1'. preg_quote(variable_get('site_frontpage', 'node'), '/') .'\2'), preg_quote($pages, '/')) .')$/';
+      $page_match = !($intercept_type xor preg_match($regexp, $path));
+    }
+    else{
+      $page_match = drupal_eval($pages);
+    }
+  }
+
+  return $page_match;
+}

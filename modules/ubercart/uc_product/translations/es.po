@@ -1,0 +1,692 @@
+# $Id: es.po,v 1.1.2.4 2008/11/07 21:13:24 islandusurper Exp $
+#
+# LANGUAGE translation of Drupal (uc_product.module)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from file: uc_product.info,v 1.5 2007/10/02 17:43:47 rszrama
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2007-10-04 09:43-0400\n"
+"PO-Revision-Date: 2007-10-13 HH:MM+ZZZZ\n"
+"Last-Translator:  Antonio de la Torre <antdltorre@gmail.com>\n"
+"Language-Team: Spanish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: uc_product.module:28;40
+msgid "Products"
+msgstr "Productos"
+
+#: uc_product.module:35;318 uc_product.info:0
+msgid "Product"
+msgstr "Producto"
+
+#: uc_product.module:41
+msgid "Administer product attributes, classes, and general settings."
+msgstr "Administrar atributos, clases y opciones generales de producto."
+
+#: uc_product.module:48
+msgid "View products"
+msgstr "Ver productos"
+
+#: uc_product.module:56
+msgid "Manage classes"
+msgstr "Gestionar clases"
+
+#: uc_product.module:64;86;1493
+msgid "Product settings"
+msgstr "Opciones de producto"
+
+#: uc_product.module:71
+msgid "Overview"
+msgstr "Descripción"
+
+#: uc_product.module:77
+msgid "Edit"
+msgstr "Editar"
+
+#: uc_product.module:93;1544
+msgid "Product fields"
+msgstr "Campos de producto"
+
+#: uc_product.module:102;1555
+msgid "Product features"
+msgstr "Características de producto"
+
+#: uc_product.module:116
+msgid "product"
+msgstr "producto"
+
+#: uc_product.module:124
+msgid "features"
+msgstr "características"
+
+#: uc_product.module:136
+msgid "Imagecache default settings"
+msgstr "Opciones predefinidas de imagecache"
+
+#: uc_product.module:143
+msgid "Product class"
+msgstr "Clases de producto"
+
+#: uc_product.module:155
+msgid "Edit class"
+msgstr "Editar clase"
+
+#: uc_product.module:188
+msgid "A module to represent items in an online store."
+msgstr "Módulo para representar artículos en una tienda online"
+
+#: uc_product.module:312;369;793;1717
+msgid "Name"
+msgstr "Nombre"
+
+#: uc_product.module:313;377;1717;1765;2164;2199
+msgid "Description"
+msgstr "Descripción"
+
+#: uc_product.module:320
+msgid "This node displays the representation of a product for sale on the website. It includes \n        all the unique information that can be attributed to a specific model number."
+msgstr "Este nodo muestra la representación de un producto en venta en un sitio web. Incluye \n        toda la información única que pueda atribuirse a un número de modelo específico."
+
+#: uc_product.module:373
+msgid "Name of the product."
+msgstr "Nombre del producto."
+
+#: uc_product.module:380
+msgid "Enter the product description used for product teasers and pages."
+msgstr "Introduzca la descripción del producto que se usará en las páginas y cabeceras de éste."
+
+#: uc_product.module:386
+msgid "Product Information"
+msgstr "Información del Producto"
+
+#: uc_product.module:393
+msgid "SKU"
+msgstr "SKU"
+
+#: uc_product.module:396
+msgid "Product SKU/model"
+msgstr "SKU/modelo del producto (SKU: <a href=\"http://es.wikipedia.org/wiki/Stock_Keeping_Unit\" target=\"top\">Wikipedia</a>)"
+
+#: uc_product.module:409;1506;1671
+msgid "List Price"
+msgstr "Precio de catálogo"
+
+#: uc_product.module:412
+msgid "The listed MSRP"
+msgstr "El MSRP catalogado (precio recomendado del minorista)"
+
+#: uc_product.module:419
+msgid "Cost"
+msgstr "Coste"
+
+#: uc_product.module:422
+msgid "Your store's cost"
+msgstr "El coste de tienda"
+
+#: uc_product.module:429;1508;1673
+msgid "Sell Price"
+msgstr "Precio de Venta"
+
+#: uc_product.module:432
+msgid "Customer purchase price"
+msgstr "Precio de venta al público"
+
+#: uc_product.module:443;1509;1674;1679
+msgid "Weight"
+msgstr "Peso"
+
+#: uc_product.module:449
+msgid "Pounds"
+msgstr "Libras"
+
+#: uc_product.module:450
+msgid "Kilograms"
+msgstr "Kilogramos"
+
+#: uc_product.module:451
+msgid "Ounces"
+msgstr "Onzas"
+
+#: uc_product.module:452
+msgid "Grams"
+msgstr "Gramos"
+
+#: uc_product.module:455
+msgid "Unit of measurement"
+msgstr "Unidad de medida"
+
+#: uc_product.module:460;1510;1675
+msgid "Dimensions"
+msgstr "Dimensiones"
+
+#: uc_product.module:461
+msgid "Physical dimensions of the packaged product."
+msgstr "Dimensiones físicas del producto empaquetado."
+
+#: uc_product.module:466
+msgid "Units of measurement"
+msgstr "Unidades de medida"
+
+#: uc_product.module:468
+msgid "Inches"
+msgstr "Pulgadas"
+
+#: uc_product.module:469
+msgid "Centimeters"
+msgstr "Centímetros"
+
+#: uc_product.module:474
+msgid "Length"
+msgstr "Largo"
+
+#: uc_product.module:479
+msgid "Width"
+msgstr "Anchura"
+
+#: uc_product.module:484
+msgid "Height"
+msgstr "Altura"
+
+#: uc_product.module:489
+msgid "Package quantity"
+msgstr "Cantidad de paquetes"
+
+#: uc_product.module:491
+msgid "For a package containing only this product, how many are in it?"
+msgstr "Para un paquete que contenga sólo este producto, ¿Cuántos contiene?"
+
+#: uc_product.module:494
+msgid "Default quantity to add to cart"
+msgstr "Cantidad predefinida para añadir al carro de la compra"
+
+#: uc_product.module:496
+msgid "Leave blank or zero to disable the quantity field in the add to cart form."
+msgstr "Déjelo en blanco o cero para desactivar el campo <i>cantidad</i> en el formulario <i>añadir al carro de la compra</i>."
+
+#: uc_product.module:502
+msgid "List order"
+msgstr "Orden de la lista"
+
+#: uc_product.module:538
+msgid "Price must be in a valid number format. No commas and only one decimal point."
+msgstr "El precio debe estar en un formato de número válido. Sin comas y sólo un punto decimal."
+
+#: uc_product.module:549
+msgid "Weight must be in a valid number format. No commas and only one decimal point."
+msgstr "El peso debe estar en un formato de número válido. Sin comas y sólo un punto decimal."
+
+#: uc_product.module:553
+msgid "Quantities should be numeric."
+msgstr "Las cantidades deben ser numéricas."
+
+#: uc_product.module:556
+msgid "Adding negative items to the cart doesn't make sense, so don't make it easy."
+msgstr "Añadir artículos negativos no tienes sentido."
+
+#: uc_product.module:698;754
+msgid "Advanced search"
+msgstr "Búsqueda avanzada"
+
+#: uc_product.module:709
+msgid "Containing any of the words"
+msgstr "Que contenga cualquiera de las palabras"
+
+#: uc_product.module:715
+msgid "Containing the phrase"
+msgstr "Que contenga la frase"
+
+#: uc_product.module:721
+msgid "Containing none of the words"
+msgstr "Que no contega ninguna de las palabras"
+
+#: uc_product.module:730
+msgid "Only in the category(s)"
+msgstr "Sólo en la(s) categoría(s)"
+
+#: uc_product.module:747
+msgid "Only of the type(s)"
+msgstr "Sólo del(os) tipo(s)"
+
+#: uc_product.module:779
+msgid "Lists a group of products in an abbreviated format."
+msgstr "Lista un rupo de productos en formato abreviado."
+
+#: uc_product.module:792;1504;1669
+msgid "Image"
+msgstr "Imagen"
+
+#: uc_product.module:794
+msgid "Price"
+msgstr "Precio"
+
+#: uc_product.module:798;833;1487;1488;1511;1597;1603;1676;1908
+msgid "Add to cart"
+msgstr "Añadir al carro"
+
+#: uc_product.module:814
+msgid "n/a"
+msgstr "n/a"
+
+#: uc_product.module:886;924
+msgid "Product: SKU"
+msgstr "Producto: SKU"
+
+#: uc_product.module:887
+msgid "Model number"
+msgstr "Número de modelo"
+
+#: uc_product.module:891;927
+msgid "Product: List Price"
+msgstr "Producto: Precio de Catálogo"
+
+#: uc_product.module:892
+msgid "Manufacturer's suggested price"
+msgstr "Precio sugerido de fabricante"
+
+#: uc_product.module:897;930
+msgid "Product: Cost"
+msgstr "Producto: Coste"
+
+#: uc_product.module:898
+msgid "Amount to buy the unit"
+msgstr "Cantidad para comprar la unidad"
+
+#: uc_product.module:903;933
+msgid "Product: Sell Price"
+msgstr "Producto: Precio de Venta"
+
+#: uc_product.module:904
+msgid "Amount to sell the unit"
+msgstr "Cantidad para vender la unidad"
+
+#: uc_product.module:909;936
+msgid "Product: Weight"
+msgstr "Producto: Peso"
+
+#: uc_product.module:910
+msgid "Physical weight"
+msgstr "Peso físico"
+
+#: uc_product.module:915
+msgid "Product: Add to cart link"
+msgstr "Producto: Enlace añadir al carro"
+
+#: uc_product.module:916
+msgid "Form to put the product in the customer's cart."
+msgstr "Formulario para colocar el producto en el carro de compra del cliente."
+
+#: uc_product.module:946
+msgid "Filter the node based on whether or not it is derived from content type Product."
+msgstr "Filtrar el nodo basándose en si es o no derivado del tipo de contenido Producto."
+
+#: uc_product.module:1070
+msgid "Images"
+msgstr "Imágenes"
+
+#: uc_product.module:1073
+msgid "In order to display product images, please <a href=\"!href\">enable</a> the <a href=\"http://drupal.org/project/cck\">Content</a>, <a href=\"http://drupal.org/project/imagefield\">CCK Image field</a>, and the <a href=\"http://drupal.org/project/imagecache\">Imagecache</a> modules."
+msgstr "Con el fin de mostrar imágenes de productos, por favor <a href=\"!href\">active</a> los módulos <a href=\"http://drupal.org/project/cck\">Content</a>, <a href=\"http://drupal.org/project/imagefield\">CCK Image field</a>, e <a href=\"http://drupal.org/project/imagecache\">Imagecache</a>."
+
+#: uc_product.module:1102
+msgid "Imagefield and Imagecache have been set up to display product images."
+msgstr "Imagefiled e imagecache han sido configurados para mostrar imágenes de productos."
+
+#: uc_product.module:1107
+msgid "Click <strong><a href=\"!path\">here</a></strong> to create defaults for the following problems:"
+msgstr "Pulse <strong><a href=\"!path\">aquí</a></strong> para establecer la configuración predefinida para los siguientes problemas:"
+
+#: uc_product.module:1110
+msgid "The Image field has not been created for CCK."
+msgstr "El campo Imagen no ha sido creado por CCK."
+
+#: uc_product.module:1113
+msgid "The Image field has not been attached to Product nodes."
+msgstr "El campo imagen ho ha sido adjuntado a los nodos Producto."
+
+#: uc_product.module:1116
+msgid "The expected Imagecache presets (\"!presets\") have not been created."
+msgstr "Las preconfiguraciones esperadas de Imagecache (\"!presets\") no se han creado."
+
+#: uc_product.module:1119
+msgid "The Imagecache presets do not contain actions to perform on images. Images may be displayed in their original formats."
+msgstr "Las preconfiguraciones de Imagecache no contienen acciones para realizar en las imágenes. Las imágenes se podrán mostrar en su formato original."
+
+#: uc_product.module:1177
+msgid "Your item(s) have been updated."
+msgstr "El artículo(s) ha(n) sido actualizado(s)."
+
+#: uc_product.module:1310;1330
+msgid "- Show links -"
+msgstr "- Mostrar enlaces -"
+
+#: uc_product.module:1310;1326
+msgid "- Hide links -"
+msgstr "- Ocultar enlaces -"
+
+#: uc_product.module:1405
+msgid "Vocabulary"
+msgstr "Vocabulario"
+
+#: uc_product.module:1466;1478
+msgid "Reset"
+msgstr "Restaurar"
+
+#: uc_product.module:1469
+msgid "List"
+msgstr "Listar"
+
+#: uc_product.module:1487
+msgid "Teaser and catalog pages = %text"
+msgstr "Cabecera y páginas de catálogo = %text"
+
+#: uc_product.module:1488
+msgid "Product view pages = %text"
+msgstr "Páginas de vista de producto = %text"
+
+#: uc_product.module:1489
+msgid "<em>Add to Cart</em> submit button text:"
+msgstr "Texto del botón <em>Añadir al Carro</em>"
+
+#: uc_product.module:1495
+msgid "Showing !number products per page."
+msgstr "Mostrar !number productos por página."
+
+#: uc_product.module:1496
+msgid "The <em>Add to Cart</em> form is !status in product teasers."
+msgstr "El formulario <em>Añadir al Carro</em> está !status en las cabeceras de producto."
+
+#: uc_product.module:1496;1497
+msgid "enabled"
+msgstr "activado"
+
+#: uc_product.module:1496;1497
+msgid "disabled"
+msgstr "desactivado"
+
+#: uc_product.module:1497
+msgid "The Quantity field in the <em>Add to Cart</em> form is !status."
+msgstr "El campo Cantidad en el formulario <em>Añadir al Carro</em> está !status."
+
+#: uc_product.module:1503;1668
+msgid "Model"
+msgstr "Modelo"
+
+#: uc_product.module:1505;1670
+msgid "Display Price"
+msgstr "Mostrar Precio"
+
+#: uc_product.module:1507;1672
+msgid "Cost (seen only by 'administer products' permission)"
+msgstr "Coste (sólo se ve con el permiso 'administrar productos')"
+
+#: uc_product.module:1546
+msgid "Displayed product fields: !list"
+msgstr "Campos de producto mostrados: !list"
+
+#: uc_product.module:1557
+msgid "The following features are enabled: !list"
+msgstr "Las siguientes características están activadas: !list"
+
+#: uc_product.module:1569
+msgid "Products per page"
+msgstr "Productos por página"
+
+#: uc_product.module:1570
+msgid "The number of products per page in a list."
+msgstr "El número de productos por página en una lista."
+
+#: uc_product.module:1577
+msgid "Display an optional quantity field in the <em>Add to Cart</em> form."
+msgstr "Mostrar un campo de cantidad opcional en el formulario <em>Añadir al Carro</em>."
+
+#: uc_product.module:1582
+msgid "Enable <em>Add to Cart</em> forms in product node teasers."
+msgstr "Activar formularios <em>Añadir al Carro</em> en las cabeceras de nodo producto."
+
+#: uc_product.module:1588
+msgid "<em>Add to Cart</em> button text"
+msgstr "Texto de botón <em>Añadir al Carro</em>"
+
+#: uc_product.module:1589
+msgid "Use the textboxes to adjust the text of the submit button for <em>Add to Cart</em> forms in various places on the site."
+msgstr "Utilice las cajas de texto para ajustar el texto del botón para los formularios <em>Añadir al Carro</em> en varios lugares del sitio."
+
+#: uc_product.module:1595
+msgid "Teaser forms"
+msgstr "Formularios de cabecera"
+
+#: uc_product.module:1596
+msgid "For the form displayed on teasers and catalog pages."
+msgstr "Para el formulario mostrado en las cabeceras y páginas de catálogo."
+
+#: uc_product.module:1601
+msgid "Product view"
+msgstr "Vista de producto"
+
+#: uc_product.module:1602
+msgid "For the form displayed on the product view page."
+msgstr "Para el formulario mostrado en la página de vista de producto."
+
+#: uc_product.module:1660
+msgid "Save configuration"
+msgstr "Guardar configuración"
+
+#: uc_product.module:1661;1695
+msgid "Reset to defaults"
+msgstr "Restaurar con los valores predefinidos"
+
+#: uc_product.module:1679
+msgid "Enable"
+msgstr "Activar"
+
+#: uc_product.module:1679
+msgid "Product Field"
+msgstr "Campo de Producto"
+
+#: uc_product.module:1699
+msgid "The configuration options have been reset to their default values."
+msgstr "Las opciones de configuración ha sido restauradas a sus valores predefinidos."
+
+#: uc_product.module:1711
+msgid "The configuration options have been saved."
+msgstr "Las opciones de configuración ha sido guardadas."
+
+#: uc_product.module:1717;1753
+msgid "Class ID"
+msgstr "Clase ID"
+
+#: uc_product.module:1717;2199
+msgid "Operations"
+msgstr "Operaciones"
+
+#: uc_product.module:1724;2204
+msgid "edit"
+msgstr "editar"
+
+#: uc_product.module:1725;2205
+msgid "delete"
+msgstr "eliminar"
+
+#: uc_product.module:1729
+msgid "No product classes have been defined yet."
+msgstr "Ninguna clase de producto ha sido definida aún."
+
+#: uc_product.module:1733
+msgid "Add a Class"
+msgstr "Añadir una Clase"
+
+#: uc_product.module:1748
+msgid "Classes"
+msgstr "Clases"
+
+#: uc_product.module:1756
+msgid "The machine-readable name of this content type. This text will be used for constructing the URL of the <em>create content</em> page for this content type. This name may consist of only of lowercase letters, numbers, and underscores. Dashes are not allowed. Underscores will be converted into dashes when constructing the URL of the <em>create content</em> page. This name must be unique to this content type."
+msgstr "El nombre legible por máquina de este tipo de contenido. Este texto será usado para construir la URL de la página <em>crear contenido</em> para este tipo de contenido. Este nombre debe consistir sólo en letras minúsculas, números y guiones bajos. Los guiones medios no están permitidos. Los guiones bajos serán transformados en guiones medios al construir la URL de la página <em>crear contenido</em>. Este nombre debe ser único para este tipo de contenido."
+
+#: uc_product.module:1760
+msgid "Class name"
+msgstr "Nombre de clase"
+
+#: uc_product.module:1769
+msgid "Submit"
+msgstr "Enviar"
+
+#: uc_product.module:1815
+msgid "Be very sure you want to delete the %type product class. "
+msgstr "Asegúrese de querer eliminar la clase de producto %type."
+
+#: uc_product.module:1817
+msgid "Continue"
+msgstr "Continuar"
+
+#: uc_product.module:1817;2165;2303
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: uc_product.module:1828
+msgid "The content type %name has been deleted."
+msgstr "El tipo de contenido %name ha sido eliminado."
+
+#: uc_product.module:1829
+msgid "Deleted content type %name."
+msgstr "Tipo de contenido %name eliminado."
+
+#: uc_product.module:1837
+msgid "Product class %type deleted."
+msgstr "Clase de producto %type eliminada."
+
+#: uc_product.module:1871
+msgid "!m"
+msgstr "!m"
+
+#: uc_product.module:1899
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: uc_product.module:1914
+msgid "You have entered an invalid quantity."
+msgstr "Ha introducido una cantidad no válida."
+
+#: uc_product.module:1934
+msgid "@label: !price"
+msgstr "@label: !price"
+
+#: uc_product.module:1951
+msgid "!price"
+msgstr "!price"
+
+#: uc_product.module:1956
+msgid "Price: !price"
+msgstr "Precio: !price"
+
+#: uc_product.module:1969
+msgid "Weight: !weight"
+msgstr "Peso: !weight"
+
+#: uc_product.module:1981
+msgid "Dimensions: !length x !width x !height"
+msgstr "Dimensiones: !length x !width x !height"
+
+#: uc_product.module:2118
+msgid "The following product features are enabled"
+msgstr "Las siguientes características de producto están activadas"
+
+#: uc_product.module:2126
+msgid "!feature settings"
+msgstr "Opciones de !feature"
+
+#: uc_product.module:2157
+msgid "The product feature has been deleted."
+msgstr "Las características de producto han sido eliminadas."
+
+#: uc_product.module:2163
+msgid "Are you sure you wish to delete this %feature?"
+msgstr "¿Está seguro de querer eliminar estas %feature?"
+
+#: uc_product.module:2165
+msgid "Delete"
+msgstr "Eliminar"
+
+#: uc_product.module:2168
+msgid "That product feature doesn't exist."
+msgstr "Esa característica de producto no existe."
+
+#: uc_product.module:2187
+msgid "Error: Attempted to add a non-existent product feature type."
+msgstr "Error: Está intentando añadir un tipo de característica de producto que no existe."
+
+#: uc_product.module:2192
+msgid "Error: No form data was returned for that operation."
+msgstr "Error: Ningún dato de formulario devuelto por esa operación."
+
+#: uc_product.module:2199
+msgid "Type"
+msgstr "Tipo"
+
+#: uc_product.module:2216
+msgid "No features found for this product."
+msgstr "Ninguna caracterítica encontrada para este producto."
+
+#: uc_product.module:2234
+msgid "Add a new feature"
+msgstr "Añadir una nueva característica"
+
+#: uc_product.module:2240
+msgid "Add"
+msgstr "Añadir"
+
+#: uc_product.module:2300
+msgid "Save feature"
+msgstr "Guardar característica"
+
+#: uc_product.module:2335
+msgid "The product feature has been added."
+msgstr "La característica de producto ha sido añadida."
+
+#: uc_product.module:2338
+msgid "The product feature has been updated."
+msgstr "La característica de producto ha sido actualizada."
+
+#: uc_product.module:1829
+msgid "menu"
+msgstr "menú"
+
+#: uc_product.module:1816
+msgid "There is @count node of this type. It will be converted to the Product node type. "
+msgid_plural "There are @count nodes of this type. They will be converted to the Product node type"
+msgstr[0] "Hay @count nodo de este tipo. Será convetido al tipo de nodo Producto. "
+msgstr[1] "Hay @count nodos de este tipo. Serán convetidos al tipo de nodo Producto."
+
+#: uc_product.module:198
+msgid "administer products"
+msgstr "administrar nodos"
+
+#: uc_product.module:198
+msgid "administer product classes"
+msgstr "adminsitrar clases de producto"
+
+#: uc_product.module:198
+msgid "administer product features"
+msgstr "administrar características de producto"
+
+#: uc_product.module:198
+msgid "create products"
+msgstr "crear productos"
+
+#: uc_product.module:198
+msgid "edit own products"
+msgstr "editar productos propios"
+
+#: uc_product.module:198
+msgid "edit products"
+msgstr "editar productos"
+
+#: uc_product.module:0
+msgid "uc_product"
+msgstr "uc_product"
+

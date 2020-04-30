@@ -1,0 +1,15 @@
+; $Id: views_gallery_og.info,v 1.1 2009/07/23 21:36:42 karens Exp $
+name = Views Gallery for Organic Groups
+description = Add Views image galleries to Organic Groups.
+core = 6.x
+package = Views
+dependencies[] = views_gallery
+dependencies[] = og
+dependencies[] = og_views
+
+; Information added by drupal.org packaging script on 2010-06-04
+version = "6.x-1.3"
+core = "6.x"
+project = "views_gallery"
+datestamp = "1275671414"
+

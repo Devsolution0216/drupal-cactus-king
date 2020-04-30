@@ -1,0 +1,206 @@
+<?php
+// $Id$
+
+/**
+ * @file This module hooks into a few different parts of Ubercart to allow store
+ *   administrators to associate a fee or discount with payment methods.
+ *
+ * Module compiled by Ryan from a schnazzy patch by cYu.
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function uc_pma_menu() {
+  $items['cart/checkout/method_items'] = array(
+    'title' => 'Return payment method subtotal adjustments',
+    'page callback' => 'uc_pma_method_items',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function uc_pma_theme() {
+  return array(
+    'uc_pma_payment_method_table' => array(
+      'file' => 'uc_pma.module',
+      'arguments' => array(
+        'form' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function uc_pma_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'uc_payment_methods_form') {
+    $form['methods_info']['#value'] .=
+       '<div>'
+      . t('The adjustment field can be used to associate a fee or discount with a payment method.  Specify a value that is a flat amount or a percentage of the subtotal to be added or subtracted when a payment method is chosen at checkout. Examples: 3%, 1.00, -5.5%, -2')
+      .'</div><br />';
+
+    $form['pmtable']['#theme'] = 'uc_pma_payment_method_table';
+
+    foreach (element_children($form['pmtable']) as $method_id) {
+      $form['pmtable'][$method_id]['uc_payment_method_'. $method_id .'_adjustment'] = array(
+        '#type' => 'textfield',
+        '#summary callback' => 'summarize_null',
+        '#default_value' => variable_get('uc_payment_method_'. $method_id .'_adjustment', ''),
+        '#size' => '9',
+      );
+    }
+  }
+  elseif ($form_id == 'uc_cart_checkout_form') {
+    foreach ($form['panes']['payment']['payment_method']['#options'] as $key => $value) {
+      $adjustment = variable_get('uc_payment_method_'. $key .'_adjustment', '');
+      if (!empty($adjustment)) {
+        $form['panes']['payment']['payment_method']['#options'][$key] .= '<div class="description" style="padding-left: 2.5em;">'. payment_method_adjustment_description($key) .'</div>';
+      }
+    }
+
+    drupal_add_js(drupal_get_path('module', 'uc_pma') .'/uc_pma.js');
+    drupal_add_js("\$(document).ready( function () { update_method_line_item('". $form['panes']['payment']['payment_method']['#default_value'] ."'); } );", 'inline');
+  }
+}
+
+
+/*******************************************************************************
+ * Hook Functions (Ubercart)
+ ******************************************************************************/
+
+/**
+ * Implementation of hook_line_item().
+ */
+function uc_pma_line_item() {
+  $items[] = array(
+    'id' => 'payment_method',
+    'title' => t('Payment method'),
+    'weight' => 6,
+    'stored' => true,
+    'default' => FALSE,
+    'calculated' => TRUE,
+    'display_only' => FALSE,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_order().
+ */
+function uc_pma_order($op, &$arg1) {
+  switch ($op) {
+    case 'save':
+      $adjustment = _payment_method_adjustment($arg1);
+      db_query("DELETE FROM {uc_order_line_items} WHERE order_id = %d AND type = 'payment_method'", $arg1->order_id);
+      $min_adjust = .01;
+      if ($adjustment['value'] && ($adjustment['value'] >= $min_adjust || $adjustment['value'] <= -$min_adjust)) {
+        uc_order_line_item_add($arg1->order_id, 'payment_method', $adjustment['description'], $adjustment['value'], 1);
+      }
+      break;
+  }
+}
+
+// Retheme the payment method settings table to include the adjustment field.
+function theme_uc_pma_payment_method_table($form) {
+  $header = array(t('Enabled'), t('Payment method'), t('Weight'), t('Adjustment'), t('Default gateway'));
+
+  foreach (element_children($form) as $method) {
+    $rows[] = array(
+      array('data' => drupal_render($form[$method]['uc_payment_method_'. $method .'_checkout']), 'align' => 'center'),
+      drupal_render($form[$method]['name']),
+      drupal_render($form[$method]['uc_payment_method_'. $method .'_weight']),
+      drupal_render($form[$method]['uc_payment_method_'. $method .'_adjustment']),
+      drupal_render($form[$method]['uc_payment_'. $method .'_gateway']),
+    );
+  }
+
+  if (empty($rows)) {
+    $rows[] = array(
+      array('data' => t('No payment methods found.'), 'colspan' => 5),
+    );
+  }
+
+  return theme('table', $header, $rows);
+}
+
+function uc_pma_method_items($payment_method) {
+  drupal_set_header("Content-Type: text/javascript; charset=utf-8");
+  $order = $_POST['order'];
+  if ($order = unserialize(rawurldecode($order))) {
+    $order->payment_method = $payment_method;
+    $adjustment = _payment_method_adjustment($order);
+    print $adjustment['value'] .'|'. $adjustment['description'];
+  }
+  exit();
+}
+
+function payment_method_adjustment_description($method_id) {
+  $name = _payment_method_data($method_id, 'name');
+  $adjustment = variable_get('uc_payment_method_'. $method_id .'_adjustment', '');
+  if (empty($name) || empty($adjustment)) {
+    return;
+  }
+
+  $adjustment = ereg_replace('[^-0-9'. variable_get('uc_currency_dec', '.') .'%]+', '', $adjustment);
+
+  if (!strstr($adjustment, '%')) {
+    $adjustment = uc_currency_format(str_replace(variable_get('uc_currency_dec', '.'), ".", $adjustment));
+  }
+
+  if (strstr($adjustment, '-')) {
+    $description = t('Receive a !adjustment discount when paying by !method.', array('!adjustment' => str_replace('-', '', $adjustment), '!method' => $name));
+  }
+  else {
+    $description = t('There is a !adjustment fee when paying by !method.', array('!adjustment' => $adjustment, '!method' => $name));
+  }
+
+  return $description;
+}
+
+function _payment_method_adjustment($order) {
+  $adjustment_data = array(
+    'name' => _payment_method_data($order->payment_method, 'name'),
+    'adjustment' => variable_get('uc_payment_method_'. $order->payment_method .'_adjustment', ''),
+  );
+
+  $subtotal = 0;
+  foreach ($order->products as $item) {
+    $item_total = ($item->qty) ? $item->qty * $item->price : $item->price;
+    $subtotal += $item_total;
+  }
+
+  $discount = FALSE;
+  $percent = FALSE;
+
+  $adjustment = array();
+  $adjustment = ereg_replace('[^-0-9'. variable_get('uc_currency_dec', '.') .'%]+', '', $adjustment_data['adjustment']);
+  $ret['value'] = $adjustment;
+  $ret['description'] = t('@name fee', array('@name' => $adjustment_data['name']));
+
+  if (strstr($adjustment, '-')) {
+    $discount = TRUE;
+  }
+  if (strstr($adjustment, '%')) {
+    $percent = TRUE;
+    $adjustment = str_replace('%', '', $adjustment);
+    $adjustment /= 100;
+  }
+
+  if ($percent) {
+    $ret['value'] = $adjustment * $subtotal;
+  }
+  if ($discount) {
+    $ret['description'] = t('@name discount', array('@name' => $adjustment_data['name']));
+  }
+  $ret['value'] = number_format(str_replace(variable_get('uc_currency_dec', '.'), ".", $ret['value']), 2);
+
+  return $ret;
+}

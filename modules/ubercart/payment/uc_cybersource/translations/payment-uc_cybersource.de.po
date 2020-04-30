@@ -1,0 +1,773 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_cybersource.module,v 1.4.2.4 2008/11/07 21:13:27 islandusurper
+#  uc_cybersource.info,v 1.4.2.3 2008/11/07 21:13:27 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-03-09 18:36+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: payment/uc_cybersource/uc_cybersource.module:151
+msgid "Transaction key"
+msgstr "Transaktions-Schlüssel"
+
+#: payment/uc_cybersource/uc_cybersource.module:107
+msgid "Test"
+msgstr "Test"
+
+#: payment/uc_cybersource/uc_cybersource.module:79
+msgid ""
+"Process credit card payments using the Silent Order POST service of "
+"CyberSource."
+msgstr ""
+"Kreditkarten-Zahlungen über den Silent Order POST Dienst von "
+"CyberSource abwickeln."
+
+#: payment/uc_cybersource/uc_cybersource.module:103
+msgid "Payment server"
+msgstr "Bezahlungs-Server"
+
+#: payment/uc_cybersource/uc_cybersource.module:104
+msgid "CyberSource server used when processing payments."
+msgstr "CyberSource Server für Abwicklung von Zahlungen."
+
+#: payment/uc_cybersource/uc_cybersource.module:117
+msgid "Silent Order POST"
+msgstr "Silent Order POST"
+
+#: payment/uc_cybersource/uc_cybersource.module:127
+msgid "Ensure address verification"
+msgstr "Adress-Überprüfung absichern"
+
+#: payment/uc_cybersource/uc_cybersource.module:129
+msgid "Process transaction only if address passes verification."
+msgstr ""
+"Transaktion nur ausführen, wenn die Adresse die Überprüfung "
+"besteht."
+
+#: payment/uc_cybersource/uc_cybersource.module:130
+msgid "Process transaction regardless of the result of address verification."
+msgstr ""
+"Transaktion ausführen, unabhängig des Ergebnisses der "
+"Adress-Überprüfung."
+
+#: payment/uc_cybersource/uc_cybersource.module:382
+msgid "!id<br />!decision, Reason: !reason"
+msgstr "!id <br />!decision, Begründung: !reason"
+
+#: payment/uc_cybersource/uc_cybersource.module:384
+msgid "<br /><b>AVS:</b> !avs"
+msgstr "<br /><b>AVS:</b> !avs"
+
+#: payment/uc_cybersource/uc_cybersource.module:388
+msgid "<br /><b>CVV:</b> !cvv"
+msgstr "<br /><b>CVV-Code:</b> !cvv"
+
+#: payment/uc_cybersource/uc_cybersource.module:413,674
+msgid "No response returned from CyberSource."
+msgstr "Keine Antwort von CyberSource erhalten."
+
+#: payment/uc_cybersource/uc_cybersource.module:1017
+msgid "Successful transaction."
+msgstr "Transaktion erfolgreich."
+
+#: payment/uc_cybersource/uc_cybersource.module:1019
+msgid ""
+"One or more fields in the request are missing or invalid.<br "
+"/><b>Possible action:</b> Resend the request with the correct "
+"information."
+msgstr ""
+"Mindestens ein Feld der Anfrage fehlt oder ist fehlerhaft.<br "
+"/><b>Möglichkeit:</b> Anfage mit den korrekten Informationen nochmal "
+"schicken."
+
+#: payment/uc_cybersource/uc_cybersource.module:1021
+msgid ""
+"<b>Error:</b> General system failure.<br /><b>Possible action:</b> "
+"Wait a few minutes and resend the request."
+msgstr ""
+"<b>Fehler:</b> Allgemeiner Systemfehler.<br /><b>Mögliche "
+"Lösung:</b> Warten Sie einige Minuten und senden Sie die Anfrage noch "
+"einmal."
+
+#: payment/uc_cybersource/uc_cybersource.module:1023
+msgid ""
+"<b>Error:</b> The request was received, but a server time-out "
+"occurred. This error does not include time-outs between the client and "
+"the server.<br /><b>Possible action:</b> To avoid duplicating the "
+"order, do not resend the request until you have reviewed the order "
+"status in the Business Center."
+msgstr ""
+"<b>Fehler:</b> Die Anfrage wurde erhalten, aber der Server sendet ein "
+"Time-Out. Dieser Fehler beinhaltet keine Time-Outs zwischen dem Client "
+"und dem Server.<br /><b>Mögliche Lösung:</b> Um einer Verdoppelung "
+"dieser Bestellung vorzubeugen, senden Sie die Anfrage nicht "
+"nocheinmal, solange bis Sie den Bestell-Status dieser Bestellung im "
+"Business Center abgerufen haben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1025
+msgid ""
+"<b>Error:</b> The request was received, but a service did not finish "
+"running in time.<br /><b>Possible action:</b> To avoid duplicating the "
+"order, do not resend the request until you have reviewed the order "
+"status in the Business Center."
+msgstr ""
+"<b>Fehler:</b> Die Anfrage wurde erhalten, aber ein Dienst konnte "
+"nicht rechtzeitig fertig werden.<br /><b>Mögliche Lösung</b> Um "
+"einer Verdoppelung dieser Bestellung vorzubeugen, senden Sie die "
+"Anfrage nicht noch einmal, solange bis Sie den Bestell-Status dieser "
+"Bestellung im Business Center abgerufen haben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1027
+msgid ""
+"The authorization request was approved by the issuing bank but "
+"declined by CyberSource because it did not pass the Address "
+"Verification Service (AVS) check.<br /><b>Possible action:</b> You can "
+"capture the authorization, but consider reviewing the order for the "
+"possibility of fraud."
+msgstr ""
+"Die Autorisierungs-Anfrage wurde von der ausstellenden Bank "
+"bestätigt, von CyberSource jedoch abgelehnt, da die Prüfung der "
+"Adresse nicht erfolgreich war.<br /><b>Mögliche Lösung:</b>  Sie "
+"können die Autorisierung übernehmen, aber erwägen Sie auch, die "
+"Bestellung als Betrug einzustufen."
+
+#: payment/uc_cybersource/uc_cybersource.module:1029
+msgid ""
+"Expired card.<br /><b>Possible action:</b> Request a different card or "
+"other form of payment."
+msgstr ""
+"Kreditkarte abgelaufen.<br /><b>Mögliche Lösung:</b> Wählen Sie "
+"eine andere Kreditkarte oder Bezahl-Methode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1031
+msgid ""
+"General decline of the card. No other information provided by the "
+"issuing bank.<br /><b>Possible action:</b> Request a different card or "
+"other form of payment."
+msgstr ""
+"Allgemeine Zurückweisung der Kreditkarte. Keine weiteren "
+"Informationen von der ausstellenden Bank erhalten.<br /><b>Mögliche "
+"Lösung:</b> Wählen Sie eine andere Kreditkarte oder Bezahl-Methode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1033
+msgid ""
+"Insufficient funds in the account.<br /><b>Possible action:</b> "
+"Request a different card or other form of payment."
+msgstr ""
+"Geldbetrag im Konto nicht ausreichend.<br /><b>Mögliche Lösung:</b> "
+"Wählen Sie eine andere Kreditkarte oder Bezahl-Methode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1035
+msgid ""
+"Stolen or lost card.<br /><b>Possible action:</b> Review the "
+"customer's information and determine if you want to request a "
+"different card from the customer."
+msgstr ""
+"Kreditkarte gestolen oder verloren.<br /><b>Mögliche Lösung:</b> "
+"Überprüfen Sie die Kunden-Angaben und überlegen Sie, ob sie eine "
+"andere Kreditkarte vom Kunden erfordern."
+
+#: payment/uc_cybersource/uc_cybersource.module:1037
+msgid ""
+"Issuing bank unavailable.<br /><b>Possible action:</b> Wait a few "
+"minutes and resend the request."
+msgstr ""
+"Ausstellende Bank nicht erreichbar.<br /><b>Mögliche Lösung:<b/> "
+"Warten Sie einige Minuten und senden Sie die Anfrage nocheinmal."
+
+#: payment/uc_cybersource/uc_cybersource.module:1039
+msgid ""
+"Inactive card or card not authorized for card-not-present "
+"transactions.<br /><b>Possible action:</b> Request a different card or "
+"other form of payment."
+msgstr ""
+"Kreditkarte inaktiv oder konnte nicht für card-not-present "
+"Transaktionen autorisiert werden.<br /><b>Mögliche Lösung:</b> "
+"Verlangen Sie eine andere Kreditkarte oder eine andere Bezahlmethode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1041
+msgid ""
+"The card has reached the credit limit.<br /><b>Possible action:</b> "
+"Request a different card or other form of payment."
+msgstr ""
+"Die Kreditkarte hat Ihre Kreditlimite erreicht.<br /><b>Mögliche "
+"Lösung:</b> Verlangen Sie eine andere Kreditkarte oder "
+"Bezahl-Methode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1043
+msgid ""
+"The card verification number is invalid.<br /><b>Possible action:</b> "
+"Request a different card or other form of payment."
+msgstr ""
+"Die Kreditkarten-Verifizierungs-Nummer ist ungültig.<br "
+"/><b>Mögliche Lösung:</b>  Verlangen Sie eine andere Kreditkarte "
+"oder Bezahl-Methode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1045
+msgid ""
+"The processor declined the request based on a general issue with the "
+"customer's account.<br /><b>Possible action:</b> Request a different "
+"form of payment."
+msgstr ""
+"Der Verarbeiter wies die Anfrage aufgrund einer allgemeinen "
+"Angelegenheit mit dem Konto des Kunden zurück.<br /><b>Mögliche "
+"Lösung:</b> Verlangen Sie eine andere Bezahlmethode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1047
+msgid ""
+"The customer matched an entry on the processor’s negative file.<br "
+"/><b>Possible action:</b> Review the order and contact the payment "
+"processor."
+msgstr ""
+"Der Kunde ist auf der Negativliste des Verarbeiters aufgelistet.<br "
+"/><b>Mögliche Lösung:</b> Prüfen Sie die Bestellung und "
+"kontaktieren Sie den Zahlungs-Verarbeiter."
+
+#: payment/uc_cybersource/uc_cybersource.module:1049
+msgid ""
+"The customer's bank account is frozen.<br /><b>Possible action:</b> "
+"Review the order or request a different form of payment."
+msgstr ""
+"Das Bankkonto des Kunden ist gesperrt.<br/><b>Mögliche "
+"Aktion:</b>Wahl einer anderen Zahlungsart für die Bestellung."
+
+#: payment/uc_cybersource/uc_cybersource.module:1051
+msgid ""
+"The authorization request was approved by the issuing bank but "
+"declined by CyberSource because it did not pass the card verification "
+"number check.<br /><b>Possible action:</b> You can capture the "
+"authorization, but consider reviewing the order for the possibility of "
+"fraud."
+msgstr ""
+"Die Autorisierungs-Anfrage wurde von der ausstellenden Bank "
+"bestätigt, von CyberSource jedoch abgelehnt, da die Prüfung der "
+"Verifizierungs-Nummer der Kreditkarte nicht erfolgreich war.<br "
+"/><b>Mögliche Lösung:</b>  Sie können die Autorisierung "
+"übernehmen, aber erwägen Sie auch, die Bestellung als Betrug "
+"einzustufen."
+
+#: payment/uc_cybersource/uc_cybersource.module:1053
+msgid ""
+"Invalid account number.<br /><b>Possible action:</b> Request a "
+"different card or other form of payment."
+msgstr ""
+"Ungültige Konto-Nummer.<br /><b>Mögliche Lösung:</b> Verlangen Sie "
+"eine andere Kreditkarte oder eine andere Bezahlmethode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1055
+msgid ""
+"The card type is not accepted by the payment processor.<br "
+"/><b>Possible action:</b> Request a different card or other form of "
+"payment. Also, check with CyberSource Customer Support to make sure "
+"that your account is configured correctly."
+msgstr ""
+"Der Kreditkarten-Typ wird vom Zahlungs-Verarbeiter nicht "
+"unterstützt.<br /><b>Mögliche Lösung:</b> Verlangen Sie eine andere "
+"Kreditkarte oder eine andere Bezahlmethode. Überprüfen Sie auch "
+"über den CyberSource Kundenservice, dass Ihr Konto korrekt "
+"konfiguriert ist."
+
+#: payment/uc_cybersource/uc_cybersource.module:1057
+msgid ""
+"The processor declined the request based on an issue with the request "
+"itself.<br /><b>Possible action:</b> Request a different form of "
+"payment."
+msgstr ""
+"Der Verarbeiter wies die Anfrage aufgrund eines Problems mit der "
+"Anfrage selber zurück.<br /><b>Mögliche Lösung:</b> Verlangen Sie "
+"eine andere Bezahlmethode."
+
+#: payment/uc_cybersource/uc_cybersource.module:1059
+msgid ""
+"There is a problem with your CyberSource merchant configuration.<br "
+"/><b>Possible action:</b> Do not resend the request. Contact Customer "
+"Support to correct the configuration problem."
+msgstr ""
+"Es gibt ein Problem mit Ihrer CyberSource Konfiguration.<br "
+"/><b>Mögliche Lösung:</b> Senden Sie die Anfrage <b>nicht</b> "
+"nocheinmal. Kontaktieren Sie den Kundenservice um das "
+"Konfigurationsproblem zu beheben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1061
+msgid ""
+"Processor failure.<br /><b>Possible action:</b> Possible action: Wait "
+"a few minutes and resend the request."
+msgstr ""
+"Fehler beim Verarbeiter.<br /><b>Mögliche Lösung:</b> Warten Sie "
+"einige Minuten und senden Sie die Anfrage nocheinmal."
+
+#: payment/uc_cybersource/uc_cybersource.module:1063
+msgid ""
+"The card type sent is invalid or does not correlate with the credit "
+"card number.<br /><b>Possible action:</b> Ask your customer to verify "
+"that the card is really the type indicated in your Web store, then "
+"resend the request."
+msgstr ""
+"Der gesendete Kreditkarten-Typ ist ungültig oder passt nicht mit der "
+"Kreditkarten-Nummer überein.<br /><b>Mögliche Lösung:</b> Fordern "
+"Sie Ihren Kunden auf sicherzustellen, dass die Kreditkarte wirklich "
+"dem im Webshop angezeigten Typ entspricht. Senden Sie die Anfrage dann "
+"nocheinmal."
+
+#: payment/uc_cybersource/uc_cybersource.module:1065
+msgid ""
+"<b>Error:</b> The request was received, but a time-out occurred with "
+"the payment processor.<br /><b>Possible action:</b> To avoid "
+"duplicating the transaction, do not resend the request until you have "
+"reviewed the transaction status in the Business Center."
+msgstr ""
+"<b>Fehler:</b> Die Anfrage wurde erhalten, aber ein Time-Out trat beim "
+"Zahlungs-Verarbeiter auf.<br /><b>Mögliche Lösung:</b> Um einer "
+"Verdoppelung dieser Bestellung vorzubeugen, senden Sie die Anfrage "
+"nicht nocheinmal, solange bis Sie den Bestell-Status dieser Bestellung "
+"im Business Center abgerufen haben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1067
+msgid ""
+"The customer is enrolled in payer authentication.<br /><b>Possible "
+"action:</b> Authenticate the cardholder before continuing with the "
+"transaction."
+msgstr ""
+"Der Kunde ist als Bezahler anerkannt.<br /><b>Mögliche Lösung:</b> "
+"Anerkennen Sie den Kreditkarten Besitzer bevor Sie mit der Transaktion "
+"weiterfahren."
+
+#: payment/uc_cybersource/uc_cybersource.module:1069
+msgid ""
+"The customer cannot be authenticated.<br /><b>Possible action:</b> "
+"Review the customer's order."
+msgstr ""
+"Der Kunde kann nicht autorisiert werden.<br /><b>Mögliche "
+"Lösung:</b> Prüfen Sie die Bestellung des Kunden."
+
+#: payment/uc_cybersource/uc_cybersource.module:1071
+msgid ""
+"The authorization request was approved by the issuing bank but "
+"declined by CyberSource based on your Smart Authorization settings.<br "
+"/><b>Possible action:</b> Do not capture the authorization without "
+"further review. Review the avsCode, cvResult, and factorCode fields to "
+"determine why CyberSource rejected the request."
+msgstr ""
+"Die Autorisierungs-Anfrage wurde von der ausstellenden Bank "
+"bestätigt, von CyberSource jedoch aufgrund Ihrer SmartAuthorization "
+"Einstellungen abgelehnt.<br /><b>Mögliche Lösung:</b>  Übernehmen "
+"Sie die Autorisierung nicht ohne weitere Prüfung. Prüfen Sie die "
+"Felder avsCode, cvResult und factorCode um herauszufinden wieso "
+"CyberSource die Anfrage zurückwies."
+
+#: payment/uc_cybersource/uc_cybersource.module:1079
+msgid "Street address matches, but 5- and 9-digit postal codes do not match."
+msgstr "Die Strasse stimmt, aber die 5- bis 9-stellige Postleitzahl nicht."
+
+#: payment/uc_cybersource/uc_cybersource.module:1081
+msgid ""
+"Street address matches, but postal code not verified. Returned only "
+"for non U.S.-issued Visa cards."
+msgstr ""
+"Die Strasse stimmt, aber die Postleitzahl ist nicht bestätigt. Kommt "
+"nur bei nicht-US Visa-Karten zurück."
+
+#: payment/uc_cybersource/uc_cybersource.module:1083
+msgid ""
+"Street address and postal code do not match. Returned only for non "
+"U.S.-issued Visa cards."
+msgstr ""
+"Die Strasse und die Postleitzahl stimmen nicht. Kommt nur bei nicht-US "
+"Visa-Karten zurück."
+
+#: payment/uc_cybersource/uc_cybersource.module:1085
+msgid ""
+"Street address and postal code match. Returned only for non "
+"U.S.-issued Visa cards."
+msgstr ""
+"Die Strasse und die Postleitzahl stimmen. Kommt nur bei nicht-US "
+"Visa-Karten zurück."
+
+#: payment/uc_cybersource/uc_cybersource.module:1087
+msgid "AVS data is invalid, or AVS is not allowed for this card type."
+msgstr ""
+"Ihre AVS-Daten sind ungültig, oder AVS ist für diesen "
+"Kreditkarten-Typ nicht erlaubt. (AVS ist das Adress-Prüfungs System)"
+
+#: payment/uc_cybersource/uc_cybersource.module:1089
+msgid ""
+"Card member's name does not match, but postal code matches. Returned "
+"only for the American Express card type."
+msgstr ""
+"Der Name des Kreditkarten-Besitzers stimmt nicht, aber die "
+"Postleitzahl stimmt. Wird nur bei American Express Karten "
+"zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1091
+msgid "Non-U.S. issuing bank does not support AVS."
+msgstr "Nicht-US Bank unterstützt kein AVS."
+
+#: payment/uc_cybersource/uc_cybersource.module:1093
+msgid ""
+"Card member's name does not match. Street address and postal code "
+"match. Returned only for the American Express card type."
+msgstr ""
+"Der Name des Kreditkarten-Besitzers stimmt nicht, aber die Strasse und "
+"die Postleitzahl stimmen. Wird nur bei American Express Karten "
+"zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1095
+msgid "Address not verified. Returned only for non U.S.-issued Visa cards."
+msgstr ""
+"Adresse nicht geprüft. Wird nur bei nicht-US Visa-Karten "
+"zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1097
+msgid ""
+"Card member's name matches but billing address and billing postal code "
+"do not match. Returned only for the American Express card type."
+msgstr ""
+"Der Name des Kreditkarten-Besitzers stimmt, aber die Strasse und "
+"Postleitzahl der Rechnungsadresse stimmen nicht. Wird nur bei American "
+"Express Karten zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1099
+msgid ""
+"Card member's name and billing postal code match, but billing address "
+"does not match. Returned only for the American Express card type"
+msgstr ""
+"Der Name des Kreditkarten-Besitzers und die Postleitzahl der "
+"Rechnungsadresse stimmen, aber die Strasse der Rechnungsadresse stimmt "
+"nicht. Wird nur bei American Express Karten zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1101
+msgid ""
+"Street address and postal code do not match. - or - Card member's "
+"name, street address and postal code do not match. Returned only for "
+"the American Express card type."
+msgstr ""
+"Strasse und Postleitzahl stimmen nicht. - oder - Der Name des "
+"Kreditkarten-Besitzers, die Strasse und die Postleitzahl stimmen "
+"nicht. Wird nur bei American Express Karten zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1103
+msgid ""
+"Card member's name and billing address match, but billing postal code "
+"does not match. Returned only for the American Express card type."
+msgstr ""
+"Der Name des Kreditkarten-Besitzers und die Strasse stimmen, aber die "
+"Postleitzahl der Rechnungsadresse stimmt nicht. Wird nur bei American "
+"Express Karten zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1105
+msgid ""
+"Postal code matches, but street address not verified. Returned only "
+"for non-U.S.-issued Visa cards."
+msgstr ""
+"Postleitzahl stimmt, aber die Strasse ist nicht bestätigt. Wird nur "
+"bei nicht-US Visa-Karten zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1107
+msgid "System unavailable."
+msgstr "System nicht verfügbar."
+
+#: payment/uc_cybersource/uc_cybersource.module:1109
+msgid "U.S.-issuing bank does not support AVS."
+msgstr "Austellende U.S. Bank unterstützt kein AVS."
+
+#: payment/uc_cybersource/uc_cybersource.module:1111
+msgid ""
+"Card member's name does not match, but street address matches. "
+"Returned only for the American Express card type."
+msgstr ""
+"Der Name des Karten Inhaber stimmt nicht, aber die Anschrift passt. "
+"Wird nur für karten vom Typ American Express zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1113
+msgid ""
+"Address information unavailable. Returned if non-U.S. AVS is not "
+"available or if the AVS in a U.S. bank is not functioning properly."
+msgstr ""
+"Adress informationen nicht verfügbar. Wird zurückgegeben wenn: Kein "
+"US bürger, AVS nicht verfügbar ist oder AVS in der US Bank nicht "
+"richtig funktioniert."
+
+#: payment/uc_cybersource/uc_cybersource.module:1115
+msgid "Street address does not match, but 9-digit postal code matches."
+msgstr "Anschrift past nicht, aber die 9-stellige Postleitzahl trifft zu."
+
+#: payment/uc_cybersource/uc_cybersource.module:1117
+msgid "Exact match. Street address and 9-digit postal code match."
+msgstr ""
+"Vollständige übereinstimmung. Adresse und Postleitzahl stimmen "
+"überein."
+
+#: payment/uc_cybersource/uc_cybersource.module:1119
+msgid "Exact match. Street address and 5-digit postal code match."
+msgstr ""
+"Exakter Treffer. Anschrift und 5 Stellige Postleitzahl stimmen "
+"überein."
+
+#: payment/uc_cybersource/uc_cybersource.module:1121
+msgid "Street address does not match, but 5-digit postal code matches."
+msgstr ""
+"Anschrift stimmt nicht, aber die 5 stellige Postleitzahl stimmt "
+"überein"
+
+#: payment/uc_cybersource/uc_cybersource.module:1123
+msgid "AVS is not supported for this processor or card type."
+msgstr "AVS wird für diesen Kartentyp oder Verarbeiter nicht unterstützt."
+
+#: payment/uc_cybersource/uc_cybersource.module:1125
+msgid "The processor returned an unrecognized value for the AVS response."
+msgstr "Der Verarbeiter gab einen unbekannten wert als AVS Antwort zurück."
+
+#: payment/uc_cybersource/uc_cybersource.module:1133
+msgid "Transaction determined suspicious by issuing bank."
+msgstr "Zahlung als verdächtig markiert von der austellenden Bank"
+
+#: payment/uc_cybersource/uc_cybersource.module:1135
+msgid "Card verification number failed processor's data validation check."
+msgstr "Die Karten überprüfungs nummer fiel beim daten check durch."
+
+#: payment/uc_cybersource/uc_cybersource.module:1137
+msgid "Card verification number matched."
+msgstr "Karten Überprüfungs nummer stimmt überein."
+
+#: payment/uc_cybersource/uc_cybersource.module:1139
+msgid "Card verification number not matched."
+msgstr "Kartenüberprüfungsnummer  stimmt nicht überein."
+
+#: payment/uc_cybersource/uc_cybersource.module:1141
+msgid ""
+"Card verification number not processed by processor for unspecified "
+"reason."
+msgstr ""
+"Karten überprüfungsnummer wurde vom Verarbeiter nich verarbeiten "
+"ohne Angabe von Gründen."
+
+#: payment/uc_cybersource/uc_cybersource.module:1143
+msgid ""
+"Card verification number is on the card but was not included in the "
+"request."
+msgstr ""
+"Es gibt eine Karten überprüfungs nummer auf der Karte, aber Sie "
+"wurde in der Anfrage nicht mit übergeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1145
+msgid "Card verification is not supported by the issuing bank."
+msgstr "Kartenüberprüfung wird von der Austellenden Bank nicht unterstützt."
+
+#: payment/uc_cybersource/uc_cybersource.module:1147
+msgid "Card verification is not supported by the card association."
+msgstr ""
+"Kartenüberprüfung wird vom Kreditkartenunternehmen nicht "
+"unterstützt."
+
+#: payment/uc_cybersource/uc_cybersource.module:1149
+msgid "Card verification is not supported for this processor or card type."
+msgstr ""
+"Kartenüberprüfung wird von diesem verarbeiter oder dieser Kartenart "
+"nicht unterstützt."
+
+#: payment/uc_cybersource/uc_cybersource.module:1151
+msgid ""
+"Unrecognized result code returned by processor for card verification "
+"response."
+msgstr "Es wurde ein unbekannter Ergebnisscode zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:1153
+msgid "No result code returned by processor."
+msgstr "Es wurde kein Ergebnisscode zurückgegeben."
+
+#: payment/uc_cybersource/uc_cybersource.module:249,601,856,908,920,924,0
+msgid "uc_cybersource"
+msgstr "uc_cybersource"
+
+#: payment/uc_cybersource/uc_cybersource.info:0
+msgid "Enable to process payments using CyberSource Silent Order POST."
+msgstr ""
+"Aktivieren um Zahlungen mit CyberSource Silent Order POST zu "
+"verarbeiten."
+
+#: payment/uc_cybersource/uc_cybersource.module:296
+msgid ""
+"Cybersource requires cURL.  Please talk to your system administrator "
+"to get this configured."
+msgstr ""
+"Cybersource benötigt die PHP Erweiterung cURL.  Bitte wenden Sie sich "
+"an ihren Systembetreuer damit diese installiert oder aktiviert wird."
+
+#: payment/uc_cybersource/uc_cybersource.module:381
+msgid ""
+"<b>Credit card !type:</b> !amount<br /><b>Decision: @decision</b><br "
+"/><b>Reason:</b> !reason"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:385,615
+msgid ", AVS: @avs"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:389,619
+msgid ", CVV: @cvv"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:115
+msgid ""
+"You must ensure your CyberSource account and web server are able to "
+"use the service you select.<br />Silent Order POST requires cURL "
+"support and a modified <a href=\"!url\">HOP.php</a>.<br />The SOAP "
+"Toolkit API requires the SOAP and DOM extensions for PHP."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:119
+msgid "SOAP Toolkit API"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:139
+msgid "SOAP Toolkit API settings"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:156
+msgid ""
+"Create a CyberSource Basic Profile for every new credit card order "
+"processed."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:162
+msgid "Enable calculation of taxes through the CyberSource tax service."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:167
+msgid "Tax calculation \"Ship from\" address"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:168
+msgid ""
+"This address will be used when calculating taxes with CyberSource tax "
+"service."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:193
+msgid "Enter the 2 letter abbreviation of your state or province."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:199
+msgid "ZIP/Postal code"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:204
+msgid "Country code"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:205
+msgid ""
+"Enter the 2 letter ISO 3166-1 code; consult Wikipedia if you don't "
+"know yours."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:303
+msgid "Silent Order POST requires the HOP.php provided by CyberSource."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:424,722
+msgid ""
+"CyberSource needs PHP to have the SOAP and DOM extensions enabled.  "
+"Please talk to your system administrator to get this configured."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:601,856
+msgid "Unable to connect to CyberSource via SOAP."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:602,857
+msgid ""
+"We apologize for the delay, but we are unable to process your credit "
+"card at this time. Please <a href=\"!url\">contact sales</a> to "
+"complete your order."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:632
+msgid "<b>CyberSource profile created.</b><br /><b>Subscription ID:</b> @id"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:635
+msgid ""
+"<b>Attempt to create CyberSource profile failed.</b><br "
+"/><b>Reason:</b> @code"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:694
+msgid "@tax: @amount"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:699
+msgid "No taxes returned for this order."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:868
+msgid "@city city tax"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:877
+msgid "County tax"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:886
+msgid "District tax"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:895
+msgid "@state state tax"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:920
+msgid "Attempted to calculate taxes failed for order @order_id - reason @code"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:924
+msgid ""
+"Attempted to calculate taxes failed for order @order_id. No response "
+"returned from CyberSource."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:610
+msgid ""
+"<b>@type:</b> @amount<br /><b>Decision: @decision</b><br "
+"/><b>Reason:</b> !reason"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:611
+msgid "<b>@type:</b><br />@id<br />@decision, Reason: !reason"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:614
+msgid "<b>AVS:</b> @avs"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:618
+msgid "<b>CVV:</b> @cvv"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:98
+msgid ""
+"You must download the security script from your CyberSource account "
+"(found in Tools & Settings > Hosted Order Page > Security) and place "
+"it in the ubercart/payment/uc_cybersource directory to use the Silent "
+"Order POST. Remember to open it and replace instances of L( with csL(."
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:908
+msgid ""
+"Tax calculation produced uneven results. Expected a total of @total, "
+"received the following: @dump"
+msgstr ""
+
+#: payment/uc_cybersource/uc_cybersource.module:25
+msgid "Order Taxes"
+msgstr ""
+

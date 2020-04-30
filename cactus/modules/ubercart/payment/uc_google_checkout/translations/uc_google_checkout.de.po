@@ -1,0 +1,480 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_google_checkout.admin.inc,v 1.1.2.6 2008/11/07 21:12:46 islandusurper
+#  uc_google_checkout.pages.inc,v 1.1.2.6 2008/12/09 15:20:42 islandusurper
+#  uc_google_checkout.module,v 1.1.2.13 2008/12/09 15:20:42 islandusurper
+#  uc_google_checkout.install,v 1.1.2.11 2008/12/09 15:20:42 islandusurper
+#  uc_google_checkout.info,v 1.1.2.9 2008/11/07 21:12:46 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-02-06 13:18+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:315
+msgid "Use this terminal to process credit card payments:"
+msgstr ""
+"Für die Abwicklung der Kreditkarten-Zahlungen, dieses Terminal "
+"benutzen:"
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:319
+msgid "Balance:"
+msgstr "Kontostand:"
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:15
+msgid "Authentication"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:26
+msgid "Merchant key"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:28
+msgid "Used to sign cart information. Keep it secret, keep it safe."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:33
+msgid "Test Environment settings"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:39
+msgid "Test Mode"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:41
+msgid "On"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:41
+msgid "Off"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:45
+msgid "Test Merchant ID"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:46
+msgid ""
+"Only needed for test mode. Click <a "
+"href=\"http://code.google.com/apis/checkout/developer/index.html#integration_overview\" "
+"target=\"_blank\">here</a> for more info."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:52
+msgid "Test Merchant Key"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:65
+msgid "Reason for canceling order"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:66
+msgid ""
+"This message will be sent with the cancelation notice through Google "
+"Checkout. Any comment given when the order is canceled will be sent as "
+"a separate message. This message uses <a href=\"!url\">global and "
+"order tokens</a>."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:72
+msgid "Button settings"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:78
+msgid "Button background color"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:80
+msgid "Transparent"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:80
+msgid "White"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:84
+msgid "Button size"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:85
+msgid "Large"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:85
+msgid "Medium"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:85
+msgid "Small"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:90
+msgid "Button alignment"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:92
+msgid "Right"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:132
+msgid "Regular pickup"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:133
+msgid "Special pickup"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:134
+msgid "Drop off"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:147
+msgid "%"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:160
+msgid "Service"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:160
+msgid "Handling charge"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:160
+msgid "Percentage markup/discount"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:185
+msgid "A default shipping cost is required."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:188
+msgid "The default shipping cost should be a positive number."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:191
+msgid "The fixed charge should be a number."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:194
+msgid "The percent adjustment should be a number."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:249
+msgid "Save taxes"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:256
+msgid "Tax shipping?"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:321
+msgid "Google Checkout total:"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:323
+msgid "Google Checkout balance:"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:343
+msgid "Refund"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:348
+msgid "Reason for refund"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:353
+msgid "Refund Comment"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:398
+msgid "Google does not allow charges greater than the balance."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:401
+msgid "Google does not allow refunds greater than the amount already charged."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.admin.inc:404
+msgid "A reason for refunding the customer is required."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.pages.inc:22
+msgid "HTTP Authorization User does not match settings."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.pages.inc:26
+msgid "HTTP Authorization Password does not match settings."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.pages.inc:51
+msgid "Unknown notification document: @xml"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:23
+msgid ""
+"In the <a href=\"!checkout_url/sell\">Google Checkout Merchant "
+"Center</a>, enter %url as the callback URL for this site. This will "
+"allow Ubercart to communicate with Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:88
+msgid "Google Checkout terminal: Order @order_id"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:109,33
+msgid "Google Checkout settings"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:114
+msgid "Conforms to Google Checkout content policies."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:116
+msgid ""
+"To be a Google Checkout approved merchant, your items must conform to "
+"the Google Checkout content policies found <a href=\"!url\">here</a>."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:132
+msgid "Google Checkout only accepts the following currencies: @list"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:185
+msgid "Marketing preferences"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:186
+msgid "Display the customer's preferences about mass-marketing."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:198
+msgid "Google Checkout Coupon"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:205
+msgid "Google Checkout Gift Certificate"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:232
+msgid ""
+"Cancel order request sent to Google Checkout. The order will be "
+"updated momentarily."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:235
+msgid "Order is not canceled in Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:251,264
+msgid "Express payment with Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:389
+msgid "Fast checkout through Google."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:392
+msgid "What is Google Checkout?"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:637
+msgid "Customer will accept marketing emails."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:640
+msgid "Customer does not want marketing emails."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:653
+msgid "Google Checkout terminal"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:659
+msgid "Click here to go to Google Checkout settings."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:725
+msgid "Total tax"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:751
+msgid "Order created through Google Checkout (#@gco_order)."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:774
+msgid "Risk information notification:"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:778
+msgid "- Full AVS match (address and postal code)"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:781
+msgid "- Partial AVS match (postal code only)"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:784
+msgid "- Partial AVS match (address only)"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:787
+msgid "- No AVS match"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:790
+msgid "- AVS not supported by issuer"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:793
+msgid "<b>Error:</b> No AVS response."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:801
+msgid "- CVN match"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:804
+msgid "- No CVN match"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:807
+msgid "- CVN not available"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:810
+msgid "- CVN error"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:813
+msgid "<b>Error:</b> No CVN response."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:817
+msgid "Partial CC number: %s"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:821
+msgid "Eligible for protection: <strong>@bool</strong"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:851
+msgid "Order %order canceled by Google: %reason"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:854
+msgid "Order canceled."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:897
+msgid ""
+"Charge request sent to Google Checkout. The charge confirmation should "
+"appear on this page momentarily."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:906
+msgid "Payment received by Google Checkout"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:907
+msgid "Payment of %amount received by Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:928
+msgid ""
+"Refund request sent to Google Checkout. The refund confirmation should "
+"appear on this page momentarily."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:937
+msgid "Refund received by Google Checkout"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:938
+msgid "Refund of %amount received by Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:992
+msgid "Unknown order id or malformed XML."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:352,0
+msgid "uc_google_checkout"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:352
+msgid "Google Checkout is enabled, but no Merchant ID found."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:842
+msgid "Charging @order_id"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:845
+msgid "Charged @order_id"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:848
+msgid "Payment declined @order_id"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:867
+msgid "Processing @order_id"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:871
+msgid "Delivered @order_id"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:874
+msgid "Will not deliver @order_id"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:819
+msgid "Google Checkout member for @count month."
+msgid_plural "Google Checkout member for @count months."
+msgstr[0] ""
+msgstr[1] ""
+
+#: uc_google_checkout/uc_google_checkout.module:34
+msgid "Set merchant ID and key for Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:42
+msgid "Account"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:47
+msgid "Calculate shipping charges for orders through Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:56
+msgid "Calculate taxes for orders through Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.module:72
+msgid "Process a credit card payment or refund through Google Checkout."
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.install:107
+msgid "In Google Checkout"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.install:108
+msgid "Chargeable"
+msgstr ""
+
+#: uc_google_checkout/uc_google_checkout.info:0
+msgid ""
+"Integrates Google's Checkout, Merchant Calculated Shipping, and Order "
+"Processing APIs."
+msgstr ""
+

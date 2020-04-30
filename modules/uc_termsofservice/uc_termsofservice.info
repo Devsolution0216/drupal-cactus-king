@@ -1,0 +1,13 @@
+; $Id: uc_termsofservice.info,v 1.1.2.1 2009/11/08 20:05:07 pcambra Exp $
+name = Terms of Service
+description = Terms of Service for Ubercart
+dependencies[] = uc_store
+dependencies[] = uc_cart
+package = Ubercart - extra
+core = "6.x"
+; Information added by drupal.org packaging script on 2010-10-06
+version = "6.x-1.2"
+core = "6.x"
+project = "uc_termsofservice"
+datestamp = "1286346967"
+

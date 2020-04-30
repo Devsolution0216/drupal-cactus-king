@@ -1,0 +1,12 @@
+name = Currency API
+description = "This module provides an API for currency conversion."
+package = Currency 
+core = 6.x
+
+
+; Information added by drupal.org packaging script on 2008-09-20
+version = "6.x-1.0"
+core = "6.x"
+project = "currency"
+datestamp = "1221948605"
+

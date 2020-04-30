@@ -1,0 +1,167 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Installation and uninstallation functions for Vocabulary Index.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */function vocabindex_schema() {
+  module_load_include('module', 'vocabindex');
+
+  $schema['vocabindex'] = array(    'description' => t('The table in which the settings for Vocabulary Index are stored.'),    'fields' => array(      'vid' => array(        'description' => t('The VID associated with this index.'),        'type' => 'int',
+        'unsigned' => TRUE,
+        'default' => 0,
+        ),      'path' => array(        'description' => t('The path to a Vocabulary Index page.'),        'type' => 'varchar',
+        'length' => '255',
+        'default' => '',        ),      'view' => array(        'description' => t('The view, a tree or a flat list for instance.'),        'type' => 'int',
+        'size' => 'tiny',
+        'default' => VOCABINDEX_VIEW_TREE,        ),      'node_count' => array(        'description' => t('Whether to count nodes per term.'),        'type' => 'int',
+        'size' => 'tiny',
+        'default' => 0,        ),      'type' => array(        'description' => t('Index page or index block.'),        'type' => 'int',
+        'size' => 'tiny',
+        'default' => 0,        ),      'enabled' => array(        'description' => t('Indicates whether this index is enabled or not.'),        'type' => 'int',
+        'size' => 'tiny',
+        'default' => 0,        ),
+      ),
+      'indexes' => array(
+        'vocabindex_vid' => array('vid'),
+        'vocabindex_type' => array('type'),
+      ),    );
+    return $schema;}
+
+/**
+ * Implementation of hook_install().
+ */function vocabindex_install() {  drupal_install_schema('vocabindex');
+
+  vocabindex_create_vis();}
+
+/**
+ * Implementation of hook_uninstall().
+ */function vocabindex_uninstall() {
+  vocabindex_delete_variables();
+  vocabindex_delete_menu_items();
+
+  // Delete VIs and clear cache.
+  module_load_include('inc', 'vocabindex', 'vocabindex.admin');
+  vocabindex_vi_delete();
+  cache_clear_all('vocabindex', 'cache', TRUE);
+
+  // Delete blocks.
+  db_query("DELETE FROM {blocks} WHERE module = 'vocabindex'");
+  db_query("DELETE FROM {blocks_roles} WHERE module = 'vocabindex'");
+
+  //Delete DB table.  drupal_uninstall_schema('vocabindex');}
+
+/**
+ * Implementation of hook_enable().
+ */
+function vocabindex_enable() {
+  drupal_set_message(st('Vocabulary Index has been enabled. Please proceed to <a href="!settings">the settings page</a> and <a href="!permissions">set up the permissions</a> to get started.', array('!settings' => url(_vocabindex_menu_paths('admin_settings')), '!permissions' => url('admin/user/permissions', array('fragment' => 'module-vocabindex')))));
+  if (count(taxonomy_get_vocabularies()) == 0) {
+    drupal_set_message(st('You haven\'t yet got any vocabularies to enable an index for; you may create them at <a href="!link">the Taxonomy page</a>.', array('!link' => url(_vocabindex_menu_paths('taxonomy')))));
+  }
+}
+
+/**
+ * Implementation of hook_disable().
+ */
+function vocabindex_disable() {
+  vocabindex_delete_menu_items();
+  vocabindex_disable_vi_pages();
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * Update the DB from Vocabulary Index 6.x-1.x to 6.x-2.x.
+ */
+function vocabindex_update_6200() {
+  $ret = array();
+  $current = drupal_get_installed_schema_version('vocabindex');
+  if (substr($current, 0, 2) == '52') {
+    return $ret;
+  }
+
+  // Get old VI data.
+  $result = db_query("SELECT * FROM {vocabindex}");
+  while ($vi_old = db_fetch_object($result)) {
+    $vi_paths[$vi_old->vid] = $vi_old->path;
+  }
+
+  // Drop the old table and create the new one.
+  db_drop_table($ret, 'vocabindex');
+  $schema = vocabindex_schema();
+  db_create_table($ret, 'vocabindex', $schema['vocabindex']);
+
+  // Create new VIs and populate them with possible old data.
+  module_load_include('inc', 'vocabindex', 'vocabindex.admin');
+  if (variable_get('vocabindex_list_style', 'threaded') == 'flat') {
+    $view = VOCABINDEX_VIEW_FLAT;
+  }
+  else {
+    $view = VOCABINDEX_VIEW_TREE;
+  }
+  vocabindex_create_vis();
+  $vis = vocabindex_vi_load(VOCABINDEX_VI_PAGE, 0, FALSE);
+  foreach ($vis as $vi) {
+    $vi = $vis[$i];
+    $vi->path = $vi_paths[$vi->vid];
+    $vi->enabled = TRUE;
+    $vi->view = $view;
+    vocabindex_vi_save($vi);
+  }
+
+  // Delete old variables and menu items and clear the cache.
+  $stylesheet = variable_get('vocabindex_stylesheet', TRUE);
+  vocabindex_delete_variables();
+  variable_set('vocabindex_stylesheet', $stylesheet);
+  vocabindex_delete_menu_items();
+  cache_clear_all('vocabindex', 'cache', TRUE);
+
+  // Delete the update status flag. Only necessary for the latest hook_update_N
+  // implementation.
+  variable_del('vocabindex_schema_update', TRUE);
+
+  return $ret;
+}
+
+/**
+ * Create VIs from all vocabularies.
+ *
+ * Used after an update or installation.
+ */
+function vocabindex_create_vis() {
+  module_load_include('module', 'vocabindex');
+  $vocs = taxonomy_get_vocabularies();
+  foreach ($vocs as $voc) {
+    vocabindex_vi_create($voc->vid);
+  }
+}
+
+/**
+ * Delete all Vocabulary Index variables.
+ */
+function vocabindex_delete_variables() {
+  db_query("DELETE FROM {variable} WHERE name LIKE 'vocabindex_%'");
+  cache_clear_all('variables', 'cache');
+}
+
+/**
+ * Delete all VI menu items.
+ */
+function vocabindex_delete_menu_items() {
+  $vis = vocabindex_vi_load(VOCABINDEX_VI_PAGE, 0, TRUE);
+  foreach ($vis as $vi) {
+    menu_link_delete(NULL, $vi->path);
+  }
+}
+
+/**
+ * Disable all VI pages
+ */
+function vocabindex_disable_vi_pages() {
+  db_query("UPDATE {vocabindex} SET enabled = 0 WHERE type = %d", VOCABINDEX_VI_PAGE);
+}

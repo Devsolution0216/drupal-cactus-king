@@ -1,0 +1,39 @@
+// $Id: changelog.txt,v 1.9.2.4 2009/03/30 20:46:42 aaron Exp $
+
+March 2009
+----------
+ * Add Update 6000 function to rebuild theme (aaron).
+ * Separate theme functions into new tpl.php files (aaron).
+ * Create API to allow modules to plug into Views Slideshow (aaron).
+ * Load Cycle when using Single Frame mode (aaron).
+ * Add jQuery Cycle plugin js file (aaron).
+
+January 2009
+------------
+ * 324640/KarenS PHP Notices (robertDouglass/Karens).
+
+2008-09
+-------
+ * Port to d6 (aaron).
+
+2008-03
+----------
+ * Move js to /js folder (aaron).
+ * #237259 fix endless upload of images in xp/ff (aaron).
+
+2008-01
+-------
+ * Smoother hovers if hoverintent is installed (aaron).
+ * Allow teasers in slideshow (aaron).
+ * Allow change of placement of teasers in breakout hover mode (aaron).
+
+2007-09
+-------
+ * Added functionality for 'multi-thumbnail hover' mode slideshows (aaron).
+ * Separated theme functions (aaron).
+ * Cleaned up & documented code (aaron).
+
+2007-07
+-------
+ * Added global settings & instructions to override (aaron).
+ * Began project for views slideshow (aaron).

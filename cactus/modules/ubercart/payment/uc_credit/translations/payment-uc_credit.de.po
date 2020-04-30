@@ -1,0 +1,751 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  test_gateway.module,v 1.1.2.5 2008/11/07 21:13:23 islandusurper
+#  uc_credit.module,v 1.5.2.7 2008/11/21 21:17:28 islandusurper
+#  uc_credit.info,v 1.4.2.1 2008/11/07 21:13:23 islandusurper
+#  uc_credit.pages.inc,v 1.1.2.2 2008/11/07 21:13:23 islandusurper
+#  uc_credit.admin.inc,v 1.1.2.2 2008/11/07 21:13:23 islandusurper
+#  test_gateway.info,v 1.1.2.5 2008/11/07 21:13:23 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-06-16 15:32+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: payment/uc_credit/test_gateway.module:48
+msgid "Credit card charged: !amount"
+msgstr "Kreditkarte belastet: !amount"
+
+#: payment/uc_credit/uc_credit.module:45
+msgid "CVV information"
+msgstr "CVV Infos"
+
+#: payment/uc_credit/uc_credit.module:303,822
+msgid ""
+"We were unable to process your credit card payment. Please verify your "
+"card details and try again.  If the problem persists, contact us to "
+"complete your order."
+msgstr ""
+"Es war nicht möglich, Ihre Kreditkarten-Zahlung zu verarbeiten. Bitte "
+"überprüfen Sie Ihre Angaben und versuchen Sie es nocheinmal. Wenn "
+"das Problem dann noch immer besteht, kontaktieren Sie uns um Ihre "
+"Bestellung abzuschliessen."
+
+#: payment/uc_credit/uc_credit.info:0
+msgid "Credit Card"
+msgstr "Kreditkarte"
+
+#: payment/uc_credit/uc_credit.module:373
+msgid "Pay by credit card."
+msgstr "Per Kreditkarte bezahlen"
+
+#: payment/uc_credit/uc_credit.pages.inc:12
+msgid "What is the CVV?"
+msgstr "Was ist der CVV-Code?"
+
+#: payment/uc_credit/uc_credit.pages.inc:12
+msgid ""
+"CVV stands for Card Verification Value. This number is used as a "
+"security feature to protect you from credit card fraud.  Finding the "
+"number on your card is a very simple process.  Just follow the "
+"directions below."
+msgstr ""
+"CVV heisst \"Card Verification Value\", zu Deutsch: "
+"\"Karten-Überprüfungs-Nummer\". Diese Nummer wird gebraucht, um Sie "
+"vor Missbrauch Ihrer Kreditkarte zu schützen. Sie finden sie ganz "
+"einfach, folgen Sie nur den untenstehenden Anweisungen."
+
+#: payment/uc_credit/uc_credit.pages.inc:23
+msgid ""
+"The CVV for these cards is found on the back side of the card.  It is "
+"only the last three digits on the far right of the signature panel "
+"box."
+msgstr ""
+"Der CVV-Code für diese Kreditkarten findet sich auf der Rückseite "
+"der Karte. Es sind nur die letzten drei Zeichen rechts des Feldes für "
+"die Unterschrift."
+
+#: payment/uc_credit/uc_credit.pages.inc:30
+msgid ""
+"The CVV on American Express cards is found on the front of the card.  "
+"It is a four digit number printed in smaller text on the right side "
+"above the credit card number."
+msgstr ""
+"Der CVV-Code auf American Express Kreditkarten findet sich auf der "
+"Vorderseite der Karte. Eine vierstellige Nummer, etwas kleiner "
+"gedruckt, auf der rechten Seite über der Kreditkarten-Nummer."
+
+#: payment/uc_credit/uc_credit.pages.inc:34
+msgid "Close this window"
+msgstr "Fenster schliessen."
+
+#: payment/uc_credit/uc_credit.module:445
+msgid "Enter the owner name as it appears on the card."
+msgstr ""
+"Geben Sie den Namen des Besitzers an, sowie er auf der Kreditkarte "
+"steht."
+
+#: payment/uc_credit/uc_credit.module:487
+msgid "You have entered an invalid CVV number."
+msgstr "Ihr CVV-Code ist falsch."
+
+#: payment/uc_credit/uc_credit.module:495
+msgid "You must enter the issuing bank for that card."
+msgstr "Sie müssen die Bank angeben, die diese Karte ausgestellt hat."
+
+#: payment/uc_credit/uc_credit.module:454
+msgid "You have entered an invalid credit card number."
+msgstr "Ihre Kreditkarten-Nummer ist falsch."
+
+#: payment/uc_credit/uc_credit.module:520
+msgid "Card Type"
+msgstr "Kreditkarten-Typ"
+
+#: payment/uc_credit/uc_credit.module:523
+msgid "Card Owner"
+msgstr "Kreditkarten-Besitzer"
+
+#: payment/uc_credit/uc_credit.module:525
+msgid "Card Number"
+msgstr "Kreditkarten-Nummer"
+
+#: payment/uc_credit/uc_credit.module:534,1021
+msgid "CVV"
+msgstr "Kartenprüfnummer"
+
+#: payment/uc_credit/uc_credit.module:537
+msgid "Issuing Bank"
+msgstr "Ausstellende Bank"
+
+#: payment/uc_credit/uc_credit.module:554,1064,1103
+msgid "Card Type:"
+msgstr "Kreditkarten-Typ"
+
+#: payment/uc_credit/uc_credit.module:561,1069,1108
+msgid "Card Owner:"
+msgstr "Kreditkarten-Besitzer"
+
+#: payment/uc_credit/uc_credit.module:565,613,1072,1111
+msgid "Card Number:"
+msgstr "Kreditkarten-Nummer"
+
+#: payment/uc_credit/uc_credit.module:577
+msgid "Expiration:"
+msgstr "Ablauf-Datum:"
+
+#: payment/uc_credit/uc_credit.module:590,1088,1118
+msgid "CVV:"
+msgstr "Kartenprüfnummer:"
+
+#: payment/uc_credit/uc_credit.module:597,1094,1123
+msgid "Issuing Bank:"
+msgstr "Ausstellende Bank"
+
+#: payment/uc_credit/uc_credit.module:686
+msgid "Attempt to process credit card payments at checkout."
+msgstr ""
+"Versuche Kreditkarten-Zahlungen während des Punktes \"Kasse\" "
+"abzuwickeln."
+
+#: payment/uc_credit/uc_credit.module:820
+msgid "Card processing failure message"
+msgstr "Fehlermeldung bei Kreditkarten-Abwicklung"
+
+#: payment/uc_credit/uc_credit.module:774,785,916
+msgid "Visa"
+msgstr "Visa"
+
+#: payment/uc_credit/uc_credit.module:774,790,916
+msgid "Mastercard"
+msgstr "Mastercard"
+
+#: payment/uc_credit/uc_credit.module:774,795,916
+msgid "Discover"
+msgstr "Discover"
+
+#: payment/uc_credit/uc_credit.module:741
+msgid ""
+"The CVV is an added security measure on credit cards. On Visa, "
+"Mastercard, and Discover cards it is a three digit number, and on AmEx "
+"cards it is a four digit number. If your credit card processor or "
+"payment gateway requires this information, you should enable this "
+"feature here."
+msgstr ""
+"Der CVV-Code ist eine Sicherheits-Massnahme für Kreditkarten. Auf "
+"Visa-, Master-, und Discover-Karten ist dieser Code eine dreistellige, "
+"auf American Express Karten eine vierstellige Nummer. Wenn Ihr "
+"Kreditkarten-System oder Bezahl-Gateway diese Information erfordert, "
+"sollten Sie diese Erweiterung aktivieren."
+
+#: payment/uc_credit/uc_credit.module:680
+msgid "Validate credit card numbers at checkout."
+msgstr "Kreditkarten-Nummer beim Punkt \"Kasse\" überprüfen."
+
+#: payment/uc_credit/uc_credit.module:813
+msgid "Credit card payment policy"
+msgstr "Kreditkarten-Zahlungs-Bedingungen"
+
+#: payment/uc_credit/uc_credit.module:815,913
+msgid ""
+"Your billing information must match the billing address for the credit "
+"card entered below or we will be unable to process your payment."
+msgstr ""
+"Ihre Rechnungs-Informationen müssen mit der Rechnungs-Adresse für "
+"die unten angegebene Kreditkarte übereinstimmen. Sonst ist es uns "
+"nicht möglich, die Belastung zu vollziehen."
+
+#: payment/uc_credit/uc_credit.module:711
+msgid "Age"
+msgstr "Alter"
+
+#: payment/uc_credit/uc_credit.module:721
+msgid "hour(s)"
+msgstr "Stunden"
+
+#: payment/uc_credit/uc_credit.module:974
+msgid "Expiration Month"
+msgstr "Ablauf-Monat"
+
+#: payment/uc_credit/uc_credit.module:975
+msgid "Expiration Year"
+msgstr "Ablauf-Jahr"
+
+#: payment/uc_credit/uc_credit.module:1079,1113
+msgid "Expiration Date:"
+msgstr "Ablauf-Datum"
+
+#: payment/uc_credit/uc_credit.module:1090
+msgid "What's the CVV?"
+msgstr "Was ist der CVV-Code?"
+
+#: payment/uc_credit/uc_credit.admin.inc:44
+msgid "Charge Amount"
+msgstr "Zahlungsbetrag"
+
+#: payment/uc_credit/uc_credit.module:69
+msgid "view cc details"
+msgstr "Kreditkarten-Details ansehen"
+
+#: payment/uc_credit/uc_credit.module:69
+msgid "view cc numbers"
+msgstr "Kreditkarten-Nummern ansehen"
+
+#: payment/uc_credit/uc_credit.module:69
+msgid "process credit cards"
+msgstr "Kreditkarten verarbeiten"
+
+#: payment/uc_credit/uc_credit.module:279,889,0
+msgid "uc_credit"
+msgstr "uc_credit"
+
+#: payment/uc_credit/uc_credit.info:0
+msgid "Receive credit card payments through checkout."
+msgstr "Kreditkarten-Zahlungen während Punkt \"Kasse\" erhalten."
+
+#: payment/uc_credit/test_gateway.module:52,59
+msgid "Credit card charge failed."
+msgstr "Belastung der Kreditkarte schlug fehl."
+
+#: payment/uc_credit/test_gateway.module:58
+msgid "Card charged, resolution code: 0022548315"
+msgstr "Karte belastet, resolution code: 0022548315"
+
+#: payment/uc_credit/test_gateway.module:59
+msgid "Credit card payment processed successfully."
+msgstr "Kreditkarten Zahlung erfolgreich abgeschlossen."
+
+#: payment/uc_credit/test_gateway.module:0
+msgid "test_gateway"
+msgstr "test_gateway"
+
+#: payment/uc_credit/uc_credit.module:362
+msgid "Credit card:"
+msgstr "Kreditkarte:"
+
+#: payment/uc_credit/uc_credit.module:928
+msgid "Card type"
+msgstr "Kreditkarten-Typ"
+
+#: payment/uc_credit/uc_credit.module:937
+msgid "Card owner"
+msgstr "Kreditkarten-Inhaber"
+
+#: payment/uc_credit/uc_credit.module:962
+msgid "Card number"
+msgstr "Kreditkarten-Nummer"
+
+#: payment/uc_credit/uc_credit.module:1032
+msgid "Issuing bank"
+msgstr "Ausstellendes Kreditinstitut"
+
+#: payment/uc_credit/uc_credit.module:1140
+msgid "Process card"
+msgstr "Kreditkarte verarbeiten"
+
+#: payment/uc_credit/test_gateway.info:0
+msgid ""
+"Adds a credit card gateway that simulates a successful payment for "
+"testing checkout."
+msgstr ""
+"Fügt ein Kreditkarten Gateway hinzu das eine erfolgreiche Zahlung zu "
+"Testzwecken simuliert."
+
+#: payment/uc_credit/uc_credit.module:646
+msgid ""
+"You must have access to <b>administer credit cards</b> to adjust these "
+"settings."
+msgstr ""
+"Sie brauchen die Berechtigung <b>Kreditkarten verwalten</b> um diese "
+"Einstellungen anzupassen."
+
+#: payment/uc_credit/uc_credit.module:734
+msgid "Credit card fields"
+msgstr "Kreditkartenfelder"
+
+#: payment/uc_credit/uc_credit.module:735
+msgid ""
+"Specify what information to collect from customers in addition to the "
+"card number."
+msgstr ""
+"Legen Sie fest welche Informationen Sie zusätzlich zu den "
+"Kreditkarten Daten von den Kunden erfragen wollen."
+
+#: payment/uc_credit/uc_credit.module:740
+msgid "Enable CVV text field on checkout form."
+msgstr "CVV Text feld auf der Bestellabschlus Seite anzeigen."
+
+#: payment/uc_credit/uc_credit.module:746
+msgid "Enable card owner text field on checkout form."
+msgstr "Kreditkarten Eigentümer auf den Bestellabschlussseiten abfragen."
+
+#: payment/uc_credit/uc_credit.module:761
+msgid "Enable issuing bank text field on checkout form."
+msgstr "Abfrage der austellenden Bank im Bestellformular mit einbinden."
+
+#: payment/uc_credit/uc_credit.module:766
+msgid "Enable card type selection on checkout form."
+msgstr "Kreditkarten Typ auswahl auf den Bestellseiten anzeigen."
+
+#: payment/uc_credit/uc_credit.module:767
+msgid ""
+"If enabled, specify in the textarea below which card options to "
+"populate the select box with."
+msgstr ""
+"Wenn aktiviert, geben Sie in dem textfeld unten an welche Karten Typen "
+"im auswahl Dropdown angezeigt werden sollen."
+
+#: payment/uc_credit/uc_credit.module:772
+msgid "Card type select box options"
+msgstr "Kreditkartenart Auswahl Kasten Optionen."
+
+#: payment/uc_credit/uc_credit.module:808
+msgid "Here you can alter messages displayed to customers using credit cards."
+msgstr ""
+"Hier können Sie Nachrichten anpassen die für Kunden die mit "
+"Kreditkarte bezahlen angezeigt werden."
+
+#: payment/uc_credit/uc_credit.module:814
+msgid ""
+"Instructions for customers on the checkout page above the credit card "
+"fields."
+msgstr "Anweisungen für Kunden oberhalb der Kreditkartenformularfelder"
+
+#: payment/uc_credit/uc_credit.module:821
+msgid ""
+"Error message displayed to customers when an attempted payment fails "
+"at checkout."
+msgstr ""
+"Fehlermeldung die Kunden angezeigt wir wenn Ein Zahlungs Versuch "
+"fehlschlägt"
+
+#: payment/uc_credit/uc_credit.module:674
+msgid "Checkout workflow"
+msgstr "Bestellungs workflow"
+
+#: payment/uc_credit/uc_credit.module:675
+msgid ""
+"These settings alter the way credit card data is collected and used "
+"during checkout."
+msgstr ""
+"Diese Einstellungen beeinflussen die Art wie Kreditkarten Daten "
+"erfragt und verarbeitet werden während des Bestellvorgangs."
+
+#: payment/uc_credit/uc_credit.module:654
+msgid "Credit card data security"
+msgstr "Kreditkarten daten Sicherheit"
+
+#: payment/uc_credit/uc_credit.module:655
+msgid ""
+"You are responsible for the security of your website, including the "
+"protection of credit card numbers.  Please be aware that choosing some "
+"settings in this section may decrease the security of credit card data "
+"on your website and increase your liability for damages in the case of "
+"fraud."
+msgstr ""
+"Sie sind veranwortlich für die Sicherheit ihrer Website, inlusive dem "
+"Schutz von Kreditkarten nummern. Bitte seien Sie sich bewusst das "
+"manche der Einstellungen in diesem Bereich die Sicherheit der "
+"Kreditkarten daten ihrer Kunden senken und ihre Haftbarkeit für "
+"Schäden im Fällen von Missbrauch erhöhen können."
+
+#: payment/uc_credit/uc_credit.module:660
+msgid "Card number encryption key filepath"
+msgstr "Kreditkarten Nummern Verschlüsselungs Schlüssel Dateipfad"
+
+#: payment/uc_credit/uc_credit.module:662,831,834,838,876,1345,1347
+msgid "Not configured, see below."
+msgstr "Nicht Konfiguriert, siehe Unten."
+
+#: payment/uc_credit/uc_credit.module:840
+msgid "You have specified a non-existent directory."
+msgstr "Sie haben ein nicht existierendes Verzeichniss angegeben."
+
+#: payment/uc_credit/uc_credit.module:846,851
+msgid "Cannot write to directory, please verify the directory permissions."
+msgstr ""
+"Kann nicht in das Verzeichniss schreiben, bitte prüfen sie die "
+"Verzeichnissrechte."
+
+#: payment/uc_credit/uc_credit.module:859
+msgid "Cannot read from directory, please verify the directory permissions."
+msgstr ""
+"Kann nicht aus dem Verzeichniss lesen, bitte prüfen sie die "
+"Verzeichnissrechte."
+
+#: payment/uc_credit/uc_credit.module:879
+msgid ""
+"Credit card encryption key file creation failed. Check your filepath "
+"settings and directory permissions."
+msgstr ""
+"Die erzeugung der Kreditkartenverschlüsselungs Schlüssel Datei ist "
+"fehlgeschalgen. Bitte Prüfen die die Einstellungen des Datipfades und "
+"die Verzeichniss berechtigungen."
+
+#: payment/uc_credit/uc_credit.module:888
+msgid ""
+"Credit card encryption key file generated. Card data will now be "
+"encrypted."
+msgstr ""
+"Kreditkartenverschlüsselungs Schlüssel Datei wurde erstellt "
+"Kreditkarten daten werden ab jetzt verschlüsselt."
+
+#: payment/uc_credit/uc_credit.module:889
+msgid "Credit card encryption key file generated."
+msgstr "Kreditkarten Verschlüsselungs Datei erzeugt."
+
+#: payment/uc_credit/uc_credit.module:69
+msgid "administer credit cards"
+msgstr "Kreditkarten verwalten"
+
+#: payment/uc_credit/uc_credit.module:52
+msgid "Credit card terminal: Order @order_id"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:470
+msgid "The credit card you entered has expired."
+msgstr "Die verwendete Kreditkarte ist abgelaufen."
+
+#: payment/uc_credit/uc_credit.module:90
+msgid ""
+"Credit card encryption must be configured to accept credit card "
+"payments."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:249
+msgid "Credit card data is encrypted during checkout for maximum security."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:256
+msgid ""
+"You must <a "
+"href=\"http://www.ubercart.org/docs/user/2731/credit_card_settings#security\">review "
+"your credit card security settings</a> and enable encryption before "
+"you can accept credit card payments."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:263
+msgid "Credit card debug mode"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:264
+msgid ""
+"Because you are using debug mode, credit card details may be stored in "
+"violation of PCI security standards. Debug mode is only recommended "
+"for testing transactions with fake credit card details."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:279
+msgid "Credit card encryption must be setup to process credit cards."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:547
+msgid "View card details."
+msgstr "Zeige Kartendaten."
+
+#: payment/uc_credit/uc_credit.module:661
+msgid ""
+"<b>You must enable encryption</b> by following the <a "
+"href=\"!url\">encryption instructions</a> in order to accept credit "
+"card payments.<br />In short, you must specify a path outside of your "
+"document root where the encryption key may be stored.<br />Relative "
+"paths will be resolved relative to the Drupal installation "
+"directory.<br />Once this is set, you should not change it."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:666
+msgid "Operate in credit card debug mode."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:667
+msgid ""
+"In debug mode, credit card details may be stored in violation of PCI "
+"security standards.<br />Debug mode is only recommended for testing "
+"transactions with fake credit card details."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:681
+msgid ""
+"Invalid card numbers will show an error message to the user so they "
+"can correct it.<br />This feature is recommended unless you are in "
+"debug mode."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:687
+msgid ""
+"Failed attempts will prevent checkout completion and display the error "
+"message from above.<br />This box must be checked to process customer "
+"credit cards if you are not in debug mode."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:694
+msgid "Debug mode data clearing"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:695
+msgid ""
+"Specify below the status and age of orders whose credit card details "
+"will be removed.  This setting only applies when operating in debug "
+"mode.  When not in debug mode, no credit card information except the "
+"last 4 digits of the card number will be stored."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:773
+msgid ""
+"Enter one card type per line. These fields will populate the card type "
+"select box if it is enabled."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:780
+msgid "Accepted card types (for validation)"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:781
+msgid ""
+"Use the checkboxes to specify which card types you accept for payment. "
+"Selected card types will show their icons in the payment method "
+"selection list and be used for card number validation."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:896
+msgid ""
+"You have chosen to not process credit card payments during checkout, "
+"but customer credit card data is not being stored once checkout is "
+"completed. This configuration is not recommended for a live site, as "
+"you will not be able to collect payment for your orders."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:14
+msgid ""
+"Use this terminal to process credit card payments through your default "
+"gateway."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:17
+msgid ""
+"Be warned that credit card data will automatically be converted to the "
+"last 4 digits of the card once a transaction has occurred.  As such, "
+"subsequent charges after a partial payment will not have any stored "
+"credit card information to use."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:210
+msgid "You must enter a positive number for the amount."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:316
+msgid ""
+"There was an error processing the credit card.  See the admin comments "
+"for details."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:122
+msgid ""
+"To protect our customers from identity theft, credit card details are "
+"erased when a browser refreshes on the checkout review page.  Please "
+"enter your card details again and re-submit the form."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:462
+msgid "The start date you entered is invalid."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:479
+msgid "The issue number you entered is invalid."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:527
+msgid "Start Date"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:531,995
+msgid "Issue Number"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:571,1075
+msgid "Start Date:"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:583,1083
+msgid "Issue Number:"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:751
+msgid "Enable card start date on checkout form."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:756
+msgid "Enable card issue number text field on checkout form."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:970
+msgid "Start Month"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:971
+msgid "Start Year"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:1077,1084
+msgid "(if present)"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:168,1390
+msgid "Authorize and capture immediately"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:180
+msgid "Default credit transaction type"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:181
+msgid ""
+"Only available transaction types are listed. The default will be used "
+"unless an administrator chooses otherwise through the terminal."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:20
+msgid "Order total: @total"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:56
+msgid ""
+"Use the available buttons in this fieldset to process with the "
+"specified card details."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:69,205,241
+msgid "Charge amount"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:77,206,245
+msgid "Authorize amount only"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:85,249
+msgid "Set a reference only"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:93,253
+msgid "Credit amount to this card"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:102
+msgid "@auth_id - @date - @amount authorized"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:111
+msgid "Prior authorizations"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:112
+msgid ""
+"Use the available buttons in this fieldset to select and act on a "
+"prior authorization. The charge amount specified above will be "
+"captured against the authorization listed below.  Only one capture is "
+"possible per authorization, and a capture for more than the amount of "
+"the authorization may result in additional fees to you."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:117
+msgid "Select authorization"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:125,207,257
+msgid "Capture amount to this authorization"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:133,262
+msgid "Void authorization"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:151
+msgid "@ref_id - @date - (Last 4) @card"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:159
+msgid "Customer references"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:160
+msgid ""
+"Use the available buttons in this fieldset to select and act on a "
+"customer reference."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:165
+msgid "Select references"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:173,208,267
+msgid "Charge amount to this reference"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:181,272
+msgid "Remove reference"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:189,277
+msgid "Credit amount to this reference"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.admin.inc:309
+msgid ""
+"The credit card was processed successfully. See the admin comments for "
+"more details."
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:1391
+msgid "Reference transaction"
+msgstr ""
+
+#: payment/uc_credit/uc_credit.module:54
+msgid "Displays a form to process a credit card payment."
+msgstr ""
+

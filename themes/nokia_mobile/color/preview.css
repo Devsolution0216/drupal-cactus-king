@@ -1,0 +1,50 @@
+/* $Id: preview.css,v 1.1 2010/01/05 19:40:09 atrasatti Exp $ */
+
+/* Positioning */
+#preview {
+  overflow: hidden;
+  max-width: 100%;
+}
+#preview, #preview #img {
+  width: 360px;
+  height: 250px;
+}
+#preview #gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 27px;
+  z-index: 2;
+}
+#preview #text {
+  padding: 2pt;
+  position: absolute;
+  left: 0;
+  width: 360px;
+  top: 60px;
+  z-index: 4;
+}
+#preview #img {
+  position: relative;
+  z-index: 3;
+}
+#preview #gradient .gradient-line {
+  height: 9px;
+  overflow: hidden;
+}
+
+/* Basic styles to match */
+#preview {
+  font-family: Gill, Helvetica, sans-serif;
+  font-size: 100%;
+}
+#preview h2 {
+  display: none;
+}
+#preview a:link, #preview a:visited {
+	text-decoration: underline;
+}
+#preview a:hover {
+	text-decoration: underline;
+}

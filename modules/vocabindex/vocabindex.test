@@ -1,0 +1,222 @@
+<?php
+// $Id: vocabindex.test,v 1.1.4.4 2008/12/21 01:34:39 xano Exp $
+
+/**
+ * @file
+ * Tests for Vocabulary Index.
+ */
+
+class VocabindexTestCase extends DrupalWebTestCase {
+  /**
+   * Returns a new VI with random properties.
+   *
+   * @param $vid
+   *   Type: integer; The VID of the vocabulary to create an index for.
+   * @param $type
+   *   Type: constant; Either VOCABINDEX_VI_PAGE or VOCABINDEX_VI_BLOCK.
+   *
+   * @return
+   *   Type: object; A VI object.
+   */
+  function setupVI($vid, $type) {
+    $views = array(VOCABINDEX_VIEW_TREE, VOCABINDEX_VIEW_FLAT, VOCABINDEX_VIEW_ALPHABETICAL);
+    $vi = new stdClass();
+    $vi->path = $this->randomName();
+    $vi->view = $views[mt_rand(0, 2)];
+    $vi->node_count = mt_rand(0, 1);
+    $vi->enabled = TRUE;
+    $vi->vid = $vid;
+    $vi->type = $type;
+    vocabindex_vi_save($vi);
+    return $vi;
+  }
+}
+
+/**
+ * Unit tests.
+ */
+class VocabindexUnitTest extends VocabindexTestCase {
+  function getInfo() {
+    return array(
+      'name' => t('Unit testing'),
+      'description' => t('Test individual functions.'),
+      'group' => t('Vocabulary Index'),
+    );
+  }
+
+  function setUp() {
+    parent::setUp('vocabindex');
+  }
+
+  /**
+   * Test permissions.
+   */
+  function testPermissions() {
+    $permissions = vocabindex_perm();
+    foreach ($permissions as $permission) {
+      $this->assertTrue(is_string($permission), t('Make sure all permissions are valid strings.'));
+    }
+  }
+
+  /**
+   * Test menu items.
+   */
+  function testMenu() {
+    $items = vocabindex_menu();
+    foreach ($items as $path => $item) {
+      $this->assertTrue(is_string($path), t('Make sure all menu paths are valid strings.'));
+      $this->assertTrue(is_array($item), t('Make sure all menu items are arrays.'));
+      $this->assertTrue(is_string($item['title']), t('Make sure all menu titles are valid strings.'));
+      $this->assertTrue(is_array($item['access arguments']), t('Make sure access arguments is an array.'));
+      if (isset($item['page arguments'])) {
+        $this->assertTrue(is_array($item['page arguments']), t('Make sure page arguments is an array.'));
+      }
+    }
+  }
+
+  /**
+   * Test menu wildcard letter loader.
+   */
+  function testLetterLoader() {
+    $letter = $this->randomName(1);
+    $this->assertNotIdentical(vocabindex_letter_load($letter), FALSE, t("Make sure alphanumerical characters are accepted by the letter wildcard's loader."));
+  }
+
+  /**
+   * Test if children can be found in a taxonomy tree.
+   */
+  function testGetChildren() {
+    // $tree is a taxonomy tree with all unnecessary term properties stripped.
+    // Taxonomy_get_tree() returns duplicates for terms that have multiple
+    // parents, so that's why TID = 4 appears twice.
+    $tree = array(
+      (object) array(
+          'tid' => 1,
+          'vid' => 1,
+          'parents' => Array(0),
+        ),
+      (object) array(
+          'tid' => 2,
+          'vid' => 1,
+          'parents' => Array(0),
+        ),
+      (object) array(
+          'tid' => 3,
+          'vid' => 1,
+          'parents' => Array(0),
+        ),
+      (object) array(
+          'tid' => 4,
+          'vid' => 1,
+          'parents' => Array(1, 2),
+        ),
+      (object) array(
+          'tid' => 4,
+          'vid' => 1,
+          'parents' => Array(1, 2),
+        ),
+      (object) array(
+          'tid' => 5,
+          'vid' => 1,
+          'parents' => Array(4),
+        ),
+      (object) array(
+          'tid' => 6,
+          'vid' => 1,
+          'parents' => Array(2),
+        ),
+    );
+    $children = vocabindex_get_children($tree);
+    /*
+    * print_r($children) should look like this:
+    * Array (
+    *   [0] => Array (
+    *     [0] => 1
+    *     [1] => 2
+    *     [2] => 3
+    *   )
+    *   [1] => Array (
+    *     [0] => 4
+    *   )
+    *   [2] => Array (
+    *     [0] => 4
+    *     [1] => 6
+    *   )
+    *   [4] => Array (
+    *     [0] => 5
+    *   )
+    * )
+    *
+    * We're going to test this by simply imploding and concatenating all values.
+    */
+    $tids = '';
+    foreach ($children as $parent) {
+      $tids .= implode('', $parent);
+    }
+    $this->assertEqual($tids, '1234465', t('Make sure all child terms in a taxonomy tree can be found.'));
+  }
+}
+
+/**
+ * Functional tests.
+ */
+class VocabindexFunctionalTest extends VocabindexTestCase {
+  function getInfo() {
+    return array(
+      'name' => t('Functional testing'),
+      'description' => t('Test groups of functions and overall behavior.'),
+      'group' => t('Vocabulary Index'),
+    );
+  }
+
+  function setUp() {
+    parent::setUp('vocabindex');
+  }
+
+  /**
+   * Test if two VIs are indeed being created upon vocabulary creation.
+   */
+  function testCreateVI() {
+    // Fetch all VIDs of existing VIs.
+    $vi_vids = db_query("SELECT vid FROM {vocabindex} GROUP BY vid");
+    $vids = array();
+    while ($vi = db_fetch_object($vi_vids)) {
+      $vids[] = $vi->vid;
+    }
+    // Create a new vocabulary.
+    $voc = array();
+    taxonomy_save_vocabulary($voc);
+    // Verify that the new vocabulary has a unique ID.
+    $this->assertFalse(in_array($voc['vid'], $vids), t('Make sure no index exists with a VID equal to the VID of a newly created vocabulary.'));
+    // Verify that a VI page _and_ a VI block have been created.
+    $count = db_result(db_query("SELECT COUNT(vid) FROM {vocabindex} WHERE vid = %d", $voc['vid']));
+    $this->assertEqual($count, 2, t('Make sure that two vocabulary indexes are created for a new vocabulary.'));
+  }
+
+  /**
+   * Test if two VIs are indeed being deleted upon vocabulary deletion.
+   */
+  function testDeleteVI() {
+    // Create a new vocabulary and delete it again.
+    $voc = array();
+    taxonomy_save_vocabulary($voc);
+    taxonomy_del_vocabulary($voc['vid']);
+    // Verify that no VIs with this VID exist anymore.
+    $count = db_result(db_query("SELECT COUNT(vid) FROM {vocabindex} WHERE vid = %d", $voc['vid']));
+    $this->assertEqual($count, 0, t("Make sure that a vocabulary's indexes are deleted together with the vocabulary itself."));
+  }
+
+  /**
+   * Test if a VI is being loaded properly.
+   */
+  function testLoadVI() {
+    // Create a new vocabulary.
+    $voc = array();
+    taxonomy_save_vocabulary($voc);
+    // Verify that single VIs can be loaded.
+    $page = vocabindex_vi_load(VOCABINDEX_VI_PAGE, $voc['vid'], FALSE);
+    $block = vocabindex_vi_load(VOCABINDEX_VI_BLOCK, $voc['vid'], FALSE);
+    $this->assertTrue(is_object($page), t("Make sure index pages can be loaded."));
+    $this->assertTrue(is_object($block), t("Make sure index blocks can be loaded."));
+  }
+}

@@ -1,0 +1,62 @@
+<?php
+// $Id: profile_role.test,v 1.2 2008/12/04 06:12:38 boombatower Exp $
+/**
+ * @file
+ * Create database structure and remove when uninstalled.
+ *
+ * Copyright 2008 by Jimmy Berry ("boombatower", http://drupal.org/user/214218)
+ */
+
+class ProfileRoleTestCase extends DrupalWebTestCase {
+  /**
+   * Implementation of getInfo().
+   */
+  function getInfo() {
+    return array(
+      'name' => t('Profile role'),
+      'description' => t('Test the visibility of a field based on its role settings.'),
+      'group' => t('Profile'),
+    );
+  }
+
+  /**
+   * Implementation of setUp().
+   */
+  function setUp() {
+    parent::setUp('profile', 'profile_role');
+  }
+
+  /**
+   * Test the visibility of a field based on its role settings.
+   */
+  function testFieldVisibility() {
+    // Create and login user.
+    $admin_user = $this->drupalCreateUser(array('administer users'));
+    $this->drupalLogin($admin_user);
+
+    // Create profile field.
+    $this->drupalget('admin/user/profile');
+    $this->clickLink(t('single-line textfield'));
+
+    $field = array();
+    $field['category'] = $this->randomName();
+    $field['title'] = $this->randomName();
+    $field['name'] = $this->randomName();
+    $this->drupalPost(NULL, $field, t('Save field'));
+    $this->assertText(t('The field has been created.'));
+
+    // Attempt to view field on profile.
+    $this->drupalGet('user/' . $admin_user->uid . '/edit');
+    $this->assertNoText($field['category'], t('Category not visible.'));
+
+    // Let the 'authenticate user' role have access to the field.
+    $edit = array();
+    $edit['0[roles][]'] = array(DRUPAL_AUTHENTICATED_RID);
+    $this->drupalPost('admin/user/profile/role', $edit, t('Save configuration'));
+    $this->assertText(t('The configuration options have been saved.'));
+
+    // Attempt to view field on profile.
+    $this->drupalGet('user/' . $admin_user->uid . '/edit');
+    $this->assertText($field['category'], t('Category visible.'));
+  }
+}

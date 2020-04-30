@@ -1,0 +1,13 @@
+name = Product Kit
+description = This node module represents two or more products that have been listed together. This presents a logical and convenient grouping of items to the customer.
+dependencies[] = uc_product
+package = Ubercart - extra
+core = 6.x
+php = 5.0
+
+; Information added by drupal.org packaging script on 2011-07-30
+version = "6.x-2.6"
+core = "6.x"
+project = "ubercart"
+datestamp = "1312031519"
+

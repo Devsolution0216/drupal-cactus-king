@@ -1,0 +1,98 @@
+# $Id: uc_attributes_in_cart.pot,v 1.1.4.4 2010/06/11 11:02:09 Fanyalla Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_attributes_in_cart.module,v 1.1.2.6 2010/06/10 11:42:29 Fanyalla
+#  uc_attributes_in_cart.install,v 1.1.2.3 2010/05/23 08:45:10 Fanyalla
+#  uc_attributes_in_cart.info,v 1.1 2010/05/13 12:44:46 Fanyalla
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-06-11 12:58+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: uc_attributes_in_cart.module:19;224
+msgid "Attributes"
+msgstr ""
+
+#: uc_attributes_in_cart.module:225
+msgid "Here are listed the attributes you have defined in your store administration."
+msgstr ""
+
+#: uc_attributes_in_cart.module:232
+msgid "Filter out attributes that are no longer in stock"
+msgstr ""
+
+#: uc_attributes_in_cart.module:233
+msgid "Check this box if you want to filter out attributes that are no longer in stock when viewing the cart page."
+msgstr ""
+
+#: uc_attributes_in_cart.module:249
+msgid "Show attribute form in cart"
+msgstr ""
+
+#: uc_attributes_in_cart.module:250
+msgid "Check this box if you want this attribute form to be displayed in cart."
+msgstr ""
+
+#: uc_attributes_in_cart.module:256
+msgid "Show attribute title in cart"
+msgstr ""
+
+#: uc_attributes_in_cart.module:257
+msgid "Check this box if you want this attribute form to have a title in cart."
+msgstr ""
+
+#: uc_attributes_in_cart.module:263
+msgid "Enclose the attribute's form in a fieldset"
+msgstr ""
+
+#: uc_attributes_in_cart.module:264
+msgid "Check this box if you want this attribute's form to be enclosed in a fieldset (when you have for example a long list of options)."
+msgstr ""
+
+#: uc_attributes_in_cart.module:269
+msgid "Save"
+msgstr ""
+
+#: uc_attributes_in_cart.module:309
+msgid "The settings have been saved."
+msgstr ""
+
+#: uc_attributes_in_cart.module:316
+msgid "administer attributes in cart settings"
+msgstr ""
+
+#: uc_attributes_in_cart.module:204
+msgid "Attributes in cart settings"
+msgstr ""
+
+#: uc_attributes_in_cart.module:205
+msgid "Administer the settings of attributes in cart."
+msgstr ""
+
+#: uc_attributes_in_cart.install:62
+msgid "The <em>Attributes in cart</em> module has been installed. You can change the settings of this module under !link."
+msgstr ""
+
+#: uc_attributes_in_cart.install:71
+msgid "The <em>Attributes in cart</em> module has been uninstalled."
+msgstr ""
+
+#: uc_attributes_in_cart.info:0
+msgid "Attributes in cart"
+msgstr ""
+
+#: uc_attributes_in_cart.info:0
+msgid "Allow users to modify attributes of Ubercart products directly in their cart."
+msgstr ""
+

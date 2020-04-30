@@ -1,0 +1,188 @@
+# $Id: es.po,v 1.1.2.3 2008/08/06 13:41:28 islandusurper Exp $
+#
+# LANGUAGE translation of Drupal (uc_taxes.module)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_taxes.module,v 1.10 2007/10/02 18:11:58 rszrama
+#  uc_taxes.info,v 1.4 2007/10/02 17:43:50 rszrama
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2007-10-04 09:43-0400\n"
+"PO-Revision-Date: 2007-10-13 HH:MM+ZZZZ\n"
+"Last-Translator:  Antonio de la Torre <antdltorre@gmail.com>\n"
+"Language-Team: Spanish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: uc_taxes.module:11
+msgid "Set the default tax rates for various geographic locations. Specify tax rates as a multiplier. Smaller areas override the rates of the larger areas."
+msgstr "Configura las ratios de la tasa predefinida para varias localizaciones geográficas. Especifique las ratios de tasa como un multiplicador. Las áreas más pequeñas sobrescriben las ratios de áreas mayores."
+
+#: uc_taxes.module:14
+msgid "Select a product class to edit it's tax rules. These rules are applied only to products of that class."
+msgstr "Selecciones una clase de producto para editar su reglas de tasa. Estas normas se aplican sólo a los productos de esa clase."
+
+#: uc_taxes.module:28
+msgid "Tax settings"
+msgstr "Opciones de tasa"
+
+#: uc_taxes.module:35
+msgid "Edit tax rule"
+msgstr "Editar norma de tasa"
+
+#: uc_taxes.module:47
+msgid "Delete tax rule"
+msgstr "Eliminar norma de tasa"
+
+#: uc_taxes.module:77
+msgid "Tax"
+msgstr "Tasa"
+
+#: uc_taxes.module:108;115;153;188;279
+msgid "Next"
+msgstr "Siguiente"
+
+#: uc_taxes.module:114;129
+msgid "Add Tax Rule"
+msgstr "Añadir Norma de Tasa"
+
+#: uc_taxes.module:118;187;235
+msgid "Back"
+msgstr "Atrás"
+
+#: uc_taxes.module:134;252
+msgid "Name"
+msgstr "Nombre"
+
+#: uc_taxes.module:140
+msgid "Scope"
+msgstr "Alcance"
+
+#: uc_taxes.module:152;287;331
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: uc_taxes.module:162;252
+msgid "Area"
+msgstr "Área"
+
+#: uc_taxes.module:164
+msgid "Specify taxes that are specific to postal code areas.\n              A \"*\" may be used as a wild card to set a rate for multiple areas.\n              Example: In the US, 402* represents all areas from 40200 to 40299."
+msgstr "Tasas específicas que son específicas para áreas de código postal.\n              UN \"*\" puede usarse como comodín para establecer una ratio para múltiples áreas.\n              Ejemplo: En España, 412* representa todas las áreas comprendidas entre el 41200 y el 41299."
+
+#: uc_taxes.module:179
+msgid "Country"
+msgstr "País"
+
+#: uc_taxes.module:196;252
+msgid "Rate"
+msgstr "Ratio"
+
+#: uc_taxes.module:197
+msgid "The tax rate as a percent or decimal. Examples: 6%, .06"
+msgstr "La ratio de tasa como porcentaje o decimal. Ejemplo: 7%, .07"
+
+#: uc_taxes.module:208
+msgid "Tax Product Types"
+msgstr "Tipos de Productos Fiscales"
+
+#: uc_taxes.module:211
+msgid "Apply taxes to specific product types."
+msgstr "Aplica tasas a tipos de productos específicos."
+
+#: uc_taxes.module:220
+msgid "Tax Shipping Costs"
+msgstr "Costes de Transporte Fiscales"
+
+#: uc_taxes.module:223
+msgid "Includes any taxed_line_items cost in the subtotal for the order."
+msgstr "Incluye cualquier coste de taxed_line_items en el subtotal del pedido."
+
+#: uc_taxes.module:226;252
+msgid "Weight"
+msgstr "Peso"
+
+#: uc_taxes.module:228
+msgid "Lighter taxes are applied to an order first. This value is unimportant if there are no cumulative taxes."
+msgstr "Las tasas más bajas se aplican primero a un pedido. Este valor no es importante si no hay tasas acumulativas."
+
+#: uc_taxes.module:231
+msgid "Custom conditions"
+msgstr "Condiciones Particulares"
+
+#: uc_taxes.module:233
+msgid "For experts only. Enter PHP code that returns true or false, which indicates that this rule applies to an order. Do not include &lt;?php ?&gt; tags. This code is evaluated after the rule matches the customer's address.<br />\nMisusing this field can really mess up your site. <b>DO NOT BE STUPID.</b>"
+msgstr "Sólo para expertos. Introduzca código PHP que devuelva verdadero y falso, lo que indica que esta norma se aplique a un pedido. no incluya marcas &lt;?php ?&gt;. Este código se evalúa después de que la norma coincida con la dirección del cliente.<br />\nEl mal empleo de este campo puede estropear su sitio. <b>NO LO USE A LA LIGERA</b>"
+
+#: uc_taxes.module:236;279;290
+msgid "Submit"
+msgstr "Añadir"
+
+#: uc_taxes.module:252
+msgid "Taxed Product Types"
+msgstr "Tipos de Productos Fiscalizados"
+
+#: uc_taxes.module:252
+msgid "Taxed Line Items"
+msgstr "Artículos de Linea Fiscalizados"
+
+#: uc_taxes.module:252
+msgid "Actions"
+msgstr "Acciones"
+
+#: uc_taxes.module:269
+msgid "edit"
+msgstr "editar"
+
+#: uc_taxes.module:269
+msgid "copy"
+msgstr "copiar"
+
+#: uc_taxes.module:269
+msgid "delete"
+msgstr "eliminar"
+
+#: uc_taxes.module:281
+msgid "!name field is required."
+msgstr "Campo !name es requerido."
+
+#: uc_taxes.module:308
+msgid "%name settings have been saved."
+msgstr "Las opciones de %name ha sido guardadas."
+
+#: uc_taxes.module:331
+msgid "Delete !rule?"
+msgstr "¿Eliminar !rule?"
+
+#: uc_taxes.module:331
+msgid "Continue"
+msgstr "Continuar"
+
+#: uc_taxes.module:344
+msgid "Tax rule deleted."
+msgstr "Norma de tasa eliminada."
+
+#: uc_taxes.module:20
+msgid "configure taxes"
+msgstr "configurar tasas"
+
+#: uc_taxes.module:0
+msgid "uc_taxes"
+msgstr "uc_taxes"
+
+#: uc_taxes.info:0
+msgid "Taxes"
+msgstr "Tasas"
+
+#: uc_taxes.info:0
+msgid "Define tax rates for customers' geographic locations and products sold."
+msgstr "Define ratios de tasas para las localizaciones geográficas de los clientes y productos vendidos."
+
+#: uc_taxes.info:0
+msgid "Ubercart - core (optional)"
+msgstr "Ubercart - core (opcional)"
+

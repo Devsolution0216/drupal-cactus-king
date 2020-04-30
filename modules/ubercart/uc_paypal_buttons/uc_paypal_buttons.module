@@ -1,0 +1,1587 @@
+<?php
+// $Id: uc_paypal_buttons.module,v 1.2 2009/06/16 18:49:39 detour Exp $
+
+/**
+ * @file
+ * Adds PayPal Buy Now or Subscription buttons to Ubercart products.
+ *
+ * Compatible with Drupal 6/Ubercart 2
+ *
+ * By Joe Turgeon [http://arithmetric.com]
+ * Licensed under GPL version 2
+ * Version 2009/06/16
+ */
+
+/**
+ * Drupal Hooks
+ */
+
+/**
+ * Implementation of hook_menu().
+ *
+ * Provides URL to start PayPal Buttons purchase process:
+ * uc_paypal_buttons/nid/quantity/aid/oid/aid/oid/...
+ */
+function uc_paypal_buttons_menu() {
+  $items = array();
+  $items['uc_paypal_buttons'] = array(
+    'title' => 'PayPal Buy Now',
+    'page callback' => 'uc_paypal_buttons_url',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['uc_paypal_buttons_ipn'] = array(
+    'title' => 'PayPal Buttons IPN',
+    'page callback' => 'uc_paypal_buttons_ipn',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implementation of hook_form_alter().
+ *
+ * Add 'Buy Now' button to uc_product_add_to_cart_form and
+ * optionally, remove the 'Add to cart' button.
+ */
+function uc_paypal_buttons_form_alter(&$form, $form_state, $form_id) {
+  global $user;
+
+  if (strlen($form_id) >= 27 && substr($form_id, 0, 27) == 'uc_product_add_to_cart_form' && $form['nid'] && $form['nid']['#value']) {
+    $nid = $form['nid']['#value'];
+    $opts = uc_paypal_buttons_product_options($nid);
+    if ($opts && ($opts['buynow'] || $opts['subscription'])) {
+      if ($opts['hideaddcart']) {
+        unset($form['submit']);
+      }
+      if ($opts['button'] == 'text' && !empty($opts['buttontext'])) {
+        $deftext = $opts['buttontext'];
+      }
+      else {
+        if ($opts['buynow']) {
+          $deftext = t('Buy Now');
+        }
+        else {
+          $deftext = t('Subscribe Now');
+        }
+      }
+      if ($opts['button'] == 'image' && !empty($opts['buttonimage'])) {
+        $form['paypal_button'] = array(
+          '#type' => 'submit',
+          '#theme' => 'image_button',
+          '#src' => $opts['buttonimage'],
+          '#value' => $deftext,
+          '#submit' => array('uc_paypal_buttons_form_purchase_submit'),
+        );
+      }
+      else {
+        $form['paypal_button'] = array(
+          '#type' => 'submit',
+          '#value' => $deftext,
+          '#submit' => array('uc_paypal_buttons_form_purchase_submit'),
+        );
+      }
+      if ($opts['subscription'] && $opts['modify']) {
+//TODO: determine whether user has subscription
+        $user_sub = TRUE;
+        // Add image or text button
+        if ($user_sub && $opts['modify_button'] == 'image' && !empty($opts['modify_buttonimage'])) {
+          $form['paypal_manage'] = array(
+            '#type' => 'submit',
+            '#theme' => 'image_button',
+            '#src' => $opts['modify_buttonimage'],
+            '#value' => !empty($options['modify_buttontext']) ? $opts['modify_buttontext'] : t('Manage Subscriptions'),
+            '#submit' => array('uc_paypal_buttons_form_manage_submit'),
+          );
+        }
+        else if ($user_sub) {
+          $form['paypal_manage'] = array(
+            '#type' => 'submit',
+            '#value' => ($opts['modify_button'] == 'text' && !empty($opts['modify_buttontext'])) ? $opts['manage_buttontext'] : t('Manage Subscriptions'),
+            '#submit' => array('uc_paypal_buttons_form_manage_submit'),
+          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Form submission callback for Buy Now and Subscription buttons
+ */
+function uc_paypal_buttons_form_purchase_submit($form, &$form_state) {
+  uc_paypal_buttons_purchase($form_state['values']['nid'], $form_state['values']['attributes']);
+}
+
+/**
+ * Form submission callback for Manage Subscription button
+ */
+function uc_paypal_buttons_form_manage_submit($form, &$form_state) {
+  uc_paypal_buttons_subscription_redirect($form_state['values']['nid']);
+}
+
+/**
+ * Implementation of hook_user().
+ */
+function uc_paypal_buttons_user($op, &$edit, &$account, $category = NULL) {
+  if ($op == 'login' && !empty($_SESSION['uc_paypal_buttons_redirect_url']) && $_SESSION['uc_paypal_buttons_redirect_nid']) {
+    $redirect = $_SESSION['uc_paypal_buttons_redirect_url'];
+    $nid = $_SESSION['uc_paypal_buttons_redirect_nid'];
+    $node = node_load($nid);
+    drupal_set_message(t('Click !here to continue to checkout for your purchase of @product.', array('!here' => l(t('here'), $redirect), '@product' => $node->title)));
+  }
+}
+
+/**
+ * Ubercart Hooks
+ */
+
+/**
+ * Implementation of hook_line_item().
+ */
+function uc_paypal_buttons_line_item() {
+  $items = array(
+    array(
+      'id' => 'uc_paypal_buttons_subscription',
+      'title' => t('Subscription discount'),
+      'weight' => 5,
+      'default' => FALSE,
+      'stored' => TRUE,
+      'add_list' => FALSE,
+      'calculated' => TRUE,
+    ),
+    array(
+      'id' => 'uc_paypal_buttons_shipping',
+      'title' => t('Shipping fee'),
+      'weight' => 6,
+      'default' => FALSE,
+      'stored' => TRUE,
+      'add_list' => FALSE,
+      'calculated' => TRUE,
+    ),
+    array(
+      'id' => 'uc_paypal_buttons_handling',
+      'title' => t('Handling fee'),
+      'weight' => 7,
+      'default' => FALSE,
+      'stored' => TRUE,
+      'add_list' => FALSE,
+      'calculated' => TRUE,
+    ),
+    array(
+      'id' => 'uc_paypal_buttons_tax',
+      'title' => t('Tax'),
+      'weight' => 8,
+      'default' => FALSE,
+      'stored' => TRUE,
+      'add_list' => FALSE,
+      'calculated' => TRUE,
+    ),
+  );
+  return $items;
+}
+
+/**
+ * Implementation of hook_product_feature().
+ *
+ * Defines PayPal Buy Now and Subscription product feature.
+ */
+function uc_paypal_buttons_product_feature() {
+  $features = array(
+    array(
+      'id' => 'uc_paypal_buttons_buynow',
+      'title' => t('PayPal Buy Now'),
+      'callback' => 'uc_paypal_buttons_buynow_feature_form',
+      'delete' => 'uc_paypal_buttons_buynow_feature_delete',
+    ),
+    array(
+      'id' => 'uc_paypal_buttons_subscription',
+      'title' => t('PayPal Subscription'),
+      'callback' => 'uc_paypal_buttons_subscription_feature_form',
+      'delete' => 'uc_paypal_buttons_subscription_feature_delete',
+    ),
+  );
+  return $features;
+}
+
+/**
+ * Form builder for uc_paypal_buttons_buynow_feature_form
+ */
+function uc_paypal_buttons_buynow_feature_form($form, $node, $feature) {
+  $options = uc_paypal_buttons_product_options($node->nid);
+
+  // Check PayPal WPS settings
+  uc_paypal_buttons_check_payment_settings();
+
+  // Check if this product is configured as a PayPal Subscription
+  if ($options['subscription']) {
+    drupal_set_message(t('This product is configured for PayPal Subscriptions. It cannot also be configured for PayPal Buy Now.'), 'error');
+  }
+
+  // Build form with settings for PayPal Buy Now buttons
+  $form = array();
+  $form['product'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Product options'),
+  );
+  $form['product']['quantity'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Default quantity to purchase'),
+    '#default_value' => isset($options['quantity']) ? $options['quantity'] : 1,
+    '#required' => TRUE,
+    '#size' => 8,
+  );
+  $form['product']['shipping'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Shipping fee'),
+    '#field_prefix' => variable_get('uc_currency_sign', '$'),
+    '#default_value' => isset($options['shipping']) ? $options['shipping'] : '',
+    '#size' => 16,
+  );
+  $form['product']['handling'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Handling fee'),
+    '#field_prefix' => variable_get('uc_currency_sign', '$'),
+    '#default_value' => isset($options['handling']) ? $options['handling'] : '',
+    '#size' => 16,
+  );
+  $form['product']['tax'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Tax'),
+    '#field_prefix' => variable_get('uc_currency_sign', '$'),
+    '#default_value' => isset($options['tax']) ? $options['tax'] : '',
+    '#size' => 16,
+  );
+  $form['button'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Button options'),
+  );
+  $form['button']['button'] = array(
+    '#type' => 'radios',
+    '#title' => t('Button style'),
+    '#options' => array(
+      'default' => t('Default:') .' '. t('Buy Now'),
+      'text' => t('Custom text'),
+      'image' => t('Custom image'),
+    ),
+    '#default_value' => isset($options['button']) ? $options['button'] : 'default',
+  );
+  $form['button']['buttontext'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Custom button text'),
+    '#default_value' => isset($options['buttontext']) ? $options['buttontext'] : t('Buy Now'),
+    '#size' => 30,
+  );
+  $form['button']['buttonimage'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Custom button image URL'),
+    '#default_value' => isset($options['buttonimage']) ? $options['buttonimage'] : '',
+    '#size' => 60,
+  );
+  if (!empty($options['buttonimage'])) {
+    $form['button']['buttonimagepreview'] = array(
+      '#type' => 'item',
+      '#title' => t('Image preview'),
+      '#value' => '<img src="'. check_url($options['buttonimage']) .'">',
+    );
+  }
+  $form['button']['display'] = array(
+    '#type' => 'item',
+    '#title' => t('Options'),
+  );
+  $form['button']['hideaddcart'] = array(
+    '#type' => 'checkbox',
+    '#title' => t("Hide 'Add to cart' button."),
+    '#default_value' => isset($options['hideaddcart']) ? $options['hideaddcart'] : 0,
+  );
+  $form['button']['requireuser'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Require users to be logged in before checking out through PayPal.'),
+    '#default_value' => isset($options['requireuser']) ? $options['requireuser'] : 0,
+  );
+  $form['button']['incnote'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Include note field on PayPal confirmation page.'),
+    '#default_value' => isset($options['incnote']) ? $options['incnote'] : 0,
+  );
+  $form['button']['address'] = array(
+    '#type' => 'radios',
+    '#title' => t('PayPal shipping address'),
+    '#options' => array(0 => t('Customer is prompted to enter a shipping address.'), 1 => t('Customer is not asked for a shipping address.'), 2 => t('Customer must provide a shipping address.')),
+    '#default_value' => isset($options['address']) ? $options['address'] : 0,
+  );
+  $form['button']['successurl'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Successful payment URL'),
+    '#default_value' => isset($options['successurl']) ? $options['successurl'] : '',
+    '#size' => 60,
+  );
+  $form['button']['cancelurl'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cancel payment URL'),
+    '#default_value' => isset($options['cancelurl']) ? $options['cancelurl'] : '',
+    '#size' => 60,
+  );
+  $form['button']['postback'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Return transaction variables using POST method to the specified successful payment URL'),
+    '#default_value' => isset($options['postback']) ? $options['postback'] : 0,
+  );
+  return uc_product_feature_form($form);
+}
+
+/**
+ * Form validation callback for uc_paypal_buttons_buynow_feature_form
+ */
+function uc_paypal_buttons_buynow_feature_form_validate($form, &$form_state) {
+  $options = uc_paypal_buttons_product_options($form_state['values']['nid']);
+
+  if ($options['subscription']) {
+    form_set_error(NULL, t('This product is configured for PayPal Subscriptions. It cannot also be configured for PayPal Buy Now.'));
+  }
+
+  if (empty($form_state['values']['quantity'])) {
+    form_set_error('quantity', t('You must specify the default quantity of items to purchase.'));
+  }
+  if (!empty($form_state['values']['quantity'])  && !is_numeric($form_state['values']['quantity'])) {
+    form_set_error('quantity', t('The default quantity to purchase must be number.'));
+  }
+  if (!empty($form_state['values']['shipping']) && !is_numeric($form_state['values']['shipping'])) {
+    form_set_error('shipping', t('The shipping fee must be number. Do not use currency symbols or thousands markers.'));
+  }
+  if (!empty($form_state['values']['handling']) && !is_numeric($form_state['values']['handling'])) {
+    form_set_error('handling', t('The handling fee must be number. Do not use currency symbols or thousands markers.'));
+  }
+  if (!empty($form_state['values']['tax']) && !is_numeric($form_state['values']['tax'])) {
+    form_set_error('tax', t('The tax must be number. Do not use currency symbols or thousands markers.'));
+  }
+  if (!empty($form_state['values']['successurl']) && !valid_url($form_state['values']['successurl'], TRUE)) {
+    form_set_error('successurl', t('The successful payment URL must be an absolute URL (i.e. http://example.com/thanks).'));
+  }
+  if (!empty($form_state['values']['cancelurl']) && !valid_url($form_state['values']['cancelurl'], TRUE)) {
+    form_set_error('cancelurl', t('The cancelled payment URL must be an absolute URL (i.e. http://example.com/cancelled).'));
+  }
+}
+
+/**
+ * Form submission callback for uc_paypal_buttons_buynow_feature_form
+ */
+function uc_paypal_buttons_buynow_feature_form_submit($form, &$form_state) {
+  $options = uc_paypal_buttons_product_options($form_state['values']['nid']);
+
+  // Check PayPal WPS settings
+  uc_paypal_buttons_check_payment_settings();
+
+  if (isset($options['subscription'])) {
+    unset($options['subscription']);
+  }
+  $options['buynow'] = 1;
+  if (isset($options['subscription'])) {
+    unset($options['subscription']);
+  }
+  $options['quantity'] = intval($form_state['values']['quantity']);
+  $options['shipping'] = !empty($form_state['values']['shipping']) ? uc_currency_format($form_state['values']['shipping'], FALSE, FALSE) : '';
+  $options['handling'] = !empty($form_state['values']['handling']) ? uc_currency_format($form_state['values']['handling'], FALSE, FALSE) : '';
+  $options['tax'] = !empty($form_state['values']['tax']) ? uc_currency_format($form_state['values']['tax'], FALSE, FALSE) : '';
+  $options['button'] = $form_state['values']['button'];
+  $options['buttontext'] = $form_state['values']['buttontext'];
+  $options['buttonimage'] = $form_state['values']['buttonimage'];
+  $options['hideaddcart'] = $form_state['values']['hideaddcart'];
+  $options['requireuser'] = $form_state['values']['requireuser'];
+  $options['incnote'] = $form_state['values']['incnote'];
+  $options['address'] = $form_state['values']['address'];
+  $options['successurl'] = $form_state['values']['successurl'];
+  $options['cancelurl'] = $form_state['values']['cancelurl'];
+  $options['postback'] = $form_state['values']['postback'];
+  uc_paypal_buttons_product_options($form_state['values']['nid'], $options);
+  $data = array(
+    'pfid' => $form_state['values']['pfid'],
+    'nid' => $form_state['values']['nid'],
+    'fid' => 'uc_paypal_buttons_buynow',
+    'description' => t('Provide PayPal Buy Now widget using @button button.', array('@button' => $options['button'])),
+  );
+  $form_state['redirect'] = uc_product_feature_save($data);
+}
+
+/**
+ * Callback for uc_paypal_buttons_buynow_feature_delete
+ */
+function uc_paypal_buttons_buynow_feature_delete($feature) {
+  uc_paypal_buttons_product_options($feature['nid'], array('buynow' => 0));
+}
+
+/**
+ * Form builder for uc_paypal_buttons_subscription_feature_form
+ */
+function uc_paypal_buttons_subscription_feature_form($form, $node, $feature) {
+  $options = uc_paypal_buttons_product_options($node->nid);
+
+  // Check PayPal WPS settings
+  uc_paypal_buttons_check_payment_settings();
+
+  // Check if this product is configured as a PayPal Buy Now item
+  if ($options['buynow']) {
+    drupal_set_message(t('This product is configured for PayPal Buy Now. It cannot also be configured for PayPal Subscriptions.'), 'error');
+  }
+
+  $punits = array('D' => t('days'), 'W' => t('weeks'), 'M' => t('months'), 'Y' => t('years'));
+
+  // Build form with settings for PayPal Subscription buttons
+  $form = array();
+  $form['subscription'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Subscription options'),
+  );
+  $form['subscription']['period1'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Trial period 1 (optional)'),
+    '#description' => t('Optionally, you may define a trial period for this subscription. If the trial period price and length are set, then when a customer first subscribes to this product, he or she will pay the amount designated here for the specified length before paying the full subscription price.'),
+    '#collapsible' => TRUE,
+    '#collapsed' => isset($options['amount1']) && isset($options['plength1']) ? FALSE : TRUE,
+  );
+  $form['subscription']['period1']['amount1'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Price'),
+    '#field_prefix' => variable_get('uc_currency_sign', '$'),
+    '#default_value' => isset($options['amount1']) ? $options['amount1'] : '',
+    '#size' => 16,
+  );
+  $form['subscription']['period1']['plength1'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Period length'),
+    '#default_value' => isset($options['plength1']) ? $options['plength1'] : '',
+    '#size' => 8,
+  );
+  $form['subscription']['period1']['punits1'] = array(
+    '#type' => 'select',
+    '#title' => t('Period units'),
+    '#options' => $punits,
+    '#default_value' => isset($options['punits1']) ? $options['punits1'] : 'D',
+  );
+  $form['subscription']['period2'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Trial period 2 (optional)'),
+    '#description' => t("Optionally, you may define a second trial period, which a customer receives after the first. If the price and length are set, then when a customer's first trial period finishes, he or she will pay the amount designated here for the specified length before paying the full subscription price."),
+    '#collapsible' => TRUE,
+    '#collapsed' => isset($options['amount2']) && isset($options['plength2']) ? FALSE : TRUE,
+  );
+  $form['subscription']['period2']['amount2'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Price'),
+    '#field_prefix' => variable_get('uc_currency_sign', '$'),
+    '#default_value' => isset($options['amount2']) ? $options['amount2'] : '',
+    '#size' => 16,
+  );
+  $form['subscription']['period2']['plength2'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Period length'),
+    '#default_value' => isset($options['plength2']) ? $options['plength2'] : '',
+    '#size' => 8,
+  );
+  $form['subscription']['period2']['punits2'] = array(
+    '#type' => 'select',
+    '#title' => t('Period units'),
+    '#options' => $punits,
+    '#default_value' => isset($options['punits2']) ? $options['punits2'] : 'D',
+  );
+  $form['subscription']['period3'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Regular period'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+  $form['subscription']['period3']['amount3'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Price'),
+    '#field_prefix' => variable_get('uc_currency_sign', '$'),
+    '#default_value' => isset($options['amount3']) ? $options['amount3'] : 0,
+    '#required' => TRUE,
+    '#size' => 16,
+  );
+  $form['subscription']['period3']['plength3'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Period length'),
+    '#default_value' => isset($options['plength3']) ? $options['plength3'] : 0,
+    '#required' => TRUE,
+    '#size' => 8,
+  );
+  $form['subscription']['period3']['punits3'] = array(
+    '#type' => 'select',
+    '#title' => t('Period units'),
+    '#options' => $punits,
+    '#default_value' => isset($options['punits3']) ? $options['punits3'] : 'D',
+  );
+  $form['subscription']['recurring'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Recurring payment options'),
+  );
+  $form['subscription']['recurring']['recurring'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable recurring payments'),
+    '#default_value' => isset($options['recurring']) ? $options['recurring'] : 0,
+  );
+  $form['subscription']['recurring']['retry'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Reattempt payment request on failure'),
+    '#default_value' => isset($options['retry']) ? $options['retry'] : 0,
+  );
+  $form['subscription']['recurring']['forever'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Repeat until subscription is cancelled'),
+    '#default_value' => isset($options['forever']) ? $options['forever'] : 0,
+  );
+  $form['subscription']['recurring']['number'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Otherwise, number of times for payment to repeat (not counting trial periods)'),
+    '#default_value' => isset($options['number']) ? $options['number'] : '',
+    '#size' => 8,
+  );
+  $form['subscription']['manage'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Subscription management options'),
+  );
+  $form['subscription']['manage']['modify'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show button to access PayPal subscription management'),
+    '#default_value' => isset($options['modify']) ? $options['modify'] : 0,
+    '#description' => t('This button will be shown to all authenticated users.'),
+  );
+  $form['subscription']['manage']['modify_button'] = array(
+    '#type' => 'radios',
+    '#title' => t('Button style'),
+    '#options' => array(
+      'default' => t('Default:') .' '. t('Manage Subscriptions'),
+      'text' => t('Custom text'),
+      'image' => t('Custom image'),
+    ),
+    '#default_value' => isset($options['modify_button']) ? $options['modify_button'] : 'default',
+  );
+  $form['subscription']['manage']['modify_buttontext'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Custom button text'),
+    '#default_value' => isset($options['modify_buttontext']) ? $options['modify_buttontext'] : t('Manage Subscriptions'),
+    '#size' => 30,
+  );
+  $form['subscription']['manage']['modify_buttonimage'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Custom button image URL'),
+    '#default_value' => isset($options['modify_buttonimage']) ? $options['modify_buttonimage'] : '',
+    '#size' => 60,
+  );
+  if (!empty($options['modify_buttonimage'])) {
+    $form['subscription']['manage']['modify_buttonimagepreview'] = array(
+      '#type' => 'item',
+      '#title' => t('Image preview'),
+      '#value' => '<img src="'. check_url($options['modify_buttonimage']) .'">',
+    );
+  }
+  $form['button'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Button options'),
+    '#description' => t("For products with the PayPal Subscriptions feature enabled, the standard Ubercart 'Add to cart' button will be replaced with a button that can be configured here."),
+  );
+  $form['button']['button'] = array(
+    '#type' => 'radios',
+    '#title' => t('Button style'),
+    '#options' => array(
+      'default' => t('Default:') .' '. t('Subscribe Now'),
+      'text' => t('Custom text'),
+      'image' => t('Custom image'),
+    ),
+    '#default_value' => isset($options['button']) ? $options['button'] : 'default',
+  );
+  $form['button']['buttontext'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Custom button text'),
+    '#default_value' => isset($options['buttontext']) ? $options['buttontext'] : t('Subscribe Now'),
+    '#size' => 30,
+  );
+  $form['button']['buttonimage'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Custom button image URL'),
+    '#default_value' => isset($options['buttonimage']) ? $options['buttonimage'] : '',
+    '#size' => 60,
+  );
+  if (!empty($options['buttonimage'])) {
+    $form['button']['buttonimagepreview'] = array(
+      '#type' => 'item',
+      '#title' => t('Image preview'),
+      '#value' => '<img src="'. check_url($options['buttonimage']) .'">',
+    );
+  }
+  $form['button']['display'] = array(
+    '#type' => 'item',
+    '#title' => t('Options'),
+    '#value' => '',
+  );
+  $form['button']['requireuser'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Require users to be logged in before checking out through PayPal.'),
+    '#default_value' => isset($options['requireuser']) ? $options['requireuser'] : 0,
+  );
+  $form['button']['address'] = array(
+    '#type' => 'radios',
+    '#title' => t('PayPal shipping address'),
+    '#options' => array(0 => t('Customer is prompted to enter a shipping address.'), 1 => t('Customer is not asked for a shipping address.'), 2 => t('Customer must provide a shipping address.')),
+    '#default_value' => isset($options['address']) ? $options['address'] : 0,
+  );
+  $form['button']['successurl'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Successful payment URL'),
+    '#default_value' => isset($options['successurl']) ? $options['successurl'] : '',
+    '#size' => 60,
+  );
+  $form['button']['cancelurl'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cancel payment URL'),
+    '#default_value' => isset($options['cancelurl']) ? $options['cancelurl'] : '',
+    '#size' => 60,
+  );
+  $form['button']['postback'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Return transaction variables using POST method to the specified successful payment URL'),
+    '#default_value' => isset($options['postback']) ? $options['postback'] : 0,
+  );
+  return uc_product_feature_form($form);
+}
+
+/**
+ * Form validation callback for uc_paypal_buttons_subscription_feature_form
+ */
+function uc_paypal_buttons_subscription_feature_form_validate($form, &$form_state) {
+  $options = uc_paypal_buttons_product_options($form_state['values']['nid']);
+  if ($options['buynow']) {
+    form_set_error(NULL, t('This product is configured for PayPal Buy Now. It cannot also be configured for PayPal Subscriptions.'));
+  }
+
+  if (!empty($form_state['values']['amount1']) && !is_numeric($form_state['values']['amount1'])) {
+    form_set_error('amount1', t('The trial period price must be a number. Do not use currency symbols or thousands markers.'));
+  }
+  if (!empty($form_state['values']['plength1']) && !is_numeric($form_state['values']['plength1'])) {
+    form_set_error('plength1', t('The trial period length must be a number.'));
+  }
+  if (!empty($form_state['values']['amount2']) && !is_numeric($form_state['values']['amount2'])) {
+    form_set_error('amount2', t('The trial period price must be a number. Do not use currency symbols or thousands markers.'));
+  }
+  if (!empty($form_state['values']['plength2']) && !is_numeric($form_state['values']['plength2'])) {
+    form_set_error('plength2', t('The trial period length must be a number.'));
+  }
+  if ($form_state['values']['amount3'] < 0.001 || !is_numeric($form_state['values']['amount3'])) {
+    form_set_error('amount3', t('The subscription price must be a number greater than zero. Do not use currency symbols or thousands markers.'));
+  }
+  if ($form_state['values']['plength3'] < 1 || !is_numeric($form_state['values']['plength3'])) {
+    form_set_error('plength3', t('The subscription length must be a number greater than zero.'));
+  }
+  if (!empty($form_state['values']['number']) && !is_numeric($form_state['values']['number'])) {
+    form_set_error('number', t('The number of times for the subscription to recur must be a number.'));
+  }
+  if ($form_state['values']['recurring'] && !$form_state['values']['forever'] && !intval($form_state['values']['number'])) {
+    form_set_error('number', t('If subscription is not set to recur until cancellation, then you must specify the number of times for it to recur.'));
+  }
+  if (!empty($form_state['values']['successurl']) && !valid_url($form_state['values']['successurl'], TRUE)) {
+    form_set_error('successurl', t('The successful payment URL must be an absolute URL (i.e. http://example.com/thanks).'));
+  }
+  if (!empty($form_state['values']['cancelurl']) && !valid_url($form_state['values']['cancelurl'], TRUE)) {
+    form_set_error('cancelurl', t('The cancelled payment URL must be an absolute URL (i.e. http://example.com/cancelled).'));
+  }
+}
+
+/**
+ * Form submission callback for uc_paypal_buttons_subscription_feature_form
+ */
+function uc_paypal_buttons_subscription_feature_form_submit($form, &$form_state) {
+  $options = uc_paypal_buttons_product_options($form_state['values']['nid']);
+
+  // Check PayPal WPS settings
+  uc_paypal_buttons_check_payment_settings();
+
+  if (isset($options['buynow'])) {
+    unset($options['buynow']);
+  }
+  $options['subscription'] = 1;
+  $options['amount1'] = !empty($form_state['values']['amount1']) ? uc_currency_format($form_state['values']['amount1'], FALSE, FALSE) : NULL;
+  $options['plength1'] = !empty($form_state['values']['plength1']) ? intval($form_state['values']['plength1']) : NULL;
+  $options['punits1'] = $form_state['values']['punits1'];
+  $options['amount2'] = !empty($form_state['values']['amount2']) ? uc_currency_format($form_state['values']['amount2'], FALSE, FALSE) : NULL;
+  $options['plength2'] = !empty($form_state['values']['plength2']) ? intval($form_state['values']['plength2']) : NULL;
+  $options['punits2'] = $form_state['values']['punits2'];
+  $options['amount3'] = uc_currency_format($form_state['values']['amount3'], FALSE, FALSE);
+  $options['plength3'] = intval($form_state['values']['plength3']);
+  $options['punits3'] = $form_state['values']['punits3'];
+  $options['recurring'] = $form_state['values']['recurring'];
+  $options['retry'] = $form_state['values']['retry'];
+  if ($form_state['values']['forever'] || !intval($form_state['values']['number'])) {
+    $options['forever'] = 1;
+    unset($options['number']);
+  }
+  else {
+    $options['forever'] = 0;
+    $options['number'] = intval($form_state['values']['number']);
+  }
+  $options['modify'] = $form_state['values']['modify'];
+  $options['modify_button'] = $form_state['values']['modify_button'];
+  $options['modify_buttontext'] = $form_state['values']['modify_buttontext'];
+  $options['modify_buttonimage'] = $form_state['values']['modify_buttonimage'];
+  $options['button'] = $form_state['values']['button'];
+  $options['buttontext'] = $form_state['values']['buttontext'];
+  $options['buttonimage'] = $form_state['values']['buttonimage'];
+  $options['hideaddcart'] = 1;
+  $options['requireuser'] = $form_state['values']['requireuser'];
+  $options['address'] = $form_state['values']['address'];
+  if (isset($options['quantity'])) {
+    unset($options['quantity']);
+  }
+  if (isset($options['shipping'])) {
+    unset($options['shipping']);
+  }
+  if (isset($options['handling'])) {
+    unset($options['handling']);
+  }
+  if (isset($options['tax'])) {
+    unset($options['tax']);
+  }
+  $options['successurl'] = $form_state['values']['successurl'];
+  $options['cancelurl'] = $form_state['values']['cancelurl'];
+  $options['postback'] = $form_state['values']['postback'];
+  uc_paypal_buttons_product_options($form_state['values']['nid'], $options);
+
+  $data = array(
+    'pfid' => $form_state['values']['pfid'],
+    'nid' => $form_state['values']['nid'],
+    'fid' => 'uc_paypal_buttons_subscription',
+    'description' => t('Provide PayPal subscription widget using @button button.', array('@button' => $options['button'])),
+  );
+  $form_state['redirect'] = uc_product_feature_save($data);
+}
+
+/**
+ * Callback for uc_paypal_buttons_subscription_feature_delete
+ */
+function uc_paypal_buttons_subscription_feature_delete($feature) {
+  uc_paypal_buttons_product_options($feature['nid'], array('subscription' => 0));
+}
+
+/**
+ * Rules hooks
+ */
+
+/**
+ * Implementation of hook_rules_event_info().
+ */
+function uc_paypal_buttons_rules_event_info() {
+  return array(
+    'uc_paypal_buttons_buynow' => array(
+      'label' => t('Buy Now item has been purchased'),
+      'module' => t('PayPal Buttons'),
+      'arguments' => array(
+        'customer' => array('type' => 'user', 'label' => t('Customer')),
+        'order_id' => array('type' => 'number', 'label' => t('Order ID')),
+        'product' => array('type' => 'node', 'label' => t('Product')),
+      ),
+    ),
+    'uc_paypal_buttons_subscription_new' => array(
+      'label' => t('PayPal Subscription has been registered'),
+      'module' => t('PayPal Buttons'),
+      'arguments' => array(
+        'customer' => array('type' => 'user', 'label' => t('Customer')),
+        'order_id' => array('type' => 'number', 'label' => t('Order ID')),
+        'product' => array('type' => 'node', 'label' => t('Product')),
+      ),
+    ),
+    'uc_paypal_buttons_subscription_renew' => array(
+      'label' => t('PayPal Subscription has been renewed'),
+      'module' => t('PayPal Buttons'),
+      'arguments' => array(
+        'customer' => array('type' => 'user', 'label' => t('Customer')),
+        'order_id' => array('type' => 'number', 'label' => t('Order ID')),
+        'product' => array('type' => 'node', 'label' => t('Product')),
+      ),
+    ),
+    'uc_paypal_buttons_subscription_expire' => array(
+      'label' => t('PayPal Subscription has expired'),
+      'module' => t('PayPal Buttons'),
+      'arguments' => array(
+        'customer' => array('type' => 'user', 'label' => t('Customer')),
+        'order_id' => array('type' => 'number', 'label' => t('Order ID')),
+        'product' => array('type' => 'node', 'label' => t('Product')),
+      ),
+    ),
+    'uc_paypal_buttons_subscription_modify' => array(
+      'label' => t('PayPal Subscription has been modified'),
+      'module' => t('PayPal Buttons'),
+      'arguments' => array(
+        'customer' => array('type' => 'user', 'label' => t('Customer')),
+        'order_id' => array('type' => 'number', 'label' => t('Order ID')),
+        'product' => array('type' => 'node', 'label' => t('Product')),
+      ),
+    ),
+    'uc_paypal_buttons_subscription_failure' => array(
+      'label' => t('PayPal Subscription has failed to register'),
+      'module' => t('PayPal Buttons'),
+      'arguments' => array(
+        'customer' => array('type' => 'user', 'label' => t('Customer')),
+        'order_id' => array('type' => 'number', 'label' => t('Order ID')),
+        'product' => array('type' => 'node', 'label' => t('Product')),
+      ),
+    ),
+    'uc_paypal_buttons_subscription_cancel' => array(
+      'label' => t('PayPal Subscription has been cancelled'),
+      'module' => t('PayPal Buttons'),
+      'arguments' => array(
+        'customer' => array('type' => 'user', 'label' => t('Customer')),
+        'order_id' => array('type' => 'number', 'label' => t('Order ID')),
+        'product' => array('type' => 'node', 'label' => t('Product')),
+      ),
+    ),
+  );
+}
+
+/**
+ * Helper functions
+ */
+
+/**
+ * Check that the Ubercart PayPal module has been properly configured.
+ * (Ensure that the PayPal server and account e-mail are set and valid.)
+ */
+function uc_paypal_buttons_check_payment_settings() {
+  $paypal_host = variable_get('uc_paypal_wps_server', '');
+  $paypal_acct = variable_get('uc_paypal_wps_email', '');
+  if (empty($paypal_host) || !valid_url($paypal_host, TRUE) || empty($paypal_acct) || !valid_email_address($paypal_acct)) {
+    drupal_set_message(t('Warning: The Ubercart PayPal module is not properly configured to process payments with PayPal. Please check the Ubercart !payment-settings.', array('!payment-settings' => l(t('payment settings'), 'admin/store/settings/payment/edit/methods'))));
+  }
+}
+
+/**
+ * Menu callback for /uc_paypal_buttons/nid/quantity/aid/oid/aid/oid/...
+ */
+function uc_paypal_buttons_url() {
+  if (is_numeric(arg(1))) {
+    $nid = arg(1);
+    $node = node_load($nid);
+    if (!$node) {
+      drupal_set_message(t('Could not load product node.'), 'error');
+      return;
+    }
+  }
+
+  $quantity = 1;
+  if (is_numeric(arg(2))) {
+    $quantity = arg(2);
+  }
+
+  $arg = 3;
+  while (is_numeric(arg($arg)) && is_numeric(arg($arg + 1))) {
+    $attributes[arg($arg)] = arg($arg + 1);
+    $arg += 2;
+  }
+
+  $order = uc_paypal_buttons_create_order($nid, $quantity, $attributes);
+  $options = uc_paypal_buttons_prepare_options($nid, $quantity, $attributes, $order->order_total, $order->order_id);
+  uc_paypal_buttons_order_save($order->order_id, $options);
+  uc_paypal_buttons_redirect($options);
+}
+
+/**
+ * Launch PayPal Standard Payment process for product with PayPal Buttons
+ * product feature.
+ */
+function uc_paypal_buttons_purchase($nid, $attributes = NULL) {
+  // Get button product options
+  $prodopts = uc_paypal_buttons_product_options($nid);
+  $quantity = isset($prodopts['quantity']) ? $prodopts['quantity'] : 1;
+
+  // Create order, prepare PayPal options, redirect user
+  $order = uc_paypal_buttons_create_order($nid, $quantity, $attributes);
+  $subtotal = uc_order_get_total($order, TRUE);
+  $options = uc_paypal_buttons_prepare_options($nid, $quantity, $attributes, $subtotal, $order->order_id);
+  uc_paypal_buttons_order_save($order->order_id, $options);
+  uc_paypal_buttons_redirect($options);
+}
+
+/**
+ * Redirect to PayPal subscription management
+ */
+function uc_paypal_buttons_subscription_redirect($nid) {
+  // Create order, prepare PayPal options, redirect user
+  $options = uc_paypal_buttons_prepare_options($nid);
+  $options['modify'] = 2;
+  $options['return'] = url($_GET['q'], array('absolute' => TRUE));
+  $options['cancel_return'] = url($_GET['q'], array('absolute' => TRUE));
+  uc_paypal_buttons_redirect($options);
+}
+
+/**
+ * Create Ubercart order for product purchased through PayPal button.
+ */
+function uc_paypal_buttons_create_order($nid, $quantity, $attributes = NULL) {
+  global $user;
+
+  // Load product node and product feature settings
+  $node = node_load($nid);
+  $options = uc_paypal_buttons_product_options($nid);
+
+  // Check if the current user is logged in and
+  // if the current product requires a registered user
+  if ($options['requireuser'] && !$user->uid) {
+    $redirect = 'uc_paypal_buttons/'. intval($nid) .'/'. intval($quantity);
+    if (is_array($attributes)) {
+      foreach ($attributes as $key => $val) {
+        if (!empty($key) && !empty($val)) {
+          $redirect .= '/'. urlencode($key) .'/'. urlencode($val) .'/';
+        }
+      }
+    }
+    $_SESSION['uc_paypal_buttons_redirect_nid'] = $nid;
+    $_SESSION['uc_paypal_buttons_redirect_url'] = $redirect;
+    drupal_set_message(t('Please log in or !register for an account before proceeding to checkout.', array('!register' => l(t('register'), 'user/register'))), 'error');
+    drupal_goto('user');
+  }
+
+  // Empty cart, and add product
+  $cid = uc_cart_get_id();
+  uc_cart_empty($cid);
+  uc_cart_add_item($nid, $quantity, array('attributes' => $attributes), $cid, FALSE, FALSE);
+
+  // Create new order from the shopping cart
+  // (similar to uc_cart_checkout_form_submit).
+  $order = uc_order_new($user->uid);
+  $_SESSION['cart_order'] = $order->order_id;
+  if (!empty($user->email)) {
+    $order->primary_email = $user->email;
+  }
+  $order->payment_method = 'paypal_wps';
+  $order->products = uc_cart_get_contents($cid, 'rebuild');
+  uc_order_save($order);
+  // Empty cart
+  uc_cart_empty($cid);
+
+  if (is_numeric($options['shipping']) && $options['shipping'] > 0) {
+    uc_order_line_item_add($order->order_id, 'uc_paypal_buttons_shipping', t('Shipping fee'), $options['shipping']);
+  }
+  if (is_numeric($options['handling']) && $options['handling'] > 0) {
+    uc_order_line_item_add($order->order_id, 'uc_paypal_buttons_handling', t('Handling fee'), $options['handling']);
+  }
+  if (is_numeric($options['tax']) && $options['tax'] > 0) {
+    uc_order_line_item_add($order->order_id, 'uc_paypal_buttons_tax', t('Tax'), $options['tax']);
+  }
+  if ($options['subscription']) {
+    $total = uc_order_get_total($order);
+    if (is_numeric($options['amount1']) && is_numeric($options['plength1'])) {
+      $subscription_num = 1;
+    }
+    else {
+      $subscription_num = 3;
+    }
+    if ($subscription_num > 3) {
+      $subscription_num = 3;
+    }
+    $sub_price = $options['amount'. $subscription_num] * $quantity;
+    $sub_discount = -1 * ($total - $sub_price);
+    if ($sub_discount < 0) {
+      uc_order_line_item_add($order->order_id, 'uc_paypal_buttons_subscription', t('Subscription discount'), $sub_discount);
+    }
+    if ($sub_discount > 0) {
+      uc_order_line_item_add($order->order_id, 'uc_paypal_buttons_subscription', t('Subscription fee'), $sub_discount);
+    }
+  }
+
+  uc_order_comment_save($order->order_id, 0, t('Order created by the PayPal Buttons module.'));
+  return uc_order_load($order->order_id);
+}
+
+/**
+ * Prepare array of options for PayPal Web Payment Standard interface.
+ */
+function uc_paypal_buttons_prepare_options($nid, $quantity = NULL, $attributes = NULL, $amount = NULL, $order_id = NULL) {
+  global $base_url;
+
+  // Load product node
+  $node = node_load($nid);
+  if (!$node) {
+    watchdog('uc_paypal_button', 'Could not load node with node id @nid.', array('@nid' => $nid));
+    drupal_set_message(t('An invalid product id was specified.'), 'error');
+    return FALSE;
+  }
+
+  // Load uc_paypal_buttons product options
+  $prodopts = uc_paypal_buttons_product_options($nid);
+
+  // Prepare PayPal WPS options array
+  $options = array();
+
+  if ($prodopts['buynow']) {
+    $options['cmd'] = '_xclick';
+  }
+  else if ($prodopts['subscription']) {
+    $options['cmd'] = '_xclick-subscriptions';
+  }
+
+  $options['item_name'] = $node->title;
+  $options['item_number'] = $node->model;
+
+  if ($quantity && is_numeric($quantity)) {
+    $options['quantity'] = $quantity;
+  }
+  else if (isset($prodopts['quantity'])) {
+    $options['quantity'] = $prodopts['quantity'];
+  }
+  else {
+    $options['quantity'] = 1;
+  }
+
+  if (isset($order_id)) {
+    $options['invoice'] = $order_id;
+    if ($prodopts['subscription']) {
+      $options['invoice'] .= '-SUBSCRIPTION';
+    }
+  }
+
+  if ($prodopts['buynow']) {
+    $options['amount'] = isset($amount) ? $amount : $node->sell_price;
+    $options['shipping'] = isset($prodopts['shipping']) ? $prodopts['shipping'] : 0;
+    $options['handling'] = isset($prodopts['handling']) ? $prodopts['handling'] : 0;
+    $options['tax'] = isset($prodopts['tax']) ? $prodopts['tax'] : 0;
+    $options['weight'] = $node->weight;
+
+    $uc_weight_unit = variable_get('uc_weight_unit', 'lb');
+    if ($uc_weight_unit=='kg' || $uc_weight_unit=='g') {
+      $options['weight_unit'] = 'kgs';
+    }
+    else {
+      $options['weight_unit'] = 'lbs';
+    }
+  }
+  else if ($prodopts['subscription']) {
+    if (intval($prodopts['plength1']) && isset($prodopts['punits1'])) {
+      $options['a1'] = $prodopts['amount1'];
+      $options['p1'] = $prodopts['plength1'];
+      $options['t1'] = $prodopts['punits1'];
+    }
+    if (intval($prodopts['plength2']) && isset($prodopts['punits2'])) {
+      $options['a2'] = $prodopts['amount2'];
+      $options['p2'] = $prodopts['plength2'];
+      $options['t2'] = $prodopts['punits2'];
+    }
+    $options['a3'] = $prodopts['amount3'];
+    $options['p3'] = $prodopts['plength3'];
+    $options['t3'] = $prodopts['punits3'];
+    if ($prodopts['recurring']) {
+      $options['src'] = 1;
+      if ($prodopts['retry']) {
+        $options['retry'] = 1;
+      }
+      if (!$prodopts['forever'] && intval($prodopts['number'])) {
+        $options['srt'] = $prodopts['number'];
+      }
+    }
+  }
+
+  if (!empty($prodopts['successurl'])) {
+    $options['return'] = $prodopts['successurl'];
+  }
+  else {
+    $options['return'] = $base_url;
+  }
+
+  if (!empty($prodopts['cancelurl'])) {
+    $options['cancel_return'] = $prodopts['cancelurl'];
+  }
+  else {
+    $options['cancel_return'] = $base_url;
+  }
+
+  if ($prodopts['postback']) {
+    $options['rm'] = 2;
+  }
+  else if (isset($options['rm'])) {
+    unset($options['rm']);
+  }
+
+  $options['no_note'] = $prodopts['buynow'] && $prodopts['incnote'] ? 0 : 1;
+  $options['no_shipping'] = isset($prodopts['address']) ? $prodopts['address'] : 0;
+  $options['currency_code'] = variable_get('uc_paypal_wps_currency', 'USD');
+
+  if (is_array($attributes)) {
+    $onum = 0;
+    foreach ($attributes as $aid => $oid) {
+      $options['on'. $onum] = db_result(db_query('SELECT name FROM {uc_attributes} WHERE aid = %d', $aid));
+      $options['os'. $onum] = db_result(db_query('SELECT name FROM {uc_attribute_options} WHERE aid = %d AND oid = %d', $aid, $oid));
+      $onum++;
+    }
+  }
+
+  return $options;
+}
+
+/**
+ * Load record of PayPal Buttons order.
+ */
+function uc_paypal_buttons_order_load($invoice_id) {
+  $res = db_query('SELECT * FROM {uc_paypal_buttons} WHERE invoice_id = %d', $invoice_id);
+  return db_fetch_object($res);
+}
+
+/**
+ * Save record of PayPal Buttons order for verification.
+ */
+function uc_paypal_buttons_order_save($order_id, $options = NULL, $ipn = NULL, $data = NULL) {
+  $res = db_query('SELECT * FROM {uc_paypal_buttons} WHERE invoice_id = %d', $order_id);
+  if (db_fetch_object($res)) {
+    db_query("UPDATE {uc_paypal_buttons} SET options = '%s' WHERE invoice_id = %d", serialize($options), $order_id);
+  }
+  else {
+    db_query("INSERT INTO {uc_paypal_buttons} (invoice_id, options) VALUES (%d, '%s')", $order_id, serialize($options));
+  }
+}
+
+/**
+ * Redirect user to PayPal payment server with prepared options.
+ */
+function uc_paypal_buttons_redirect($options) {
+  // Gather PayPal settings
+  $paypal_host = variable_get('uc_paypal_wps_server', '');
+  $paypal_acct = variable_get('uc_paypal_wps_email', '');
+  if (empty($paypal_host) || !valid_url($paypal_host, TRUE) || empty($paypal_acct) || !valid_email_address($paypal_acct)) {
+    drupal_set_message(t('This site is not properly configured to process payments with PayPal Web Payment Standard.'), 'error');
+    watchdog('uc_paypal_button', 'A user tried to purchase product %title using the PayPal Buttons feature, but the Ubercart PayPal module has not been configured to process payments with PayPal Web Payment Standard.', array('%title' => $options['item_name']), WATCHDOG_ERROR);
+    return FALSE;
+  }
+
+  $ipnpath = 'uc_paypal_buttons_ipn';
+  if (isset($options['invoice']) && !empty($options['invoice'])) {
+    $ipnpath .= '/'. strval($options['invoice']);
+  }
+  $notifyurl = url($ipnpath, array('absolute' => TRUE));
+
+  // Check default values
+  if (!isset($options['cmd'])) {
+    $options['cmd'] = '_xclick';
+  }
+  $options['business'] = $paypal_acct;
+  $options['notify_url'] = $notifyurl;
+  $options['cbt'] = t('Return to @storename', array('@storename' => variable_get('site_name', 'Merchant')));
+
+  // Generate query string
+  $q = '';
+  foreach ($options as $name => $val) {
+    if (strlen($q)) {
+      $q .= '&';
+    }
+    $q .= urlencode($name) .'='. urlencode($val);
+  }
+
+  // Set URL
+  $url = $paypal_host .'?'. $q;
+
+  // Code from drupal_goto() for performing clean redirection
+  module_invoke_all('exit', $url);
+  session_write_close();
+  header('Location: '. $url, TRUE);
+  exit();
+}
+
+/**
+ * Process PayPal IPN.
+ *
+ * This function is adapted from uc_paypal_ipn() in uc_paypal.pages.inc
+ * from the core Ubercart PayPal module.
+ */
+function uc_paypal_buttons_ipn($order_id = 0) {
+  watchdog('uc_paypal', 'Receiving IPN at URL for order @order_id. <pre>@debug</pre>',
+    array('@order_id' => $order_id, '@debug' => variable_get('uc_paypal_wps_debug_ipn', FALSE) ? print_r($_POST, TRUE) : ''));
+
+  if (!isset($_POST['invoice'])) {
+    watchdog('uc_paypal', 'IPN attempted with invalid order ID.', array(), WATCHDOG_ERROR);
+    return;
+  }
+
+  if (($len = strpos($_POST['invoice'], '-')) > 0) {
+    $order_id = intval(substr($_POST['invoice'], 0, $len));
+  }
+  else {
+    $order_id = intval($_POST['invoice']);
+  }
+
+  $order = uc_order_load($order_id);
+
+  if ($order == FALSE) {
+    watchdog('uc_paypal', 'IPN attempted for non-existent order.', array(), WATCHDOG_ERROR);
+    return;
+  }
+
+  // Assign posted variables to local variables
+  $payment_status = check_plain($_POST['payment_status']);
+  $payment_amount = check_plain($_POST['mc_gross']);
+  $payment_currency = check_plain($_POST['mc_currency']);
+  $payment_fee = check_plain($_POST['mc_fee']);
+  $receiver_email = check_plain($_POST['receiver_email']);
+  $txn_id = check_plain($_POST['txn_id']);
+  $txn_type = check_plain($_POST['txn_type']);
+  $payer_email = check_plain($_POST['payer_email']);
+
+  $req = '';
+
+  foreach ($_POST as $key => $value) {
+    $value = urlencode(stripslashes($value));
+    $req .= $key .'='. $value .'&';
+  }
+
+  $req .= 'cmd=_notify-validate';
+
+  if (variable_get('uc_paypal_wpp_server', '') == 'https://api-3t.paypal.com/nvp') {
+    $host = 'https://www.paypal.com/cgi-bin/webscr';
+  }
+  else {
+    $host = variable_get('uc_paypal_wps_server', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
+  }
+
+  $response = drupal_http_request($host, array(), 'POST', $req);
+
+  if (array_key_exists('error', $response)) {
+    watchdog('uc_paypal', 'IPN failed with HTTP error @error, code @code.', array('@error' => $response->error, '@code' => $response->code), WATCHDOG_ERROR);
+    return;
+  }
+
+  if (strcmp($response->data, 'VERIFIED') == 0) {
+    watchdog('uc_paypal', 'IPN transaction verified.');
+
+/* This begins a section of modifications for PayPal Buttons functionality. */
+
+    // Additional validation for IPNs related to PayPal Button transactions
+    $rv = uc_paypal_buttons_validate_ipn($order_id, $_POST, $order);
+    if (!$rv) {
+      return;
+    }
+
+    // If order has no user id, check for existing user with payer_email
+    // as current mail address.
+    if (!$order->uid) {
+      if ($account = user_load(array('mail' => $payer_email)) && $account && $account->uid) {
+        $order->uid = $account->uid;
+      }
+    }
+
+    // If order has no primary e-mail, use the payer_email.
+    if (empty($order->primary_email)) {
+      $order->primary_email = $payer_email;
+      uc_order_save($order);
+    }
+
+    // If order has no billing address, use address from IPN.
+    // Also, set delivery address.
+    if (empty($order->billing_first_name) && empty($order->billing_last_name) && empty($order->billing_street1) && empty($order->billing_city)) {
+      $first_name = check_plain($_POST['first_name']);
+      $last_name = check_plain($_POST['last_name']);
+      $street = check_plain($_POST['address_street']);
+      $street2 = '';
+      if (!empty($street) && $pos = strpos("\n", $street)) {
+        $street2 = trim(substr($street, $pos+1));
+        $street = trim(substr($street, 0, $pos));
+      }
+      $city = check_plain($_POST['address_city']);
+      $state = check_plain($_POST['address_state']);
+      $zip = check_plain($_POST['address_zip']);
+      $country = check_plain($_POST['address_country_code']);
+
+      $order->billing_first_name = $first_name;
+      $order->billing_last_name = $last_name;
+      $order->billing_street1 = $street;
+      $order->billing_street2 = $street2;
+      $order->billing_city = $city;
+      $order->billing_postal_code = $zip;
+      $order->billing_country = db_result(db_query("SELECT country_id FROM {uc_countries} WHERE country_iso_code_2 = '%s'", trim($country)));
+      $order->billing_zone = db_result(db_query("SELECT zone_id FROM {uc_zones} WHERE zone_country_id = %d AND zone_code = '%s'", $order->billing_country, trim($state)));
+
+      $order->delivery_first_name = $first_name;
+      $order->delivery_last_name = $last_name;
+      $order->delivery_street1 = $street;
+      $order->delivery_street2 = $street2;
+      $order->delivery_city = $city;
+      $order->delivery_postal_code = $zip;
+      $order->delivery_country = $order->billing_country;
+      $order->delivery_zone = $order->billing_zone;
+
+      uc_order_save($order);
+    }
+
+    // Add store comment for additional information supplied
+    // at PayPal site.
+    $comment = trim(check_plain($_POST['memo']));
+    if (!empty($comment)) {
+      uc_order_comment_save($order_id, 0, t('Customer note from PayPal IPN: ') . $comment, 'order');
+    }
+
+/* Duplicate txn_id check removed here. PayPal uses the same txn_id for each payment for a subscription.
+   This ends a section of modifications for PayPal Buttons functionality. */
+
+    db_query("INSERT INTO {uc_payment_paypal_ipn} (order_id, txn_id, txn_type, mc_gross, status, receiver_email, payer_email, received) VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s', %d)",
+      $order_id, $txn_id, $txn_type, $payment_amount, $payment_status, $receiver_email, $payer_email, time());
+
+    $context = array(
+      'revision' => 'formatted-original',
+      'location' => 'paypal-ipn',
+    );
+    $options = array(
+      'sign' => FALSE,
+    );
+
+    switch ($payment_status) {
+      case 'Canceled_Reversal':
+        uc_order_comment_save($order_id, 0, t('PayPal has cancelled the reversal and returned !amount !currency to your account.', array('!amount' => uc_price($payment_amount, $context, $options), '!currency' => $payment_currency)), 'admin');
+        break;
+
+      case 'Completed':
+        $comment = t('PayPal transaction ID: @txn_id', array('@txn_id' => $txn_id));
+        uc_payment_enter($order_id, 'paypal_wps', $payment_amount, $order->uid, NULL, $comment);
+        uc_cart_complete_sale($order);
+        uc_order_comment_save($order_id, 0, t('Payment of @amount @currency submitted through PayPal.', array('@amount' => uc_price($payment_amount, $context, $options), '@currency' => $payment_currency)), 'order', 'payment_received');
+        uc_order_comment_save($order_id, 0, t('PayPal IPN reported a payment of @amount @currency.', array('@amount' => uc_price($payment_amount, $context, $options), '@currency' => $payment_currency)));
+        break;
+
+      case 'Denied':
+        uc_order_comment_save($order_id, 0, t("You have denied the customer's payment."), 'admin');
+        break;
+
+      case 'Expired':
+        uc_order_comment_save($order_id, 0, t('The authorization has failed and cannot be captured.'), 'admin');
+        break;
+
+      case 'Failed':
+        uc_order_comment_save($order_id, 0, t("The customer's attempted payment from a bank account failed."), 'admin');
+        break;
+
+      case 'Pending':
+        uc_order_update_status($order_id, 'paypal_pending');
+        uc_order_comment_save($order_id, 0, t('Payment is pending at PayPal: @reason', array('@reason' => _uc_paypal_pending_message(check_plain($_POST['pending_reason'])))), 'admin');
+        break;
+
+      // You, the merchant, refunded the payment.
+      case 'Refunded':
+        $comment = t('PayPal transaction ID: @txn_id', array('@txn_id' => $txn_id));
+        uc_payment_enter($order_id, 'paypal_wps', $payment_amount, $order->uid, NULL, $comment);
+        break;
+
+      case 'Reversed':
+        watchdog('uc_paypal', 'PayPal has reversed a payment!', array(), WATCHDOG_ERROR);
+        uc_order_comment_save($order_id, 0, t('Payment has been reversed by PayPal: @reason', array('@reason' => _uc_paypal_reversal_message(check_plain($_POST['reason_code'])))), 'admin');
+        break;
+
+      case 'Processed':
+        uc_order_comment_save($order_id, 0, t('A payment has been accepted.'), 'admin');
+        break;
+
+      case 'Voided':
+        uc_order_comment_save($order_id, 0, t('The authorization has been voided.'), 'admin');
+        break;
+    }
+
+/* This begins a section of modifications for PayPal Buttons functionality. */
+
+    // Trigger additional handlers for processed IPNs
+    uc_paypal_buttons_process_ipn($order_id, $_POST, $order);
+
+/* This ends a section of modifications for PayPal Buttons functionality. */
+
+  }
+  elseif (strcmp($response->data, 'INVALID') == 0) {
+    watchdog('uc_paypal', 'IPN transaction failed verification.', array(), WATCHDOG_ERROR);
+    uc_order_comment_save($order_id, 0, t('An IPN transaction failed verification for this order.'), 'admin');
+  }
+}
+
+/**
+ * Additional validation for IPNs related to PayPal Buttons transactions.
+ */
+function uc_paypal_buttons_validate_ipn($order_id, $ipn, $order) {
+  // validate that the identified order is associated with the IPN purchase
+  foreach ($order->products as $item) {
+    $options = uc_paypal_buttons_product_options($item->nid);
+    if ($options['buynow'] || $options['subscription']) {
+      $opid = $item->order_product_id;
+      // verify that the IPN corresponds to a recorded transaction
+      $rec = uc_paypal_buttons_order_load($order_id);
+      if (!$rec || !$rec->invoice_id) {
+        return FALSE;
+        watchdog('uc_paypal_button', 'The PayPal Buttons IPN handler was invoked for order id @order-id, but this order is not recorded as a PayPal Buttons transaction.', array('@order-id' => $order_id), WATCHDOG_WARNING);
+      }
+
+      // buy-now-specific validation
+      if ($options['buynow']) {
+        // Verify purchase settings from IPN
+        $orderopts = unserialize($rec->options);
+        $gross = $orderopts['amount'] + $orderopts['tax'] + $orderopts['shipping'] + $orderopts['handling'];
+        if (uc_currency_format($ipn['mc_gross'], FALSE, FALSE) !== uc_currency_format($gross, FALSE, FALSE)) {
+          watchdog('uc_paypal_button', 'PayPal Buy Now IPN for order @order-id contains a different payment amount than the initial product settings.', array('@order-id' => $order_id), WATCHDOG_WARNING);
+          return FALSE;
+        }
+        if (uc_currency_format($ipn['tax'], FALSE, FALSE) !== uc_currency_format($orderopts['tax'], FALSE, FALSE)) {
+          watchdog('uc_paypal_button', 'PayPal Buy Now IPN for order @order-id contains a different tax amount than the initial product settings.', array('@order-id' => $order_id), WATCHDOG_WARNING);
+          return FALSE;
+        }
+        if (uc_currency_format($ipn['shipping'], FALSE, FALSE) !== uc_currency_format($orderopts['shipping'], FALSE, FALSE)) {
+          watchdog('uc_paypal_button', 'PayPal Buy Now IPN for order @order-id contains a different shipping amount than the initial product settings.', array('@order-id' => $order_id), WATCHDOG_WARNING);
+          return FALSE;
+        }
+        if (uc_currency_format($ipn['handling_amount'], FALSE, FALSE) !== uc_currency_format($orderopts['handling'], FALSE, FALSE)) {
+          watchdog('uc_paypal_button', 'PayPal Buy Now IPN for order @order-id contains a different handling amount than the initial product settings.', array('@order-id' => $order_id), WATCHDOG_WARNING);
+          return FALSE;
+        }
+
+        // Store IPN data
+        $rec->ipn = $ipn;
+        db_query("UPDATE {uc_paypal_buttons} SET ipn = '%s' WHERE invoice_id = %d", serialize($ipn), $order_id);
+      }
+
+      // subscription-specific validation during sign-up stage
+      if ($options['subscription'] && $ipn['txn_type'] == 'subscr_signup') {
+        // Verify subscription settings from IPN
+        $orderopts = unserialize($rec->options);
+        if ((isset($orderopts['a1']) && uc_currency_format($orderopts['a1'], FALSE, FALSE) !== uc_currency_format($ipn['amount1'], FALSE, FALSE)) || (isset($orderopts['a2']) && uc_currency_format($orderopts['a2'], FALSE, FALSE) !== uc_currency_format($ipn['amount2'], FALSE, FALSE)) || (uc_currency_format($orderopts['a3'], FALSE, FALSE) !== uc_currency_format($ipn['amount3'], FALSE, FALSE))) {
+          watchdog('uc_paypal_button', 'PayPal Subscription sign-up IPN for order @order-id contains price amounts different than the initial product settings.', array('@order-id' => $order_id), WATCHDOG_WARNING);
+          return FALSE;
+        }
+
+        // Store IPN data
+        $rec->ipn = $ipn;
+        db_query("UPDATE {uc_paypal_buttons} SET ipn = '%s' WHERE invoice_id = %d", serialize($ipn), $order_id);
+
+        // Save subscription id as order comment
+        uc_order_comment_save($order_id, 0, t('PayPal Subscription ID @subid is associated with this order.', array('@subid' => $ipn['subscr_id'])), 'admin');
+      }
+    }
+    else {
+      // if this order has products that are not handled by PayPal Buttons,
+      // then validation fails
+      watchdog('uc_paypal_button', 'The PayPal Buttons IPN handler was invoked for order id @order-id, but this order has products that are not handled by PayPal Buttons.', array('@order-id' => $order_id), WATCHDOG_WARNING);
+      return FALSE;
+    }
+  }
+
+  return TRUE;
+}
+
+/**
+ * Triggers additional handlers for a processed IPN.
+ */
+function uc_paypal_buttons_process_ipn($order_id, $ipn, $order) {
+  foreach ($order->products as $item) {
+    // load product feature options
+    $options = uc_paypal_buttons_product_options($item->nid);
+    $product = node_load($item->nid);
+    $opid = $item->order_product_id;
+
+    // load PayPal Buttons record
+    $rec = uc_paypal_buttons_order_load($order_id);
+    $rec->options = !empty($rec->options) ? unserialize($rec->options) : FALSE;
+    $rec->ipn = !empty($rec->ipn) ? unserialize($rec->ipn) : FALSE;
+    $rec->data = !empty($rec->data) ? unserialize($rec->data) : FALSE;
+
+    // trigger Rules event for when a Buy Now item is purchased
+    if (module_exists('rules') && function_exists('rules_invoke_event') && $options['buynow'] && $ipn['txn_type'] == 'web_accept' && $ipn['payment_status'] == 'Completed') {
+      $account = user_load(array('uid' => $order->uid));
+      rules_invoke_event('uc_paypal_buttons_buynow', array('customer' => $account, 'order_id' => $order_id, 'product' => $product));
+    }
+
+    // handle Subscription-specific processing
+    if ($options['subscription']) {
+      $txn_type = $ipn['txn_type'];
+
+      // record number of completed payments in PayPal Buttons record
+      if ($txn_type == 'subscr_payment' && $ipn['payment_status'] == 'Completed') {
+        // if a payment is already recorded, increment the count,
+        // unless the first payment was for the first trial period
+        // and the second trial period is free (then, increment by 2)
+        if (intval($rec->data['payment'])) {
+          if ($rec->data['payment'] == 1 && $rec->options['a1'] > 0.001 && ($rec->options['a2'] < 0.001 || !intval($rec->options['p2']))) {
+            $rec->data['payment']++;
+          }
+          $rec->data['payment']++;
+        }
+        // if no payment has been recorded yet, then set the payment count
+        // to the first period that has a cost
+        else {
+          if ($rec->options['a1'] > 0.001 && intval($rec->options['p1'])) {
+            $rec->data['payment'] = 1;
+          }
+          else if ($rec->options['a2'] > 0.001 && intval($rec->options['p2'])) {
+            $rec->data['payment'] = 2;
+          }
+          else {
+            $rec->data['payment'] = 3;
+          }
+        }
+        db_query("UPDATE {uc_paypal_buttons} SET data = '%s' WHERE invoice_id = %d", serialize($rec->data), $order_id);
+      }
+
+      // when a subscription sign-up IPN is received and the subscription
+      // has a free trial period (no subscr_payment will be received),
+      // then invoke uc_cart_complete_sale to create users and change
+      // the order status
+      if ($txn_type == 'subscr_signup' && $rec->options['a1'] < 0.001 && intval($rec->options['p1'])) {
+        uc_cart_complete_sale($order);
+        uc_order_comment_save($order_id, 0, t('Free trial period through PayPal Subscriptions started.'));
+      }
+
+      // trigger subscription actions for registration and renewal:
+      // when subscr_signup or subscr_payment (with completed status) IPN
+      // is received, and a subscr_signup has been received, and a payment
+      // has been received or the first trial period is free
+      if (($txn_type == 'subscr_signup' || ($txn_type == 'subscr_payment' && $ipn['payment_status'] == 'Completed')) && ($rec->data['payment'] || (!$rec->data['payment'] && $rec->options['a1'] < 0.001 && intval($rec->options['p1']))) && is_array($rec->ipn)) {
+        // Rules events
+        if (module_exists('rules') && function_exists('rules_invoke_event')) {
+          $account = user_load(array('uid' => $order->uid));
+          if (!$rec->data['payment'] || $rec->data['payment'] == 1 || ($rec->data['payment'] == 3 && !intval($rec->options['p1']) && !intval($rec->options['p2']))) {
+            rules_invoke_event('uc_paypal_buttons_subscription_new', array('customer' => $account, 'order_id' => $order_id, 'product' => $product));
+          }
+          else {
+            rules_invoke_event('uc_paypal_buttons_subscription_renew', array('customer' => $account, 'order_id' => $order_id, 'product' => $product));
+          }
+        }
+      }
+
+      // trigger actions for subscription expiration
+      if ($txn_type == 'subscr_eot' && is_array($rec->ipn)) {
+        // Rules events
+        if (module_exists('rules') && function_exists('rules_invoke_event')) {
+          $account = user_load(array('uid' => $order->uid));
+          rules_invoke_event('uc_paypal_buttons_subscription_expire', array('customer' => $account, 'order_id' => $order_id, 'product' => $product));
+        }
+      }
+
+      // trigger Rules events for subscription modification, failure, and cancellation
+      if (module_exists('rules') && function_exists('rules_invoke_event')) {
+        $account = user_load(array('uid' => $order->uid));
+        if ($txn_type == 'subscr_modify') {
+          rules_invoke_event('uc_paypal_buttons_subscription_modify', array('customer' => $account, 'order_id' => $order_id, 'product' => $product));
+        }
+        else if ($txn_type == 'subscr_failed') {
+          rules_invoke_event('uc_paypal_buttons_subscription_failure', array('customer' => $account, 'order_id' => $order_id, 'product' => $product));
+        }
+        else if ($txn_type == 'subscr_cancel') {
+          rules_invoke_event('uc_paypal_buttons_subscription_cancel', array('customer' => $account, 'order_id' => $order_id, 'product' => $product));
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Load uc_paypal_buttons options for specified product.
+ */
+function uc_paypal_buttons_product_options($nid, $options = NULL) {
+  $data = variable_get('uc_paypal_buttons_products', array());
+  if ($options && is_array($options) && ($options['buynow'] || $options['subscription'])) {
+    $data[$nid] = $options;
+    variable_set('uc_paypal_buttons_products', $data);
+  }
+  if ($options && is_array($options) && ($options['buynow'] === 0 || $options['subscription'] === 0)) {
+    unset($data[$nid]);
+    variable_set('uc_paypal_buttons_products', $data);
+  }
+  if ($data[$nid] && is_array($data[$nid])) {
+    return $data[$nid];
+  }
+  return array();
+}

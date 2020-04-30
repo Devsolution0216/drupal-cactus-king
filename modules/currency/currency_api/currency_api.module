@@ -1,0 +1,641 @@
+<?php
+
+//$Id: currency_api.module,v 1.4.2.11.2.1 2008/09/18 20:56:54 kbahey Exp $
+
+// Copyright 2005 Khalid Baheyeldin http://2bits.com
+
+// 3600 is once an hour
+define('UPDATE_FREQUENCY', 3600);
+
+function currency_api_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#currency_api':
+      return t('This module provides an API for currency conversion.');
+  }
+}
+
+function currency_api_menu() {
+  $items = array();
+    $items['admin/settings/currency_api'] = array(
+      'title'              => 'Currency API',
+      'description'        => 'Settings for currency API.',
+      'page callback'      => 'drupal_get_form',
+      'page arguments'     => array('currency_api_admin_settings'),
+      'access arguments'   => array('administer site configuration'),
+      'type'               => MENU_NORMAL_ITEM, // optional
+    );
+  return $items;
+}
+
+  
+function currency_api_admin_settings() {    
+  $form['currency_api_watchdog'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Log all currency exchange requests and errors to watchdog'),    
+    '#default_value' => variable_get('currency_api_watchdog', 1),    
+  );
+
+  $period = drupal_map_assoc(array(900, 1800, 3600, 10800, 21600, 32400, 43200, 86400), 'format_interval');
+  $form['currency_api_fetch'] = array(
+    '#type' => 'select',
+    '#title' => t('Currency data update frequency'),
+    '#default_value' => variable_get('currency_api_fetch', UPDATE_FREQUENCY),
+    '#options' => $period,
+    '#description' => t('How long to keep the currency data from Yahoo! Finance. Default is 1 hour (3600 seconds).'),
+  );
+
+  return system_settings_form($form);
+}  
+
+/**
+ * Currency exchange rate API function
+ *
+ * This function converts two currencies using exchange rates from Yahoo Finance.
+ * The currency codes are standard ISO 3-letter codes, and you can find the details
+ * here:
+ *  http://www.oanda.com/site/help/iso_code.shtml
+ *
+ * Here is an example on how to use it:
+ *
+ *   $from = 'CAD';
+ *   $to   = 'USD';
+ *   $amt  = 20;
+ *   $ret = currency_exchange($from, $to, $amt);
+ *   if ($ret['status'] == FALSE)
+ *   {
+ *     drupal_set_message(t('An error occured: '). $ret['message']);
+ *   }
+ *   else
+ *   {
+ *     print $amt .' '. $from .' = '. $ret['value'];
+ *   }
+ *
+ * @param $currency_from
+ *   Currency to convert from
+ *
+ * @param $currency_to
+ *   Currency to convert to
+ *
+ * @param $amount
+ *   Option amount to convert. If not supplied, 1 is assumed.
+ *
+ * @return $result
+ *   An associative array that contains the following:
+ *    $result['status'] TRUE or FALSE
+ *    $result['message']'success' when status is TRUE, otherwise, contains a 
+ *                      descriptive error text
+ *   The following items are only returned when status is TRUE
+ *    $result['value']  $amount * exchange rate of $currency_from into $currency_to
+ *    $result['date']   Date of the last update to the rates (Format is "m/d/yyyy")
+ *    $result['time']   Time of the last update to the rates (Format is "h:mmpm")
+ */
+function currency_api_convert($currency_from, $currency_to, $amount = 1) {
+  $currency_array = array(
+    's'  => 'Currencies',
+    'l1' => 'Last',
+    'd1' => 'Date',
+    't1' => 'Time'
+  );
+
+  $result = array();
+  $result['status']  = FALSE;
+  $result['message'] = NULL;
+  $result['value']   = 0;
+  $result['date']    = NULL;
+  $result['time']    = NULL;
+
+  $from = strtoupper($currency_from);
+  $to   = strtoupper($currency_to);
+
+  if ($from == $to) {
+    return array(
+      'status'  => TRUE,
+      'message' => 'success',
+      'value'   => 1.0,
+      'date'    => date('n/j/Y'),
+      'time'    => date('g:ia'),
+    );
+  }
+
+  // load cached rate, if exists
+  $cached = currency_api_load($record, $currency_from, $currency_to);
+
+  if (!$record) {
+    // cached rate not found, go get it
+    $url = 'http://download.finance.yahoo.com/d/quotes.csv?e=.csv&f='. currency_api_get_fields($currency_array) .'&s='. $from . $to .'=X';
+
+    // Validate the passed currency codes, to make sure they are valid
+    if (FALSE == currency_api_get_desc($from)) {
+      $msg = "currency: Invalid currency_from=$from";
+      _log_to_watchdog($msg, WATCHDOG_ERROR);
+      $result['message'] = $msg;
+      $result['status'] = FALSE;
+    }
+
+    if (FALSE == currency_api_get_desc($to)) {
+      $msg = "currency: Invalid currency_to=$to";
+      _log_to_watchdog($msg, WATCHDOG_ERROR);
+      return FALSE;
+      $result['message'] = $msg;
+      $result['status'] = FALSE;
+    }
+
+    if (!is_numeric($amount)) {
+      $msg = "currency: Invalid amount=$amount";
+      _log_to_watchdog($msg, WATCHDOG_ERROR);
+      $result['message'] = $msg;
+      $result['status'] = FALSE;
+    }
+
+    $http_result = drupal_http_request($url);
+    if (isset($http_result->error)) {
+      $msg = t('currency: drupal_http_request error: @error', array('@error' => $http_result->error));
+      _log_to_watchdog($msg, WATCHDOG_ERROR);
+      return FALSE;
+    }
+
+    if ($http_result->code != 200) {
+      $msg = t('currency: drupal_http_request code: @code', array('@code' => $http_result->code));
+      _log_to_watchdog($msg, WATCHDOG_ERROR);
+      return FALSE;
+    }
+
+    $record = $http_result->data;
+  }
+
+  if (!$record) {
+    $msg = 'currency: cannot contact Yahoo Finance host';
+    _log_to_watchdog($msg, WATCHDOG_ERROR);
+    $result['status'] = FALSE;
+    $result['message'] = $msg;
+  }
+
+  $currency_data = explode(',', $record);
+  $rate = $currency_data[1];
+  $date = $currency_data[2];
+  $time = $currency_data[3];
+
+  // Calculate the result
+  $value = $amount * $rate;
+
+  // Log it
+  _log_to_watchdog("currency: $amount $from = $value $to", WATCHDOG_NOTICE);
+
+  // Got what we need
+  $result['value']  = $value;
+  $result['date']   = $date;
+  $result['time']   = $time;
+  $result['status'] = TRUE;
+  $result['message']= 'success';
+
+  if (!$cached) {
+    // cache rate does not exist, save it
+    currency_api_save($currency_from, $currency_to, $rate);
+  }
+
+  return $result;
+}
+
+
+/**
+ * Currency exchange API function
+ *
+ * This function gets the currency name for a standard ISO 3-letter codes,
+ * You can find the details here:
+ *  http://www.oanda.com/site/help/iso_code.shtml
+ *
+ * Here is an example on how to use it:
+ *
+ *   $ccode = 'CAD';
+ *   $ret = currency_get_description($ccode);
+ *   if ($ret == FALSE)
+ *   {
+ *     drupal_set_message(t('Could not get description'));
+ *   }
+ *   else
+ *   {
+ *     print $ccode .' => '. $ret;
+ *   }
+ *
+ * @param $currency
+ *   Currency code (3-letter ISO)
+ *
+ * @return $result
+ *   Contains FALSE if the currency cannot be found, otherwise, it
+ *   has the description.
+ */
+function currency_api_get_desc($currency) {
+  $list = currency_api_get_list();
+  if (isset($list[$currency])) {
+    return $list[$currency];
+    }
+  return FALSE;
+}
+
+function currency_api_get_list() {
+  $currency = array(
+    'AFA' => t('Afghanistani Afghani (AFA)'),
+    'ALL' => t('Albanian Lek (ALL)'),
+    'DZD' => t('Algerian Dinar (DZD)'),
+    'ARS' => t('Argentine Peso (ARS)'),
+    'AWG' => t('Aruba Florin (AWG)'),
+    'AUD' => t('Australian Dollar (AUD)'),
+    'AZN' => t('Azerbaijan New Maneat (AZN)'),
+    'BSD' => t('Bahamian Dollar (BSD)'),
+    'BHD' => t('Bahraini Dinar (BHD)'),
+    'BDT' => t('Bangladeshi Taka (BDT)'),
+    'BBD' => t('Barbadian Dollar (BBD)'),
+    'BYR' => t('Belarus Ruble (BYR)'),
+    'BZD' => t('Belize Dollar (BZD)'),
+    'BMD' => t('Bermuda Dollar (BMD)'),
+    'BTN' => t('Bhutanese Ngultrum (BTN)'),
+    'BOB' => t('Bolivian Boliviano (BOB)'),
+    'BAM' => t('Bosnia and Herzegovina Convertible Marka (BAM)'),
+    'BWP' => t('Botswana Pula (BWP)'),
+    'BRL' => t('Brazilian Real (BRL)'),
+    'GBP' => t('British Pound (GBP)'),
+    'BND' => t('Brunei Dollar (BND)'),
+    'BGN' => t('Bulgarian Lev (BGN)'),
+    'BIF' => t('Burundi Franc (BIF)'),
+    'KHR' => t('Cambodia Riel (KHR)'),
+    'CAD' => t('Canadian Dollar (CAD)'),
+    'CVE' => t('Cape Verdean Escudo (CVE)'),
+    'KYD' => t('Cayman Islands Dollar (KYD)'),
+    'XOF' => t('CFA Franc (BCEAO) (XOF)'),
+    'XAF' => t('CFA Franc (BEAC) (XAF)'),
+    'CLP' => t('Chilean Peso (CLP)'),
+    'CNY' => t('Chinese Yuan (CNY)'),
+    'COP' => t('Colombian Peso (COP)'),
+    'KMF' => t('Comoros Franc (KMF)'),
+    'CRC' => t('Costa Rica Colon (CRC)'),
+    'HRK' => t('Croatian Kuna (HRK)'),
+    'CUP' => t('Cuban Peso (CUP)'),
+    'CYP' => t('Cyprus Pound (CYP)'),
+    'CZK' => t('Czech Koruna (CZK)'),
+    'DKK' => t('Danish Krone (DKK)'),
+    'DJF' => t('Dijiboutian Franc (DJF)'),
+    'DOP' => t('Dominican Peso (DOP)'),
+    'XCD' => t('East Caribbean Dollar (XCD)'),
+    'EGP' => t('Egyptian Pound (EGP)'),
+    'SVC' => t('El Salvador Colon (SVC)'),
+    'ERN' => t('Eritrean Nakfa (ERN)'),
+    'EEK' => t('Estonian Kroon (EEK)'),
+    'ETB' => t('Ethiopian Birr (ETB)'),
+    'EUR' => t('Euro (EUR)'),
+    'FKP' => t('Falkland Islands Pound (FKP)'),
+    'FJD' => t('Fiji Dollar (FJD)'),
+    'GMD' => t('Gambian Dalasi (GMD)'),
+    'GHC' => t('Ghanian Cedi (GHC)'),
+    'GIP' => t('Gibraltar Pound (GIP)'),
+    'XAU' => t('Gold Ounces (XAU)'),
+    'GTQ' => t('Guatemala Quetzal (GTQ)'),
+    'GGP' => t('Guernsey Pound (GGP)'),
+    'GNF' => t('Guinea Franc (GNF)'),
+    'GYD' => t('Guyana Dollar (GYD)'),
+    'HTG' => t('Haiti Gourde (HTG)'),
+    'HNL' => t('Honduras Lempira (HNL)'),
+    'HKD' => t('Hong Kong Dollar (HKD)'),
+    'HUF' => t('Hungarian Forint (HUF)'),
+    'ISK' => t('Iceland Krona (ISK)'),
+    'INR' => t('Indian Rupee (INR)'),
+    'IDR' => t('Indonesian Rupiah (IDR)'),
+    'IRR' => t('Iran Rial (IRR)'),
+    'IQD' => t('Iraqi Dinar (IQD)'),
+    'ILS' => t('Israeli Shekel (ILS)'),
+    'JMD' => t('Jamaican Dollar (JMD)'),
+    'JPY' => t('Japanese Yen (JPY)'),
+    'JOD' => t('Jordanian Dinar (JOD)'),
+    'KZT' => t('Kazakhstan Tenge (KZT)'),
+    'KES' => t('Kenyan Shilling (KES)'),
+    'KRW' => t('Korean Won (KRW)'),
+    'KWD' => t('Kuwaiti Dinar (KWD)'),
+    'KGS' => t('Kyrgyzstan Som (KGS)'),
+    'LAK' => t('Lao Kip (LAK)'),
+    'LVL' => t('Latvian Lat (LVL)'),
+    'LBP' => t('Lebanese Pound (LBP)'),
+    'LSL' => t('Lesotho Loti (LSL)'),
+    'LRD' => t('Liberian Dollar (LRD)'),
+    'LYD' => t('Libyan Dinar (LYD)'),
+    'LTL' => t('Lithuanian Lita (LTL)'),
+    'MOP' => t('Macau Pataca (MOP)'),
+    'MKD' => t('Macedonian Denar (MKD)'),
+    'MGA' => t('iraimbilanja'),
+    'MWK' => t('Malawian Kwacha (MWK)'),
+    'MYR' => t('Malaysian Ringgit (MYR)'),
+    'MVR' => t('Maldives Rufiyaa (MVR)'),
+    'MTL' => t('Maltese Lira (MTL)'),
+    'MRO' => t('Mauritania Ougulya (MRO)'),
+    'MUR' => t('Mauritius Rupee (MUR)'),
+    'MXN' => t('Mexican Peso (MXN)'),
+    'MDL' => t('Moldovan Leu (MDL)'),
+    'MNT' => t('Mongolian Tugrik (MNT)'),
+    'MAD' => t('Moroccan Dirham (MAD)'),
+    'MZM' => t('Mozambique Metical (MZM)'),
+    'MMK' => t('Myanmar Kyat (MMK)'),
+    'NAD' => t('Namibian Dollar (NAD)'),
+    'NPR' => t('Nepalese Rupee (NPR)'),
+    'ANG' => t('Neth Antilles Guilder (ANG)'),
+    'NZD' => t('New Zealand Dollar (NZD)'),
+    'NIO' => t('Nicaragua Cordoba (NIO)'),
+    'NGN' => t('Nigerian Naira (NGN)'),
+    'KPW' => t('North Korean Won (KPW)'),
+    'NOK' => t('Norwegian Krone (NOK)'),
+    'OMR' => t('Omani Rial (OMR)'),
+    'XPF' => t('Pacific Franc (XPF)'),
+    'PKR' => t('Pakistani Rupee (PKR)'),
+    'XPD' => t('Palladium Ounces (XPD)'),
+    'PAB' => t('Panama Balboa (PAB)'),
+    'PGK' => t('Papua New Guinea Kina (PGK)'),
+    'PYG' => t('Paraguayan Guarani (PYG)'),
+    'PEN' => t('Peruvian Nuevo Sol (PEN)'),
+    'PHP' => t('Philippine Peso (PHP)'),
+    'XPT' => t('Platinum Ounces (XPT)'),
+    'PLN' => t('Polish Zloty (PLN)'),
+    'QAR' => t('Qatar Rial (QAR)'),
+    'ROL' => t('Romanian Leu (ROL)'),
+    'RUB' => t('Russian Rouble (RUB)'),
+    'RWF' => t('Rwandese Franc (RWF)'),
+    'WST' => t('Samoan Tala (WST)'),
+    'STD' => t('Sao Tome Dobra (STD)'),
+    'SAR' => t('Saudi Arabian Riyal (SAR)'),
+    'SCR' => t('Seychelles Rupee (SCR)'),
+    'RSD' => t('Serbian Dinar (RSD)'),
+    'SLL' => t('Sierra Leone Leone (SLL)'),
+    'XAG' => t('Silver Ounces (XAG)'),
+    'SGD' => t('Singapore Dollar (SGD)'),
+    'SKK' => t('Slovak Koruna (SKK)'),
+    'SBD' => t('Solomon Islands Dollar (SBD)'),
+    'SOS' => t('Somali Shilling (SOS)'),
+    'ZAR' => t('South African Rand (ZAR)'),
+    'LKR' => t('Sri Lanka Rupee (LKR)'),
+    'SHP' => t('St Helena Pound (SHP)'),
+    'SDD' => t('Sudanese Dinar (SDD)'),
+    'SRD' => t('Surinam Dollar (SRD)'),
+    'SZL' => t('Swaziland Lilageni (SZL)'),
+    'SEK' => t('Swedish Krona (SEK)'),
+    'CHF' => t('Swiss Franc (CHF)'),
+    'SYP' => t('Syrian Pound (SYP)'),
+    'TWD' => t('Taiwan Dollar (TWD)'),
+    'TZS' => t('Tanzanian Shilling (TZS)'),
+    'THB' => t('Thai Baht (THB)'),
+    'TOP' => t('Tonga Pa\'anga (TOP)'),
+    'TTD' => t('Trinidad & Tobago Dollar (TTD)'),
+    'TND' => t('Tunisian Dinar (TND)'),
+    'TRY' => t('New Turkish Lira (TRY)'),
+    'USD' => t('U.S. Dollar (USD)'),
+    'AED' => t('UAE Dirham (AED)'),
+    'UGX' => t('Ugandan Shilling (UGX)'),
+    'UAH' => t('Ukraine Hryvnia (UAH)'),
+    'UYU' => t('Uruguayan New Peso (UYU)'),
+    'UZS' => t('Uzbekistan Sum (UZS)'),
+    'VUV' => t('Vanuatu Vatu (VUV)'),
+    'VEB' => t('Venezuelan Bolivar (VEB)'),
+    'VND' => t('Vietnam Dong (VND)'),
+    'YER' => t('Yemen Riyal (YER)'),
+    'YUM' => t('Yugoslav Dinar (YUM)'),
+    'ZMK' => t('Zambian Kwacha (ZMK)'),
+    'ZWD' => t('Zimbabwe Dollar (ZWD)'),
+  );
+
+  return $currency;
+}
+
+function currency_api_get_symbols() {
+  $currency = array(
+    // There is a new sign as of January 2003. It does not yet have a Unicode
+    // encoding yet (see http://std.dkuug.dk/jtc1/sc2/wg2/docs/n2640.pdf).
+    'AFA' => t('afghani'),
+    'ALL' => t('Lek'),
+    'DZD' => t('دج'),
+    'ARS' => t('$'),
+    'AWG' => t('ƒ'),
+    'AUD' => t('$'),
+    'AZN' => t('ман'),
+    'BSD' => t('D'),
+    'BHD' => t('.د.ب'),
+    'BDT' => t('৳, ৲'),
+    'BBD' => t('Bds$'),
+    'BYR' => t('p.'),
+    'BZD' => t('BZ$'),
+    'BMD' => t('$'),
+    'BTN' => t('Nu.'),
+    'BOB' => t('$b'),
+    'BAM' => t('KM'),
+    'BWP' => t('P'),
+    'BRL' => t('R$'),
+    'GBP' => t('£'),
+    'BND' => t('$'),
+    'BGN' => t('лв'),
+    'BIF' => t('FBu'),
+    'KHR' => t('៛'),
+    'CAD' => t('$'),
+    'CVE' => t('Esc'),
+    'KYD' => t('$'),
+    'XOF' => t('F'),
+    'XAF' => t('F'),
+    'CLP' => t('$'),
+    'CNY' => t('元'),
+    'COP' => t('$'),
+    'KMF' => t('F'),
+    'CRC' => t('₡'),
+    'HRK' => t('kn'),
+    'CUP' => t('₱'),
+    'CYP' => t('£'),
+    'CZK' => t('Kč'),
+    'DKK' => t('kr'),
+    'DJF' => t('Fdj'),
+    'DOP' => t('RD$'),
+    'XCD' => t('$'),
+    'EGP' => t('LE'),
+    'SVC' => t('$'),
+    'ERN' => t('Nfk'),
+    'EEK' => t('kr'),
+    'ETB' => t('Br'),
+    'EUR' => t('€'),
+    'FKP' => t('£'),
+    'FJD' => t('$'),
+    'GMD' => t('D'),
+    'GHC' => t('¢'),
+    'GIP' => t('£'),
+    'XAU' => t('XAU'),
+    'GTQ' => t('Q'),
+    'GGP' => t('£'),
+    'GNF' => t('FG'),
+    'GYD' => t('$'),
+    'HTG' => t('G'),
+    'HNL' => t('L'),
+    'HKD' => t('HK$'),
+    'HUF' => t('Ft'),
+    'ISK' => t('kr'),
+    'INR' => t('₨'),
+    'IDR' => t('Rp'),
+    'IRR' => t('﷼'),
+    'IQD' => t('ع.د'),
+    'ILS' => t('₪'),
+    'JMD' => t('J$'),
+    'JPY' => t('¥'),
+    'JOD' => t('din.'),
+    'KZT' => t('лв'),
+    'KES' => t('KSh'),
+    'KRW' => t('₩'),
+    'KWD' => t('د.ك'),
+    'KGS' => t('лв'),
+    'LAK' => t('₭'),
+    'LVL' => t('Ls'),
+    'LBP' => t('£'),
+    // L for singular, M for plural
+    'LSL' => t('M'),
+    'LRD' => t('$'),
+    'LYD' => t('ل.د'),
+    'LTL' => t('Lt'),
+    'MOP' => t('MOP$'),
+    'MKD' => t('ден'),
+    // Non-decimal currency.
+    'MGA' => t('iraimbilanja'),
+    'MWK' => t('MK'),
+    'MYR' => t('RM'),
+    'MVR' => t('Rf'),
+    'MTL' => t('Lm'),
+    // Non-decimal currency.
+    'MRO' => t('UM'),
+    'MUR' => t('₨'),
+    'MXN' => t('$'),
+    'MDL' => t('lei'),
+    'MNT' => t('₮'),
+    'MAD' => t('د.م.'),
+    'MZM' => t('MT'),
+    'MMK' => t('K'),
+    'NAD' => t('$'),
+    'NPR' => t('₨'),
+    'ANG' => t('ƒ'),
+    'NZD' => t('$'),
+    'NIO' => t('C$'),
+    'NGN' => t('₦'),
+    'KPW' => t('₩'),
+    'NOK' => t('kr'),
+    'OMR' => t('﷼'),
+    'XPF' => t('F'),
+    'PKR' => t('₨'),
+    'XPD' => t('XPD'),
+    'PAB' => t('B/.'),
+    'PGK' => t('K'),
+    'PYG' => t('Gs'),
+    'PEN' => t('S/.'),
+    'PHP' => t('Php'),
+    'XPT' => t('XPT'),
+    'PLN' => t('zł'),
+    'QAR' => t('﷼'),
+    'ROL' => t('lei'),
+    'RUB' => t('руб'),
+    'RWF' => t('RF'),
+    'WST' => t('WS$'),
+    'STD' => t('Db'),
+    'SAR' => t('﷼'),
+    'SCR' => t('₨'),
+    'RSD' => t('Дин.'),
+    'SLL' => t('Le'),
+    'XAG' => t('XAG'),
+    'SGD' => t('$'),
+    'SKK' => t('SIT'),
+    'SBD' => t('$'),
+    'SOS' => t('S'),
+    'ZAR' => t('R'),
+    'LKR' => t('₨'),
+    'SHP' => t('£'),
+    'SDD' => t('£Sd'),
+    'SRD' => t('$'),
+    // L for singular, E for plural
+    'SZL' => t('E'),
+    'SEK' => t('kr'),
+    'CHF' => t('CHF'),
+    'SYP' => t('£'),
+    'TWD' => t('NT$'),
+    // No symbol, but instead an insane formatting.
+    // See http://en.wikipedia.org/wiki/Tanzanian_shilling#Symbol.
+    'TZS' => t('TZS'),
+    'THB' => t('฿'),
+    'TOP' => t('T$'),
+    'TTD' => t('TT$'),
+    'TND' => t('د.ت'),
+    'TRY' => t('YTL'),
+    'USD' => t('$'),
+    'AED' => t('د.إ'),
+    'UGX' => t('USh'),
+    // There is a new sign as of March 2004, which is encoded as U+20B4 in
+    // Unicode 4.1 released in 2005. It's not yet supported by most operating
+    // systems, so I opted for the abbrevation instead.
+    'UAH' => t('грн.'),
+    'UYU' => t('$U'),
+    'UZS' => t('лв'),
+    'VUV' => t('Vt'),
+    'VEB' => t('Bs'),
+    'VND' => t('₫'),
+    'YER' => t('﷼'),
+    'YUM' => t('дин'),
+    'ZMK' => t('ZK'),
+    'ZWD' => t('Z$'),
+  );
+
+  return $currency;
+}
+
+function currency_api_get_fields($array) {
+  while (list($field, $header) = each($array)) {
+    $field_string = $field_string . $field;
+  }
+  
+  return $field_string;
+}
+
+function _log_to_watchdog($msg = '', $severity = WATCHDOG_NOTICE, $type = 'user') {
+  if (variable_get('currency_api_watchdog', 1)) {
+   watchdog($type, $msg, NULL, $severity);
+  }
+}
+
+/**
+ *
+ * fetch cached rate for from and to countries
+ * retrieve from static array variable, else from database
+ * returns: rate by reference, true if exists otherwise false
+ *
+ */
+function currency_api_load(&$record, $currency_from, $currency_to) {
+  static $rate = array();
+  $cached = TRUE;
+
+  if (isset($rate[$currency_from][$currency_to])) {
+    // retrieve cached rate from static array variable
+    $record = $rate[$currency_from][$currency_to];
+  }
+  else {
+    $result = db_fetch_object(db_query("SELECT * FROM {currencyapi} WHERE currency_from = '%s' AND currency_to = '%s' AND timestamp > UNIX_TIMESTAMP( ) - %d", $currency_from, $currency_to, variable_get('currency_api_fetch', UPDATE_FREQUENCY)));
+    if ($result) {
+      $currency = array($currency_from . $currency_to .'=X', $result->rate, date('n/j/Y', $result->timestamp), date('g:ha', $result->timestamp));
+      $record = implode(',', $currency);
+      // cache rate in static array variable for subsequent queries
+      $rate[$currency_from][$currency_to] = $record;
+    }
+    else {
+      // rate does not exist in database cache
+      $record = null;
+      $cached = FALSE;
+    }
+  }
+
+  return $cached;
+}
+
+/**
+ *
+ * cache rate for from and to countries
+ * delete outdated record, if exists
+ * returns: true/false result from insert
+ *
+ */
+function currency_api_save($currency_from, $currency_to, $rate) {
+  // delete outdated record, if exists
+  db_query("DELETE FROM {currencyapi} WHERE currency_from = '%s' AND currency_to = '%s'", $currency_from, $currency_to);
+  return db_query("INSERT INTO {currencyapi} VALUES ('%s', '%s', %f, %d)", $currency_from, $currency_to, $rate, time());
+}
+

@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+ul.list-graphical li {
+	background: #F6F6F6 url(../../images/high/grey/sprite-list.png) repeat-x top;
+}
+
+ul.list-graphical li:hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-list.png) repeat-x 0px -50px;
+}
+
+ul.list-graphical-inline li {
+	background: #F6F6F6 url(../../images/high/grey/sprite-list.png) repeat-x top;
+}
+
+ul.list-graphical-inline li:hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-list.png) repeat-x 0px -50px;
+}
+ul.list li {
+	background: #F6F6F6 url(../../images/high/grey/sprite-list.png) repeat-x top;
+}
+ul.list li:hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-list.png) repeat-x 0px -50px;
+}
+
+dl.list-accordion dt {
+	background: #F6F6F6 url(../../images/high/grey/sprite-list.png) repeat-x top;
+}
+
+dl.list-accordion dt:hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-list.png) repeat-x 0px -50px;
+}
+ul.nav-horizontal-rounded  li {
+	background: #FFF url(../../images/high/grey/sprite-nav-rounded.png) no-repeat -20px 0px;
+}
+
+ul.nav-horizontal-rounded  li:hover {
+	background:  url(../../images/high/grey/sprite-nav-rounded.png) repeat-x -20px -50px;
+}
+
+ul.nav-horizontal-rounded  li.first {
+	background: #FFF url(../../images/high/grey/sprite-nav-rounded.png) no-repeat 0px 0px;
+}
+
+ul.nav-horizontal-rounded  li.first :hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-nav-rounded.png) repeat-x 0px -50px;
+}
+/*right rounded corner*/
+ul.nav-horizontal-rounded  li.last :hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-nav-rounded.png) repeat-x right -50px;
+}
+
+ul.nav-horizontal-rounded li.last {
+	background: #FFF url(../../images/high/grey/sprite-nav-rounded.png) no-repeat right 0px;
+}
+
+ul.tabs, ul.nav-horizontal-flat {
+	background: #F6F6F6 url(../../images/high/grey/sprite-list.png) repeat-x 0px 0px;
+}
+
+ul.tabs li, ul.nav-horizontal-flat li {
+	background: #F6F6F6 url(../../images/high/grey/sprite-list.png) repeat-x 0px 0px;
+}
+
+ul.tabs li.active, ul.tabs li:hover, ul.nav-horizontal-flat li:hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-list.png) repeat-x 0px -50px;
+}
+ul.links li.comment_comments, ul.links li.comment_add, ul.links li.node_read_more, ul.button-rounded li {
+	background: url(../../images/high/grey/sprite-button-rounded-right.png) no-repeat right top;
+}
+
+ul.links li.comment_comments:hover, ul.links li.comment_add:hover, ul.links li.node_read_more:hover, ul.button-rounded li:hover {
+	background: url(../../images/high/grey/sprite-button-rounded-right.png) no-repeat right bottom;
+}
+
+ul.links li.comment_comments a, ul.links li.comment_add a, ul.links li.node_read_more a, ul.button-rounded li a {
+	background: url(../../images/high/grey/sprite-button-rounded-left.png) no-repeat left top;
+}
+
+ul.links li.comment_comments a:hover, ul.links li.comment_add a:hover, ul.links li.node_read_more a:hover, ul.button-rounded li a:hover {
+	background: url(../../images/high/grey/sprite-button-rounded-left.png) no-repeat left bottom;
+}
+input[type='submit'], button.button-submit { 
+  background: #F6F6F6 url(../../images/high/grey/sprite-button-flat.png) repeat-x 0px 0px;
+}
+input[type='submit']:hover, button.button-submit:hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-button-flat.png) repeat-x 0px -50px;
+}
+
+tr:hover {
+	background: #C1C1C1 url(../../images/high/grey/sprite-table-hover.png) repeat-x top;
+}
+
+/*
+ul.list-toggle {
+	background: #F6F6F6 url(../images/sprite-list.png) repeat-x top;
+}
+*/

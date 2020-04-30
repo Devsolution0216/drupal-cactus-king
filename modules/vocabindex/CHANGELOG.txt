@@ -1,0 +1,32 @@
+// $Id: CHANGELOG.txt,v 1.1.2.3 2008/12/19 00:22:17 xano Exp $
+
+Changelog of Vocabulary Index 2
+
+================================================================================
+
+Main features:
+--------------------------------------------------------------------------------
+- Index blocks!
+
+- Fully browsable vocabularies! Create directory indexes or sort terms by letter.
+
+- Every index page or block has its own settings. You can now have a tree view
+    for one vocabulary, while the other is browsable.
+
+- Allow users to paginate through your vocabularies if they're too big for a
+    single page.
+
+Other features:
+--------------------------------------------------------------------------------
+- Usability: a cleaner interface and better instructions on how to configure
+    Vocabulary Index.
+
+- Index pages and blocks may be cached for better performance.
+
+- If present, aliases are used to link to term pages.
+
+- Node counts.
+
+- At uninstallation all Vocabulary Index data is removed.
+
+- Use JavaScript to gracefully expand term trees.

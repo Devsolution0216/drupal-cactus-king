@@ -1,0 +1,340 @@
+<?php
+// $Id: uc_multiprice.module,v 1.7 2009/06/09 07:24:52 docc Exp $
+
+/**
+ * @file Provides Multiprice options
+ */
+
+/*******************************************************************************
+ * Hook Functions (Drupal)
+ ******************************************************************************/
+
+/**
+ * Implementation of hook_init().
+ */
+function uc_multiprice_init() {
+  uc_multiprice_country_id();
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function uc_multiprice_menu() {
+  $items['uc_multiprice/js'] = array(
+    'page callback' => 'uc_multiprice_js',
+    'access arguments' => array('administer nodes'),
+    'type' => MENU_CALLBACK,
+  );
+  /*
+  $items['admin/store/settings/multiprice'] = array(
+    'title' => 'Multiprice Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('uc_multiprice_settings'),
+    'access arguments' => array('administer store'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  */
+  return $items;
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function uc_multiprice_form_alter(&$form, $form_state, $form_id) { 
+  if (uc_product_is_product_form($form)) {
+    $form['base']['multiprice'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Product multi pricing'),
+        '#description' => t('You can override the global pricing by country.'),
+        '#tree' => TRUE,
+        '#weight' => 6,
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+    );   
+    $form['base']['multiprice']['countries'] = array(
+        '#type' => 'fieldset',
+        '#tree' => TRUE,
+        '#weight' => 3,
+        '#collapsible' => FALSE,
+        '#collapsed' => FALSE,
+        '#prefix' => '<div id="multiprice-countries">',
+        '#suffix' => '</div>',
+        '#theme' => 'uc_multiprice_form',
+    );
+
+    // Get all multiprices
+    $result = db_query("SELECT 
+                           c.country_id, c.country_name, m.nid, m.sell_price, m.cost, m.list_price 
+                        FROM 
+                          {uc_countries} c 
+                        LEFT JOIN 
+                          {uc_multiprice} m 
+                        ON 
+                          c.country_id = m.country_id 
+                        WHERE 
+                          c.version > 0 
+                        AND 
+                          m.nid = %d 
+                        ORDER BY 
+                          c.country_name ASC", $form['nid']['#value']);
+    $exist = array();
+    while ($country = db_fetch_object($result)) {
+      $form['base']['multiprice']['countries'] += uc_multiprice_field_element($country);
+      $exist[] = $country->country_id;
+    }
+      
+    $result = db_query("SELECT country_id, country_name FROM {uc_countries} WHERE version > 0 ORDER BY country_name ASC");
+    while ($country = db_fetch_object($result)) {
+      if (!in_array($country->country_id, $exist))
+        $countries[$country->country_id] = $country->country_name;  
+    }
+      
+    $form['base']['multiprice']['more'] = array(
+      '#type' => 'select',
+      '#description' => t("Select the country/region to add a price overide."),
+      '#options' => $countries,
+      '#weight' => 1,
+      '#ahah' => array(
+        'path' => 'uc_multiprice/js',
+        'wrapper' => 'multiprice-countries',
+        'method' => 'replace',
+        'effect' => 'slide',
+        ),
+    );
+    $form['#validate'][] = 'uc_multiprice_form_validate';
+  }
+  
+  // Checkout form
+  if ($form_id=='uc_cart_checkout_form') {
+    $id = uc_multiprice_country_id();
+    $form['panes']['delivery']['delivery_country']['#default_value'] = $id;
+    $form['panes']['delivery']['delivery_country']['#attributes'] = array('disabled' => 'disabled');  
+    drupal_add_js('$(document).ready( function() { $(\'#edit-panes-delivery-delivery-country\').val(\''. $id .'\').trigger(\'change\'); });', 'inline');
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function uc_multiprice_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  if (uc_product_is_product($node)) {
+    switch ($op) {
+      case 'load':
+        // Add to node object
+        $result = db_query("SELECT * FROM {uc_multiprice} WHERE nid = %d", $node->nid);
+        while ($row = db_fetch_object($result)) {
+          $node->multiprice[$row->country_id] = $row;
+        }
+        // Replace product price with multiprice if it's not node form.
+        if ((arg(2) != 'edit') && (arg(2) != 'add')) {
+          $cid = uc_multiprice_country_id();
+          if ($node->multiprice[$cid]) {
+            $node->sell_price = check_plain($node->multiprice[$cid]->sell_price);
+            $node->list_price = check_plain($node->multiprice[$cid]->list_price);
+            $node->cost       = check_plain($node->multiprice[$cid]->cost);
+          }
+        }
+      break;
+      case 'insert':
+      case 'update':
+        db_query("DELETE FROM {uc_multiprice} WHERE nid = %d", $node->nid);
+       
+       if (count($node->multiprice['countries'])==0)
+          break;
+        
+        foreach ($node->multiprice['countries'] as $country_id => $country) {
+            if (empty($country->delete)) {
+              db_query("INSERT INTO {uc_multiprice} (nid, country_id, list_price, cost, sell_price) VALUES (%d, %d, %f, %f, %f)",
+                $node->nid, $country_id, $country['list_price'], $country['cost'], $country['sell_price']);
+            }
+        }
+      break;
+    }
+  }
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function uc_multiprice_block($op = 'list', $delta = 0, $edit = array()) {
+  global $user;
+
+  switch ($op) {
+    case 'list':
+      $blocks = array();
+      $blocks[0] = array(
+        'info' => t('Region select'),
+        'cache' => BLOCK_NO_CACHE,
+      );
+      return $blocks;
+    case 'configure':
+      break;
+    case 'save':
+      break;
+    case 'view':
+      if ($delta == 0) {
+        $block = array(
+          'subject' => t('Country'),
+          'content' => drupal_get_form('uc_multiprice_region_form'),
+        );
+        return $block;
+      }
+      break;
+  }
+}
+
+/*******************************************************************************
+ * Helpers and Callbacks
+ ******************************************************************************/
+
+/**
+ * Sets or returns the country_id
+ * Avaiable for other modules
+ */
+function uc_multiprice_country_id($country_id = FALSE) {
+  if ($country_id) {
+    $_SESSION['country_id'] = $country_id;
+  }
+  
+  // Get Country by IP if not set
+  if (empty($_SESSION['country_id'])) {
+   // IP by ip2country
+   if (module_exists('ip2country') && module_exists('countries_api')) {
+     $country_code = ip2country_get_country(ip_address());
+     $country = countries_api_get_country($country_code);
+     $_SESSION['country_id'] = $country['numcode'];
+   }
+   // IP by ip2cc
+   elseif (module_exists('ip2cc')) { 
+     $country = ip2cc_get_country(ip_address());
+     $_SESSION['country_id'] = $country->country_number;
+   }
+    
+    // Still nothing? use default country
+    if (empty($country)) {
+      $_SESSION['country_id'] = uc_store_default_country();
+    }
+  }
+  return $_SESSION['country_id'];
+}
+
+function uc_multiprice_theme() {
+  return array(
+    'uc_multiprice_form' => array(
+      'arguments' => array('form' => NULL),
+    ),
+  );
+}
+
+function theme_uc_multiprice_form($form) {
+  $output = '';
+  $header = array(t('Country'), t('List price'), t('Cost'), t('Sell price'), t('Delete'));
+  $row = array();
+  foreach (element_children($form) as $country_id) {
+    $row = array();
+    $row[] = check_plain($form[$country_id]['country']['#value']);
+    $row[] = drupal_render($form[$country_id]['list_price']);
+    $row[] = drupal_render($form[$country_id]['cost']);
+    $row[] = drupal_render($form[$country_id]['sell_price']);
+    $row[] = drupal_render($form[$country_id]['delete']);
+    $rows[] = $row;
+  }
+  $output .= theme('table', $header, $rows, array('id' => 'uc_multiprice_table'));
+  return $output;
+}
+
+function uc_multiprice_field_element($country) {
+  $field[$country->country_id]['country'] = array(
+    '#type' => 'hidden',
+    '#required' => FALSE,
+    '#default_value' => $country->country_name,
+  );
+  $field[$country->country_id]['list_price'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#default_value' => isset($country->list_price) ? check_plain($country->list_price) : 0.00,
+    '#weight' => 0,
+    '#size' => 20,
+    '#maxlength' => 35,
+  );
+  $field[$country->country_id]['cost'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#default_value' => isset($country->cost) ? check_plain($country->cost) : 0.00,
+    '#weight' => 1,
+    '#size' => 20,
+    '#maxlength' => 35,
+  );
+  $field[$country->country_id]['sell_price'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#weight' => 2,
+    '#default_value' => isset($country->sell_price) ? check_plain($country->sell_price) : 0.00,
+    '#size' => 20,
+    '#maxlength' => 35,
+  );
+  $field[$country->country_id]['delete'] = array(
+    '#type' => 'checkbox',
+    '#required' => FALSE,
+  );
+  return $field;
+}
+
+function uc_multiprice_js() {
+  if (!$_POST) {
+    print "fake";
+    exit;
+  }
+  
+  // new field
+  $country_id = check_plain($_POST['multiprice']['more']);
+  $country = db_fetch_object(db_query("SELECT * FROM {uc_countries} WHERE country_id = %d", $country_id));
+  $field = uc_multiprice_field_element($country);
+
+  $form_state = array('submitted' => FALSE);
+  $form_build_id = $_POST['form_build_id'];
+
+  // Add the new element to the stored form. Without adding the element to the
+  // form, Drupal is not aware of this new elements existence and will not
+  // process it. We retreive the cached form, add the element, and resave.
+  $form = form_get_cache($form_build_id, $form_state);
+  $form['base']['multiprice']['countries'] += $field;
+  form_set_cache($form_build_id, $form, $form_state);
+  $form += array(
+    '#post' => $_POST,
+    '#programmed' => FALSE,
+  );
+  // Rebuild the form. 
+  $form = form_builder($_POST['form_id'], $form, $form_state);
+  
+  // return correct part
+  unset($form['base']['multiprice']['countries']['prefix']);
+  unset($form['base']['multiprice']['countries']['suffix']);
+  $output = drupal_render($form['base']['multiprice']['countries']);
+  
+  print drupal_to_js(array('status' => TRUE, 'data' => $output));
+  exit;
+}
+
+function uc_multiprice_region_form($form_state) {
+  $result = db_query("SELECT * FROM {uc_countries} WHERE version > 0 ORDER BY country_name ASC");
+  while ($country = db_fetch_object($result)) {
+  $countries[$country->country_id] = $country->country_name;
+  }
+
+  $form['country_id'] = array(
+  '#type' => 'select',
+  '#default_value' => uc_multiprice_country_id(),
+  '#options' => $countries,
+  '#attributes' => array('onchange' => 'javascript:this.form.submit();'),
+  );
+  
+  // hide the submit button
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Save'), '#attributes' => array('style' => 'display:none;'));
+  return $form;  
+}
+
+// save selection to session
+function uc_multiprice_region_form_submit($form, &$form_state) {
+  uc_multiprice_country_id($form_state['values']['country_id']);
+}

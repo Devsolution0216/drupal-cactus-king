@@ -1,0 +1,12 @@
+== 0.91 (2010-01-05) ==
+- fixed padding for footer, h1, breadcrumb and user-login accordion (indented
+	10px)
+- removed div if no primary links are to be shown
+- changed alpha blending on header to look nicer with and without primary links
+	div
+- article titles now properly use the colors set in the theme admin settings
+- fixed background-color(s) when waiting for button to load
+- improved logo + site name in page h1
+
+== 0.9 (2009-12-18) ==
+- preview release, first fully functional version publicly available

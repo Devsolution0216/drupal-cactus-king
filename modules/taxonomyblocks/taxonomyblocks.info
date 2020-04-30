@@ -1,0 +1,13 @@
+; $Id: taxonomyblocks.info,v 1.1 2008/12/30 13:29:00 aaronhawkins Exp $
+name = Advanced Taxonomy Blocks
+description = Creates A expandable taxonomy block for all vocabularies and separate blocks for each vocab if desired.
+dependencies[] = jquerymenu
+dependencies[] = taxonomy
+package = Advanced Navigation Pack
+core = 6.x
+; Information added by drupal.org packaging script on 2009-01-31
+version = "6.x-1.8"
+core = "6.x"
+project = "taxonomyblocks"
+datestamp = "1233436849"
+

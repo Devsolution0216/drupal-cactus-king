@@ -1,0 +1,543 @@
+<?php
+/*$Id: imceimage.module,v 1.1.2.4 2009/03/27 17:30:14 yangyicn Exp $*/
+
+/**
+ * Declare information about a field type hook_field_info()
+ *
+ * @return
+ *   An array keyed by field type name. Each element of the array is an associative
+ *   array with these keys and values:
+ *   - "label": The human-readable label for the field type.
+ */
+function imceimage_field_info() {
+  return array(
+    'imceimage' => array(
+       'label' => 'IMCE Image',
+       'description' => t('Use IMCE browser to attach images to content'),
+       'callbacks' => array(
+          'tables' => CONTENT_CALLBACK_DEFAULT,
+          'arguments' => CONTENT_CALLBACK_DEFAULT,
+        ),
+      ),
+  );
+}
+
+/**
+ * hook_field_settings()
+ **/
+function imceimage_field_settings($op, $field) {
+  switch ($op) {
+    case 'form': 
+      $form=array();
+      return $form;
+    case 'save':
+      return('imceimage_file_types');
+  
+    case 'database columns':
+      $columns = array(
+      'imceimage_path' => array('type' => 'char', 'length' => 255, 'not null' => FALSE, 'default' => ""),
+      'imceimage_width' => array('type' => 'int', 'not null' => TRUE, 'default' => "0"),
+      'imceimage_height' => array('type' => 'int', 'not null' => TRUE, 'default' => "0"),
+      'imceimage_alt' => array('type' => 'text'));
+    return $columns;
+  }
+}
+
+/**
+ * hook_field() implementation
+ **/
+function imceimage_field($op, &$node, $field, &$items, $teaser, $page) {
+   switch ($op) {
+    case 'validate':
+/*
+      $allowed_values = text_allowed_values($field);
+
+      if (is_array($items)) {
+        foreach ($items as $delta => $item) {
+          $error_field = $field['field_name'].']['.$delta.'][value';
+          if ($item['imceimage_path'] != '') {
+            if (count($allowed_values) && !array_key_exists($item['imceimage_path'], $allowed_values)) {
+              form_set_error($error_field, t('Illegal value for %name.', array('%name' => t($field['widget']['label']))));
+            }
+          }
+        }
+      }
+*/
+      break;
+  }
+}
+
+/**
+ * implementation of hook_content_is_empty..
+ **/
+function imceimage_content_is_empty($item, $field) {
+  return (empty($item['imceimage_path']));
+  
+//  $emptyCheck = ($item['imceimage_path'] === '' &&
+//                 $item['imceimage_width'] === '' &&
+//                 $item['imceimage_height'] === '' &&
+//                 $item['imceimage_alt'] === ''
+//                 );
+//  return $emptyCheck;
+}
+
+/**
+* Declare information about a formatter.
+*
+* @return
+*   An array keyed by formatter name. Each element of the array is an associative
+*   array with these keys and values:
+*   - "label": The human-readable label for the formatter.
+*   - "field types": An array of field type names that can be displayed using
+*     this formatter.
+*/
+function imceimage_field_formatter_info() {
+  $formatters = array(
+    'default' => array(
+      'label' => 'Default',
+      'field types' => array('imceimage'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+    ),
+    'with_caption' => array(
+      'label' => 'With caption',
+      'field types' => array('imceimage'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+    ),
+    'link' => array(
+      'label' => 'Link',
+      'field types' => array('imceimage'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+    ),
+    'thumb' => array(
+      'label' => 'Thumbnail',
+      'field types' => array('imceimage'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+    ),
+  );
+
+  if (module_exists('imagecache')) {
+    foreach (imagecache_presets() as $preset) {
+      $formatters[$preset['presetname'] .'_default'] = array(
+      'label' => t('@preset image', array('@preset' => $preset['presetname'])),
+      'field types' => array('imceimage'),
+      );
+      $formatters[$preset['presetname'] .'_linked'] = array(
+      'label' => t('@preset image linked to node', array('@preset' => $preset['presetname'])),
+      'field types' => array('imceimage'),
+      );
+      $formatters[$preset['presetname'] .'_imagelink'] = array(
+      'label' => t('@preset image linked to image', array('@preset' => $preset['presetname'])),
+      'field types' => array('imceimage'),
+      );
+      $formatters[$preset['presetname'] .'_path'] = array(
+      'label' => t('@preset file path', array('@preset' => $preset['presetname'])),
+      'field types' => array('imceimage'),
+      );
+      $formatters[$preset['presetname'] .'_url'] = array(
+      'label' => t('@preset URL', array('@preset' => $preset['presetname'])),
+      'field types' => array('imceimage'),
+      );
+    }
+  }
+
+  return $formatters;
+}
+
+
+/**
+ * Declare information about a widget.
+ *
+ * @return
+ *   An array keyed by widget name. Each element of the array is an associative
+ *   array with these keys and values:
+ *   - "label": The human-readable label for the widget.
+ *   - "field types": An array of field type names that can be edited using
+ *     this widget.
+ */
+function imceimage_widget_info() {
+  return array(
+    'imceimage' => array(
+      'label' => 'IMCE Image',
+      'field types' => array('imceimage'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+      'callbacks' => array(
+          'default value' => CONTENT_CALLBACK_DEFAULT,
+      ),
+    ),
+  );
+}
+
+/**
+ * Handle the parameters for a widget.
+ *
+ * @param $op
+ *   The operation to be performed. Possible values:
+ *   - "form": Display the widget settings form.
+ *   - "validate": Check the widget settings form for errors.
+ *   - "save": Declare which pieces of information to save back to the database.
+ *   - "callbacks": Describe the widget's behaviour regarding hook_widget operations.
+ * @param $widget
+ *   The widget on which the operation is to be performed.
+ * @return
+ *   This varies depending on the operation.
+ *   - "form": an array of form elements to add to the settings page.
+ *   - "validate": no return value. Use form_set_error().
+ *   - "save": an array of names of form elements to be saved in the database.
+ *   - "callbacks": an array describing the widget's behaviour regarding hook_widget
+ *     operations. The array is keyed by hook_widget operations ('form', 'validate'...)
+ *     and has the following possible values :
+ *       CONTENT_CALLBACK_NONE     : do nothing for this operation
+ *       CONTENT_CALLBACK_CUSTOM   : use the behaviour in hook_widget(operation)
+ *       CONTENT_CALLBACK_DEFAULT  : use content.module's default bahaviour
+ *     Note : currently only the 'default value' operation implements this feature.
+ *     All other widget operation implemented by the module _will_ be executed
+ *     no matter what.
+ */
+function imceimage_widget_settings($op, $widget) {
+  switch ($op) {
+    case 'form':
+      $form = array();
+      $form['imceimage_file_types'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Valid File Types'),
+        '#default_value' => $widget['imceimage_file_types'] ? $widget['imceimage_file_types'] : 'png,gif,jpg,jpeg',
+        '#required' => TRUE,
+      );
+      return $form;
+
+    case 'validate':
+      break;
+
+    case 'save':
+      return array('imceimage_file_types');
+
+    case 'callbacks':
+      return array(
+        'default value' => CONTENT_CALLBACK_NONE,
+      );
+  }
+}
+
+/**
+ * hook_widget
+ * This does not do anything much and instead just uses the element type
+ * imceimage defined in hook_elements - also include the javscript file
+ * for integrating with imce module.
+ */
+function imceimage_widget(&$form, &$form_state, $field, $items, $delta = 0) {
+      static $inc_js = FALSE;
+      if (!$inc_js) {
+        drupal_add_js(drupal_get_path('module','imceimage'). '/imceimage.js');
+        $inc_js = TRUE;
+      }
+
+      $element = array(
+        '#type' => 'imceimage',
+        '#default_value' => isset($items[$delta])? $items[$delta] : '',
+      );
+      return $element;
+}
+
+
+// hook_views_api
+function imceimage_views_api() {
+  return array('api' => 2.0);
+}
+
+/**
+ * theme an image
+ */
+function theme_imceimage_image($s, $w='', $h='', $a='', $id='') {
+    $s = 'src="'. $s .'" ';
+    $a = 'alt="'. $a .'" ';
+    $id = !empty($id)? 'id="'. $id .'" ':'';
+    $w = !empty($w)? 'width="'. $w .'" ':'';
+    $h = !empty($h)? 'height="'. $h .'" ':'';
+    return '<img '. $s . $a . $w . $h . $id .'/>';
+}
+
+
+function _imceimage_get_thumb($image) {
+  $thumb_prefix = 'thumb_';
+  $path = $image['imceimage_path'];
+  $thumb_name = $thumb_prefix . basename($path);
+  $thumb_path = dirname($path) . "/" . $thumb_name;
+
+  list($width, $height, $type, $image_attributes) = @getimagesize($thumb_path);
+  $thumb = array();
+  $thumb['imceimage_path'] = $thumb_path;
+  $thumb['imceimage_width'] = $width; 
+  $thumb['imceimage_height'] = $height; 
+  $thumb['imceimage_alt'] = $image['imceimage_alt']; 
+  return $thumb;   
+}
+
+/**
+ * displays the image as a link. given the class imceimage-link
+ **/
+function theme_imceimage_formatter_thumb($element) {
+  $item = $element['#item'];
+  $field = $element['#field_name'];
+  $delta = $element['#delta'];
+  $id = "imceimage-". $field ."-". $delta . '-thumb';
+  $thumb = _imceimage_get_thumb($item);
+  return theme_imceimage_image($thumb['imceimage_path'], $thumb['imceimage_width'],$thumb['imceimage_height'],$thumb['imceimage_alt'],$id);
+
+}
+
+/**
+ * displays the image as a link. given the class imceimage-link
+ **/
+function theme_imceimage_formatter_link($element) {
+  $item = $element['#item'];
+  if (!isset($item['imceimage_alt'])) {
+    $title = $element['#node']->title;
+  }
+  else{
+    $title = $item['imceimage_alt'];
+  }
+  return '<a href="' . $item['imceimage_path'] .'" class="imceimage-link">' . $title . '</a>';
+}
+
+/**
+ * displays the image as an img
+ */
+function theme_imceimage_formatter_default($element) {
+  $item = $element['#item'];
+  $field = $element['#field_name'];
+  $delta = $element['#delta'];
+  $id = "imceimage-". $field ."-". $delta;
+  if ($item['imceimage_path']) {
+    return theme_imceimage_image($item['imceimage_path'],$item['imceimage_width'],$item['imceimage_height'],$item['imceimage_alt'],$id);
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * displays the image as an img with caption
+ */
+function theme_imceimage_formatter_with_caption($element) {
+  $item = $element['#item'];
+  $field = $element['#field_name'];
+  $delta = $element['#delta'];
+  $id = "imceimage-". $field ."-". $delta;
+  if ($item['imceimage_path']) {
+    $image = theme_imceimage_image($item['imceimage_path'],$item['imceimage_width'],$item['imceimage_height'],$item['imceimage_alt'],$id);
+    $caption = $item['imceimage_alt'];
+    return "<div class='image-with-caption'><div class='image'>". $image ."</div><div class='caption' style='font-style:italic'>". $caption ."</div></div>";
+  }
+  else {
+    return '';
+  }
+}
+
+//begin imagecache support
+function theme_imceimage_formatter($element) {
+  if (!isset($element['#item']['nid'])){
+    $element['#item']['nid'] = $element['#node']->nid;
+  }  
+  
+  if (isset($element['#item']['nid']) && $node = node_load($element['#item']['nid'])) {
+    $result = imceimage_field_formatter($element['#field_name'], $element['#item'], $element['#formatter'], $node);
+    return $result;
+  }
+}
+
+function imceimage_field_formatter($field, $item, $formatter, $node) {
+  $parts =  explode('_', $formatter);
+  $style = array_pop($parts);
+  $presetname = implode('_', $parts);
+  $class = "imagecache imagecache-$presetname imagecache-$style imagecache-$formatter";
+  $caption = $item['imceimage_alt'];
+  $image_url = $item['imceimage_path'];
+  if(empty($image_url)){
+    return '';
+  }
+
+  // $file_path_url = $server . $file_directory . $subdir . $filename;
+  // $server can be different when there are multi-sites
+  $path_parts = parse_url($item['imceimage_path']);
+
+  // $file_directory can be different for public / private download
+  $file_directory = variable_get('file_downloads', '') == FILE_DOWNLOADS_PRIVATE ? 'system/files' : file_directory_path();
+
+  $filename = basename($item['imceimage_path']);
+  $subdir =  str_replace("/". $file_directory ."/", '', str_replace( '/'. $filename, '', $path_parts['path'])); 
+
+  $orig_filepath = $subdir .'/'. $filename;
+  $imagecache_url = imagecache_create_url($presetname, $orig_filepath); //"subdir/subdir2/imageabc.jpg"
+
+  $full_img_url = file_create_url($orig_filepath);
+
+  if ($preset = imagecache_preset_by_name($presetname)) {
+    switch ($style) {
+    case 'linked':
+      $imagetag = theme('imagecache', $presetname, $orig_filepath, $caption, $caption);
+      $img = l($imagetag, 'node/'. $node->nid, array('attributes' => array('class' => $class), 'html' => true));
+      return $img;
+    case 'imagelink':
+      $imagetag =  theme('imagecache', $presetname, $orig_filepath, $caption, $caption);
+      $img = l($imagetag, $full_img_url, array('attributes' => array('class' => $class, 'target' => '_blank'), 'html' => true));
+      return $img;    
+    case 'url':
+      return $imagecache_url;
+    case 'path':
+      return imagecache_create_path($presetname, $orig_filepath);
+    default:
+      return theme('imagecache', $presetname, $orig_filepath, $caption, $caption);    
+    }
+  }
+  return '<!-- imagecache formatter preset('. $presetname .') not found! -->';
+}
+
+// end Imagecache addition
+
+
+
+
+
+function theme_imceimage($element) {
+  return $element['#children'];
+}
+
+/**
+ * hook_theme - that works together with hook_formatter and hook_elements
+ * to provide the default theme and also a theme to display the
+ * image as a link.
+ **/
+function imceimage_theme() {
+  $theme = array(
+    'imceimage' => array(
+       'arguments' => array('element' => NULL),
+    ),
+    'imceimage_formatter_default' => array(
+       'arguments' => array('element' => NULL),
+    ),
+    'imceimage_formatter_with_caption' => array(
+       'arguments' => array('element' => NULL),
+    ),
+    'imceimage_formatter_link' => array(
+       'arguments' => array('element' => NULL),
+    ),
+    'imceimage_formatter_thumb' => array(
+       'arguments' => array('element' => NULL),
+    ),
+  );
+
+  if (module_exists('imagecache')) {
+    foreach (imagecache_presets() as $preset) {
+      $theme['imceimage_formatter_'. $preset['presetname'] .'_default'] = array(
+        'arguments' => array('element' => NULL),
+        'function' => 'theme_imceimage_formatter',
+      );
+      $theme['imceimage_formatter_'. $preset['presetname'] .'_linked'] = array(
+        'arguments' => array('element' => NULL),
+        'function' => 'theme_imceimage_formatter',
+      );
+      $theme['imceimage_formatter_'. $preset['presetname'] .'_imagelink'] = array(
+        'arguments' => array('element' => NULL),
+        'function' => 'theme_imceimage_formatter',
+      );
+      $theme['imceimage_formatter_'. $preset['presetname'] .'_path'] = array(
+        'arguments' => array('element' => NULL),
+        'function' => 'theme_imceimage_formatter',
+      );
+      $theme['imceimage_formatter_'. $preset['presetname'] .'_url'] = array(
+        'arguments' => array('element' => NULL),
+        'function' => 'theme_imceimage_formatter',
+      );
+    }
+  }
+  return $theme;
+}
+
+/**
+ * hook_elements - implementation defines name of the field type and
+ * the items that are stored against this field.
+ **/
+function imceimage_elements() {
+  $el = array();
+  $el['imceimage'] = array(
+     '#input' => TRUE,
+     '#columns' => array('imceimage_path','imceimage_width','imceimage_height','imceimage_alt'),
+     '#delta' => 0,
+     '#process' => array('imceimage_process'),
+     '#theme' => 'imceimage_override', //not used
+  );
+  return $el;
+}
+
+/**
+ * process handler for hook_elements renders the form element for
+ * imceimage.
+ */
+function imceimage_process($element, $edit, $form_state, $form) {
+  $field = $form['#field_info'][$element['#field_name']];
+  $delta = $element['#delta'];
+
+  $link = url('imce/browse');
+  $field_id = $field['field_name'];
+
+  if (trim($element['#value']['imceimage_path']) != '') {
+    $links = t('Change Image') . '</a>]'
+           .'[<a class="imceimage-remove" href="javascript:'
+           . "imceImage.remove('$delta-$field_id')"
+           . '">' . t('Remove') . '</a>]';
+  } 
+  else {
+    $links = t('Add Image') . '</a>]';
+  }
+
+  $element['imce_add'] = array(
+    '#type' => 'item',
+    '#value' => $field['widget']['label'] 
+               .' [<a href="'
+               ."javascript:imceImage.open('$link', '$delta-$field_id')"
+               .'" class="imceimage-add">'. $links );
+
+
+  $element['imceimage_path'] = array(
+    '#type' => 'hidden',
+    '#id' => "imceimagepath-$delta-$field_id",
+    '#default_value' => $element['#value']['imceimage_path'],
+  );
+
+  $element['imceimage_width'] = array(
+    '#type' => 'hidden',
+    '#id' => "imceimagewidth-$delta-$field_id",
+    '#default_value' => $element['#value']['imceimage_width'],
+  );
+
+  $element['imceimage_height'] = array(
+    '#type' => 'hidden',
+    '#id' => "imceimageheight-$delta-$field_id",
+    '#default_value' => $element['#value']['imceimage_height'],
+  );
+
+  $element['imceimage_alt'] = array(
+    '#type' => 'textarea',
+    '#id' => "imceimagealt-$delta-$field_id",
+    '#default_value' => isset($element['#value']['imceimage_alt']) ? check_plain($element['#value']['imceimage_alt']) : NULL,
+    '#autocomplete_path' => $element['#autocomplete_path'],
+    '#rows' => 1,
+    '#attributes' => array('class' => 'text'),
+    // The following values were set by the content module and need
+    // to be passed down to the nested element.
+    '#title' => t('caption'), //$element['#title']['imceimage_alt'],
+    '#description' => t('The caption text for this image.'), //$element['#description']['imceimage_alt'],
+  );
+
+  $element['imce_view'] = array(
+    '#type' => 'item',
+    '#value' => theme_imceimage_image($element['#value']['imceimage_path'],
+                            $element['#value']['imceimage_width'],
+                            $element['#value']['imceimage_height'],
+                            $element['#value']['imceimage_alt'], 
+                            "imceimagearea-$delta-$field_id")
+  );
+
+
+  return $element;
+}

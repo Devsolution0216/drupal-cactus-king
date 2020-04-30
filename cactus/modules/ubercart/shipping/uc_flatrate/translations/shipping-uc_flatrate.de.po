@@ -1,0 +1,157 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_flatrate.info,v 1.4.2.2 2008/11/07 21:13:27 islandusurper
+#  uc_flatrate.module,v 1.5.2.5 2008/12/11 15:53:51 islandusurper
+#  uc_flatrate.admin.inc,v 1.1.2.5 2008/12/09 15:20:38 islandusurper
+#  uc_flatrate.install,v 1.5.2.4 2008/12/09 15:20:38 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-11-10 16:00+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: shipping/uc_flatrate/uc_flatrate.info:0
+msgid "Flatrate"
+msgstr "Versand Pauschale"
+
+#: shipping/uc_flatrate/uc_flatrate.module:0
+msgid "uc_flatrate"
+msgstr "uc_flatrate"
+
+#: shipping/uc_flatrate/uc_flatrate.info:0
+msgid "Assigns a flat shipping rate to products."
+msgstr "Versandpauschalen den Artikeln zuweisen."
+
+#: shipping/uc_flatrate/uc_flatrate.module:22
+msgid "Flat rate"
+msgstr "Pauschale"
+
+#: shipping/uc_flatrate/uc_flatrate.module:29
+msgid "Edit flat rate method"
+msgstr "Versand Pauschale bearbeiten"
+
+#: shipping/uc_flatrate/uc_flatrate.module:37
+msgid "Delete flat rate method"
+msgstr "Versand Pauschale löschen"
+
+#: shipping/uc_flatrate/uc_flatrate.module:67
+msgid "Flat shipping rates"
+msgstr "Pauschale Versandkosten"
+
+#: shipping/uc_flatrate/uc_flatrate.module:68
+msgid ""
+"Override the default shipping rate per product for each flat rate "
+"shipping method here. Enter -1 to revert to the default value."
+msgstr ""
+"Die standard versand kosten pro Artikel überschreiben. Geben Sie -1 "
+"an um den Artikel wieder auf standard zu setzten."
+
+#: shipping/uc_flatrate/uc_flatrate.module:78
+msgid "Default rate: %price"
+msgstr "Standard Versand kosten: %price"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:30
+msgid "Label"
+msgstr "Beschriftung"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:30
+msgid "Base rate"
+msgstr "Standard Rate"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:30
+msgid "Default product rate"
+msgstr "Standard Artikel rate"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:49
+msgid "Shipping method title"
+msgstr "Bezeichnung der Versandart"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:50
+msgid "The name shown to distinguish it from other flatrate methods."
+msgstr ""
+"Der Name der angezeigt wird um die Versandart von anderen zu "
+"unterscheiden."
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:54
+msgid "Line item label"
+msgstr "Bezeichnung der Zeile"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:55
+msgid ""
+"The name shown to the customer when they choose a shipping method at "
+"checkout."
+msgstr ""
+"Der Name der den Kunden angezeigt wird wenn Sie eine Versandart beim "
+"Abschluss der Bestellung wählen."
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:60
+msgid "The starting price for shipping costs."
+msgstr "Der Anfangs Preis für Versandkosten"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:67
+msgid "Default product shipping rate"
+msgstr "Standard Artikel versandkosten"
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:90
+msgid "The base rate must be a numeric amount."
+msgstr "Die standard Rate muss ein numrischer Wert sein."
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:93
+msgid "The product rate must be a numeric amount."
+msgstr "Die Artikel Rate muss ein numrischer Wert sein."
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:131
+msgid "Do you want to delete this shipping method?"
+msgstr "Wollen Sie dies Versand Art wirklich löschen?"
+
+#: shipping/uc_flatrate/uc_flatrate.install:154
+msgid "Flat rate per product"
+msgstr "Versandpauschale pro Artikel"
+
+#: shipping/uc_flatrate/uc_flatrate.install:154,173
+msgid "Shipping rate"
+msgstr "Versandkosten"
+
+#: shipping/uc_flatrate/uc_flatrate.install:173
+msgid "Flat rate per order"
+msgstr "Pauschale pro Bestellung"
+
+#: shipping/uc_flatrate/uc_flatrate.module:143
+msgid "Shipping quote via @method"
+msgstr ""
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:33
+msgid "Add a new flat rate shipping method."
+msgstr "Neue Versandpauschale anlegen."
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:106
+msgid "Flat rate shipping method was updated."
+msgstr ""
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:118
+msgid "Created and enabled new flat rate shipping method."
+msgstr ""
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:133
+msgid ""
+"This will remove the shipping method, Conditional Action predicate, "
+"and the\n"
+"      product-specific overrides (if applicable). This action can not "
+"be undone."
+msgstr ""
+
+#: shipping/uc_flatrate/uc_flatrate.admin.inc:152
+msgid "Flat rate shipping method deleted."
+msgstr ""
+
+#: shipping/uc_flatrate/uc_flatrate.module:150
+msgid "Fetch a flatrate shipping quote."
+msgstr ""
+

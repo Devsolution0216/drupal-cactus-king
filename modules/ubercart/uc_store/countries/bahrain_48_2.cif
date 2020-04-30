@@ -1,0 +1,39 @@
+<?php
+// $Id: bahrain_48_2.cif,v 1.1.2.3 2010/04/14 05:18:19 tr Exp $
+
+/**
+ * First implement hook_install() using the name of the country as the base of
+ * the function name.
+ */
+function bahrain_install() {
+  // Make the entry in the country table.
+  // VALUES = Country ID, Country Name, 2-digit Code, 3-digit Code, File Version
+  db_query("INSERT INTO {uc_countries} (country_id, country_name, country_iso_code_2, country_iso_code_3, version) VALUES ('48', 'Bahrain', 'DZ', 'DZA', 2)");
+
+  // Make the entries in the zones table.  Use %d for the zone_id and the
+  // VALUES = Parent Country ID, Zone Abbreviation, Zone Name
+  $zones = array(
+    array(48, 'AHD', 'Al Hidd'),
+    array(48, 'AMQ', 'Al Muharraq'),
+    array(48, 'AMH', 'Al Manamah'),
+    array(48, 'JHA', 'Jidd Hafs'),
+    array(48, 'AMS', 'Al Mintaqah Ash Shamaliyah'),
+    array(48, 'STH', 'Sitrah'),
+    array(48, 'AMW', 'Al Mintaqah al Wusta'),
+    array(48, 'MAT', 'Madinatisa'),
+    array(48, 'ARR', 'Ar Rifae'),
+    array(48, 'AMG', 'Al Mintaqah al Gharbiyah'),
+    array(48, 'AMJ', 'Al Mintaqah Juzur Hawar'),
+    array(48, 'MAH', 'Madinat Hamad'),
+  );
+
+  foreach ($zones as $zone) {
+    db_query("INSERT INTO {uc_zones} (zone_country_id, zone_code, zone_name) VALUES (%d, '%s', '%s')", $zone);
+  }
+
+  // Use uc_set_address_format() with the country ID as the first argument and
+  // an address format string as the second.  Documentation on address formats
+  // is available at:
+  // http://www.ubercart.org/ubercart_users_guide/country_settings#address_format_docs
+  uc_set_address_format(48, "!company\r\n!first_name !last_name\r\n!street1 !street2\r\n!zone_name !postal_code\r\n\r\n!country_name_if");
+}

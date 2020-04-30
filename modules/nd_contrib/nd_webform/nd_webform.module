@@ -1,0 +1,41 @@
+<?php
+// $Id: nd_webform.module,v 1.1.2.1 2010/09/24 13:44:42 swentel Exp $
+
+/**
+ * @file
+ * Webform support for Node displays module.
+ */
+
+/**
+ * Implementation of hook_ds_fields().
+ */
+function nd_webform_ds_fields($type_name, $build_mode, $extra) {
+  if (!in_array($type_name, webform_variable_get('webform_node_types'))) {
+    return;
+  }
+  
+  $fields = array(
+    'webform_form' => array(
+      'title' => t('Webform'),
+      'type' => DS_FIELD_TYPE_FUNCTION,
+      'status' => DS_FIELD_STATUS_STATIC,
+      'properties' => array(
+        'formatters' => array(
+          'nd_webform_render_form' => t('Default'),
+        ),
+      )
+    ),
+  );
+
+  return array('nd' => $fields);
+}
+
+/**
+ * Returns the detailed question as a seperated field.
+ *
+ * @param array $field
+ * @return string
+ */
+function nd_webform_render_form($field) {
+  return $field['object']->content['webform']['#value'];
+}

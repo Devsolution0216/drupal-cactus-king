@@ -1,0 +1,68 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from file: hooks.php,v 1.1.2.6 2008/11/07 21:13:28 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-02-16 19:26+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: docs/hooks.php:782
+msgid "Check or Money Order"
+msgstr "Scheck oder Überweisung"
+
+#: docs/hooks.php:1014
+msgid "Small Packages"
+msgstr "Kleine Pakete"
+
+#: docs/hooks.php:335
+msgid "Cart Contents"
+msgstr "Warenkorb Inhalt"
+
+#: docs/hooks.php:584
+msgid "Empty Line"
+msgstr "Leere Zeile"
+
+#: docs/hooks.php:1047
+msgid "Credit card data in the database is currently being encrypted."
+msgstr ""
+"Die Kreditkartendaten in der datenbank sind im Augenblick "
+"verschlüsselt."
+
+#: docs/hooks.php:53
+msgid "Sorry, you can only add one of those at a time."
+msgstr ""
+
+#: docs/hooks.php:366
+msgid "This account has been banned and can't download files anymore. "
+msgstr ""
+
+#: docs/hooks.php:461
+msgid "Watermark Text"
+msgstr ""
+
+#: docs/hooks.php:465
+msgid "Add Watermark"
+msgstr ""
+
+#: docs/hooks.php:475
+msgid "Uploaded file is not a valid JPEG"
+msgstr ""
+
+#: docs/hooks.php:481
+msgid "Must fill in text"
+msgstr ""
+
+#: docs/hooks.php:1079
+msgid ""
+"This block of text represents a configurable message such as a set of "
+"instructions or an e-mail template.  Using hook_uc_message to handle "
+"the default values for these is so easy even your grandma can do it!"
+msgstr ""
+

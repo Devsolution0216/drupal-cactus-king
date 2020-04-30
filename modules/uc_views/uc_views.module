@@ -1,0 +1,15 @@
+<?php
+// $Id: uc_views.module,v 1.1 2009/03/03 07:58:19 madsph Exp $
+
+/**
+ * Implementation of hook_views_api().
+ */
+function uc_views_views_api() {
+  return array(
+    'api' => '2.0',
+    'path' => drupal_get_path('module', 'uc_views') .'/views',
+  );
+}
+
+
+?>

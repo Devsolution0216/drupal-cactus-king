@@ -1,0 +1,573 @@
+# $Id: uc_attribute.ja.po,v 1.1.2.2 2009/11/20 07:09:08 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  uc_attribute.admin.inc,v 1.1.2.24 2009/10/20 20:58:06 islandusurper
+#  uc_attribute.module,v 1.12.2.36 2009/10/20 20:58:06 islandusurper
+#  uc_attribute.ca.inc,v 1.1.2.2 2009/07/21 14:37:21 islandusurper
+#  uc_attribute.install,v 1.10.2.10 2009/09/23 15:45:57 islandusurper
+#  uc_attribute.info,v 1.6.2.2 2008/11/07 21:13:22 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-10-13 23:49+0900\n"
+"PO-Revision-Date: 2009-11-10 18:55+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_attribute.admin.inc:15;75;289;352;624
+msgid "Name"
+msgstr "名前"
+
+#: uc_attribute.admin.inc:16;82;624
+msgid "Label"
+msgstr "ラベル"
+
+#: uc_attribute.admin.inc:17;624
+msgid "Required"
+msgstr "必須"
+
+#: uc_attribute.admin.inc:18;108;289;360;624;867
+msgid "List position"
+msgstr "リスト位置"
+
+#: uc_attribute.admin.inc:19
+msgid "Number of options"
+msgstr "オプション数"
+
+#: uc_attribute.admin.inc:20;101
+msgid "Display type"
+msgstr "表示タイプ"
+
+#: uc_attribute.admin.inc:21;289
+msgid "Operations"
+msgstr "操作"
+
+#: uc_attribute.admin.inc:32;248
+msgid "edit"
+msgstr "編集"
+
+#: uc_attribute.admin.inc:33
+msgid "options"
+msgstr "オプション"
+
+#: uc_attribute.admin.inc:34;249
+msgid "delete"
+msgstr "削除"
+
+#: uc_attribute.admin.inc:39
+msgid "Yes"
+msgstr "はい"
+
+#: uc_attribute.admin.inc:39
+msgid "No"
+msgstr "いいえ"
+
+#: uc_attribute.admin.inc:49
+msgid "No product attributes have been added yet."
+msgstr "商品属性がまだありません。"
+
+#: uc_attribute.admin.inc:54
+#: uc_attribute.module:68
+msgid "Add an attribute"
+msgstr "属性の追加"
+
+#: uc_attribute.admin.inc:70
+msgid "Edit attribute: %name"
+msgstr "属性を編集: %name"
+
+#: uc_attribute.admin.inc:76
+msgid "The name of the attribute used in administrative forms"
+msgstr "管理画面で使用する属性名"
+
+#: uc_attribute.admin.inc:83
+msgid "Enter a label that customers will see instead of the attribute name. Use &lt;none&gt; if you don't want a title to appear at all."
+msgstr "属性名の代わりに顧客へ表示するラベルを入力してください。タイトルを表示したくなければ &lt;none&gt; と入力してください。"
+
+#: uc_attribute.admin.inc:88
+msgid "Help text"
+msgstr "ヘルプテキスト"
+
+#: uc_attribute.admin.inc:89
+msgid "<b>Optional.</b> Enter the help text that will display beneath the attribute on product add to cart forms."
+msgstr "<strong>任意</strong>。「カートに入れる」フォームにある属性のそばに表示するヘルプテキストを入力します。"
+
+#: uc_attribute.admin.inc:95
+msgid "Make this attribute required, forcing the customer to choose an option."
+msgstr "この属性を必須として、顧客にオプションを選択させる。"
+
+#: uc_attribute.admin.inc:96
+msgid "Selecting this for an attribute will disregard any default option you specify.<br />May be overridden at the product level."
+msgstr "この項目を有効にすると、あなたが指定するデフォルトのオプションはすべて無視されます。<br />商品単位で上書きすることができます。"
+
+#: uc_attribute.admin.inc:102
+msgid "This specifies how the options for this attribute will be presented.<br />May be overridden at the product level."
+msgstr "この属性のオプションをどのように表示するか指定します。<br />商品単位で上書きすることができます。"
+
+#: uc_attribute.admin.inc:109
+msgid "Multiple attributes on an add to cart form are sorted by this value and then by their name.<br />May be overridden at the product level."
+msgstr "「カートに入れる」フォームにある複数の属性はこの値の順、次に名前の順に表示されます。<br />商品単位で上書きすることができます。"
+
+#: uc_attribute.admin.inc:115;393;843;1148
+msgid "Submit"
+msgstr "送信"
+
+#: uc_attribute.admin.inc:116;156;394;458;593
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: uc_attribute.admin.inc:145;335
+msgid "There is no attribute with that ID."
+msgstr "そのIDの属性はありません。"
+
+#: uc_attribute.admin.inc:154
+msgid "Are you sure you want to delete the attribute %name?"
+msgstr "属性 %name を本当に削除しますか？"
+
+#: uc_attribute.admin.inc:156;458
+msgid "Delete"
+msgstr "削除"
+
+#: uc_attribute.admin.inc:173
+msgid "Product attribute deleted."
+msgstr "商品属性を削除しました。"
+
+#: uc_attribute.admin.inc:186
+msgid "Option price format"
+msgstr "オプションの価格の書式"
+
+#: uc_attribute.admin.inc:188
+msgid "Do not display"
+msgstr "表示しない"
+
+#: uc_attribute.admin.inc:189
+msgid "Display price adjustment"
+msgstr "価格補正額を表示"
+
+#: uc_attribute.admin.inc:190
+msgid "Display total price"
+msgstr "補正額込みの総額を表示"
+
+#: uc_attribute.admin.inc:192
+msgid "Formats the price in the attribute selection form when the customer adds a product to their cart. The total price will only be displayed on products with only one price affecting attribute."
+msgstr "顧客が商品をカートに入れる際の属性選択フォームで、書式に従って価格を表示します。商品の合計金額は、価格に影響している属性と並んで1つだけ表示します。"
+
+#: uc_attribute.admin.inc:210;347
+msgid "Options for %name"
+msgstr "%nameのオプション"
+
+#: uc_attribute.admin.inc:266;566
+msgid "Save changes"
+msgstr "変更を保存"
+
+#: uc_attribute.admin.inc:279;706
+msgid "The changes have been saved."
+msgstr "変更内容が保存されました。"
+
+#: uc_attribute.admin.inc:289
+msgid "Default cost"
+msgstr "デフォルトの費用"
+
+#: uc_attribute.admin.inc:289
+msgid "Default price"
+msgstr "デフォルトの価格"
+
+#: uc_attribute.admin.inc:289
+msgid "Default weight"
+msgstr "デフォルトの重さ"
+
+#: uc_attribute.admin.inc:310
+msgid "No options for this attribute have been added yet."
+msgstr "この属性にはまだオプションがありません。"
+
+#: uc_attribute.admin.inc:320
+#: uc_attribute.module:115
+msgid "Add an option"
+msgstr "オプションの追加"
+
+#: uc_attribute.admin.inc:344
+msgid "Edit option: %name"
+msgstr "オプションを編集: %name"
+
+#: uc_attribute.admin.inc:353
+msgid "This name will appear to customers on product add to cart forms."
+msgstr "商品の「カートに入れる」フォームにはこの名前で表示されます。"
+
+#: uc_attribute.admin.inc:361
+msgid "Options will be listed sorted by this value and then by their name.<br />May be overridden at the product level."
+msgstr "オプションはこの値の順、次に名前の順に表示されます。<br />商品レベルで上書きできます。"
+
+#: uc_attribute.admin.inc:367
+msgid "Default adjustments"
+msgstr "デフォルトの調整"
+
+#: uc_attribute.admin.inc:368
+msgid "Enter a positive or negative value for each adjustment applied when this option is selected.<br />Any of these may be overriden at the product level."
+msgstr "オプションを選択したときに適用されるそれぞれの調整を、正または負の値で入力してください。<br />これらは商品レベルで上書きできます。"
+
+#: uc_attribute.admin.inc:374;867
+msgid "Cost"
+msgstr "費用"
+
+#: uc_attribute.admin.inc:380;867
+msgid "Price"
+msgstr "価格"
+
+#: uc_attribute.admin.inc:386;867
+msgid "Weight"
+msgstr "ウェイト"
+
+#: uc_attribute.admin.inc:408
+msgid "This must be in a valid number format. No commas and only one decimal point."
+msgstr "正しく数字を入力してください。コンマ無しで、小数点は1つだけです。"
+
+#: uc_attribute.admin.inc:427;428
+msgid "Created new option %option."
+msgstr "新しいオプション %option を作成しました。"
+
+#: uc_attribute.admin.inc:434;435
+msgid "Updated option %option."
+msgstr "オプション %option を更新しました。"
+
+#: uc_attribute.admin.inc:447
+msgid "There is no option with that ID."
+msgstr "そのIDにはオプションがありません。"
+
+#: uc_attribute.admin.inc:456
+msgid "Are you sure you want to delete the option %name?"
+msgstr "オプション %name を本当に削除しますか？"
+
+#: uc_attribute.admin.inc:545
+msgid "n/a"
+msgstr "N/A"
+
+#: uc_attribute.admin.inc:583
+#: uc_attribute.module:54;142;162;172
+msgid "Attributes"
+msgstr "属性"
+
+#: uc_attribute.admin.inc:584
+msgid "Hold Ctrl + click to select multiple attributes."
+msgstr "複数の属性を選択するにはCtrlを押しながらクリックしてください。"
+
+#: uc_attribute.admin.inc:585
+msgid "No attributes left to add."
+msgstr "追加できる属性がありません。"
+
+#: uc_attribute.admin.inc:592
+msgid "Add attributes"
+msgstr "属性の追加"
+
+#: uc_attribute.admin.inc:624
+msgid "Remove"
+msgstr "除去"
+
+#: uc_attribute.admin.inc:624;867
+msgid "Default"
+msgstr "デフォルト"
+
+#: uc_attribute.admin.inc:624
+msgid "Display"
+msgstr "表示"
+
+#: uc_attribute.admin.inc:646
+msgid "You must first <a href=\"!url\">add attributes to this !type</a>."
+msgstr "まずはじめに<a href=\"!url\">この!typeへ属性を追加</a>してください。"
+
+#: uc_attribute.admin.inc:655
+msgid "You may add more attributes <a href=\"!url\">here</a>."
+msgstr "<a href=\"!url\">こちら</a>で属性を追加することができます。"
+
+#: uc_attribute.admin.inc:833
+msgid "This attribute does not have any options."
+msgstr "この属性にはオプションがありません。"
+
+#: uc_attribute.admin.inc:867
+#: uc_attribute.module:101;151;182
+msgid "Options"
+msgstr "オプション"
+
+#: uc_attribute.admin.inc:901
+msgid "This !type does not have any attributes."
+msgstr "この!typeには属性がありません。"
+
+#: uc_attribute.admin.inc:901;1026
+msgid "product"
+msgstr "商品"
+
+#: uc_attribute.admin.inc:901;1026
+msgid "product class"
+msgstr "商品クラス"
+
+#: uc_attribute.admin.inc:914;1153
+msgid "This product does not have any attributes."
+msgstr "この商品には属性がありません。"
+
+#: uc_attribute.admin.inc:917
+msgid "This product class does not have any attributes."
+msgstr "この商品クラスには属性がありません。"
+
+#: uc_attribute.admin.inc:948
+msgid ", !option"
+msgstr ""
+
+#: uc_attribute.admin.inc:951
+msgid "@attribute: @option"
+msgstr ""
+
+#: uc_attribute.admin.inc:985
+msgid "All attributes with enabled options must specify an enabled option as default."
+msgstr "有効なオプションのある属性はすべて、デフォルトのオプションを指定する必要があります。"
+
+#: uc_attribute.admin.inc:1026
+msgid "The !type options have been saved."
+msgstr "!typeのオプションを保存しました。"
+
+#: uc_attribute.admin.inc:1080
+msgid "Default product SKU: @sku"
+msgstr "デフォルトの商品SKU: @sku"
+
+#: uc_attribute.admin.inc:1182
+msgid "Product adjustments have been saved."
+msgstr "商品の調整を保存しました。"
+
+#: uc_attribute.admin.inc:428;435
+msgid "uc_attribute"
+msgstr "uc_attribute"
+
+#: uc_attribute.admin.inc:155
+msgid "There is @count product with this attribute."
+msgid_plural "There are @count products with this attribute."
+msgstr[0] "この属性を持つ商品は @count 個あります。"
+msgstr[1] "この属性を持つ商品は @count 個あります。"
+
+#: uc_attribute.admin.inc:702
+msgid "@count attribute has been removed."
+msgid_plural "@count attributes have been removed."
+msgstr[0] "@count 個の属性を除去しました。"
+msgstr[1] "@count 個の属性を除去しました。"
+
+#: uc_attribute.admin.inc:730
+msgid "@count attribute has been added."
+msgid_plural "@count attributes have been added."
+msgstr[0] "@count 個の属性を追加しました。"
+msgstr[1] "@count 個の属性を追加しました。"
+
+#: uc_attribute.ca.inc:16
+msgid "Order has a product with a particular attribute option"
+msgstr "注文に特定の属性オプションを持つ商品が含まれている"
+
+#: uc_attribute.ca.inc:17
+msgid "Search the products of an order for a particular option."
+msgstr "特定のオプションで注文の商品を検索します。"
+
+#: uc_attribute.ca.inc:18
+msgid "Order: Product"
+msgstr "注文: 商品"
+
+#: uc_attribute.ca.inc:21
+msgid "Order"
+msgstr "注文"
+
+#: uc_attribute.ca.inc:87
+msgid "Attribute option"
+msgstr "属性オプション"
+
+#: uc_attribute.module:29
+msgid "Add attributes to this product using the <a href=\"!url\">add attributes form</a>. You may then adjust the settings for these attributes on this page and go on to configure their options in the <em>Options</em> tab."
+msgstr "<a href=\"!url\">属性追加フォーム</a>からこの商品に属性を追加します。それからこのページで属性の設定を調整することができ、続けて<em>オプション</em>タブでそれらのオプションを設定することができます。"
+
+#: uc_attribute.module:31
+msgid "Add attributes to the product class using the <a href=\"!url\">add attributes form</a>. You may then adjust the settings for these attributes on this page and go on to configure their options in the <em>Options</em> tab."
+msgstr "<a href=\"!url\">属性追加フォーム</a>からこの商品クラスに属性を追加します。それからこのページで属性の設定を調整することができ、続けて<em>オプション</em>タブでそれらのオプションを設定することができます。"
+
+#: uc_attribute.module:36
+msgid "Select the attributes you want to add and submit the form."
+msgstr "追加する属性を選択してフォームを送信してください。"
+
+#: uc_attribute.module:41
+msgid "Use the checkboxes to enable options for attributes and the radio buttons to specify defaults for the enabled options. Use the other fields to override the default settings for each option. Attributes with no enabled options will be displayed as text fields."
+msgstr "チェックボックスに印を入れて属性のオプションを有効にし、有効なオプションのうちデフォルトにするものをラジオボタンで決定します。その他のフィールドは、各オプションのデフォルトの設定を上書きするのに使用します。有効なオプションがない属性は、テキストフィールドとして表示されます。"
+
+#: uc_attribute.module:45
+msgid "Enter an alternate SKU to be used when the specified set of options are chosen and the product is added to the cart. <b>Warning:</b> Adding or removing attributes from this product will reset all the SKUs on this page to the default product SKU."
+msgstr "特定のオプションの組み合わせを選択してカートに入れた場合に使用するSKUを入力してください。<strong>注意</strong>: この商品に属性を追加したり除去すれば、このページで設定したSKUはすべてリセットされ、デフォルトの商品SKUとなります。"
+
+#: uc_attribute.module:757
+msgid "Please select"
+msgstr "選択してください"
+
+#: uc_attribute.module:804
+msgid "Text field"
+msgstr "テキストフィールド"
+
+#: uc_attribute.module:805
+msgid "Select box"
+msgstr "セレクトボックス"
+
+#: uc_attribute.module:806
+msgid "Radio buttons"
+msgstr "ラジオボタン"
+
+#: uc_attribute.module:807
+msgid "Checkboxes"
+msgstr "チェックボックス"
+
+#: uc_attribute.module:238
+msgid "administer attributes"
+msgstr "属性の管理"
+
+#: uc_attribute.module:238
+msgid "administer product attributes"
+msgstr "商品属性の管理"
+
+#: uc_attribute.module:238
+msgid "administer product options"
+msgstr "商品オプションの管理"
+
+#: uc_attribute.module:55
+msgid "Create and edit attributes and options."
+msgstr "属性とオプションの作成と編集を行います。"
+
+#: uc_attribute.module:63;109
+msgid "Overview"
+msgstr "概観"
+
+#: uc_attribute.module:77
+msgid "Attribute settings"
+msgstr "属性の設定"
+
+#: uc_attribute.module:78
+msgid "Configure the attribute settings"
+msgstr "属性の設定を行います。"
+
+#: uc_attribute.module:86
+msgid "Edit attribute"
+msgstr "属性の編集"
+
+#: uc_attribute.module:124
+msgid "Edit option"
+msgstr "オプションの編集"
+
+#: uc_attribute.module:132
+msgid "Delete option"
+msgstr "オプションの削除"
+
+#: uc_attribute.module:192
+msgid "Adjustments"
+msgstr "調整"
+
+#: uc_attribute.install:16
+msgid "Attributes: the decisions that need to be made about products."
+msgstr "属性: 商品になされるべき選択。"
+
+#: uc_attribute.install:19;139;247
+msgid "Primary identifier for attributes."
+msgstr "属性の主な識別子。"
+
+#: uc_attribute.install:25
+msgid "Name of the attribute"
+msgstr "属性の名前"
+
+#: uc_attribute.install:32;146;254
+msgid "Label to use when attribute is displayed"
+msgstr "属性を表示する際のラベル"
+
+#: uc_attribute.install:39;153;261
+msgid "Determines the list position of attributes."
+msgstr "属性のリスト位置を決定。"
+
+#: uc_attribute.install:46;167;275
+msgid "Flag that, if set, requires a user response for attributes (disables default options)."
+msgstr "ユーザからのレスポンスを必要とするかどうかのフラグ。"
+
+#: uc_attribute.install:54;175;283
+msgid "Display type of the attribute options: 0 -- text fields, 1 -- select box (default), 2 -- radio buttons"
+msgstr "属性オプションのタイプを表示: 0 -- テキストフィールド、1 -- セレクトボックス (デフォルト)、2 -- ラジオボタン"
+
+#: uc_attribute.install:62
+msgid "Description of the attribute."
+msgstr "属性の説明。"
+
+#: uc_attribute.install:73;187;295
+msgid "The available choices for each attribute."
+msgstr "各属性で利用可能な選択肢。"
+
+#: uc_attribute.install:76
+msgid "The attribute ID."
+msgstr "属性ID。"
+
+#: uc_attribute.install:83;197;305
+msgid "The option ID."
+msgstr "オプションID。"
+
+#: uc_attribute.install:89
+msgid "The name of the option."
+msgstr "オプション名。"
+
+#: uc_attribute.install:96;204;312
+msgid "The adjustment to a product's cost with the chosen option."
+msgstr "選択したオプションを持つ商品の費用を調整。"
+
+#: uc_attribute.install:104;212;320
+msgid "The adjustment to a product's price with the chosen option."
+msgstr "選択したオプションを持つ商品の価格を調整。"
+
+#: uc_attribute.install:112;220;328
+msgid "The adjustment to a product's physical weight with the chosen option."
+msgstr "選択したオプションを持つ商品の物理的な重さを調整。"
+
+#: uc_attribute.install:118;226;334
+msgid "Affects the list position of the options."
+msgstr "オプションのリスト位置に影響。"
+
+#: uc_attribute.install:129
+msgid "Attributes copied to a product of a certain class when it is created."
+msgstr "特定のクラスを持つ商品が作成された時にコピーする属性。"
+
+#: uc_attribute.install:132;190
+msgid "The product node type."
+msgstr "商品コンテンツタイプ。"
+
+#: uc_attribute.install:160;268
+msgid "The default value of the attribute field on the add to cart form."
+msgstr "カートに入れるフォームにある属性フィールドのデフォルトの値。"
+
+#: uc_attribute.install:237
+msgid "Attributes copied to a product."
+msgstr "商品にコピーする属性。"
+
+#: uc_attribute.install:240;298;348
+msgid "The product node ID."
+msgstr "商品のノードID。"
+
+#: uc_attribute.install:345
+msgid "Changes to a product's SKU based on the possible combination of chosen options."
+msgstr "選択肢の組み合わせを基に商品のSKUを変更。"
+
+#: uc_attribute.install:355
+msgid "A serialized array whose keys are attribute IDs and values are option IDs."
+msgstr "属性IDをキーに、オプションIDを値にしてシリアライズされた配列。"
+
+#: uc_attribute.install:362
+msgid "The SKU representing the product with the combination of options."
+msgstr "オプションを組み合わせた商品を表すSKU。"
+
+#: uc_attribute.info:0
+msgid "Attribute"
+msgstr "属性"
+
+#: uc_attribute.info:0
+msgid "Allow the customer to choose attributes for a product at checkout."
+msgstr "商品の属性を購入手続きで顧客が選択できるようにする。"
+
+#: uc_attribute.info:0
+msgid "Ubercart - core (optional)"
+msgstr ""
+

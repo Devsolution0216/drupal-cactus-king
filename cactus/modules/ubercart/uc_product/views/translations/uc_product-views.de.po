@@ -1,0 +1,69 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from file: uc_product.views.inc,v 1.1.2.2 2008/11/07 21:13:28 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-02-19 10:04+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_product/views/uc_product.views.inc:124
+msgid "Form to put the product in the customer's cart."
+msgstr "Formular um den Artikel zum Warenkorb des kunden hinzuzufügen."
+
+#: uc_product/views/uc_product.views.inc:196,203,209,216,222,229,235,242,248,255
+msgid "Editable"
+msgstr "Bearbeitbar"
+
+#: uc_product/views/uc_product.views.inc:115
+msgid "Node"
+msgstr "Node"
+
+#: uc_product/views/uc_product.views.inc:143
+msgid ""
+"A button to add a product to the cart without quantity or attribute "
+"fields."
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:28
+msgid "The model number."
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:46
+msgid "The manufacturer's suggested price."
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:61
+msgid "The cost of the product to the store."
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:76
+msgid "The price for which the product is sold."
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:106
+msgid "The default sort criteria in the catalog."
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:113,118
+msgid "Is a product"
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:114
+msgid "Check for the fields provided by the Ubercart product module."
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:123
+msgid "Add to cart form"
+msgstr ""
+
+#: uc_product/views/uc_product.views.inc:142
+msgid "Buy it now button"
+msgstr ""
+

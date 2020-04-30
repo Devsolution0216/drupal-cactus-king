@@ -1,0 +1,10 @@
+name = SSL users
+description = Module defines SSL users and one password for all users in .htpasswd
+package = Other
+core = 6.x
+; Information added by drupal.org packaging script on 2009-06-23
+version = "6.x-1.0"
+core = "6.x"
+project = "ssl_users"
+datestamp = "1245756743"
+

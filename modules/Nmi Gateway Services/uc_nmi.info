@@ -1,0 +1,15 @@
+; $Id: uc_nmi.info,v 2.1.x 2009/10/12 $
+name = Nmi Gateway Services
+description = A gateway used to process payments using NMI Gateway Services.
+dependencies[] = uc_payment
+dependencies[] = uc_credit
+package = Ubercart - payment
+core = 6.x
+php = 5.0
+
+; Information added by drupal.org packaging script on 2009-09-23
+version = "6.x-2.0-rc7"
+core = "6.x"
+project = "ubercart"
+datestamp = "1253738488"
+

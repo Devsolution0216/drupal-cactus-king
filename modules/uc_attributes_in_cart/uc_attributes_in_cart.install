@@ -1,0 +1,92 @@
+<?php
+// $Id: uc_attributes_in_cart.install,v 1.1.2.4 2010/07/26 07:50:41 Fanyalla Exp $
+
+/**
+ * @file
+ * Install and uninstall functions for the uc_attributes_in_cart module.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function uc_attributes_in_cart_schema() {
+  $schema = array();
+
+  $schema['uc_attributes_in_cart'] = array(
+    'description' => 'Determine which attributes to display in cart.',
+    'fields' => array(
+      'aid' => array(
+        'description' => 'Primary identifier for attributes.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'show_form' => array(
+        'description' => 'Show the attribute form in the cart or not (1 = YES, 0 = NO).',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 1
+      ),
+      'show_title' => array(
+        'description' => 'Show the attribute title in the cart or not (1 = YES, 0 = NO).',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 1
+      ),
+      'enclose_fieldset' => array(
+        'description' => 'Enclose the attribute\'s form in a fieldset or not (1 = YES, 0 = NO).',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0
+      )
+    ),
+    'primary key' => array('aid')
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function uc_attributes_in_cart_install() {
+  drupal_install_schema('uc_attributes_in_cart');
+
+  drupal_set_message(t("The <em>Attributes in cart</em> module has been installed. You can configure this module under !link.", array('!link' => l(st('Administer > Store administration > Configuration > Attribute settings > Attributes in cart settings'), 'admin/store/settings/attributes/in-cart'))));
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function uc_attributes_in_cart_uninstall() {
+  drupal_uninstall_schema('uc_attributes_in_cart');
+
+  drupal_set_message(t("The <em>Attributes in cart</em> module has been uninstalled."));
+}
+
+/**
+ * Implementation of hook_update_N().
+ */
+function uc_attributes_in_cart_update_6100() {
+  $ret = array();
+
+  if (!db_column_exists('uc_attributes_in_cart', 'enclose_fieldset')) {
+    db_add_field($ret, 'uc_attributes_in_cart', 'enclose_fieldset', array(
+      'description' => 'Enclose the attribute\'s form in a fieldset or not (1 = YES, 0 = NO).',
+      'type' => 'int',
+      'size' => 'tiny',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 0
+    ));
+  }
+
+  return $ret;
+}

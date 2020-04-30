@@ -1,0 +1,119 @@
+<?php
+/* $Id: nodewords_nodetype.module,v 1.2.2.4 2009/06/01 18:38:18 hanoii Exp $ */
+
+function nodewords_nodetype_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'node_type_form' && isset($form['#node_type'])) {
+    $settings = _nodewords_get_settings();
+    $form['nodewords_nodetype'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Meta tags node type'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['nodewords_nodetype']['nodewords_nodetype_robots'] = array(
+      '#type' => 'select',
+      '#title' => t('Default "robots" meta tag'),
+      '#options' => array(
+        '' => t('Use Meta tags default'),
+        'index,follow' => 'ALL=INDEX,FOLLOW',
+        'noindex,follow' => 'NOINDEX,FOLLOW',
+        'index,nofollow' => 'INDEX,NOFOLLOW',
+        'noindex,nofollow' => 'NONE=NOINDEX,NOFOLLOW',
+      ),
+      '#multiple' => FALSE,
+      '#default_value' => variable_get('nodewords_nodetype_robots_'. $form['#node_type']->type, ''),
+      '#description' => t('The ROBOTS meta tag offers a simple mechanism to indicate to web robots and crawlers wether the page should be indexed (INDEX or NOINDEX) and whether links on the page should be followed (FOLLOW or NOFOLLOW). Here you can enter the default robots meta tag to use for all pages. If unsure, select "ALL=INDEX,FOLLOW".'),
+    );
+    $form['nodewords_nodetype']['nodewords_nodetype_keywords'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Default "keywords" meta tag'),
+      '#default_value' => variable_get('nodewords_nodetype_keywords_'. $form['#node_type']->type, ''),
+      '#size' => 60,
+      '#maxlength' => $settings['max_size'],
+      '#description' => t('This keywords will be appended after the global keywords and before the page kewords. Enter a comma separated list of keywords for this page. Avoid duplication of words as this will lower your search engine ranking.'),
+    );
+
+    $form['nodewords_nodetype']['description'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Description'),
+      '#collapsible' => TRUE,
+    );
+
+    $form['nodewords_nodetype']['description']['nodewords_nodetype_description'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Default "description" meta tag'),
+      '#default_value' => variable_get('nodewords_nodetype_description_'. $form['#node_type']->type, ''),
+      '#description' => t('Enter a global meta tag description for this content type. Limit your description to about 20 words, with a maximum of %count characters. It should not contain any HTML tags or other formatting. ' , array('%count' => $settings['max_size'])) . ($settings['use_teaser'] ? ' ' . t('When you leave this field empty, the teaser will be used as description.') : '') . t('Tokens are allowed, data will be shortened to the max and unallowed tags or caracters will be removed.'),
+    );
+
+    $form['nodewords_nodetype']['nodewords_nodetype_token'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Token replacements'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['nodewords_nodetype']['nodewords_nodetype_token']['help'] = array(
+      '#type' => 'markup',
+      '#value' => theme('token_help'),
+    );
+
+    if (user_access('allow PHP replacements')) {
+      $form['nodewords_nodetype']['description']['advanced'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Advanced PHP replacement'),
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+      );
+      $form['nodewords_nodetype']['description']['advanced']['nodewords_nodetype_desc_php'] = array(
+        '#type' => 'textarea',
+        '#title' => t('PHP replacement'),
+        '#default_value' => variable_get('nodewords_nodetype_desc_php_'. $form['#node_type']->type, ''),
+        '#description' => t('Code must be included within %php_tags tags. You can add any php code here to perform a particular replacement on the description meta tag information after token substitution. %description and %php_description are available to be used within this code. %title is the actual description meta tags defined above with any token replacement. Be careful if the title has single or double quotes in it. %php_description is replaced with a PHP code that defines a $description variable that you can use along your eval code with the replaced string (quotes are not a problem here). A good starting poing would be: <code>%code</code>.', array('%php_tags' => '<?php ?>', '%code' => '<?php %php_description return $description; ?>')),
+      );
+    }
+  }
+}
+
+/**
+ * Implementation of hook_nodewords().
+ */
+function nodewords_nodetype_nodewords(&$tags, $op, $type, $ids) {
+  switch ($op) {
+    case 'prepare':
+      if ( $type == 'node' && (!isset($tags['description']) || empty($tags['description'])) && count($ids) == 1) {
+        $meta_description = '';
+        $node = node_load($ids[0]);
+        // description field
+        if ( ( $description = variable_get('nodewords_nodetype_description_'. $node->type, '') ) !== '' ) {
+          $meta_description = token_replace($description, 'node', $node);
+        }
+        // description php field
+        if ( ( $description_php = variable_get('nodewords_nodetype_desc_php_'. $node->type, '') ) !== '' ) {
+          $description_php = token_replace($description_php, 'node', $node);
+          $variables['%description'] = $meta_description;
+          $variables['%php_description'] = '$description = \'' . str_replace('\'', '\\\'', $meta_description) . '\';';
+          $meta_description = drupal_eval(strtr($description_php, $variables));
+        }
+
+        if ( $meta_description != '' ) {
+          $tags['description']= _nodewords_check_content(html_entity_decode($meta_description, ENT_COMPAT, 'UTF-8'));
+        }
+
+        if ( ( $keywords = variable_get('nodewords_nodetype_keywords_'. $node->type, '') ) !== '' ) {
+          $tags['keywords'] = _nodewords_check_content(token_replace($keywords, 'node', $node));
+        }
+        if ( ( $robots = variable_get('nodewords_nodetype_robots_'. $node->type, '') ) !== '' ) {
+          $tags['robots'] = _nodewords_check_content(token_replace($robots, 'node', $node));
+        }
+      }
+
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function nodewords_nodetype_perm() {
+  return array('allow PHP replacements');
+}

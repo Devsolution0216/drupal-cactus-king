@@ -1,0 +1,33 @@
+// $Id: DEVELOPERS.txt,v 1.1.2.4 2008/12/19 00:20:36 xano Exp $
+
+This file addresses some issues Vocabulary Index developers should know about
+before they start coding.
+
+================================================================================
+
+- Create notes with the following syntax: "// NOTE: This is a note. -Username."
+  This allows for easy finding and it makes clear who wrote the note.
+
+- $vi objects contain all properties stored in the {vocabulary} table along with
+  the following Vocaulary Index-specific properties:
+   - path
+     Type: string; The path to a VI page.
+   - view
+     Type: integer; How the VI is being displayed. Value matches the values of
+     the VOCABINDEX_VIEW_X constants.
+   - node_count
+     Type: boolean; Whether node counts are calculated for terms or not.
+   - type
+     Type: integer; Either VOCABINDEX_VI_PAGE or VOCABINDEX_VI_BLOCK.
+   - enabled
+     Type: boolean; For every vocabulary a VI page and a VI block are stored
+     in the database. The enabled property is set to TRUE if a VI is actually
+     enabled.
+
+- vocabindex_update_status() checks if the Vocabulary Index table has been
+  updated to the latest version to prevent errors from popping up. If you write
+  a hook_update_N() implementation, put the following line in there and remove it
+  from the previous implementation it was in:
+  <?php variable_del('vocabindex_schema_update', TRUE); ?>
+
+- Vocabulary Index does not follow the Drupal coding standards for the full hundred percent. Periods used for string concatenation are surrounded by spaces at both sides. This behaviour is according to the Drupal 7 coding standards. This decision has been made, because multiple branches are maintained at the same time; it makes it easier to share code between them.

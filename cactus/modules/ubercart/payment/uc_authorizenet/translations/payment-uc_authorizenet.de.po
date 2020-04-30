@@ -1,0 +1,378 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_authorizenet.module,v 1.4.2.4 2008/11/07 21:13:22 islandusurper
+#  uc_authorizenet.pages.inc,v 1.1.2.1 2008/11/07 21:13:22 islandusurper
+#  uc_authorizenet.admin.inc,v 1.1.2.1 2008/11/07 21:13:22 islandusurper
+#  uc_authorizenet.info,v 1.3.4.3 2008/11/07 21:13:22 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-03-09 18:36+0100\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: payment/uc_authorizenet/uc_authorizenet.module:80
+msgid "Process credit card payments using the AIM service of Authorize.net."
+msgstr ""
+"Verarbeite Kreditkarten-Bezahlungen über den AIM-Dienst von "
+"Authorize.net."
+
+#: payment/uc_authorizenet/uc_authorizenet.module:119
+msgid "AIM settings"
+msgstr "AIM Einstellungen"
+
+#: payment/uc_authorizenet/uc_authorizenet.module:124,147
+msgid "Transaction mode"
+msgstr "Transaktions-Modus"
+
+#: payment/uc_authorizenet/uc_authorizenet.module:95
+msgid ""
+"The Authorize.net AIM service requires cURL.  Please talk to your "
+"system administrator to get this configured."
+msgstr ""
+"Der Authorize.net AIM Dienst benötigt die PHP Erweiterung cURL.  "
+"Bitte wenden Sie sich an ihren Systembetreuer damit diese installiert "
+"oder aktiviert wird."
+
+#: payment/uc_authorizenet/uc_authorizenet.module:27
+msgid "Update your payment details"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:28
+msgid "Update the payment details for a recurring fee."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:49
+msgid "Update ARB subscription"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:57
+msgid "Cancel ARB subscription"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:103
+msgid "API Login ID and Transaction Key"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:104
+msgid ""
+"This information is required for Ubercart to interact with your "
+"payment gateway account.  It is different from your login ID and "
+"password and may be found through your account settings page."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:108
+msgid "API Login ID"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:113
+msgid "Transaction Key"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:120
+msgid ""
+"These settings pertain to the Authorize.Net AIM payment method for "
+"card not present transactions."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:125
+msgid ""
+"Only specify a developer test account if you login to your account "
+"through https://test.authorize.net.<br/>Adjust to live transactions "
+"when you are ready to start processing real payments."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:127
+msgid "Live transactions in a live account"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:128
+msgid "Test transactions in a live account"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:129
+msgid "Developer test account transactions"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:136
+msgid ""
+"Tell Authorize.net to e-mail the customer a receipt based on your "
+"account settings."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:142
+msgid "ARB settings"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:143
+msgid ""
+"These settings pertain to the Authorize.Net Automated Recurring "
+"Billing service."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:148
+msgid ""
+"Only specify developer mode if you login to your account through "
+"https://test.authorize.net.<br />Adjust to production mode when you "
+"are ready to start processing real recurring fees."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:151
+msgid "Developer test"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:158
+msgid "MD5 Hash"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:159
+msgid ""
+"<b>Note:</b> You must first configure credit card encryption before "
+"setting this.<br />Enter the value here you entered in your Auth.Net "
+"account settings."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:165
+msgid "Log reported ARB payments in watchdog."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:310,466
+msgid "cURL error: @error"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:342
+msgid "Credit card payment declined: @message"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:348
+msgid "Type: @type<br />ID: @id"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:378
+msgid "CVV match: @cvv"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:29
+msgid "Invalid ARB payment notification received."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:508
+msgid ""
+"Product @sku has invalid interval settings for Authorize.Net - @length "
+"@unit"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:535
+msgid "Order @order_id - @sku"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:600
+msgid "Authorize.Net: Recurring fee for @model failed.<br />@error - @text"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:619
+msgid ""
+"Authorize.Net: Recurring fee setup for @model.<br />Subscription ID: "
+"@subscription_id"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:665
+msgid ""
+"Authorize.Net: Subscription @subscription_id updated failed.<br "
+"/>@error - @text"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:670
+msgid "Authorize.Net: Subscription @subscription_id updated."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:21
+msgid "Subscription ID: @subscription_id"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:58
+msgid "Subscription data updated at Authorize.Net."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:61
+msgid "Subscription update failed. See order admin comments for more details."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:76
+msgid "Recurring fee order ID: @order_id"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:113
+msgid "The payment details for that recurring fee have been updated."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:116
+msgid ""
+"An error has occurred while updating your payment details. Please try "
+"again and contact us if you are unable to perform the update."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:712
+msgid ""
+"Authorize.Net: Subscription @subscription_id cancellation failed.<br "
+"/>@error - @text"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:717
+msgid "Authorize.Net: Subscription @subscription_id cancelled."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:74
+msgid "Are you sure you wish to cancel this subscription?"
+msgstr "Sicher, dass dieses Abonnement gestoppt werden soll?"
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:84
+msgid "Subscription cancelled through Authorize.Net."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.admin.inc:90
+msgid ""
+"Subscription cancellation failed. See order admin comments for more "
+"details."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:133
+msgid "Are you sure you wish to cancel this fee?"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:143
+msgid "The recurring fee has been canceled."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:149
+msgid ""
+"An error has occurred. Please try again and contact us if the problem "
+"persists."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:764
+msgid "Address (Street) matches, ZIP does not"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:767
+msgid "Address information not provided for AVS check"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:770
+msgid "AVS error"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:773
+msgid "Non-U.S. Card Issuing Bank"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:776
+msgid "No Match on Address (Street) or ZIP"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:779
+msgid "AVS not applicable for this transaction"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:782
+msgid "Retry – System unavailable or timed out"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:785
+msgid "Service not supported by issuer"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:788
+msgid "Address information is unavailable"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:791
+msgid "Nine digit ZIP matches, Address (Street) does not"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:794
+msgid "Address (Street) and nine digit ZIP match"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:797
+msgid "Address (Street) and five digit ZIP match"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:800
+msgid "Five digit ZIP matches, Address (Street) does not"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:816
+msgid "No Match"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:819
+msgid "Not Processed"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:822
+msgid "Should have been present"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:825
+msgid "Issuer unable to process request"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:836
+msgid "Authorization and capture"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:842
+msgid "Capture only"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:844
+msgid "Credit"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:846
+msgid "Void"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:870
+msgid ""
+"The Authorize.Net module requires cURL.  Please talk to your system "
+"administrator to get this configured."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.info:0
+msgid "Process payments using Authorize.net. Supports AIM and ARB."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:166
+msgid "Make sure you have set your Silent POST URL in Authorize.Net to @url."
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:373
+msgid ""
+"<b>@type</b><br /><b>@status:</b> @message<br />Amount: @amount<br "
+"/>AVS response: @avs"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:374
+msgid "ACCEPTED"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.module:374
+msgid "REJECTED"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:14
+msgid "!arbSilent POST received: <pre>@post</pre>"
+msgstr ""
+
+#: payment/uc_authorizenet/uc_authorizenet.pages.inc:49
+msgid "ARB payment reported for order @order_id: <pre>@post</pre>"
+msgstr ""
+

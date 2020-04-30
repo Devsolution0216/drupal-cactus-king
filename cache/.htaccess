@@ -1,0 +1,30 @@
+AddDefaultCharset utf-8
+<FilesMatch "\.((html)|((html)\.gz))$">
+  <IfModule mod_expires.c>
+    ExpiresDefault A1
+  </IfModule>
+  <IfModule mod_headers.c>
+    Header set Expires "Sun, 19 Nov 1978 05:00:00 GMT"
+    Header set Cache-Control "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+  </IfModule>
+</FilesMatch>
+<IfModule mod_mime.c>
+  AddCharset utf-8 .html
+  AddCharset utf-8 .css
+  AddCharset utf-8 .js
+  AddEncoding gzip .gz
+</IfModule>
+<FilesMatch "\.(html|html\.gz)$">
+  ForceType text/html
+</FilesMatch>
+<FilesMatch "\.(js|js\.gz)$">
+  ForceType text/javascript
+</FilesMatch>
+<FilesMatch "\.(css|css\.gz)$">
+  ForceType text/css
+</FilesMatch>
+
+SetHandler Drupal_Security_Do_Not_Remove_See_SA_2006_006
+Options None
+Options +FollowSymLinks
+

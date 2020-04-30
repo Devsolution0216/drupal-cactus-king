@@ -1,0 +1,13 @@
+; $Id: edit_term.info,v 1.3 2008/09/27 06:08:54 dman Exp $
+name = Edit term
+description = Adds a link to the term editor from term page. Adds menu and path management to term edit pages.
+dependencies[] = taxonomy 
+package = Taxonomy
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-05-27
+version = "6.x-1.2"
+core = "6.x"
+project = "edit_term"
+datestamp = "1243468526"
+

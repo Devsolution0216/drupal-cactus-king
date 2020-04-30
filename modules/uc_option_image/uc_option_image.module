@@ -1,0 +1,720 @@
+<?php
+  
+/**
+* @file 
+* Provides image upload fields for attribute options.
+* @author Tj Holowaychuk <tj@vision-media.ca/>
+* @link http://vision-media.ca
+*/
+
+// @todo supply 'default' image field when no option images are supplied or 
+// no option image attributes are applied to the product
+// @todo create per class / product 'layer' mode allowing z-index to configure a product
+// using layers of PNG images
+
+/* -----------------------------------------------------------------
+
+  Hook Implementations 
+
+------------------------------------------------------------------ */  
+
+/**
+ * Implementation of hook_perm();
+ */
+function uc_option_image_perm(){
+  return array('view option images', 'administer option images');
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function uc_option_image_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'load':  
+      // Load option images
+      // Keep in mind the file 'filename' is a mash of nid/aid/oid
+      $node->option_images = array();
+      $node->option_images_cached = array();
+      $node->attributes = uc_product_get_attributes($node->nid);
+       
+      if (count($node->attributes)) {
+        $page_size = variable_get('uc_option_image_page_size', 'preview');     
+        foreach($node->attributes AS $attribute) {
+          if (count($attribute->options)) {
+            foreach($attribute->options AS $option) {
+              $file = uc_option_image_load($node->nid, $attribute->aid, $option->oid);
+              if ($file && $file->filepath) {
+                $node->option_images[] = $file;
+                // Load imagecached option images
+                if ($page_size != '_original') {
+                  $node->option_images_cached[$option->oid] = imagecache_create_url($page_size, $file->filepath);
+                }
+                else {
+                  $node->option_images_cached[$option->oid] = $file->filepath;
+                }
+              }
+            }
+          }           
+        }
+      }
+      break;
+      
+    case 'view':
+      // @todo issue being invoked so many times?
+      // @todo refactor
+      if (isset($node->content['add_to_cart'])){ 
+        if (user_access('view option images')){
+          if (count($node->attributes)){ 
+            $attributes = $node->attributes;          
+            $first_attribute = array_shift($node->attributes);  
+            array_unshift($node->attributes, $first_attribute);
+            $page_size = variable_get('uc_option_image_page_size', 'preview');  
+            $teaser_size = variable_get('uc_option_image_teaser_size', 'thumbnail'); 
+            $size = $a4 ? $page_size : $teaser_size;
+                   
+            // Pass attributes to uc_option_image to populate JS settings
+            if ($a4){
+              uc_option_image($node, $attributes, $size); 
+            }
+            
+            // Determine if we have a default option using
+            // the first attribute's default option
+            if ($first_attribute->default_option){
+              $default_option = $first_attribute->default_option;
+            }
+                                       
+            // Load the default image file
+            $file = uc_option_image_load($node->nid, $first_attribute->aid, $default_option);
+                      
+            // Display the image based on teaser/page view
+            // Ensure that original file exists
+            if ($file->filepath && file_exists($file->filepath)){
+              $image = theme('uc_option_image', $file, $size);  
+            }
+            else {   
+              $image = theme('uc_option_image_no_image', $node, $size);
+            }
+            
+            // Preload images
+            if ($a4){
+              $preloaded_images = theme('uc_option_image_preloaded', $node, $size); 
+            }
+            
+            $node->content['option_image'] = array(
+                '#value' => $image . $preloaded_images,
+                '#access' => user_access('view option images'),
+                '#weight' => (int) variable_get('uc_option_image_node_weight', '10'),
+              );      
+          }
+        }
+      }
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_form_alter();
+ */
+function uc_option_image_form_alter(&$form, &$form_state, $form_id){ 
+  switch($form_id){
+    // Attribute options form
+    case 'uc_object_options_form': 
+      // Make sure we are a node's options page
+      if (!is_numeric(arg(1)) && arg(0) != 'node'){
+        return;
+      }           
+      // Add option image previews and browse fields
+      if ($aids = element_children($form['attributes'])){  
+        $node = menu_get_object();
+        $nid = $node->nid;
+        $attributes = variable_get('uc_option_image_attributes', '');
+                                       
+        foreach($aids AS $aid) { 
+          // Make sure the attribute is switchable
+          if (isset($attributes[$aid]) && !$attributes[$aid]){
+            continue;
+          }
+          
+          // Display fields
+          if ($oids = element_children($form['attributes'][$aid]['options'])){ 
+            foreach($oids AS $oid) { 
+              $file = uc_option_image_load($nid, $aid, $oid);
+              
+              if (!empty($file)) {
+                $form['attributes'][$aid]['options'][$oid]['option_image_preview'] = array(
+                  '#type' => 'markup',                       
+                  '#value' => theme('uc_option_image', $file, variable_get('uc_option_image_preview_size', '_original')),       
+                );
+                $form['attributes'][$aid]['options'][$oid][uc_option_image_id($nid, $aid, $oid)] = array(
+                  '#type' => 'file',
+                  '#title' => t('Image'),
+                  '#name' => 'files[' . uc_option_image_id($nid, $aid, $oid) . ']',
+                  '#size' => 8,
+                  '#default_value' => $file->filename,       
+                );
+              }
+            }
+          } 
+        } 
+        
+        $form['#submit'][] = 'uc_option_image_uc_object_options_form';
+        $form['#attributes'] = array('enctype' => 'multipart/form-data');
+      }
+      break;
+    
+    // Attribute settings form  
+    case 'uc_attribute_admin_settings':
+      if (!user_access('administer option images')){
+        break;     
+      }
+      
+      $presets = imagecache_presets();
+      $size_options = uc_option_image_get_size_options();
+      $attribute_options = uc_option_image_get_attribute_options(); 
+      
+      // Ensure we have imagecache presets otherwise
+      // display a message so they can create presets first.
+      if (empty($presets)){
+        // Support both locations of imagecache configuration
+        $link = IMAGECACHE_BASE == 1 ? l('admin/settings/imagecache', 'admin/settings/imagecache') : l('admin/build/imagecache', 'admin/build/imagecache');
+        drupal_set_message(t('In order to use Option Images you must first create image presets at !link.', array('!link' => $link)));
+        break;
+      }
+      
+      $form['#validate'][] = 'uc_option_image_uc_attribute_admin_settings_validate';
+      $form['uc_option_image'] = array(
+          '#type' => 'fieldset',
+          '#title' => t('Option Images'),
+        );    
+      $form['uc_option_image']['uc_option_image_js'] = array(
+          '#type' => 'checkbox',
+          '#title' => t('Switch Images'),
+          '#description' => t('Use JavaScript to switch attribute option images when selected from a select field if it is available.'),
+          '#default_value' => variable_get('uc_option_image_js', TRUE),
+        );
+      if (!empty($attribute_options)){
+        $form['uc_option_image']['uc_option_image_attributes'] = array(
+            '#type' => 'checkboxes',
+            '#title' => t('Switch Attributes'),
+            '#description' => t('Only checked attributes will attempt to be switched when changed. For example you would want to check "Shoe Style" but not "Shoe Size", as "Shoe Size" most likely does not have associated images.'),
+            '#options' => $attribute_options,
+            '#default_value' => variable_get('uc_option_image_attributes', ''),
+          );
+      }
+      $form['uc_option_image']['uc_option_image_effect'] = array(
+          '#type' => 'select',
+          '#title' => t('Switch Effect'),
+          '#description' => t('Select one of the various image switching effects.'),
+          '#options' => array(
+              'none' => t('None'),
+              'fade' => t('Fade'),
+            ),
+          '#default_value' => variable_get('uc_option_image_effect', 'fade'),
+        );     
+      $form['uc_option_image']['uc_option_image_preview_size'] = array(
+          '#type' => 'select',
+          '#title' => t('Preview Image Size'),
+          '#description' => t('Image size to display in the option table when editing a product.'),
+          '#options' => $size_options,
+          '#default_value' => variable_get('uc_option_image_preview_size', '_original') ,
+        );
+      $form['uc_option_image']['uc_option_image_teaser_size'] = array(
+          '#type' => 'select',
+          '#title' => t('Teaser Image Size'),
+          '#description' => t('Image size which will display in teaser listings.'),
+          '#options' => $size_options,
+          '#default_value' => variable_get('uc_option_image_teaser_size', '_original'),
+        );
+      $form['uc_option_image']['uc_option_image_page_size'] = array(
+          '#type' => 'select',
+          '#title' => t('Page Image Size'),
+          '#description' => t('Image size which will display in a full page view.'),
+          '#options' => $size_options,
+          '#default_value' => variable_get('uc_option_image_page_size', '_original'),
+        );
+      $form['uc_option_image']['uc_option_image_node_weight'] = array(
+          '#type' => 'weight',
+          '#title' => t('Option Image Weight'),
+          '#description' => t('Weight used to determine where the option image will display.'),
+          '#default_value' => variable_get('uc_option_image_node_weight', '9'),
+        );
+        
+      // Derivative sizes
+      $presets = imagecache_presets();
+      if (count($presets)){
+        $form['uc_option_image']['sizes'] = array(
+            '#type' => 'fieldset',
+            '#title' => t('Sizes'),
+            '#collapsible' => TRUE,
+            '#collapsed' => TRUE,
+            '#description' => t('Previously uploaded images will not resize when changes are made. Image derivatives must be rebuilt at !path', array('!path' => 'admin/content/node')),
+          );
+        foreach($presets as $preset) {
+          $preset['width'] = 0;
+          $preset['height'] = 0;
+          foreach ($preset['actions'] as $action) {
+            foreach (array('width','height') as $ord) {
+              if (isset($action['data'][$ord])) {
+                if ((int)($action['data'][$ord])) {
+	          $preset[$ord] = $action['data'][$ord];
+                }
+                elseif (!empty($preset[$ord]) && preg_match('/^([1-9][0-9]*)%$/',$action['data'][$ord],$matches)) {
+	          $preset[$ord] = $preset[$ord] * $matches[1][0] / 100;
+                }
+              }
+            }
+          }
+
+          $form['uc_option_image']['sizes']['uc_option_image_size_' . $preset['presetname'] . '_width'] = array(
+              '#type' => 'textfield',
+              '#title' => $preset['presetname'] . ' ' . t('Width'),
+              '#default_value' => $preset['width'],
+              '#required' => TRUE,
+            );
+          $form['uc_option_image']['sizes']['uc_option_image_size_' . $preset['presetname'] . '_height'] = array(
+              '#type' => 'textfield',
+              '#title' => $preset['presetname'] . ' ' . t('Height'),
+              '#default_value' => $preset['height'],
+              '#required' => TRUE,
+            );
+        }
+      }
+                                              
+      $form['buttons']['#weight'] = 5;        
+      break;
+  }
+}
+
+/* -----------------------------------------------------------------
+
+  General Functionality 
+
+------------------------------------------------------------------ */
+
+/**
+ * Support both imagecache 1.6 and 2.0
+ */
+if (module_exists('imagecache') && !function_exists('imagecache_presets')){
+  define('IMAGECACHE_BASE', 1);
+  // Previously undefined in 1.x
+  function imagecache_presets($reset = FALSE) {
+    return _imagecache_get_presets($reset = FALSE);
+  }
+  
+  // Previously undefined in 1.x  
+  function imagecache_create_url($presetname, $path) {
+    $path = _imagecache_strip_file_directory($path);
+    switch (variable_get('file_downloads', FILE_DOWNLOADS_PUBLIC)) {
+      case FILE_DOWNLOADS_PUBLIC:
+        return url(file_directory_path() .'/imagecache/'. $presetname . '/' . $path, array('absolute' => TRUE));
+      case FILE_DOWNLOADS_PRIVATE:
+        return url('system/files/imagecache/'. $presetname . '/' . $path, array('absolute' => TRUE));
+    }
+  }
+}
+else {
+  define('IMAGECACHE_BASE', 2);
+}
+
+/**
+ * Add JavaSript and CSS in order to run uc_option_image's switching functionality.
+ * 
+ * This function also populates Drupal.settings with uc_option_image filepaths based
+ * on $node and $attributes passed.
+ * 
+ * @param object $node
+ *   Product node object.
+ * 
+ * @param array $attributes
+ *   Attribute objects.
+ * 
+ * @param string $size
+ *   (optional) Imagecache preset or '_original'.  
+ * 
+ * @todo: remove $attributes param and just use $node->attributes
+ * @todo: abstract out the drupal_add_js so the object can be returned via js http request
+ */
+function uc_option_image($node, $attributes, $size = '_original') {
+  static $prep, $data;         
+  
+  // Check if this feature is enabled
+  if (!variable_get('uc_option_image_js', TRUE)){
+    return;
+  }  
+  
+  // Make sure we are even switching attributes
+  if (!variable_get('uc_option_image_attributes', FALSE)){
+    return;  
+  }   
+                       
+  // Static prep
+  if (!$prep){
+    drupal_add_js(drupal_get_path('module', 'uc_option_image') . '/uc_option_image.js');
+    $data = array();
+    $data['size'] = $size;
+    $data['effect'] = variable_get('uc_option_image_effect', 'fade');
+    $data['noimage'] = theme('uc_option_image_no_image_path', $node, $size);
+    $data['attributes'] = variable_get('uc_option_image_attributes', '');
+    $prep = TRUE;
+  }                             
+  
+  // Populate Drupal.settings.UCOI.images
+  // this prevents the module from needing additional
+  // HTTP requests in order to find the image needed
+  // for each option.                               
+  if (count($attributes)){               
+    foreach($attributes AS $aid => $attribute){  
+      if (count($attribute->options)){     
+        foreach($attribute->options AS $oid => $option){
+          $file = uc_option_image_load($node->nid, $aid, $oid);
+                            
+          if ($file->filepath){              
+            $data['images'][$node->nid][$aid][$oid] = array(
+                'nid' => $node->nid,
+                'aid' => $aid,
+                'oid' => $oid,
+                'filepath' => $file->filepath,
+                'derivative' => $node->option_images_cached[$oid],
+              );     
+          }
+        }
+      }
+    }
+  }
+             
+  // @todo: fix array_merge_recursive() issues...
+  @drupal_add_js(array('UCOI' => $data), 'setting');
+}       
+                          
+/**
+ * Load image file.
+ * 
+ * @todo: static cache
+ */
+function uc_option_image_load($nid, $aid, $oid) {
+  static $files;
+  $filename = uc_option_image_id($nid, $aid, $oid);
+  if (empty($files[$filename])){
+    $files[$filename] = db_fetch_object(db_query("SELECT * FROM {files} WHERE filename = '%s'", $filename));
+    if (empty($files[$filename])) {
+      if ($nid) {
+        return uc_option_image_load(0, $aid, $oid);
+      }
+      elseif ($aid && $oid) {
+        return uc_option_image_load(0, 0, 0);
+      }
+    }
+  }
+  return $files[$filename];
+}
+
+/**
+ * Save the uploaded file in the 'option-images' folder and insert 
+ * into the files table.
+ * 
+ * @param int $nid
+ * 
+ * @param int $aid
+ * 
+ * @param int $oid
+ * 
+ * @return mixed
+ *   - Success: File object
+ *   - Failure: FALSE
+ */
+function uc_option_image_save($nid, $aid, $oid) { 
+  global $user;
+  $validators = array(
+    'file_validate_size' => array(2 * 1024 * 1024),
+    'file_validate_is_image' => array(),
+  );
+
+  if ($file = file_save_upload(uc_option_image_id($nid, $aid, $oid),$validators)) {
+    $dest = file_create_path(file_directory_path() . '/option-images');
+    file_check_directory($dest, FILE_CREATE_DIRECTORY);
+    if (file_copy($file->filepath, $dest, FILE_EXISTS_REPLACE)) {
+      $file->filename = uc_option_image_id($nid,$aid,$oid);
+      $file->uid = $user->uid;
+      $file->status = FILE_STATUS_PERMANENT;
+      uc_option_image_delete($nid, $aid, $oid);
+      drupal_write_record('files', $file);
+      
+      return $file;
+    }
+    else {
+      drupal_set_message(t('Failed to save image.'), 'error');
+      
+      return FALSE;
+    }
+  }
+}
+
+/**
+ * Delete an option image.
+ * 
+ * @param int $nid
+ * 
+ * @param int $aid
+ * 
+ * @param int $oid
+ * 
+ * @return mixed
+ *   Results of db_query().
+ */
+function uc_option_image_delete($nid, $aid, $oid) {
+  return db_query("DELETE FROM {files} WHERE filename = '%s'", uc_option_image_id($nid,$aid,$oid));    
+}
+
+/**
+ * Return array of imagecache presets as options.
+ */
+function uc_option_image_get_size_options() {
+  $options = array('_original' => t('Original'));
+  $presets = imagecache_presets(); 
+  
+  if (empty($presets)){
+    return FALSE;
+  }
+  
+  // imagecache 1.x
+  if (IMAGECACHE_BASE == 1){
+    foreach((array) $presets AS $preset){ 
+      $options[$preset] = $preset;
+    }
+  }
+  // imagecache 2.x
+  else {
+    foreach((array) $presets AS $preset){ 
+      $options[$preset['presetname']] = $preset['presetname'];
+    }
+  }
+       
+  return $options;
+}
+
+/**
+ * Return array of attribute options.
+ */
+function uc_option_image_get_attribute_options() {
+  $output = array();
+  
+  $results = db_query("SELECT aid, name FROM {uc_attributes}");
+  while ($result = db_fetch_array($results)){
+    $output[$result['aid']] = $result['name'];
+  }
+  
+  return $output;
+}
+
+/**
+ * Returns a unique ID corrosponding to the node id, attribute id, and option.
+ */
+function uc_option_image_id($nid, $aid, $oid) {
+  return 'option_image_' . $nid . '_' . $aid . '_' . $oid;
+}
+
+/* -----------------------------------------------------------------
+
+  Form Handling 
+
+------------------------------------------------------------------ */
+
+/**
+ * Handle uc_object_options_form submit.
+ */
+function uc_option_image_uc_object_options_form($form, &$form_state) {
+  if ($aids = element_children($form_state['values']['attributes'])){ 
+    foreach($aids AS $aid){ 
+      if ($oids = element_children($form_state['values']['attributes'][$aid]['options'])){ 
+        foreach($oids AS $oid){
+          uc_option_image_save($form_state['values']['id'], $aid, $oid);
+        }                                                             
+      } 
+    } 
+  }    
+}
+
+/* -----------------------------------------------------------------
+
+  Themes 
+
+------------------------------------------------------------------ */
+
+/**
+ * Implementation of hook_theme()
+ */
+function uc_option_image_theme() {
+  return array(
+    'uc_option_image' => array(
+      'arguments' => array(
+        'file' => NULL,
+        'size' => NULL,
+      ),
+    ),
+    'uc_option_image_preloaded' => array(
+      'arguments' => array(
+        'node' => NULL,
+        'size' => NULL,
+      ),
+    ),
+    'uc_option_image_no_image' => array(
+      'arguments' => array(
+        'node' => NULL,
+        'size' => NULL,
+      ),
+    ),
+    'uc_option_image_no_image_path' => array(
+      'arguments' => array(
+        'node' => NULL,
+        'size' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Theme an option image.
+ *
+ * @param object $file
+ *   File object fetched by uc_option_image_load();
+ * 
+ * @param string $size
+ *   (optional) An imagecache preset or '_original'.
+ * 
+ * @todo generate alt
+ * 
+ * @return string
+ *   Markup.
+ */
+function theme_uc_option_image($file, $size = '_original') {
+  $info = pathinfo($file->filepath);               
+  $attributes = array('class' => 'uc-option-image');
+       
+  // Display imagecache preset or the original image      
+  if ($size != '_original'){                    
+    return theme('imagecache', $size, $file->filepath, NULL, NULL, $attributes);                       
+  }      
+  else {                             
+    return theme('image', $file->filepath, NULL, NULL, $attributes, FALSE);  
+  }
+}
+
+/**
+ * Theme option image preloaded images.
+ *
+ * @param object $node
+ * 
+ * @param string $size
+ *   (optional) An imagecache preset or '_original'.
+ * 
+ * @return string
+ *   Markup.
+ */
+function theme_uc_option_image_preloaded($node, $size = '_original') {
+  $output = '<div id="uc-option-image-preloaded-' . $node->nid . '" class="uc-option-image-preloaded" style="display: none;">';
+  
+  foreach((array) $node->option_images AS $i => $option_image){   
+    $output .= theme('uc_option_image', $option_image, $size);
+  }
+  
+  $output .= theme('uc_option_image_no_image', $node, $size);
+  
+  $output .= '</div>';
+          
+  return $output;
+}
+
+/**
+ * Theme the no image placeholder. 
+ */
+function theme_uc_option_image_no_image($node, $size = '_original') {
+  $attributes = array('class' => 'uc-option-image');
+  $filename = path_to_theme() . '/images/noimage.png';
+  
+  if ($size != '_original'){           
+    return theme('imagecache', $size, $filename, t('No Image'), NULL, $attributes);
+  }
+  else {                                                        
+    return theme('image', $filename, t('No Image'), NULL, $attributes, FALSE);
+  }
+}
+
+/**
+ * Theme the no image placeholder. Must be a valid imagepath.
+ */
+function theme_uc_option_image_no_image_path($node, $size = '_original') {
+  $filename = path_to_theme() . '/images/noimage.png';
+  
+  if ($size != '_original'){           
+    return imagecache_create_url($size, $filename);
+  }
+  else {                                                        
+    return $filename;
+  }
+}
+
+/* -----------------------------------------------------------------
+
+  Theme Overrides 
+                                                                                   
+------------------------------------------------------------------ */
+
+/**
+ * Display the option form. 
+ * 
+ * Add our image fields to the table.
+ */
+function phptemplate_uc_object_options_form($form) {
+  $header = array(t('Attribute'), t('Options'), t('Default'), t('Cost'), t('Price'), t('Weight'), t('Order'), t('Image'), t('Preview'));
+
+  foreach (element_children($form['attributes']) as $key) {
+    $row = array();
+    $row[] = array('data' => drupal_render($form['attributes'][$key]['aid']) . drupal_render($form['attributes'][$key]['name']), 'class' => 'attribute');
+
+    if (element_children($form['attributes'][$key]['default'])) {
+      $first = TRUE;
+      foreach (element_children($form['attributes'][$key]['default']) as $oid) {
+        $row[] = drupal_render($form['attributes'][$key]['options'][$oid]['select']);
+        $row[] = drupal_render($form['attributes'][$key]['default'][$oid]);
+        $row[] = drupal_render($form['attributes'][$key]['options'][$oid]['cost']);
+        $row[] = drupal_render($form['attributes'][$key]['options'][$oid]['price']);
+        $row[] = drupal_render($form['attributes'][$key]['options'][$oid]['weight']);
+        $row[] = drupal_render($form['attributes'][$key]['options'][$oid]['ordering']);
+        // MOD: added the image field and preview
+        $row[] = drupal_render($form['attributes'][$key]['options'][$oid][uc_option_image_id(arg(1), $key, $oid)]); 
+        $row[] = drupal_render($form['attributes'][$key]['options'][$oid]['option_image_preview']);
+        
+        if (!$first) {
+          // MOD: changed from -7 to -9 to accomidate the new columns 
+          $row = array_pad($row, -9, '');
+        }
+        else {
+          $first = FALSE;
+        }
+
+        $rows[] = $row;
+        $row = array();
+      }
+      unset($form['attributes'][$key]['default']);
+    }
+    else {
+      $row[] = array('data' => drupal_render($form['attributes'][$key]['default']), 'colspan' => 7);
+      $rows[] = $row;
+    }
+
+    // MOD: changed colspan from 7 to 9
+    $rows[] = array(array('data' => '<hr />', 'colspan' => 9));
+  }
+
+  if (count($rows) == 0) {
+    $rows[] = array(
+      array('data' => t('This !type does not have any attributes.', array('!type' => $form['type']['#value'] == 'product' ? t('product') : t('product class'))), 'colspan' => 7),
+    );
+  }
+
+  $output = theme('table', $header, $rows, array('class' => 'product_attributes'))
+          . drupal_render($form);
+
+  return $output;
+}
+

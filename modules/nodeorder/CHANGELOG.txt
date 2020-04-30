@@ -1,0 +1,13 @@
+// $Id: CHANGELOG.txt,v 1.1.2.1 2009/03/04 19:44:19 pvanderspek Exp $
+
+nodeorder 6.x-1.x, xxxx-xx-xx
+---------------------------
+
+
+nodeorder 6.x-1.0, 2009-03-02
+---------------------------
+#252431 by pvanderspek, gunspae: 6.x port. Takes advantage of core drag and drop.
+#355818 by gunspae: take advantage of the new installation procedure and added uninstall
+#241169 by pvanderspek: displaying link to to noder/term/x has been made configurable
+#241214 by pvanderspek: replaced link to nodeorder-page with a menu-tab
+upgraded Views integration to work with Views 2

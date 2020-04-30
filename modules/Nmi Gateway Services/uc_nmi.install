@@ -1,0 +1,24 @@
+<?php
+//; $Id: uc_nmi.install,v 2.1.x 2009/10/12 $
+
+/**
+ * @file
+ * Handles installing, uninstalling, and updating Nmi.com settings.
+ */
+
+
+/**
+ * Implementation of hook_install().
+ */
+function uc_nmi_install() {
+//	drupal_install_schema('uc_nmi');
+
+	$t = get_t();
+	db_query("INSERT INTO {uc_order_statuses} (order_status_id, title, state, weight, locked) VALUES ('nmi_pending', '%s', 'payment_received', 7, 1);", $t('NMI pending'));
+}
+
+function uc_nmi_uninstall() {
+	// Delete related variables all at once.
+	db_query("DELETE FROM {variable} WHERE name LIKE 'uc_nmi_%%'");
+}
+

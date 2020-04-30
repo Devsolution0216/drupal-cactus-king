@@ -1,0 +1,29 @@
+/*- Marinelli styles for IE7 v0.3 - Drupal6x - 21/11s/08
+author:singalkuppe: leoni.matteo[at]gmail.com - www.signalkuppe.com
+ */
+
+#utilities form {bottom:9px;}
+#utilities input.form-submit{padding:0px;}	
+#utilities input.form-text {padding:1px 1px 3px 1px;}
+
+.item-list .pager li.pager-current{
+padding:2px;
+}
+
+.item-list .pager li{
+margin:0px 1px 0 1px;
+}
+
+.item-list .pager li.pager-current{
+padding:2px 2px 3px 4px;
+}
+
+#utilities #plinks {/*- Primary links in Header */
+left:-7px;
+}
+
+ul.primosottolivello{ /* ie7 dropdown menu fix*/
+top:31px;
+}
+		
+

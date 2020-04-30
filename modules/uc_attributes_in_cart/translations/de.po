@@ -1,0 +1,99 @@
+# $Id: de.po,v 1.1.2.3 2010/06/18 07:41:11 Fanyalla Exp $
+#
+# GERMAN translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_attributes_in_cart.module,v 1.1.2.2 2010/05/21 08:28:40 Fanyalla
+#  uc_attributes_in_cart.install,v 1.1.2.3 2010/05/23 08:45:10 Fanyalla
+#  uc_attributes_in_cart.info,v 1.1 2010/05/13 12:44:46 Fanyalla
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-06-11 12:58+0200\n"
+"PO-Revision-Date: 2010-06-16 11:53+0100\n"
+"Last-Translator: Christian Hecker <info@ibid-systems.de>\n"
+"Language-Team: Christian Hecker <info@ibid-systems.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+
+#: uc_attributes_in_cart.module:19;224
+msgid "Attributes"
+msgstr "Produktattribute"
+
+#: uc_attributes_in_cart.module:225
+msgid "Here are listed the attributes you have defined in your store administration."
+msgstr "Bitte wählen Sie die Produktattribute aus, die im Warenkorb veränderbar sind."
+
+#: uc_attributes_in_cart.module:232
+msgid "Filter out attributes that are no longer in stock"
+msgstr "Nicht mehr vorrätige Produktattribute  im Warenkorb verstecken."
+
+#: uc_attributes_in_cart.module:233
+msgid "Check this box if you want to filter out attributes that are no longer in stock when viewing the cart page."
+msgstr "Aktivieren Sie diese Option, wenn im Warenkorb nur Produktattribute angezeigt werden sollen, die auch in der Lagerhaltung vorrätig sind."
+
+#: uc_attributes_in_cart.module:249
+msgid "Show attribute form in cart"
+msgstr "Das Formular des Produktattributs anzeigen"
+
+#: uc_attributes_in_cart.module:250
+msgid "Check this box if you want this attribute form to be displayed in cart."
+msgstr "Aktivieren Sie diese Option, wenn das Formular-Feld des Produktattributs im Warenkorb angezeigt werden soll."
+
+#: uc_attributes_in_cart.module:256
+msgid "Show attribute title in cart"
+msgstr "Den Titel des Produktattributs anzeigen"
+
+#: uc_attributes_in_cart.module:257
+msgid "Check this box if you want this attribute form to have a title in cart."
+msgstr "Aktivieren Sie diese Option, wenn der Titel des Produktattributs im Warenkorb angezeigt werden soll."
+
+#: uc_attributes_in_cart.module:263
+msgid "Enclose the attribute's form in a fieldset"
+msgstr "Das Produktattribut in einem separierten Feld darstellen"
+
+#: uc_attributes_in_cart.module:264
+msgid "Check this box if you want this attribute's form to be enclosed in a fieldset (when you have for example a long list of options)."
+msgstr "Wählen Sie diese Option, um das Produktattribut in einem geschlossenen Feld (sog. Fieldset) darzustellen. Das empfiehlt sich z. B. bei umfangreichen Auswahlmöglichkeiten."
+
+#: uc_attributes_in_cart.module:269
+msgid "Save"
+msgstr "Speichern"
+
+#: uc_attributes_in_cart.module:309
+msgid "The settings have been saved."
+msgstr "Die Einstellungen wurden gespeichert."
+
+#: uc_attributes_in_cart.module:316
+msgid "administer attributes in cart settings"
+msgstr "Verwaltung Produktattribute im Warenkorb"
+
+#: uc_attributes_in_cart.module:204
+msgid "Attributes in cart settings"
+msgstr "Produktattribute im Warenkorb"
+
+#: uc_attributes_in_cart.module:205
+msgid "Administer the settings of attributes in cart."
+msgstr "Verwaltung der Produktattribute im Warenkorb."
+
+#: uc_attributes_in_cart.install:62
+msgid "The <em>Attributes in cart</em> module has been installed. You can change the settings of this module under !link."
+msgstr "Das Modul <em>Produktattribute im Warenkorb</em> wurde installiert. Sie finden die Konfiguration unter !link."
+
+#: uc_attributes_in_cart.install:71
+msgid "The <em>Attributes in cart</em> module has been uninstalled."
+msgstr "Das Modul <em>Produktattribute im Warenkorb</em> wurde entfernt."
+
+#: uc_attributes_in_cart.info:0
+msgid "Attributes in cart"
+msgstr "Produktattribute im Warenkorb"
+
+#: uc_attributes_in_cart.info:0
+msgid "Allow users to modify attributes of Ubercart products directly in their cart."
+msgstr "Kunden können direkt im Warenkorb Produktattribute verändern (nur Ubercart Produkte)."
+

@@ -1,0 +1,69 @@
+# Hungarian translation of imceimage (6.x-1.0-beta1)
+# Copyright (c) 2009 by the Hungarian translation team
+# Generated from files:
+#  imceimage.module,v 1.1.2.2 2008/12/29 22:57:46 yangyicn
+#  imceimage.info,v 1.1.2.1 2008/05/07 20:49:36 panis
+#  imceimage.js,v 1.1 2008/04/09 18:59:57 panis
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: imceimage (6.x-1.0-beta1)\n"
+"POT-Creation-Date: 2009-02-15 07:17-0600\n"
+"PO-Revision-Date: 2009-02-14 07:28-0600\n"
+"Last-Translator: Balogh Zoltán\n"
+"Language-Team: Hungarian http://forditas.mindworks.hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: imceimage.module:357
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: imceimage.info:0
+msgid "CCK"
+msgstr "CCK"
+
+#: imceimage.module:16
+msgid "Use IMCE browser to attach images to content"
+msgstr ""
+"Az <em>IMCE</em> böngésző használható a képek tartalomhoz "
+"csatolására"
+
+#: imceimage.module:168
+msgid "Valid File Types"
+msgstr "Érvényes fájltípusok"
+
+#: imceimage.module:354
+msgid "Change Image"
+msgstr "Kép megváltoztatása"
+
+#: imceimage.module:360
+msgid "Add Image"
+msgstr "Kép hozzáadása"
+
+#: imceimage.module:0; imceimage.js:0
+msgid "imceimage"
+msgstr "imceimage"
+
+#: imceimage.info:0
+msgid "IMCE Image"
+msgstr "IMCE kép"
+
+#: imceimage.info:0
+msgid "Defines an IMCE image field type."
+msgstr "<em>IMCE</em> kép mező típust ad."
+
+#: imceimage.js:0
+msgid "Add image to @app"
+msgstr "Kép hozzáadása: @app"
+
+#: imceimage.module:399
+msgid "caption"
+msgstr "felirat"
+
+#: imceimage.module:400
+msgid "The caption text for this image."
+msgstr "A képfelirat szövege ehhez a képhez."
+

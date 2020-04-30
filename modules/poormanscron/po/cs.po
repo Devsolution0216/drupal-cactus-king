@@ -1,0 +1,70 @@
+# LANGUAGE translation of Drupal (poormanscron.module)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from file: poormanscron.module,v 1.11 2005/04/18 08:55:53 uwe
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: cs\n"
+"POT-Creation-Date: 2006-01-06 18:41GMT+1\n"
+"PO-Revision-Date: 2006-01-06 18:41GMT+1\n"
+"Last-Translator: Jiri Pavlik <pavlik@herme.net>\n"
+"Language-Team: Czech\n"
+"MIME-Version: 1.1\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: poormanscron.module:17
+msgid "Runs Drupal cron jobs without the cron application."
+msgstr "Spouští v Drupalu úlohy cronu bez použití programu cron."
+
+#: poormanscron.module:63
+msgid "Minimum number of minutes between cron runs. Cron will actually execute during the first page request after the interval has elapsed."
+msgstr "Minimální počet minut mezi spuštěním cronu. Cron se spustí během prvního požadavku na zobrazení stránky po uplynutí tohoto intervalu."
+
+#: poormanscron.module:65
+msgid "The number of minutes to wait after a cron run error before retrying."
+msgstr "Počet minut, po které se bude čekat, než se cron pokusí spustit znovu, dojde-li při jeho spouštění k chybě."
+
+#: poormanscron.module:67
+msgid "If you want to log successful cron runs to the Drupal watchdog, say Yes here. If those messages annoy you, disable them by selecting No."
+msgstr "Chcete-li, aby se úspěšné spuštění cronu zapisovalo do logu modulu Drupalův hlídací pes, zadejte \"Ano\", v opačném případě zadejte \"Ne\"."
+
+#: poormanscron.module:71
+msgid "Cron runs interval"
+msgstr "Interval spouštění cronu"
+
+#: poormanscron.module:75
+msgid "Retry interval"
+msgstr "Interval dalšího pokusu po chybě"
+
+#: poormanscron.module:78
+msgid "Time intervals"
+msgstr "Časové intervaly"
+
+#: poormanscron.module:80
+msgid "Log successful cron runs"
+msgstr "Zapisovat úspěšná spuštění do logu"
+
+#: poormanscron.module:83
+msgid "Yes"
+msgstr "Ano"
+
+#: poormanscron.module:83
+msgid "No"
+msgstr "Ne"
+
+#: poormanscron.module:85
+msgid "Logging"
+msgstr "Zápis do logu"
+
+#: poormanscron.module:50
+msgid "regular"
+msgstr "pravidelné"
+
+#: poormanscron.module:0
+msgid "poormanscron"
+msgstr "poormanscron"
+

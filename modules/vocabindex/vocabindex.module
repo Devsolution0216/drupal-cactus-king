@@ -1,0 +1,576 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Vocabulary Index is a taxonomy browser with different kinds of views.
+ *
+ * Vocabulary Index allows site administrators to create pages or blocks in
+ * which to display the terms in a certain vocabulary. The administrator may
+ * choose between a variety of views.
+ */
+
+/**
+ * Define constants.
+ *
+ * Don't use 0 (zero) as a value as it will make comparisons with NULL rather
+ * difficult.
+ */
+
+/**
+ * A term index.
+ */
+define('VOCABINDEX_TERM', 1);
+/**
+ * A vocabulary index.
+ */
+define('VOCABINDEX_VOC', 2);
+/**
+ * Tree view.
+ */
+define('VOCABINDEX_VIEW_TREE', 1);
+/**
+ * Flat view.
+ */
+define('VOCABINDEX_VIEW_FLAT', 2);
+/**
+ * Alphabetical view.
+ */
+define('VOCABINDEX_VIEW_ALPHABETICAL', 3);
+/**
+ * A VI block.
+ */
+define('VOCABINDEX_VI_BLOCK', 1);
+/**
+ * A VI page.
+ */
+define('VOCABINDEX_VI_PAGE', 2);
+
+/**
+ * Implementation of hook_perm().
+ */
+function vocabindex_perm() {
+  return array(
+    'administer vocabulary index',
+    'view vocabulary index pages',
+  );
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function vocabindex_init() {
+  if (vocabindex_update_status() == FALSE) {
+    $path = base_path() . 'update.php';
+    drupal_set_message(t("Please proceed to !update.php to update your database to Vocabulary Index 2.", array('!update.php' => '<a href="' . $path . '">update.php</a>')), 'error');
+  }
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function vocabindex_menu() {
+  if (vocabindex_update_status() == FALSE) {
+    return array();
+  }
+
+  $items[_vocabindex_menu_paths('admin_main')] = array(
+    'title' => 'Vocabulary Index',
+    'description' => 'Create index pages for vocabularies.',
+    'access arguments' => array('administer vocabulary index'),
+    'page callback' => 'vocabindex_admin_vi',
+    'page arguments' => array((string) VOCABINDEX_VI_PAGE),
+    'file' => 'vocabindex.admin.inc',
+  );
+
+  $items[_vocabindex_menu_paths('admin_pages')] = array(
+    'title' => 'Pages',
+    'access arguments' => array('administer vocabulary index'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'file' => 'vocabindex.admin.inc',
+    'weight' => 0,
+  );
+
+  $items[_vocabindex_menu_paths('admin_blocks')] = array(
+    'title' => 'Blocks',
+    'description' => 'Create index blocks for vocabularies.',
+    'access arguments' => array('administer vocabulary index'),
+    'page callback' => 'vocabindex_admin_vi',
+    'page arguments' => array((string) VOCABINDEX_VI_BLOCK),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'vocabindex.admin.inc',
+    'weight' => 1,
+  );
+
+  $items[_vocabindex_menu_paths('admin_settings')] = array(
+    'title' => 'Settings',
+    'description' => 'General settings.',
+    'access arguments' => array('administer vocabulary index'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('vocabindex_admin'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'vocabindex.admin.inc',
+    'weight' => 2,
+  );
+
+  // VI pages.
+  $vis = vocabindex_vi_load(VOCABINDEX_VI_PAGE);
+  foreach ($vis as $vi) {
+    $item = vocabindex_menu_base() + array(
+      'title' => $vi->name,
+      'description' => check_plain($vi->description),
+      // We need to cast out the constant to a string, because the integer will
+      // otherwise be replaced with the corresponding part of the menu path.
+      'page arguments' => array($vi->vid, (string) VOCABINDEX_VOC),
+    );
+    // The menu item for alphabetical VIs using the letter wildcard.
+    if ($vi->view == VOCABINDEX_VIEW_ALPHABETICAL) {
+      $arg = (int) substr_count($vi->path, '/') + 1;
+      $path = $vi->path . '/%vocabindex_letter';
+      $item['page arguments'][2] = $arg;
+    }
+    $items[$vi->path] = $item;
+  }
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_menu_alter().
+ *
+ * Overrides taxonomy.module's default /taxonomy/term/tid callback for term
+ * index pages.
+ */
+function vocabindex_menu_alter(&$items) {
+  $vis = vocabindex_vi_load(VOCABINDEX_VI_PAGE);
+  foreach ($vis as $vi) {
+    if ($vi->view == VOCABINDEX_VIEW_FLAT) {
+      $tree = taxonomy_get_tree($vi->vid);
+      $children = vocabindex_get_children($tree);
+      foreach ($tree as $term) {
+        // Check if the current term is a parent.
+        if (isset($children[$term->tid])) {
+          $items['taxonomy/term/' . $term->tid] = vocabindex_menu_base() + array(
+            'title' => $term->name,
+            'description' => check_plain($term->description),
+            // We need to cast our integer constant to a string, because the
+            // integer will otherwise be replaced with the corresponding part
+            // of the menu path.
+            'page arguments' => array($term->tid, (string) VOCABINDEX_TERM),
+            'file path' => drupal_get_path('module', 'vocabindex'),          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function vocabindex_block($op, $delta = 0) {
+  if ($op == 'list') {
+    $blocks = array();
+    $vis = vocabindex_vi_load(VOCABINDEX_VI_BLOCK);
+    foreach ($vis as $vi) {
+      $blocks[$vi->vid] = array('info' => t('@vocabulary (Vocabulary Index)', array('@vocabulary' => $vi->name)));
+    }
+
+    return $blocks;
+  }
+  elseif ($op == 'view') {
+    module_load_include('inc', 'vocabindex', 'vocabindex.view');
+    $vi = vocabindex_vi_load(VOCABINDEX_VI_BLOCK, $delta);
+    return array('subject' => check_plain($vi->name), 'content' => vocabindex_view_block($vi->vid));
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function vocabindex_theme($existing, $type, $theme, $path) {
+  $base = array('path' => drupal_get_path('module', 'vocabindex') . '/theme');
+
+  $functions['vocabindex_admin_vi_form'] = $base + array(
+    'template' => 'vocabindex_admin_vi_form',
+    'arguments' => array(
+      'form' => array(),
+    ),
+  );
+
+  $functions['vocabindex_page'] = $base + array(
+    'template' => 'vocabindex_page',
+    'arguments' => array(
+      'parent' => NULL,
+      'list' => NULL,
+      'pager' => NULL,
+      'pager_alpha' => NULL,
+    ),
+  );
+
+  $functions['vocabindex_link'] = $base + array(
+    'template' => 'vocabindex_link',
+    'arguments' => array(
+      'term' => NULL,
+      'vi' => NULL,
+      'dir' => NULL,
+    ),
+  );
+
+  $functions['vocabindex_pager'] = $base + array(
+    'template' => 'vocabindex_pager',
+    'arguments' => array(
+      'letters' => NULL,
+    ),
+  );
+
+  $functions['vocabindex_pager_letter'] = $base + array(
+    'template' => 'vocabindex_pager_letter',
+    'arguments' => array(
+      'letter' => NULL,
+      'url' => NULL,
+      'active' => NULL,
+    ),
+  );
+
+  $functions['vocabindex_pager_separator'] = $base + array(
+    'template' => 'vocabindex_pager_separator',
+  );
+
+  return $functions;
+}
+
+/**
+ * Implementation of hook_taxonomy().
+ */
+function vocabindex_taxonomy($op, $type, $array) {
+  $vid = $array['vid'];
+
+  if ($type == 'vocabulary') {
+    if ($op == 'delete') {
+      vocabindex_vi_delete($vid);
+    }
+    elseif ($op == 'insert') {
+      vocabindex_vi_create($vid);
+    }
+    menu_rebuild();
+  }
+}
+
+/**
+ * Implementation of hook_help().
+ */
+function vocabindex_help($path, $arg) {
+  $output = '';
+  switch ($path) {
+    // General help.
+    case 'admin/help#vocabindex':
+      // Module description.
+      $output = '<p>' . t('Vocabulary Index provides several ways to list all terms inside a specified vocabulary. For each vocabulary you may enable a <a href="!url_pages">page</a> and/or a <a href="!url_blocks">block</a> that will view its terms in the way you think suits best. This way may be a tree, a flat, browsable index, or an index where you can filter terms by letter. Next to that you can choose to display node counts for each term. Term descriptions will be displayed along with the term names if provided.', array('!url_pages' => url(_vocabindex_menu_paths('admin_pages')), '!url_blocks' => url(_vocabindex_menu_paths('admin_blocks')))) . '</p>';
+
+      // Dynamic help.
+      drupal_add_css(drupal_get_path('module', 'vocabindex') . '/vocabindex-help.css', 'module', 'screen', FALSE);
+      $output .= t('You may want to execute the following steps to configure Vocabulary Index.');
+      $steps = array(
+        array(
+          'message' => t('Set up <a href="!permissions">permissions</a>.', array('!permissions' => url('admin/user/permissions', array('fragment' => 'module-vocabindex')))),
+          'executed' => (bool) db_result(db_query("SELECT COUNT(perm) FROM {permission} WHERE perm LIKE '%view vocabulary index pages%'")),
+        ),
+        array(
+          'message' => t('Create <a href="!index_pages">index pages</a>.', array('!index_pages' => url(_vocabindex_menu_paths('admin_pages')))),
+          'executed' => (bool) count(vocabindex_vi_load(VOCABINDEX_VI_PAGE, 0, TRUE)),
+        ),
+        array(
+          'message' => t('Create <a href="!index_blocks">index blocks</a>.', array('!index_blocks' => url(_vocabindex_menu_paths('admin_blocks')))),
+          'executed' => (bool) count(vocabindex_vi_load(VOCABINDEX_VI_BLOCK, 0, TRUE)),
+        ),
+
+      );
+      $items = array();
+      foreach ($steps as $step) {
+        $items[] = array(
+          'data' => $step['message'],
+          'class' => $step['executed'] == FALSE ? 'todo' : NULL,
+          'title' => $step['executed'] == FALSE ? t('Configuration step not completed.') : NULL,
+          );
+      }
+      $output .= theme_item_list($items, NULL, 'ul', array('id' => 'dynamic-help'));
+      // View types.
+      $image_tree = vocabindex_screenshot_link('tree', t('Example screenshot of a tree view.'));
+      $image_browsable = vocabindex_screenshot_link('browsable', t('Example screenshot of a browsable view.'));
+      $image_alphabetical = vocabindex_screenshot_link('alphabetical', t('Example screenshot of an alphabetical view.'));
+      $output .= theme_table(array(), array(
+        array(
+          $image_tree,
+          t('The <strong>tree view</strong> displays all terms in a nested tree. If visitors of your site have JavaScript enabled, parent terms will be collapsed by default, but they will expand when clicked on. Since tree view displays all terms on a single page, terms with multiple parents are displayed more than once: once beneath every parent.')
+        ),
+        array(
+          $image_browsable,
+          t('The <strong>browsable view</strong> lets visitors browse a vocabulary much like they would browse through directories on their hard drive. Taxonomy pages of parent terms do not list the nodes within those terms, but the child terms it contains. Since blocks cannot span multiple pages, they can be displayed using a flat view. This is exactly the same as the browsable view apart from that it is not browsable. Browsable index pages are <a href="!settings_page">pageable</a>.', array('!settings_page' => url(_vocabindex_menu_paths('admin_settings'))))
+        ),
+        array(
+          $image_alphabetical,
+          t('The <strong>alphabetical view</strong> sorts terms by first letter. Optionally <a href="#transliteration">character transliteration</a> may be enabled. Alphabetically viewed index pages are <a href="!settings_page">pageable</a>.', array('!settings_page' => url(_vocabindex_menu_paths('admin_settings'))))
+        ),
+      ));
+
+      // Reference to handbook page.
+      $output .= '<p>' . t('For more extensive information on configuring Vocabulary Index or on development, please visit <a href="!handbook_page">the on-line handbook</a>.', array('!handbook_page' => 'http://drupal.org/node/297075')) . '</p>';
+
+      // Character transliteration.
+      $output .= '<h2 id="transliteration">' . t('Character transliteration') . '</h2>';
+      $path = drupal_get_path('module', 'vocabindex');
+      $output .= '<p>' . t('Character transliteration groups terms by the <a href="!wiki_latin_alphabet">modern Latin</a> equivalent of their first letter for the alphabetical view. This way terms like <em>Ångström</em> and <em>Ampère</em> will both be grouped under the letter A, for instance. If you would like to modify the <a href="!default_file">default transliteration file</a>, copy the file to <em>i18n-ascii-custom.txt</em> and use this file instead to override the values from i18n-ascii.txt or to add new values.', array('!default_file' => $path . '/i18n-ascii.txt')) . '</p>';
+
+      // Other contribs.
+      $output .= '<h2>' . t('Other contributed modules') . '</h2>';
+      $output .= '<p>' . t('Some other modules, like <a href="!pathauto_project_page">Pathauto</a>, complement Vocabulary Index. For instructions on setting up these modules to work with Vocabulary Index, please visit <a href="!handbook_complementary_modules">the on-line handbook</a>.', array('!pathauto_project_page' => 'http://drupal.org/project/pathauto', '!handbook_complementary_modules' => 'http://drupal.org/node/330224'));
+
+      break;
+      // Per-page help.
+    case _vocabindex_menu_paths('admin_main'):
+    case _vocabindex_menu_paths('admin_pages'):
+      $output = '<p>' . t('Index pages list the terms inside a vocabulary. They are accessible by a path of their own and they are enabled as soon as you enter one.') . '</p>';
+      break;
+    case _vocabindex_menu_paths('admin_blocks'):
+      $output = '<p>' . t('Index blocks list the terms inside a vocabulary. Enabled blocks can be configured at the <a href="!blocks">blocks settings page</a>. Flat index blocks are similar to browsable pages, they only differ in that they are not browsable and therefore don\'t display nested terms.', array('!blocks' => url(_vocabindex_menu_paths('blocks')))) . '</p>';
+  }
+
+  return $output;
+}
+
+/**
+ * Define all menu paths in one central place.
+ *
+ * Useful because we are referring to menu paths from several places in this
+ * module. If we want to change them we can easily do so here.
+ *
+ * @param $path
+ *   Type: string; The name of the site section to get the path for.
+ *
+ * @return
+ *   Type: string; The requested path.
+ */
+function _vocabindex_menu_paths($section) {
+  static $paths = array(
+    'taxonomy'       => 'admin/content/taxonomy',
+    'blocks'         => 'admin/build/block',
+    'admin_main'     => 'admin/build/vocabindex',
+    'admin_pages'    => 'admin/build/vocabindex/pages',
+    'admin_blocks'   => 'admin/build/vocabindex/blocks',
+    'admin_settings' => 'admin/build/vocabindex/settings',
+  );
+
+  return $paths[$section];
+}
+
+/**
+ * Returns the basics for a VI menu item.
+ */
+function vocabindex_menu_base() {
+  return array(
+    'access arguments' => array('view vocabulary index pages'),
+    'page callback' => 'vocabindex_view_page',
+    'type' => MENU_CALLBACK,
+    'file' => 'vocabindex.view.inc',
+  );
+}
+
+/**
+ * Check if the latest DB updates for this module have been performed.
+ */
+function vocabindex_update_status() {
+  if (!is_null(variable_get('vocabindex_schema_update', NULL))) {
+    return variable_get('vocabindex_schema_update', NULL);
+  }
+  elseif (module_exists('vocabindex')) {
+    require_once('includes/install.inc');
+    module_load_include('install', 'vocabindex');
+    $current = drupal_get_installed_schema_version('vocabindex');
+    $available = array_pop(drupal_get_schema_versions('vocabindex'));
+    $uptodate = $current < $available ? FALSE : TRUE;
+    variable_set('vocabindex_schema_update', $uptodate);
+
+    return $uptodate;
+  }
+}
+
+/**
+ * Menu path wildcard for alphabetical VIs.
+ *
+ * @param $letter
+ *   Type: string; The wildcard's value.
+ *
+ * @return
+ *   Type: boolean; Whether the wildcard's value is a letter or not.
+ */
+function vocabindex_letter_load($letter) {
+  return preg_match('#^[a-z0-9]$#', vocabindex_transliterate($letter)) == 0 ? FALSE : $letter;
+}
+
+/**
+ * Delete index pages.
+ *
+ * @ingroup vi_management
+ *
+ * @param $vid
+ *   Type: integer; The VID of the VIs to delete. 0 (zero) to delete all VIs.
+ */
+function vocabindex_vi_delete($vid = 0) {
+  if ($vid == 0) {
+    // Delete all VIs
+    db_query("DELETE FROM {vocabindex}");
+  }
+  else {
+    // Delete all VIs matching a VID
+    db_query("DELETE FROM {vocabindex} WHERE vid = %d", $vid);
+  }
+}
+
+/**
+ * Create two VIs (Page and Block) for a certain vocabulary.
+ *
+ * This function must be called when the module is being installed or when a new
+ * vocabulary has been created. Note that created VIs are not yet enabled.
+ *
+ * @ingroup vi_management
+ *
+ * @param $vid
+ *   Type: integer; The VID of the vocabulary to create the VIs for.
+ */
+function vocabindex_vi_create($vid) {
+  db_query("INSERT INTO {vocabindex} (vid, type) VALUES (%d, %d), (%d, %d)", $vid, VOCABINDEX_VI_PAGE, $vid, VOCABINDEX_VI_BLOCK);
+}
+
+/**
+ * Load the vocabindex settings for a given index.
+ *
+ * The first time this function is called it will get vocabularies and matching
+ * VI data from the database and put them in a static array.
+ *
+ * @ingroup vi_management
+ *
+ * @param $type
+ *   Type: constant; The result you want to get. Possible values:
+ *   - VOCABINDEX_VI_PAGE (Select all index pages).
+ *   - VOCABINDEX_VI_BLOCK (Select all index blocks).
+ * @param $vid
+ *   Type: integer; The VID of the vocabulary index to get the settings for.
+ *   0 (zero) to select all VIs.
+ * @param $enabled
+ *   Type: boolean; Whether to return all VIs or just the enabled ones.
+ *
+ * @return
+ *   Type: array/object; An array containing all requested VI objects or just
+ *   one VI object.
+ */
+function vocabindex_vi_load($type, $vid = 0, $enabled = TRUE) {
+  static $vis = array();
+
+  if (empty($vis)) {
+    $result = db_query(db_rewrite_sql("SELECT vi.*, v.name, v.description FROM {vocabindex} vi LEFT JOIN {vocabulary} v ON vi.vid = v.vid ORDER BY v.name, v.weight ASC", 'v', 'vid'));
+    while ($vi = db_fetch_object($result)) {
+      // Only when displaying flat VIs the depth should be 2 (one to display, the
+      // other to determine if terms are parents).
+      $vi->depth = $vi->view == VOCABINDEX_VIEW_FLAT ? 2 : NULL;
+      $vis[$vi->type][$vi->vid] = $vi;
+    }
+  }
+
+  // Return an empty array if there are no results.
+  if (empty($vis)) {
+    return array();
+  }
+
+  // Check for the requested VIDs.
+  if ($vid != 0) {
+    $selection = array($vis[$type][$vid]);
+  }
+  else {
+    $selection = $vis[$type];
+  }
+
+  // Select all VIs or just the enabled ones depending on $enabled.
+  if ($enabled) {
+    $buffer = array();
+    foreach ($selection as $vi) {
+      if ($vi->enabled) {
+        $buffer[] = $vi;
+      }
+    }
+    $return = $buffer;
+  }
+  else {
+    $return = array_values($selection);
+  }
+
+  return $vid == 0 ? $return : array_shift($return);
+}
+
+/**
+ * Create an array listing all the terms that are parents.
+ *
+ * @param $tree
+ *   Type: array; The result of taxonomy_get_tree().
+ *
+ * @return
+ *   Type: array;
+ */
+function vocabindex_get_children($tree) {
+  $children = array();
+  // Loop through all the terms.
+  foreach ($tree as $term) {
+    // Loop through the term's parents.
+    for ($i = 0, $len_i = count($term->parents); $i < $len_i; $i++) {
+      $children[$term->parents[$i]][] = $term->tid;
+    }
+  }
+  // As terms can have multiple parents and we don't want terms to show up in
+  // places where they shouldn't show up we're going to prune the array.
+  // Array_values() is used to re-key the array.
+  foreach ($children as $tid => $child) {
+    $children[$tid] = array_values(array_unique($child));
+  }
+
+  return $children;
+}
+
+/**
+ * Transliterate a letter to the modern Latin alphabet.
+ *
+ * @param $letter
+ *   Type: string; The letter to transliterate.
+ *
+ * @return
+ *   Type: string; The first letter of the transliterated string if a
+ *   translation is available.
+ */
+function vocabindex_transliterate($letter) {
+  static $transliterations = array();
+
+  if (empty($transliterations)) {
+    $path = drupal_get_path('module', 'vocabindex');
+    $transliterations = parse_ini_file($path .'/i18n-ascii.txt');
+    // Check for custom transliteration file
+    if (file_exists($path . '/i18n-ascii-custom.txt')) {
+      $custom_transliterations = parse_ini_file($path .'/i18n-ascii-custom.txt');
+      $transliterations = array_merge($transliterations, $custom_transliterations);
+    }
+  }
+
+  // Only return the first letter of the transliterated result.
+  return drupal_substr(strtr($letter, $transliterations), 0, 1);
+}
+
+/**
+ * Create a thumbnail that links to screen shots of view modes.
+ *
+ * @param $view
+ *   Type: string; The view to create the thumbnail for.
+ * @param $title
+ *   Type: string; The thumbnail's title/alternate text.
+ *
+ * @return string
+ */
+function vocabindex_screenshot_link($view, $title) {
+  return l(theme_image(drupal_get_path('module', 'vocabindex') . '/images/thumb_' . $view . '.gif', $title, $title), 'http://drupal.org/files/images/screenshot_' . $view . '.preview.png', array('html' => TRUE));
+}

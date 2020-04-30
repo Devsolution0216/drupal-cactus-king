@@ -1,0 +1,117 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_product_kit.module,v 1.11.2.8 2008/12/09 15:20:38 islandusurper
+#  uc_product_kit.info,v 1.5.4.3 2008/11/07 21:13:26 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-06-16 15:29+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_product_kit/uc_product_kit.module:348
+msgid "Product Information"
+msgstr "Artikel Informationen"
+
+#: uc_product_kit/uc_product_kit.module:406
+msgid "List order"
+msgstr "Listen reihenfolge"
+
+#: uc_product_kit/uc_product_kit.module:303
+msgid "How are product kits handled by the cart?"
+msgstr "Wie sollen Artikelgruppen im Warenkorb behandelt werden."
+
+#: uc_product_kit/uc_product_kit.module:307,359
+msgid ""
+"As individual products. Customers may add or remove kit components at "
+"will."
+msgstr ""
+"Als einzelne Artikel. Kunden können Teile hinzufügen oder entfernen "
+"wie Sie es wünschen."
+
+#: uc_product_kit/uc_product_kit.module:328
+msgid "Name of the product kit"
+msgstr "Name der Produktzusammenstellung"
+
+#: uc_product_kit/uc_product_kit.module:335
+msgid "Explain these whatchamacallits."
+msgstr "Dieses Zeugs erklären."
+
+#: uc_product_kit/uc_product_kit.module:355
+msgid "How is this product kit handled by the cart?"
+msgstr "Wie soll diese Produktzusammenstellung vom Warenkorb behandelt werden."
+
+#: uc_product_kit/uc_product_kit.module:390
+msgid "Discount"
+msgstr "Rabatt"
+
+#: uc_product_kit/uc_product_kit.module:391
+msgid ""
+"Enter a negative value to lower the item price by that amount. Enter a "
+"postive value to set the item price to that amount. This discount is "
+"applied to each %product in the kit."
+msgstr ""
+"Einen Negativen wert eigeben um den Preis um diesen betrag zu "
+"reduzieren. Einen Positiven wert eigeben um diesen als Preis für das "
+"Set festzulegen. Der Rabatt wird auf jedes %product im Set angewandt."
+
+#: uc_product_kit/uc_product_kit.module:516
+msgid "Click to add to cart."
+msgstr "Klicken um zum Warenkorb hinzuzufügen."
+
+#: uc_product_kit/uc_product_kit.module:67
+msgid "Product kit"
+msgstr "Produktzusammenstellung"
+
+#: uc_product_kit/uc_product_kit.module:69
+msgid ""
+"This node represents two or more products that have been listed "
+"together. This presents a logical and convenient grouping of items to "
+"the customer."
+msgstr ""
+"Dieser Inhalt steht für zwei oder mehr Produkte die zusammen gelistet "
+"werde. Sie stellen eine logische und gebräuchliche zusammenstellung "
+"für den Kunden dar."
+
+#: uc_product_kit/uc_product_kit.module:0
+msgid "uc_product_kit"
+msgstr "uc_product_kit"
+
+#: uc_product_kit/uc_product_kit.info:0
+msgid "Product Kit"
+msgstr "Produktzusammenstellungen"
+
+#: uc_product_kit/uc_product_kit.info:0
+msgid ""
+"This node module represents two or more products that have been listed "
+"together. This presents a logical and convenient grouping of items to "
+"the customer."
+msgstr ""
+"Dieses Inhalts Modul steht für zwei oder mehr Produkte die zusammen "
+"gelistet werde. Sie stellen eine logische und gebräuchliche "
+"zusammenstellung für den Kunden dar."
+
+#: uc_product_kit/uc_product_kit.module:640
+msgid ""
+"Product kits do not have an image field. You may add the existing "
+"<em>field_image_cache</em> at the <a href=\"!url\">Add field page</a>."
+msgstr ""
+
+#: uc_product_kit/uc_product_kit.module:305,357
+msgid ""
+"As a unit. Customers may only change how many kits they are buying. Do "
+"not list component products."
+msgstr ""
+
+#: uc_product_kit/uc_product_kit.module:306,358
+msgid ""
+"As a unit. Customers may only change how many kits they are buying. "
+"List component products."
+msgstr ""
+

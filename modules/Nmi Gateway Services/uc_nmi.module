@@ -1,0 +1,259 @@
+<?php
+// $Id: uc_nmi.module,v 1.4.2.11 2009/08/17 21:27:56 islandusurper Exp $
+
+/**
+ * @file
+ * Process payments using NMI.com.
+ */
+
+/**
+* Implementation of hook_help().
+*/
+function uc_nmi_help($section) {
+	switch ($section) {
+		case 'admin/help#uc_nmi':
+			// Return a line-break version of the module README
+			return filter_filter('process', 2, NULL, file_get_contents( dirname(__FILE__)."/README.txt") );
+	}
+}
+
+/**
+ * Implementation of hook_payment_gateway().
+ */
+function uc_nmi_payment_gateway() {
+	$gateways[] = array(
+		'id' => 'nmi',
+		'title' => t('NMI Gateway Services'),
+		'description' => t('Process credit card payments using the NMI Gateway Services.'),
+		'settings' => 'uc_nmi_settings_form',
+		'credit' => 'uc_nmi_charge',
+		'credit_txn_types' => array(UC_CREDIT_AUTH_ONLY, UC_CREDIT_PRIOR_AUTH_CAPTURE, UC_CREDIT_AUTH_CAPTURE, UC_CREDIT_REFERENCE_SET, UC_CREDIT_REFERENCE_TXN),
+	);
+
+	return $gateways;
+}
+
+/**
+ * Callback for payment gateway settings.
+ */
+function uc_nmi_settings_form() {
+	$form['nmi_settings'] = array(
+		'#type' => 'fieldset',
+		'#title' => t('NMI settings'),
+	);
+
+	$form['nmi_settings']['nmi_username'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Username'),
+		'#default_value' => variable_get('nmi_username', ''),
+		'#description' => t('Username that is used for the NMI Gateway Services.'),
+	);
+
+	$form['nmi_settings']['nmi_password'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Password'),
+		'#default_value' => variable_get('nmi_password', ''),
+		'#description' => t('The password used for the NMI Gateway Services.'),
+	);
+
+	$form['nmi_settings']['nmi_type'] = array(
+		'#type' => 'select',
+		'#title' => t('Authentication type'),
+		'#description' => t('Authorization Only will only set aside the funds that need to be withdrawn. Sale will withdraw the funds immediately.'),
+		'#options' => array(
+			'sale' => t('Sale'),
+			'auth' => t('Authorization Only'),
+		),
+		'#default_value' => variable_get('nmi_type', 'sale'),
+	);
+	$form['nmi_settings']['nmi_code'] = array(
+		'#type' => 'select',
+		'#title' => t('Request/Capture Credit Card Code Value (CVV2/CVC2/CID)'),
+		'#description' => t('Authorization Only will only set aside the funds that need to be withdrawn. Sale will withdraw the funds immediately.'),
+		'#options' => array(
+			'yes' => t('Yes'),
+			'no' => t('No'),
+		),
+		'#default_value' => variable_get('nmi_code', 'yes'),
+	);
+
+	return $form;
+}
+
+function uc_nmi_charge($order_id, $amount, $data) {
+	global $user, $response;
+	$order = uc_order_load($order_id);
+
+	$description = '';
+
+	$description = "Drupal Order $order_id";
+
+	$description = substr($description, 0, 255);
+	$billing_country = uc_get_country_data(array('country_id' => $order->billing_country));
+	$billing_country = $billing_country[0]['country_iso_code_2'];
+
+	$ship_country = uc_get_country_data(array('country_id' => $order->delivery_country));
+	$ship_country = $ship_country[0]['country_iso_code_2'];	
+  
+	$formdata = array (
+		'username' => variable_get('nmi_username', ''),
+		'password' => variable_get('nmi_password', ''),
+
+		// Customer Name and Billing Address
+		'firstname' => $order->billing_first_name,
+		'lastname' => $order->billing_last_name,
+		'company' => $order->billing_company,
+		'address1' => $order->billing_street1,
+		'address2' => $order->billing_street2,
+		'city' => $order->billing_city,
+		'state' => uc_get_zone_code($order->billing_zone),
+		'zip' => $order->billing_postal_code,
+		'country' => $billing_country,
+		'phone' => $order->billing_phone,
+
+		// Customer Shipping Address
+		'shipping_firstname' => $order->delivery_first_name,
+		'shipping_lastname' => $order->delivery_last_name,
+		'shipping_company' => $order->delivery_company,
+		'shipping_address1' => $order->delivery_street1,
+		'shipping_address2' => $order->delivery_street2,
+		'shipping_city' => $order->delivery_city,
+		'shipping_state' => uc_get_zone_code($order->delivery_zone),
+		'shipping_zip' => $order->delivery_postal_code,
+		'shipping_country' => $ship_country,
+
+		// Additioanl customer data
+		'ipaddress' => $_SERVER["REMOTE_ADDR"],
+
+		// customer email address
+		'email' => $order->primary_email,
+
+		// Order information
+		'orderid' => $order_id,	
+		'orderdescription' => $description,
+
+		// Transaction Data
+		'amount' => uc_currency_format($amount, FALSE, FALSE, '.'),
+		'type' => variable_get('nmi_type', ''),
+
+		'ccnumber' => $order->payment_details['cc_number'],
+		'ccexp' => $order->payment_details['cc_exp_month'] .'/'. $order->payment_details['cc_exp_year'],
+		'cvv' => $order->payment_details['cc_cvv'],
+
+		// Level 2 data
+		'tax' => $order->line_items[2]['amount'],
+		'shipping' => $order->line_items[1]['amount']
+	);
+
+
+	if (is_array($order->products)) {
+		$i = 1;
+		foreach ($order->products as $product) {
+			$formdata['product_sku_' . $i] = $product->nid;
+			$formdata['product_description_' . $i] = $product->title;
+			$formdata['product_quantity_' . $i] = $product->qty;
+			$formdata['product_amount_' . $i] = $product->price;
+
+			if (is_array($product->data['attributes'])) {
+				foreach ($product->data['attributes'] as $key => $value) {
+					$formdata['product_description_' . $i] .= ', '. $key .': '. $value;
+				}
+			}
+			$i++;
+		}
+	}
+
+
+	// get host data
+	$port = 443;
+	$host = 'secure.networkmerchants.com';
+	$path = "/gw/api/transact.php";
+
+	//build the post string
+	$poststring = '';
+	foreach($formdata AS $key => $val){
+		$poststring .= urlencode($key)."=".urlencode($val)."&";
+	}
+	// strip off trailing ampersand
+	$poststring = substr($poststring, 0, -1);
+
+	if( function_exists( "curl_init" )) {
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, "https://".$host.$path);
+		curl_setopt($ch, CURLOPT_VERBOSE, 0);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $poststring);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt($ch, CURLOPT_NOPROGRESS, 1);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION,0);
+		$return_data = curl_exec($ch);
+		curl_close($ch);
+	}else {
+		$fp = fsockopen("ssl://".$host, $port, $errno, $errstr, $timeout = 60);
+
+		if(!$fp){
+			//error tell us
+			$message = t('Possible server error! - $errstr ($errno)');
+		}else {
+			//send the server request
+			fputs($fp, "POST $path HTTP/1.1\r\n");
+			fputs($fp, "Host: $host\r\n");
+			fputs($fp, "Content-type: application/x-www-form-urlencoded\r\n");
+			fputs($fp, "Content-length: ".strlen($poststring)."\r\n");
+			fputs($fp, "Connection: close\r\n\r\n");
+			fputs($fp, $poststring . "\r\n\r\n");
+
+			//Get the response header from the server
+			$str = '';
+			while(!feof($fp) && !stristr($str, 'content-length')) {
+				$str = fgets($fp, 4096);
+			}
+			// If didnt get content-lenght, something is wrong, return false.
+			if (!stristr($str, 'content-length')) {
+				$message = t('An error occured while communicating with the NetworkMerchants.com server. It didn\'t reply (correctly). Please try again later, thank you.' );
+				return false;
+			}
+			$data = "";
+			while (!feof($fp)) {
+				$data .= fgets ($fp, 1024);
+			}
+
+			$return_data = stristr(trim($data), "response");
+		}
+	}
+
+	parse_str($return_data, $response);
+
+	// Approved - Success!
+	if ($response['response'] == "1") {
+		$message = t('Credit card payment processed successfully. Transaction ID: !trans', array('!trans' => $response['transactionid']));
+		$result = array(
+			'success' => TRUE,
+			'comment' => t('Credit card payment processed successfully. Transaction ID: !trans', array('!trans' => $response['transactionid'])),
+			'message' => t('Credit card payment processed successfully. Transaction ID: !trans', array('!trans' => $response['transactionid'])),
+			'uid' => $user->uid,
+		);
+	}elseif ($response['response'] == "2") { 	// Payment Declined
+		$message = t('Credit card declined. Reason code: !text', array('!text' => $response['responsetext']));
+		$result = array(
+			'success' => FALSE,
+			'comment' => t('Credit card declined. Reason code: !text', array('!text' => $response['responsetext'])),
+			'message' => t('Credit card declined. Reason code: !text', array('!text' => $response['responsetext'])),
+			'uid' => $user->uid,
+		);
+	}elseif($response['response'] == "3"){	// Payment Error
+		$message = t('Credit card error. Reason code: !text', array('!text' => $response['responsetext']));
+		$result = array(
+			'success' => FALSE,
+			'comment' => t('Credit card error. Reason code: !text', array('!text' => $response['responsetext'])),
+			'message' => t('Credit card error. Reason code: !text', array('!text' => $response['responsetext'])),
+			'uid' => $user->uid,
+		);
+	}	
+
+	uc_order_comment_save($order_id, $user->uid, $message, 'admin');
+
+	return $result;
+
+}

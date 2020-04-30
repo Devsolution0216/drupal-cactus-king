@@ -1,0 +1,52 @@
+/*- Giordani styles for IE6 v0.2 - Drupal6x - 20/06/08
+author:singalkuppe: www.signalkuppe.com
+ */
+
+#utilities form{bottom:7px;}
+#utilities input.form-submit{padding:0px;}	
+#utilities input.form-text {padding:1px 1px 3px 1px;}
+
+div.admin .left {
+margin-left:0.2em;
+}
+
+.item-list .pager li{
+margin:0px 1px 0 1px;
+}
+
+.item-list .pager li.pager-current{
+padding:2px 2px 3px 4px;
+}
+
+
+.lsidebar {
+	width: 180px;
+	float: left;
+	margin:17px 9px 0 8px;
+	}
+.rsidebar {
+	width: 180px;
+	float: left;
+	margin:17px 6px 0 7px;
+	}	
+	
+.wrapper{margin:0px;}
+#primary{margin:17px 8px 0 4px;}
+
+#utilities #plinks {/*- Primary links in Header */
+left:-7px;
+}
+
+/*don't use png shadows in ie6*/
+ul.primosottolivello, ul.sottolivello{
+padding:0px;
+}
+
+ul.primosottolivello{
+background:#054b81;
+top:29px;
+}
+
+ul.sottolivello{
+background:#054b81;
+}

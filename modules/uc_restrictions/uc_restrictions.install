@@ -1,0 +1,7 @@
+<?php
+// $Id: uc_restrictions.install,v 1.2 2009/01/27 23:43:42 islco Exp $
+
+/**
+ * @file
+ * Install file for the Ubercart Restrictions module.
+ */

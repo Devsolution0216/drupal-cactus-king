@@ -1,0 +1,14 @@
+; $Id: profile_role.info,v 1.1 2008/12/04 05:30:43 boombatower Exp $
+name = "Profile role"
+description = "Define profile categories by role."
+package = "Profile"
+version = 1.x-dev
+core = 6.x
+dependencies[] = profile
+
+; Information added by drupal.org packaging script on 2009-01-23
+version = "6.x-1.2"
+core = "6.x"
+project = "profile_role"
+datestamp = "1232741739"
+

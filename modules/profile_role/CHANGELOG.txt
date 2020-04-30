@@ -1,0 +1,19 @@
+// $Id: CHANGELOG.txt,v 1.6 2009/01/23 20:11:43 boombatower Exp $
+
+Profile role 6.x-1.3, xxxx-xx-xx (development version)
+--------------------------------
+
+Profile role 6.x-1.2, 2009-01-23
+--------------------------------
+- Bugs:
+   * #362675: revert after discovering that it was incorrect.
+
+Profile role 6.x-1.1, 2009-01-23
+--------------------------------
+- Changes:
+   * #344194: Fatal error when viewing default local task item.
+   * #362675: Fields not visible to admin user.
+
+Profile role 6.x-1.0, 2008-12-03
+--------------------------------
+- This is the first fully featured release.

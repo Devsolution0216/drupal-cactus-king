@@ -1,0 +1,289 @@
+# $Id: nl.po,v 1.1.4.4 2008/11/05 16:10:37 xano Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  vocabindex.admin.inc,v 1.1.2.3.2.53 2008/11/03 22:02:23 xano
+#  vocabindex.module: n/a
+#  vocabindex.view.inc,v 1.1.2.2.2.71 2008/11/03 22:02:23 xano
+#  vocabindex.info: n/a
+#  vocabindex.install: n/a
+#  vocabindex_admin_vi_form.tpl.php,v 1.1.2.8 2008/10/19 10:52:59 xano
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2008-11-05 13:53+0100\n"
+"PO-Revision-Date: 2008-11-05 17:04+0100\n"
+"Last-Translator: Bart Feenstra <bfeenstra@nederdev.nl>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: vocabindex.admin.inc:17
+#: vocabindex.module:317
+msgid "Character transliteration"
+msgstr "Tekentransliteratie"
+
+#: vocabindex.admin.inc:18
+msgid "Group terms by the <a href=\"!wiki_latin_alphabet\">modern Latin</a> equivalent of their first letter for alphabetical views. <a href=\"!transliteration_info\">More information</a>."
+msgstr "Groepeer termen op het <a href=\"!wiki_latin_alphabet\">modern Latijnse</a> equivalent van hun eerste letter voor alfabetische weergaves. <a href=\"!transliteration_info\">Meer informatie</a>."
+
+#: vocabindex.admin.inc:24
+msgid "Terms per page"
+msgstr "Termen per pagina"
+
+#: vocabindex.admin.inc:25
+msgid "The amount of terms to display per page for browsable and alphabetical views. Use 0 to disable paging."
+msgstr "Het aantal termen dat per pagina weergegeven wordt voor bladerbare en alfabetische weergaves. Gebruik 0 om uit te schakelen."
+
+#: vocabindex.admin.inc:34
+msgid "Caching"
+msgstr "Caching"
+
+#: vocabindex.admin.inc:39
+msgid "Cache lifetime"
+msgstr "Levensduur cache"
+
+#: vocabindex.admin.inc:40
+msgid "Specified in minutes. Use 0 to disable caching or if you are using a taxonomy access control module."
+msgstr "Opgegeven in minuten. Gebruik 0 om caching uit te schakelen of als u een module gebruikt om de toegang tot taxonomie te beperken."
+
+#: vocabindex.admin.inc:49
+msgid "Clear cache"
+msgstr "Cache legen"
+
+#: vocabindex.admin.inc:70
+msgid "The cache has been cleared."
+msgstr "De cache is geleegd."
+
+#: vocabindex.admin.inc:82
+msgid "%element_title may only contain numbers."
+msgstr "%element_title mag alleen cijfers bevatten."
+
+#: vocabindex.admin.inc:107
+msgid "Paths may not contain a percentage sign."
+msgstr "Paden mogen geen procentteken bevatten."
+
+#: vocabindex.admin.inc:118
+msgid "Path is already used by a menu link."
+msgstr "Pad wordt al gebruikt door een menulink."
+
+#: vocabindex.admin.inc:122
+msgid "Path is already used as an alias."
+msgstr "Pad wordt al gebruikt door een node-alias."
+
+#: vocabindex.admin.inc:141
+msgid "You haven't yet got any vocabularies to enable an index for; you may create them at <a href=\"!link\">the Taxonomy page</a>."
+msgstr "U heeft nog geen vocabulaires om een index voor in te schakelen. U kunt ze maken op <a href=\"!link\">de Taxonomy-pagina</a>."
+
+#: vocabindex.admin.inc:171
+msgid "Currently located at !location."
+msgstr "Momenteel beschikbaar op !location."
+
+#: vocabindex.admin.inc:174
+msgid "There is no index page set for this vocabulary."
+msgstr "Er is geen indexpagina ingesteld voor deze vocabulaire."
+
+#: vocabindex.admin.inc:194
+msgid "Tree"
+msgstr "Boomweergave"
+
+#: vocabindex.admin.inc:196
+msgid "Browsable"
+msgstr "Bladerbaar"
+
+#: vocabindex.admin.inc:197
+msgid "Alphabetical"
+msgstr "Alfabetisch"
+
+#: vocabindex.admin.inc:200
+msgid "Flat"
+msgstr "Plat"
+
+#: vocabindex.admin.inc:221
+msgid "Save configuration"
+msgstr "Instellingen opslaan"
+
+#: vocabindex.admin.inc:246
+msgid "The configuration options have been saved."
+msgstr "De instellingen zijn opgeslagen."
+
+#: vocabindex.view.inc:284
+msgid "There are currently no terms in this vocabulary."
+msgstr "Er zijn momenteel geen termen in deze vocabulaire."
+
+#: vocabindex.module:62
+msgid "Please proceed to !update.php to update your database to Vocabulary Index 2."
+msgstr "Ga verder naar !update.php om uw database bij te werken naar Vocabulary Index 2."
+
+#: vocabindex.module:173
+msgid "@vocabulary (Vocabulary Index)"
+msgstr "@vocabulary (Vocabulary Index)"
+
+#: vocabindex.module:265
+msgid "Vocabulary Index provides several ways to list all terms inside a specified vocabulary. For each vocabulary you may enable a <a href=\"!url_pages\">page</a> and/or a <a href=\"!url_blocks\">block</a> that will view its terms in the way you think suits best. This way may be a tree, a flat, browsable index, or an index where you can filter terms by letter. Next to that you can choose to display node counts for each term. Term descriptions will be displayed along with the term names if provided."
+msgstr "Vocabulary Index biedt een aantal manieren waarop de termen in een vocabulaire weergegeven kunnen werken. U kunt voor elke vocabulaire een <a href=\"!url_pages\">pagina</a> en/of een <a href=\"!url_blocks\">blok</a> inschakelen die de termen weergeven op de toepasselijkste manier. Deze manier kan een boomweergave, een platte, bladerbare index, of een index waarbij u op beginletter kan sorteren zijn. Daarnaast kan u kiezen of u het aantal nodes per term wil weergeven. Als er beschrijvingen voor de termen zijn, dan worden deze ook weergegeven."
+
+#: vocabindex.module:269
+msgid "You may want to execute the following steps to configure Vocabulary Index."
+msgstr "U kunt de volgende stappen uitvoeren om Vocabulary Index in te stellen."
+
+#: vocabindex.module:272
+msgid "Set up <a href=\"!permissions\">permissions</a>."
+msgstr "Stel <a href=\"!permissions\">toegangsrechten</a> in."
+
+#: vocabindex.module:276
+msgid "Create <a href=\"!index_pages\">index pages</a>."
+msgstr "Maak <a href=\"!index_pages\">indexpagina's</a> aan."
+
+#: vocabindex.module:280
+msgid "Create <a href=\"!index_blocks\">index blocks</a>."
+msgstr "Maak <a href=\"!index_blocks\">indexblokken</a> aan."
+
+#: vocabindex.module:290
+msgid "Configuration step not completed."
+msgstr "Stap nog niet uitgevoerd."
+
+#: vocabindex.module:295
+msgid "Example screenshot of a tree view."
+msgstr "Voorbeeld van een boomweergave."
+
+#: vocabindex.module:296
+msgid "Example screenshot of a browsable view."
+msgstr "Voorbeeld van een bladerbare weergave."
+
+#: vocabindex.module:297
+msgid "Example screenshot of an alphabetical view."
+msgstr "Voorbeeld van een alfabetische weergave."
+
+#: vocabindex.module:301
+msgid "The <strong>tree view</strong> displays all terms in a nested tree. If visitors of your site have JavaScript enabled, parent terms will be collapsed by default, but they will expand when clicked on. Since tree view displays all terms on a single page, terms with multiple parents are displayed more than once: once beneath every parent."
+msgstr "De <strong>boomweergave</strong> geeft alle termen hiërarchisch weer. Als bezoekers van uw site JavaScript ingeschakeld hebben, dan zullen termen die onderliggende termen bevatten ingeklapt zijn. Ze klappen uit als ze aangeklikt worden. Omdat boomweergaves alle termen op een enkele pagina weergeeft, kan het gebeuren dat termen met meerdere ouders vaker worden weergegeven: één maal onder elke ouder."
+
+#: vocabindex.module:305
+msgid "The <strong>browsable view</strong> lets visitors browse a vocabulary much like they would browse through directories on their hard drive. Taxonomy pages of parent terms do not list the nodes within those terms, but the child terms it contains. Since blocks cannot span multiple pages, they can be displayed using a flat view. This is exactly the same as the browsable view apart from that it is not browsable. Browsable index pages are <a href=\"!settings_page\">pageable</a>."
+msgstr "De <strong>bladerbare weergave</strong> stelt bezoekers in staat door een vocabulaire te bladeren, net als ze door mappen op hun harde schijf zouden bladeren. Taxonomiepagina's geven in plaats van de nodes binnen een term de onderliggende termen weer. Omdat blokken niet over meerdere pagina's verspreid kunnen worden, is er voor hen de platte weergave. Deze werkt hetzelfde als de bladerbare weergave, behalve dat ze niet bladerbaar zijn.  Bladerbare indexpagina's zijn in pagina's op te delen."
+
+#: vocabindex.module:309
+msgid "The <strong>alphabetical view</strong> sorts terms by first letter. Optionally <a href=\"#transliteration\">character transliteration</a> may be enabled. Alphabetically viewed index pages are <a href=\"!settings_page\">pageable</a>."
+msgstr "De <strong>alfabetische weergave</strong> groepeert termen op hun beginletter. Hiervoor kan <a href=\"#transliteration\">tekentransliteratie</a> gebruikt worden. Alfabetische indexpagina's zijn in pagina's op te delen."
+
+#: vocabindex.module:314
+msgid "For more extensive information on configuring Vocabulary Index or on development, please visit <a href=\"!handbook_page\">the on-line handbook</a>."
+msgstr "Voor uitgebreidere informatie over het instellen van Vocabulary Index of over ontwikkeling kunt u het <a href=\"!handbook_page\">het online handboek</a> raadplegen."
+
+#: vocabindex.module:319
+msgid "Character transliteration groups terms by the <a href=\"!wiki_latin_alphabet\">modern Latin</a> equivalent of their first letter for the alphabetical view. This way terms like <em>Ångström</em> and <em>Ampère</em> will both be grouped under the letter A, for instance. If you would like to modify the <a href=\"!default_file\">default transliteration file</a>, copy the file to <em>i18n-ascii-custom.txt</em> and use this file instead to override the values from i18n-ascii.txt or to add new values."
+msgstr "Tekentransliteratie groepeert termen op het <a href=\"!wiki_latin_alphabet\">modern Latijnse</a> equivalent van hun eerste letter voor alfabetische weergaves. Op deze manier kunnen termen als <em>Ångström</em> en <em>Ampère</em> beide onder de letter A gegroepeerd. Als u het <a href=\"!default_file\">meegeleverde transliteratiebestand</a> wil aanpassen, kopiëer deze dan naar <em>i18n-ascii-custom.txt</em> en gebruik dit bestand om de waardes in i18n-ascii.txt te overschrijven of om nieuwe waardes toe te voegen."
+
+#: vocabindex.module:322
+msgid "Other contributed modules"
+msgstr "Andere uitbreidingsmodules"
+
+#: vocabindex.module:323
+msgid "Some other modules, like <a href=\"!pathauto_project_page\">Pathauto</a>, complement Vocabulary Index. For instructions on setting up these modules to work with Vocabulary Index, please visit <a href=\"!handbook_complementary_modules\">the on-line handbook</a>."
+msgstr "Sommige andere modules, zoals <a href=\"!pathauto_project_page\">Pathauto</a>, vullen Vocabulary Index aan. Bekijk <a href=\"!handbook_complementary_modules\">het online handboek</a> voor informatie om deze modules met Vocabulary Index te laten werken."
+
+#: vocabindex.module:329
+msgid "Index pages list the terms inside a vocabulary. They are accessible by a path of their own and they are enabled as soon as you enter one."
+msgstr "Indexpagina's geven de termen in een vocabulaire weer. Ze zijn te bezoeken via een eigen pad en worden ingeschakeld als u deze invult."
+
+#: vocabindex.module:332
+msgid "Index blocks list the terms inside a vocabulary. Enabled blocks can be configured at the <a href=\"!blocks\">blocks settings page</a>. Flat index blocks are similar to browsable pages, they only differ in that they are not browsable and therefore don't display nested terms."
+msgstr "Indexblokken geven de termen in een vocabulaire weer. Ingeschakelde blokken kunnen op de <a href=\"!blocks\">pagina voor blokinstellingen</a> ingesteld worden. Platte indexblokken zijn gelijk aan bladerbare pagina's; Het enige verschil dat is ze niet bladerbaar zijn en dus geen geneste termen weergeven."
+
+#: vocabindex.module:53
+msgid "view vocabulary index"
+msgstr "view vocabulary index"
+
+#: vocabindex.module:53
+msgid "administer vocabulary index"
+msgstr "administer vocabulary index"
+
+#: vocabindex.module:75
+#: vocabindex.info:0
+msgid "Vocabulary Index"
+msgstr "Vocabulary Index"
+
+#: vocabindex.module:76
+msgid "Enable index pages for vocabularies."
+msgstr "Schakel indexpagina's voor vocabulaires in."
+
+#: vocabindex.module:84
+msgid "Pages"
+msgstr "Pagina's"
+
+#: vocabindex.module:92
+msgid "Blocks"
+msgstr "Blokken"
+
+#: vocabindex.module:93
+msgid "Enable index blocks for vocabularies."
+msgstr "Schakel indexblokken voor vocabulaires in."
+
+#: vocabindex.module:103
+msgid "Settings"
+msgstr "Instellingen"
+
+#: vocabindex.module:104
+msgid "General settings."
+msgstr "Algemene instellingen."
+
+#: vocabindex.module:0
+msgid "vocabindex"
+msgstr "vocabindex"
+
+#: vocabindex.install:16
+msgid "The table in which the settings for Vocabulary Index are stored."
+msgstr "De tabel waarin de instellingen voor Vocabulary Index worden opgeslagen."
+
+#: vocabindex.install:19
+msgid "The VID associated with this index."
+msgstr "De VID die bij deze index hoort."
+
+#: vocabindex.install:25
+msgid "The path to a Vocabulary Index page."
+msgstr "Het pad naar een Vocabulary Index-pagina."
+
+#: vocabindex.install:31
+msgid "The view, a tree or a flat list for instance."
+msgstr "De weergave, bijvoorbeeld een boomweergave of een platte lijst."
+
+#: vocabindex.install:37
+msgid "Whether to count nodes per term."
+msgstr "Wel of geen nodes per term te tellen."
+
+#: vocabindex.install:43
+msgid "Index page or index block."
+msgstr "Indexpagina of indexblok."
+
+#: vocabindex.install:49
+msgid "Indicates whether this index is enabled or not."
+msgstr "Geeft aan of deze index in- of uitgeschakeld is."
+
+#: vocabindex.info:0
+msgid "Easily browse through taxonomy. Display vocabularies like trees, a directory index or sort their terms alphabetically."
+msgstr "Blader gemakkelijk door taxonomie heen. Laat vocabulaires als boomweergaves of een mapindex weergeven, of sorteer hun termen alfabetisch."
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "Vocabulary"
+msgstr "Vocabulaire"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "View"
+msgstr "Weergave"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:32
+msgid "Node counts"
+msgstr "Aantal nodes"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:34
+msgid "Path"
+msgstr "Pad"
+
+#: theme/vocabindex_admin_vi_form.tpl.php:37
+msgid "Enabled"
+msgstr "Ingeschakeld"
+

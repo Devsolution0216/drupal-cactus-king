@@ -1,0 +1,296 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_quote.module,v 1.5.2.9 2008/12/11 15:53:51 islandusurper
+#  uc_quote.admin.inc,v 1.1.2.5 2008/12/11 15:53:51 islandusurper
+#  uc_quote.info,v 1.4.2.2 2008/11/07 21:13:24 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-06-16 15:33+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: shipping/uc_quote/uc_quote.module:31
+msgid "Shipping quote settings"
+msgstr "Versandkosten Einstellungen"
+
+#: shipping/uc_quote/uc_quote.module:40
+msgid "View general shipping quote settings."
+msgstr "Allgemeine Versandkosten Einstellungen ansehen."
+
+#: shipping/uc_quote/uc_quote.module:55
+msgid "Quote methods"
+msgstr "Kosten Methoden"
+
+#: shipping/uc_quote/uc_quote.module:64
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+#: shipping/uc_quote/uc_quote.module:304
+msgid "Getting shipping quote via !method"
+msgstr "Lade Versandgebühr via !method"
+
+#: shipping/uc_quote/uc_quote.module:305,445
+msgid "Quote"
+msgstr "Gebühr"
+
+#: shipping/uc_quote/uc_quote.module:323
+msgid "Order has a product of a particular shipping type"
+msgstr "Bestellung enthält ein Produkt mit besonderen Versandeigenschaften"
+
+#: shipping/uc_quote/uc_quote.module:501
+msgid "Shipping quotes"
+msgstr "Versandgebühren"
+
+#: shipping/uc_quote/uc_quote.module:517
+msgid "Extra information necessary to ship."
+msgstr "Für Zustellung werden Zusatzinformationen benötigt"
+
+#: shipping/uc_quote/uc_quote.module:534
+msgid "Get a shipping quote for the order from a quoting module."
+msgstr ""
+"Eine Versandkosten Angabe für die Bestellung von einem "
+"Preisberechnungs modul abfragen."
+
+#: shipping/uc_quote/uc_quote.module:46
+msgid "Quote settings"
+msgstr "Preisberechnungs einstellungen"
+
+#: shipping/uc_quote/uc_quote.admin.inc:43
+msgid "Quote errors are submitted to watchdog."
+msgstr "Preisberechnungsfehler werden an den watchdog weitergeleitet."
+
+#: shipping/uc_quote/uc_quote.admin.inc:44
+msgid "Quote errors are not submitted to watchdog."
+msgstr "Preisberechnungsfehler werden nicht an den watchdog weitergeleitet."
+
+#: shipping/uc_quote/uc_quote.admin.inc:53
+msgid ""
+"Debugging information is displayed to administrators when quotes are "
+"generated."
+msgstr ""
+"Administratoren werden Debug Information angezeigt wenn Versandkosten "
+"generiert werden."
+
+#: shipping/uc_quote/uc_quote.admin.inc:54
+msgid ""
+"Debugging information is not displayed to administrators when quotes "
+"are generated."
+msgstr ""
+"Administratoren werden keine Debug Information angezeigt wenn "
+"Versandkosten generiert werden."
+
+#: shipping/uc_quote/uc_quote.admin.inc:197
+msgid "@method is enabled."
+msgstr "@method ist aktiviert."
+
+#: shipping/uc_quote/uc_quote.admin.inc:40
+msgid "Log errors during checkout to watchdog"
+msgstr "Fehler während des Bestellvorgangs an den Wachdog melden"
+
+#: shipping/uc_quote/uc_quote.admin.inc:50
+msgid "Display debug information to administrators."
+msgstr "Administratoren Debug Informationen anzeigen."
+
+#: shipping/uc_quote/uc_quote.admin.inc:212
+msgid ""
+"Determines which shipping methods are quoted at checkout when products "
+"of different shipping types are ordered. Lighter weights are chosen "
+"first."
+msgstr ""
+"Legt fest welche Versandmethoden beim Bestellvorgang angeboten werden "
+"und wie Sie sortiert werden. Leichtere Methoden werden zuerst "
+"gewählt."
+
+#: shipping/uc_quote/uc_quote.admin.inc:224
+msgid "<br />The %list methods are compatible with any shipping type."
+msgstr "<br Die%list Methoden funktioniren mit jeder Versandart."
+
+#: shipping/uc_quote/uc_quote.admin.inc:235
+msgid "Default order fulfillment type for products"
+msgstr "Standart Bestellungs erfüll art für Artikel"
+
+#: shipping/uc_quote/uc_quote.admin.inc:285
+msgid "At least one shipping quote method must be enabled."
+msgstr ""
+"Es muss mindestenes eine Versankosten berechnungs Methode aktiviert "
+"sein."
+
+#: shipping/uc_quote/uc_quote.module:740
+msgid "Calculate"
+msgstr "Berechnen"
+
+#: shipping/uc_quote/uc_quote.module:791
+msgid "Estimated shipping cost:"
+msgstr "Geschätzte Versandkosten:"
+
+#: shipping/uc_quote/uc_quote.module:826
+msgid "Click to calculate shipping"
+msgstr "Klicken um die Versandkosten zu berechnen."
+
+#: shipping/uc_quote/uc_quote.module:883
+msgid "You must select a shipping option before continuing."
+msgstr "Sie müssen eine Versandart wählen bevor Sie fortfahren."
+
+#: shipping/uc_quote/uc_quote.module:937,1078
+msgid "Invalid option selected. Recalculate shipping quotes to continue."
+msgstr ""
+"Ungültige Option gewählt. Bitte aktualisieren Sie die Versandkosten "
+"um weiterzumachen."
+
+#: shipping/uc_quote/uc_quote.module:979
+msgid "Get shipping quotes"
+msgstr "Versankosten abrufen"
+
+#: shipping/uc_quote/uc_quote.module:983,1026,1027
+msgid "Apply to order"
+msgstr "Auf Bestellung anwenden."
+
+#: shipping/uc_quote/uc_quote.module:23
+msgid "configure quotes"
+msgstr "Angebote einstellen"
+
+#: shipping/uc_quote/uc_quote.module:0
+msgid "uc_quote"
+msgstr "uc_quote"
+
+#: shipping/uc_quote/uc_quote.info:0
+msgid "Shipping Quotes"
+msgstr "Versandkosten"
+
+#: shipping/uc_quote/uc_quote.info:0
+msgid "Retrieve and display quotes for shipping products."
+msgstr "Versandkosten Angebote abrufen und anzeigen."
+
+#: shipping/uc_quote/uc_quote.module:225
+msgid "Shipping settings"
+msgstr "Versand Einstellungen"
+
+#: shipping/uc_quote/uc_quote.module:231
+msgid "Default product pickup address"
+msgstr "Standard Artikel Abholadresse"
+
+#: shipping/uc_quote/uc_quote.module:256,259
+msgid "<Store default>"
+msgstr "<Shop standard>"
+
+#: shipping/uc_quote/uc_quote.module:262
+msgid "Default product shipping type"
+msgstr "Standart Artikel Versand Art"
+
+#: shipping/uc_quote/uc_quote.module:516
+msgid "Calculate shipping cost"
+msgstr "Versandkosten berechnen"
+
+#: shipping/uc_quote/uc_quote.module:533
+msgid "Shipping quote"
+msgstr "Versandkosten"
+
+#: shipping/uc_quote/uc_quote.admin.inc:60
+msgid ""
+"Prevent the customer from completing an order if a shipping quote is "
+"not selected."
+msgstr ""
+"Den Kunden davon abhalten seine Bestellunge abzuschließen sofern "
+"keine Versandart gewählt ist."
+
+#: shipping/uc_quote/uc_quote.admin.inc:87
+msgid "Shipping quote error message"
+msgstr "Versandkostenberechnungs Fehlermeldung"
+
+#: shipping/uc_quote/uc_quote.admin.inc:103
+msgid "Default pickup address"
+msgstr "Standard Abhol Adresse"
+
+#: shipping/uc_quote/uc_quote.admin.inc:211
+msgid "Type ordering"
+msgstr "Sortiert nach Typ"
+
+#: shipping/uc_quote/uc_quote.module:754
+msgid "Receiving quotes:"
+msgstr "Angebote werden Abgerufen:"
+
+#: shipping/uc_quote/uc_quote.module:32
+msgid "Configure the shipping quote settings."
+msgstr "Die Versandkosten Einstellungen anpassen."
+
+#: shipping/uc_quote/uc_quote.module:833
+msgid ""
+"There were problems getting a shipping quote. Please verify the "
+"delivery address and product information and try again.\n"
+"If this does not resolve the issue, please call @phone to complete "
+"your order."
+msgstr ""
+"Es gab ein Problem mit der Berechnung der Versandkosten. Bitte "
+"überprüfen Sie die Lieferanschrift und die Artikel in ihrem "
+"Warenkorb und versuchen Sie es noch einmal. Sollt das Problem dadurch "
+"nicht gelöst werden rufen Sie doch bitte unter  @phone an um ihre "
+"Bestellung abzuschließen."
+
+#: shipping/uc_quote/uc_quote.module:331
+msgid "Order has a shipping quote from a particular method"
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.module:332
+msgid "Order: Shipping Quote"
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.module:415
+msgid "(disabled)"
+msgstr "(deaktiviert)"
+
+#: shipping/uc_quote/uc_quote.module:421
+msgid "Shipping quote method"
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.admin.inc:63
+msgid "Customers cannot complete checkout without selecting a shipping quote."
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.admin.inc:64
+msgid "Customers can still checkout without selecting a shipping quote."
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.admin.inc:71
+msgid "Shipping quote pane description"
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.admin.inc:104
+msgid ""
+"When delivering products to customers, the original location of the "
+"product must be known in order to accurately quote the shipping cost "
+"and set up a delivery. This form provides the default location for "
+"products across the entire store. If a product's individual pickup "
+"address is blank, &Uuml;bercart looks for the manufacturer's. If that "
+"is also blank, it uses the store's default pickup address."
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.admin.inc:105
+msgid "Default pickup address is: <br />!address"
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.module:232
+msgid ""
+"When delivering products to customers, the original location of the "
+"product must be known in order to accurately quote the shipping cost "
+"and set up a delivery. This form provides the default location for "
+"products, either individually or an entire manufacturer's line. If a "
+"product's individual pickup address is blank, &Uuml;bercart looks for "
+"the manufacturer's. If that is also blank, it uses the store's default "
+"pickup address, which can be set <a href=\"!here\">here</a>."
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.module:281
+msgid "Shipping settings form."
+msgstr ""
+
+#: shipping/uc_quote/uc_quote.module:832,995
+msgid "Receiving quotes..."
+msgstr ""
+

@@ -1,0 +1,11 @@
+; $Id: poormanscron.info,v 1.2.4.1 2009/09/29 22:31:58 davereid Exp $
+name = Poormanscron
+description = Internal scheduler for users without a cron application.
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-01-17
+version = "6.x-2.2"
+core = "6.x"
+project = "poormanscron"
+datestamp = "1263749708"
+

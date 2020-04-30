@@ -1,0 +1,63 @@
+<?php
+// $Id: nodewords.install,v 1.10.2.3 2008/01/22 09:31:37 robrechtj Exp $
+
+/**
+ * Implementation of hook_install().
+ */
+function nodewords_install() {
+  drupal_install_schema('nodewords');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function nodewords_uninstall() {
+  drupal_uninstall_schema('nodewords');
+  variable_del('nodewords');
+  variable_del('nodewords-repeat');
+  variable_del('nodewords-use_front');
+}
+
+/**
+ * Next update could be version 6000.
+ */
+
+/**
+ * Implementation of hook_schema().
+ */
+function nodewords_schema() {
+  $schema = array();
+  $schema['nodewords'] = array(
+    'description' => t('Stores nodewords meta tag content.'),
+    'fields' => array(
+      'type' => array(
+        'type' => 'varchar',
+        'length' => 16,
+        'not null' => TRUE,
+        'description' => t('Content type name (node, page, panel, view).'),
+      ),
+      'id' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => t('Unique content id within content type or blank for frontpage.'),
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'description' => t('Meta tag name.'),
+      ),
+      'content' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => t('Content of meta tag value.'),
+      ),
+    ),
+    'primary key' => array('type', 'id', 'name'),
+  );
+  return $schema;
+}
+

@@ -1,0 +1,112 @@
+# $Id: es.po,v 1.1.2.4 2009/04/29 12:32:45 islandusurper Exp $
+#
+# LANGUAGE translation of Drupal (uc_product_kit.module)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  uc_product_kit.module,v 1.9 2007/10/02 18:11:58 rszrama
+#  uc_product_kit.info,v 1.4 2007/10/02 17:43:47 rszrama
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2007-10-04 09:54-0400\n"
+"PO-Revision-Date: 2007-10-13 HH:MM+ZZZZ\n"
+"Last-Translator: Antonio de la Torre <antdltorre@gmail.com>\n"
+"Language-Team: Spanish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1;\n"
+
+#: uc_product_kit.module:191
+msgid "How are product kits handled by the cart?"
+msgstr "¿Cómo se gestionan los kits de productos por el carro de la compra?"
+
+#: uc_product_kit.module:192;236
+msgid "As a unit. Customers may only change how many kits they are buying."
+msgstr "Como una unidad. Los clientes pueden sólo cambiar la cantidad de kits que estén comprando."
+
+#: uc_product_kit.module:192;236
+msgid "As individual products. Customers may add or remove kit components at will."
+msgstr "Como productos individuales. Los clientes pueden añadir o eliminar componentes del kit a su voluntad."
+
+#: uc_product_kit.module:206;415
+msgid "Name"
+msgstr "Nombre"
+
+#: uc_product_kit.module:210
+msgid "Name of the product kit"
+msgstr "Nombre del kit de producto"
+
+#: uc_product_kit.module:213;416
+msgid "Description"
+msgstr "Descripción"
+
+#: uc_product_kit.module:217
+msgid "Explain these whatchamacallits."
+msgstr "Descripción detallada de los productos."
+
+#: uc_product_kit.module:228
+msgid "Product Information"
+msgstr "Información del Producto"
+
+#: uc_product_kit.module:235
+msgid "How is this product kit handled by the cart?"
+msgstr "¿Cómo se gestiona este kit de producto por el carro de la compra?"
+
+#: uc_product_kit.module:242
+msgid "Products"
+msgstr "Productos"
+
+#: uc_product_kit.module:253
+msgid "@product"
+msgstr ""
+
+#: uc_product_kit.module:256
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: uc_product_kit.module:261
+msgid "Ordering"
+msgstr "Ordenamiento"
+
+#: uc_product_kit.module:266
+msgid "Discount"
+msgstr "Descuento"
+
+#: uc_product_kit.module:267
+msgid "Enter a negative value to lower the item price by that amount. Enter a postive value to set the item price to that amount. This discount is applied to each %product in the kit."
+msgstr "Introduzca un valor negativo para bajar el precio del producto en esa cantidad. Introduzca un valor positivo para poner el precio del producto en esa cantidad. Este descuento se aplica a cada %product en el kit."
+
+#: uc_product_kit.module:364
+msgid "Click to add to cart."
+msgstr "Pulse para añdir al carro de la compra"
+
+#: uc_product_kit.module:386
+msgid "Add to cart"
+msgstr "Añadir al carro de la compra"
+
+#: uc_product_kit.module:412
+msgid "Product kit"
+msgstr "Kit de productos"
+
+#: uc_product_kit.module:414
+msgid "This node represents two or more products that have been listed together. This presents a logical and convenient grouping of items to the customer."
+msgstr "Este nodo representa dos o más productos que son ofrecidos juntos. Esto representa un lógico y conveniente modo de agrupamiento de artículos para el cliente."
+
+#: uc_product_kit.module:0
+msgid "uc_product_kit"
+msgstr "uc_product_kit"
+
+#: uc_product_kit.info:0
+msgid "Product Kit"
+msgstr "Kit de Productos"
+
+#: uc_product_kit.info:0
+msgid "This node module represents two or more products that have been listed together. This presents a logical and convenient grouping of items to the customer."
+msgstr "Este módulo de nodo representa dos o más productos que son ofrecidos juntos. Esto representa un lógico y conveniente modo de agrupamiento de artículos para el cliente."
+
+#: uc_product_kit.info:0
+msgid "Ubercart - extra"
+msgstr "Ubercart - extra"
+

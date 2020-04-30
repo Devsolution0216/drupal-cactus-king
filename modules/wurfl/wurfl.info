@@ -1,0 +1,12 @@
+; $Id: wurfl.info,v 1.2 2010/08/18 01:22:52 tdrycker Exp $
+name = Wurfl
+description = "This module allows for device detection in Drupal using the WURFL project"
+core = 6.x
+package = Mobile
+
+; Information added by drupal.org packaging script on 2010-09-26
+version = "6.x-1.0"
+core = "6.x"
+project = "wurfl"
+datestamp = "1285514766"
+

@@ -1,0 +1,29 @@
+<?php
+// $Id: edit_term.install,v 1.3.2.1 2008/10/14 12:32:21 dman Exp $
+
+/**
+ * Implementation of hook_install().
+ *
+ * No database schema required or planned, 
+ */
+function edit_term_install() {
+  // Ensure this always runs AFTER menu.module and the rest of core has done its forms;
+  db_query("UPDATE {system} SET weight = 3 WHERE name = 'edit_term'");
+  drupal_set_message(t('
+    Installed edit term module.
+    Term Edit UI Enhancements to the Admin screens are now available to those with appropriate permissions. 
+    You should see new features when visiting term edit pages.
+    !help_link
+    ', 
+    array(
+      '!help_link' => l('Help', 'admin/help/edit_term'),
+    )
+  ));
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function edit_term_uninstall() {
+  variable_del('edit_term_link');
+}

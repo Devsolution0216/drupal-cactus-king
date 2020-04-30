@@ -1,0 +1,158 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  admin.itpl.php,v 1.4.4.1 2008/11/07 21:13:25 islandusurper
+#  customer.itpl.php,v 1.5.2.1 2008/11/07 21:13:25 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-13 22:24+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_order/templates/admin.itpl.php:10
+msgid "Order number:"
+msgstr "Bestellung Nummer:"
+
+#: uc_order/templates/admin.itpl.php:11
+msgid "Customer:"
+msgstr "Kunde:"
+
+#: uc_order/templates/admin.itpl.php:13
+msgid "Shipping method:"
+msgstr "Versand art:"
+
+#: uc_order/templates/admin.itpl.php:17
+msgid "Products:"
+msgstr "Artikel:"
+
+#: uc_order/templates/admin.itpl.php:31
+msgid "Order comments:"
+msgstr "Bestellungs Kommentare:"
+
+#: uc_order/templates/customer.itpl.php:40
+msgid "Thanks for your order, [order-first-name]!"
+msgstr "Danke für Ihre Bestellung, [order-first-name]!"
+
+#: uc_order/templates/customer.itpl.php:43
+msgid "An account has been created for you with the following details:"
+msgstr ""
+"Ein Benutzer Konto wurde für Sie erstellt mit den folgenden "
+"Paramtern:"
+
+#: uc_order/templates/customer.itpl.php:44
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: uc_order/templates/customer.itpl.php:45
+msgid "Password:"
+msgstr "Passwort:"
+
+#: uc_order/templates/customer.itpl.php:48
+msgid "Want to manage your order online?"
+msgstr "Wollen Sie ihre Bestellung online verwalten?"
+
+#: uc_order/templates/customer.itpl.php:49
+msgid ""
+"If you need to check the status of your order, please visit our home "
+"page at [store-link] and click on \"My account\" in the menu or login "
+"with the following link:"
+msgstr ""
+"Wenn Sie den Status ihrer Bestellung überprüfen wollen, besuchen Sie "
+"bitte unsere Site:  [store-link] und klicken Sie auf \"Mein Konto\" im "
+"Menü oder nutzen Sie den folgenden link um sich einzuloggen:"
+
+#: uc_order/templates/customer.itpl.php:56
+msgid "Purchasing Information:"
+msgstr "Kaufinformationen:"
+
+#: uc_order/templates/customer.itpl.php:61
+msgid "E-mail Address:"
+msgstr "E-Mail Adresse:"
+
+#: uc_order/templates/customer.itpl.php:73
+msgid "Billing Address:"
+msgstr "Rechnungsadresse:"
+
+#: uc_order/templates/customer.itpl.php:81
+msgid "Shipping Address:"
+msgstr "Lieferanschrift:"
+
+#: uc_order/templates/customer.itpl.php:95
+msgid "Order Grand Total:"
+msgstr "Gesamtsumme:"
+
+#: uc_order/templates/customer.itpl.php:103
+msgid "Payment Method:"
+msgstr "Zahlungs Art:"
+
+#: uc_order/templates/customer.itpl.php:112
+msgid "Order Summary:"
+msgstr "Bestellungs Zusammenfassung:"
+
+#: uc_order/templates/customer.itpl.php:119
+msgid "Shipping Details:"
+msgstr "Versandinformationen:"
+
+#: uc_order/templates/customer.itpl.php:130
+msgid "Order #:"
+msgstr "Bestellung #:"
+
+#: uc_order/templates/customer.itpl.php:140
+msgid "Shipping Method:"
+msgstr "Versand Art:"
+
+#: uc_order/templates/customer.itpl.php:150
+msgid "Products Subtotal:"
+msgstr "Artikel Zwischensumme:"
+
+#: uc_order/templates/customer.itpl.php:180
+msgid "Total for this Order:"
+msgstr "Gesamtsumme dieser Bestellung:"
+
+#: uc_order/templates/customer.itpl.php:189
+msgid "Products on order:"
+msgstr "Artikel der Bestellung:"
+
+#: uc_order/templates/customer.itpl.php:202
+msgid "(!price each)"
+msgstr "(je !price)"
+
+#: uc_order/templates/customer.itpl.php:230
+msgid "Where can I get help with reviewing my order?"
+msgstr "Wo bekomme ich Hilfe bei Fragen zu meiner Bestellung?"
+
+#: uc_order/templates/customer.itpl.php:231
+msgid ""
+"To learn more about managing your orders on [store-link], please visit "
+"our <a href=\"[store-help-url]\">help page</a>."
+msgstr ""
+"Um mehr zu Hilfe rund um ihre Bestellung bei  [store-link] zu "
+"bekommen, Besuchen Sie doch unsere <a href=\"[store-help-url]\">Hilfe "
+"Seite</a>."
+
+#: uc_order/templates/customer.itpl.php:236
+msgid ""
+"Please note: This e-mail message is an automated notification. Please "
+"do not reply to this message."
+msgstr ""
+"Bitte beachten Sie: Bei dieser Mail handelt es sich um eine "
+"automatische generierte mail, bitte antworten Sie nicht direkt darauf."
+
+#: uc_order/templates/customer.itpl.php:238
+msgid "Thanks again for shopping with us."
+msgstr "Danke für Ihren Einkauf bei uns."
+
+#: uc_order/templates/customer.itpl.php:76
+msgid "Billing Phone:"
+msgstr "Telefon Rechnungsadresse:"
+
+#: uc_order/templates/customer.itpl.php:84
+msgid "Shipping Phone:"
+msgstr "Telefon Lieferadresse:"
+

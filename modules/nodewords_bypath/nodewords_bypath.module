@@ -1,0 +1,315 @@
+<?php
+// $Id: nodewords_bypath.module,v 1.1.2.1.2.2 2009/01/01 02:37:28 univate Exp $
+
+/**
+ * @file Provides an add-on to the Meta Tag (nodewords) module to allow
+ *       per-path meta tag values.
+ */
+
+/** The empty field specifier. */
+define('NODEWORDS_NONE', '<none>');
+
+/**
+ * Implementation of hook_help().
+ *
+ * @param $section string A path indicating which help text to display.
+ *
+ * @return string The help text for the provided path.
+ */
+function nodewords_bypath_help($path, $arg) {
+  switch ($path) {
+    case 'admin/content/nodewords/path':
+      $subs = array('!ref_link' => l(t('Token Reference Page'), 'admin/content/nodewords/path/tokens'));
+      $help = '<p>'. t('Meta tag path rules allow the values of meta tags to be specified by path. The value may include dynamic content using the tokens specified in the !ref_link page. Rules are evaluated by their weight with lighter rules are evaluated before heavier ones. Rule evaluation stops on the first rule encountered that matches any given path. For example, if the lightest weight rule matches a path, that rule is evaluated and no further rules are evaluated against that path.', $subs) .'</p>';
+      return $help;
+    
+    case 'admin/content/nodewords/path/new':
+      // Fall through.
+    case 'admin/content/nodewords/path/edit/'. arg(5):
+      $help = '<p>'. t('When using tokens in the meta tag fields, keep in mind that node tokens are only available when a page is displaying a single node. Global tokens are available on all pages.') .'</p>';
+      return $help;   
+  }
+}
+
+
+/**
+ * Implementation of hook_menu().
+ *
+ * @param $may_cache bool TRUE if this call is for the cached menu,
+ *        FALSE if not.
+ */
+function nodewords_bypath_menu() {
+  $items = array();
+  
+  $items['admin/content/nodewords/path'] = array(
+    'title'    => 'By Path',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('nodewords_bypath_admin_overview'),
+    'type'     => MENU_LOCAL_TASK,
+    'access arguments'   => array('administer meta tags'),
+    'weight'   => 5,
+    'file' => 'nodewords_bypath.forms.inc',
+  );
+  
+  $items['admin/content/nodewords/path/list'] = array(
+    'title'    => 'List',
+    'page callback' => 'nodewords_bypath_admin_overview',
+    'type'     => MENU_DEFAULT_LOCAL_TASK,
+    'access arguments'   => array('administer meta tags'),
+    'file' => 'nodewords_bypath.forms.inc',
+  );
+  
+  $items['admin/content/nodewords/path/new'] = array(
+    'title'    => 'New Rule',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('nodewords_bypath_form'),
+    'type'     => MENU_LOCAL_TASK,
+    'weight'   => 1,
+    'access arguments'   => array('administer meta tags'),
+    'file' => 'nodewords_bypath.forms.inc',
+  );
+  
+  if (function_exists('token_get_list')) {
+    $items['admin/content/nodewords/path/tokens'] = array(
+      'title'    => 'Token Reference',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('nodewords_bypath_tokenref_form'),
+      'type'     => MENU_LOCAL_TASK,
+      'weight'   => 2,
+      'access arguments'   => array('administer meta tags'),
+      'file' => 'nodewords_bypath.forms.inc',
+    );
+  }
+ 
+  $items['admin/content/nodewords/path/%nodewords_bypath_rule/edit'] = array(
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('nodewords_bypath_form', 4),
+    'type'     => MENU_CALLBACK,
+    'access arguments'   => array('administer meta tags'),
+    'file' => 'nodewords_bypath.forms.inc',
+  );
+  
+  $items['admin/content/nodewords/path/%nodewords_bypath_rule/delete'] = array(
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('nodewords_bypath_delete_form', 4),
+    'type'     => MENU_CALLBACK,
+    'access arguments'   => array('administer meta tags'),
+    'file' => 'nodewords_bypath.forms.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme()
+ */
+function nodewords_bypath_theme() {
+  return array(
+    'nodewords_bypath_tokenref_form' => array(
+      'arguments' => array('form' => NULL),
+      'file' => 'nodewords_bypath.forms.inc',
+    ),
+    'nodewords_bypath_admin_overview' => array(
+      'arguments' => array('form' => NULL),
+      'file' => 'nodewords_bypath.forms.inc',
+    ),
+ );
+}
+
+/**
+ * Implementation of hook_nodewords().
+ *
+ * @param &$tags array The meta-tag => value pairs that will be written to
+ *        the document head.
+ * @param $op string The operation being performed. This implementation only
+ *        responds to 'prepare'.
+ * @param $type string The type being viewed ('node' or 'term', all others 
+ *        treated as 'global').
+ * @param $ids array The node ID (single element array) if type 'node', or 
+ *        an array of term IDs if type 'term'.
+ */
+function nodewords_bypath_nodewords(&$tags, $op, $type, $ids) {
+  switch ($op) {
+    case 'prepare':
+      $path = drupal_get_path_alias($_GET['q']);
+      if ($rule = _nodewords_bypath_path_rule_load($path)) {
+        $rule_tags = _nodewords_bypath_tags_load($rule->id);
+
+        //--------------------------------------------------------------------
+        // Determine the context for token replacement.
+        $scope  = 'global';
+        $object = NULL;
+        
+        if ($type == 'node') {
+          $scope  = 'node';
+          $object = node_load($ids[0]);
+        }
+        elseif ($type == 'term') {
+          $scope  = 'taxonomy';
+          $object = taxonomy_get_term($ids[0]);
+        }
+        
+        //--------------------------------------------------------------------
+        // Set the value for the tag and use the token module if it is
+        // available.
+        foreach ($rule_tags as $key => $value) {
+          if (!empty($value)) {
+            if (function_exists('token_replace')) {
+              $tags[$key] = strip_tags(token_replace($value, $scope, $object));
+            }
+            else {
+              $tags[$key] = $value;
+            }
+          }
+          elseif ($value == NODEWORDS_NONE) {
+            $tags[$key] = '';
+          }
+        }
+      }
+      break;
+  }
+}
+
+
+/**
+ * Persist a rule instance to the database
+ *
+ * @param $rule object The rule instance to create or update.
+ */
+function nodewords_bypath_rule_save($rule) {
+  // Updating an existing rule
+  if (isset($rule->id) && ($rule->id > -1)) {
+    drupal_write_record('nodewords_bypath_rules', $rule, 'id');
+    
+    //----------------------------------------------------------------------
+    // Tags are trickier. They could exist already, or they may be new if
+    // the administrator has recently changed the available tags.
+    foreach ($rule->tags as $name => $value) {
+      $tag = new stdClass;
+      $tag->rule_id = $rule->id;
+      $tag->meta_tag = $name;
+      $tag->meta_value = $value;
+      
+      $exists = db_result(db_query("SELECT COUNT(*) FROM {nodewords_bypath_tags} 
+                                           WHERE (rule_id = %d AND meta_tag = '%s')",
+                                    $rule->id, $name));
+      if ($exists > 0) {
+        drupal_write_record('nodewords_bypath_tags', $tag, array('rule_id', 'meta_tag'));
+      }
+      else {
+        drupal_write_record('nodewords_bypath_tags', $tag);
+      }
+    }
+  }
+  // Saving a new rule
+  else {
+    drupal_write_record('nodewords_bypath_rules', $rule);
+    foreach ($rule->tags as $name => $value) {
+      $tag = new stdClass;
+      $tag->rule_id = $rule->id;
+      $tag->meta_tag = $name;
+      $tag->meta_value = $value;
+      drupal_write_record('nodewords_bypath_tags', $tag);
+    }
+  }
+}
+
+/**
+ * Retrieve the meta tags for the given rule ID.
+ *
+ * @param $id int The rule to get the terms for.
+ *
+ * @return array A mapping of term names (string) to their values (string).
+ */
+function _nodewords_bypath_tags_load($id) {
+  $tags   = array();
+  $result = db_query('SELECT meta_tag, meta_value 
+                             FROM {nodewords_bypath_tags} WHERE rule_id = %d', $id);
+  while ($row = db_fetch_object($result)) {
+    $tags[$row->meta_tag] = $row->meta_value;
+  }
+  
+  return $tags;
+}
+
+
+/**
+ * Load a meta tag rule by its ID.
+ *
+ * @param $id int The unique ID of the meta rule to load.
+ *
+ * @return array The meta tag rule information, or NULL if no rule with the
+ *         given ID was found.
+ */
+function nodewords_bypath_rule_load($id) {
+  $rule = db_fetch_object(db_query('SELECT id, name, type, path_expr, weight
+                                             FROM {nodewords_bypath_rules} WHERE id = %d', $id));
+  
+  if ($rule AND (!empty($rule->id))) {
+    $rule->tags = _nodewords_bypath_tags_load($rule->id);
+    return $rule;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+
+/**
+ * Retrieve all the meta tag rules.
+ *
+ * @return array The meta tag rule objects.
+ */
+function _nodewords_bypath_load_all() {
+  $rules  = array();
+  $result = db_query('SELECT id, name, type, path_expr, weight
+                             FROM {nodewords_bypath_rules} ORDER BY weight, name ASC');
+  
+  // The tags aren't loaded here. They're loaded on demand when the path
+  // is matched.
+  while ($rule = db_fetch_object($result)) {
+    $rules[] = $rule;
+  }
+  
+  return $rules;
+}
+
+
+/**
+ * Retrieve the meta tag rule for the given path.
+ *
+ * @param $path string The Drupal path to replace the title for.
+ *
+ * @return object The meta tag rule for the given path.
+ */
+function _nodewords_bypath_path_rule_load($path) {
+  $rules  = _nodewords_bypath_load_all();
+
+  foreach ($rules as $rule) {
+    //----------------------------------------------------------------------
+    // Rules are processed lightest first, so if this tag has already been
+    // added for this path, this rule is skipped.
+    if ($rule->type == 1) {
+      $regexp = '/^('. 
+                preg_replace(array('/(\r\n?|\n)/', '/\\\\\*/', '/(^|\|)\\\\<front\\\\>($|\|)/'), 
+                             array('|', '.*', '\1'. preg_quote(variable_get('site_frontpage', 'node'), '/') .'\2'), 
+                             preg_quote($rule->path_expr, '/')) .
+                ')$/';
+                
+      // Compare with the Drupal path and the query.
+      $page_match = preg_match($regexp, $path);
+      if ($path != $_GET['q']) {
+        $page_match = $page_match || preg_match($regexp, $_GET['q']);
+      }
+    }
+    elseif ($rule->type == 2) {
+      $page_match = drupal_eval($rule->path_expr);
+    }
+
+    if ($page_match > 0) {
+      return $rule;
+    }
+  }
+
+  return NULL;
+}

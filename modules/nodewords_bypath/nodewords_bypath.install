@@ -1,0 +1,106 @@
+<?php
+// $Id: nodewords_bypath.install,v 1.1.2.1.2.3 2009/03/22 03:30:07 univate Exp $
+
+/**
+ * @file Provides the (un)installation logic for the Meta Tags by Path 
+ *       module.
+ */
+
+
+/**
+ * Implementation of hook_install().
+ */
+function nodewords_bypath_install() {
+  drupal_install_schema('nodewords_bypath');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function nodewords_bypath_uninstall() {
+  drupal_uninstall_schema('nodewords_bypath');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function nodewords_bypath_schema() {
+  $schema = array();
+  // -----------------------------------------------------------------------
+  // Maps a Drupal path expression or PHP logic to a set of meta tags and 
+  // their values that should be placed in the HTML head on pages matching
+  // that expression.
+  //
+  // The 'type' column indicates whether the path_expr is a list of paths
+  // or a block of PHP code. The allowed values are:
+  //        0 - Reserved (don't use)
+  //        1 - Show on only the listed pages.
+  //        2 - Show if path_expr contains PHP code that returns TRUE
+  //
+  // 'weight' is the order in which the expressions are evaluated. Items
+  // with lower weights are evaluated before items with higher weights.
+
+  $schema['nodewords_bypath_rules'] = array(
+    'description' => t('Stores nodewords meta tag content based on paths'),
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => t('Unique rule id.'),
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'description' => t('Meta tag name.'),
+      ),
+      'type' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'description' => t('Type of rule filter.'),
+        'default' => 1,
+      ),
+      'path_expr' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => t('Path expression to match.'),
+      ),
+      'weight' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'description' => t('Weight of the path rule.'),
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  $schema['nodewords_bypath_tags'] = array(
+    'description' => t('Stores nodewords meta tag content based on paths'),
+    'fields' => array(
+      'rule_id' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => t('Id of the rule.'),
+      ),
+      'meta_tag' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'description' => t('Meta tag name.'),
+      ),
+      'meta_value' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => t('Contents of meta tag value.'),
+      ),
+    ),
+    'primary key' => array('rule_id', 'meta_tag'),
+  );
+  return $schema;
+}
+

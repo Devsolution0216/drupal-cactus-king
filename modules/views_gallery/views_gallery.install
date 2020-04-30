@@ -1,0 +1,468 @@
+<?php
+// $Id: views_gallery.install,v 1.13 2010/06/04 15:24:57 karens Exp $
+
+/**
+ * @file
+ * Install file for image gallery feature.
+ * 
+ * Adds Image and Gallery content types.
+ */
+
+/**
+ * List of modules required by this feature.
+ */
+function views_gallery_modules() {
+  return array(
+    'content', 'content_copy', 'views', 'views_attach', 
+    'filefield', 'imageapi', 'imagecache', 'imagefield', 
+    'nodereference', 'nodereference_url', 'token', 'views_gallery');
+}
+
+/**
+ * Create a custom pager for navigating inside a gallery.
+ */
+function _views_gallery_create_pager() {
+  $pid = variable_set('views_gallery_pager', NULL);
+  if (module_exists('custom_pagers') && empty($pid)) {
+    $pager = new stdClass();
+    $pager->title = 'Views gallery pager';
+    $pager->position = 'both';
+    $pager->view = 'gallery';
+    $pager->args = '[field_gallery-nid]';
+    $pager->node_type = views_gallery_image_type();
+    _custom_pagers_save_pager($pager);
+    variable_set('views_gallery_pager', $pager->pid);
+  }
+}
+
+function _views_gallery_delete_pager() {
+  if (module_exists('custom_pagers')) {
+    // Remove the pager.
+    _custom_pagers_delete_pager(variable_get('views_gallery_pager', NULL));
+  }
+  variable_del('views_gallery_pager');
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function views_gallery_install() {
+  
+  // Make sure required modules are enabled.
+  $modules = views_gallery_modules();
+  variable_set('views_gallery_image_type', 'gallery_image');
+  variable_set('views_gallery_gallery_type', 'gallery');
+  
+  module_enable($modules);
+
+  // Create the custom pager
+  _views_gallery_create_pager();
+  
+  // Keep this from executing more than once
+  // by checking if the content types were already
+  // created.
+  $types = node_get_types('names');
+  if (array_key_exists(views_gallery_gallery_type(), $types)) {
+    return;
+  }
+  views_gallery_create_gallery_type();
+  
+  // Create image type if it does not already exist,
+  // either because of a previous install/uninstall
+  // or because it was added some other way.
+  if (!array_key_exists(views_gallery_image_type(), $types)) {
+    views_gallery_create_image_type();
+  }
+  
+}
+
+/**
+ * Implementation of hook_enable();
+ */
+function views_gallery_enable() {
+  // Create the custom pager
+  _views_gallery_create_pager();
+}
+
+function views_gallery_create_image_type() {
+  /*
+   * Add the image type. We need content copy
+   * module because we are using the import form to process this.
+   */ 
+  
+  // Create the image content type.
+  $content['type']  = array (
+    'name' => t('Image'),
+    'type' => views_gallery_image_type(),
+    'description' => t('An individual gallery photograph.'),
+    'title_label' => t('Title'),
+    'body_label' => t('Description'),
+    'min_word_count' => '0',
+    'help' => '',
+    'node_options' => 
+    array (
+      'status' => true,
+      'promote' => false,
+      'sticky' => false,
+      'revision' => false,
+    ),
+    'old_type' => views_gallery_image_type(),
+    'orig_type' => '',
+    'module' => 'node',
+    'custom' => 1,
+    'modified' => 1,
+    'locked' => 0,
+    'comment' =>COMMENT_NODE_READ_WRITE,
+    'comment_default_mode' => 4,
+    'comment_default_order' => 1,
+    'comment_default_per_page' => 50,
+    'comment_controls' => 3,
+    'comment_anonymous' => COMMENT_ANONYMOUS_MAY_CONTACT,
+    'comment_subject_field' => 1,
+    'comment_preview' => 0,
+    'comment_form_location' => COMMENT_FORM_BELOW,
+    'og_content_type_usage' => 'group_post_standard',
+    'fivestar' => 1,
+    'fivestar_stars' => 5,
+    'fivestar_labels_enable' => 1,
+    'fivestar_label_0' => t('Cancel rating'),
+    'fivestar_label_1' => t('Poor'),
+    'fivestar_label_2' => t('Okay'),
+    'fivestar_label_3' => t('Good'),
+    'fivestar_label_4' => t('Great'),
+    'fivestar_label_5' => t('Awesome'),
+    'fivestar_label_6' => t('Give it @star/@count'),
+    'fivestar_label_7' => t('Give it @star/@count'),
+    'fivestar_label_8' => t('Give it @star/@count'),
+    'fivestar_label_9' => t('Give it @star/@count'),
+    'fivestar_label_10' => t('Give it @star/@count'),
+    'fivestar_style' => 'average',
+    'fivestar_text' => 'dual',
+    'fivestar_title' => 1,
+    'fivestar_feedback' => 1,
+    'fivestar_unvote' => 0,
+    'fivestar_position_teaser' => 'hidden',
+    'fivestar_position' => 'below',
+    'fivestar_comment' => 0,
+  );
+  $content['fields']  = array (
+    0 => 
+    array (
+      'label' => t('Image'),
+      'field_name' => 'field_gallery_image',
+      'type' => 'filefield',
+      'widget_type' => 'imagefield_widget',
+      'weight' => '-4',
+      'file_extensions' => 'jpg jpeg png gif',
+      'progress_indicator' => 'bar',
+      'file_path' => 'photos',
+      'max_filesize_per_file' => '2M',
+      'max_filesize_per_node' => '',
+      'max_resolution' => '640x400',
+      'min_resolution' => 0,
+      'custom_alt' => 0,
+      'alt' => '',
+      'custom_title' => 0,
+      'title_type' => 'textfield',
+      'title' => '',
+      'use_default_image' => 0,
+      'default_image_upload' => '',
+      'default_image' => NULL,
+      'description' => '',
+      'filefield_insert' => 0,
+      'filefield_insert_presets' => 
+      array (
+        'large' => 0,
+        'medium' => 0,
+        'small' => 0,
+        'thumbnail' => 0,
+      ),
+      'filefield_insert_width' => '',
+      'required' => 1,
+      'multiple' => '0',
+      'list_field' => '0',
+      'list_default' => 1,
+      'description_field' => '0',
+      'op' => 'Save field settings',
+      'module' => 'filefield',
+      'widget_module' => 'imagefield',
+      'columns' => 
+      array (
+        'fid' => 
+        array (
+          'type' => 'int',
+          'not null' => 0,
+          'views' => 1,
+        ),
+        'list' => 
+        array (
+          'type' => 'int',
+          'size' => 'tiny',
+          'not null' => 0,
+          'views' => 1,
+        ),
+        'data' => 
+        array (
+          'type' => 'text',
+          'serialize' => 1,
+          'views' => 1,
+        ),
+      ),
+      'display_settings' => 
+      array (
+        'weight' => '-3',
+        'parent' => '',
+        'label' => 
+        array (
+          'format' => 'hidden',
+        ),
+        'teaser' => 
+        array (
+          'format' => 'thumb_linked',
+          'exclude' => 0,
+        ),
+       'full' => 
+        array (
+          'format' => 'reg_linked',
+          'exclude' => 0,
+        ),
+        4 => 
+        array (
+          'format' => 'reg_linked',
+        ),
+        2 => 
+        array (
+          'format' => 'reg_linked',
+        ),
+        3 => 
+        array (
+          'format' => 'reg_linked',
+        ),
+      ),
+    ),
+    1 => 
+    array (
+      'label' => t('Gallery'),
+      'field_name' => 'field_gallery',
+      'type' => 'nodereference',
+      'widget_type' => 'nodereference_url',
+      'weight' => '-3',
+      'fallback' => 'select',
+      'node_link' => array(
+        'full' => 1,
+        'teaser' => 0,
+        'title' => t('Add photo'),
+        'hover_title' => t('Add a new photo to this gallery'),
+        'destination' => 'node',
+      ),
+      'description' => '',
+      'required' => 1,
+      'multiple' => '0',
+      'referenceable_types' => 
+      array (
+        views_gallery_gallery_type() => views_gallery_gallery_type(),
+      ),
+      'advanced_view' => '--',
+      'advanced_view_args' => '',
+      'op' => 'Save field settings',
+      'module' => 'nodereference',
+      'widget_module' => 'nodereference_url',
+      'columns' => 
+      array (
+        'nid' => 
+        array (
+          'type' => 'int',
+          'unsigned' => true,
+          'not null' => false,
+        ),
+      ),
+      'display_settings' => 
+      array (
+        'weight' => '-2',
+        'parent' => '',
+        4 => 
+        array (
+          'format' => 'default',
+          'exclude' => 0,
+        ),
+        'label' => 
+        array (
+          'format' => 'inline',
+        ),
+        'teaser' => 
+        array (
+          'format' => 'default',
+          'exclude' => 0,
+        ),
+        'full' => 
+        array (
+          'format' => 'default',
+          'exclude' => 0,
+        ),
+      ),
+    ),
+  );
+  $content['extra']  = array (
+    'title' => '-5',
+    'body_field' => '0',
+    'taxonomy' => '-2',
+    'menu' => '-10',
+  );
+  // Make up a $form_state value.
+  $content_type = array(
+    'values' => array(
+      'type_name' => '<create>',
+      'macro' => '$content = '. var_export($content, true) .';',
+    ),
+  );
+  // Run it.
+  drupal_execute('content_copy_import_form', $content_type);
+}
+
+function views_gallery_create_gallery_type() {
+  // Create the Gallery content type.
+  $content = array();
+  $content['type']  = array (
+  'name' => 'Gallery',
+  'type' => views_gallery_gallery_type(),
+  'description' => t('A gallery for a collection of photos.'),
+  'title_label' => t('Title'),
+  'body_label' => t('Description'),
+  'min_word_count' => '0',
+  'help' => '',
+  'node_options' => 
+  array (
+    'status' => true,
+    'promote' => true,
+    'sticky' => false,
+    'revision' => false,
+  ),
+  'language_content_type' => '0',
+  'old_type' => views_gallery_gallery_type(),
+  'orig_type' => '',
+  'module' => 'node',
+  'custom' => '1',
+  'modified' => '1',
+  'locked' => '0',
+  'og_content_type_usage' => 'omitted',
+  'comment' => COMMENT_NODE_DISABLED,
+  'comment_default_mode' => 4,
+  'comment_default_order' => 1,
+  'comment_default_per_page' => 50,
+  'comment_controls' => 3,
+  'comment_anonymous' => 0,
+  'comment_subject_field' => 1,
+  'comment_preview' => 1,
+  'comment_form_location' => 0,
+  'og_content_type_usage' => 'group_post_standard',
+  'fivestar' => 0,
+  'fivestar_stars' => 5,
+  'fivestar_labels_enable' => 1,
+  'fivestar_label_0' => t('Cancel rating'),
+  'fivestar_label_1' => t('Poor'),
+  'fivestar_label_2' => t('Okay'),
+  'fivestar_label_3' => t('Good'),
+  'fivestar_label_4' => t('Great'),
+  'fivestar_label_5' => t('Awesome'),
+  'fivestar_label_6' => t('Give it @star/@count'),
+  'fivestar_label_7' => t('Give it @star/@count'),
+  'fivestar_label_8' => t('Give it @star/@count'),
+  'fivestar_label_9' => t('Give it @star/@count'),
+  'fivestar_label_10' => t('Give it @star/@count'),
+  'fivestar_style' => 'average',
+  'fivestar_text' => 'dual',
+  'fivestar_title' => 1,
+  'fivestar_feedback' => 1,
+  'fivestar_unvote' => 0,
+  'fivestar_position_teaser' => 'hidden',
+  'fivestar_position' => 'below',
+  'fivestar_comment' => 0,
+  'feedapi' => 
+  array (
+    'enabled' => 0,
+    'refresh_on_create' => 0,
+    'update_existing' => 1,
+    'skip' => 0,
+    'items_delete' => '0',
+  ),
+);
+    
+  $content['extra']  = array (
+    'title' => '-5',
+    'body_field' => '0',
+    'taxonomy' => '-3',
+    'menu' => '-10',
+  );
+  // Make up a $form_state value.
+  $content_type = array(
+    'values' => array(
+      'type_name' => '<create>',
+      'macro' => '$content = '. var_export($content, true) .';',
+    ),
+  );
+  // Run it.
+  drupal_execute('content_copy_import_form', $content_type);
+  
+  // Create a top-level gallery to start with.
+  $node = array(
+    'type' => views_gallery_gallery_type(),
+    'title' => t('Gallery'),
+    'name' => t('Gallery'),
+    'status' => 1,
+    'comment' => 0,
+    'promote' => 1,
+    'revision' => 1,
+    'format' => 1,
+    'body' => '',
+    'comment' => COMMENT_NODE_DISABLED,
+  );
+  $node = node_submit($node);
+  node_save($node);
+  variable_set('views_gallery_nid', $node->nid);
+  
+  drupal_set_message(t('A new Views Gallery !link has been created for you. Go there to add photos to that gallery, or create new galleries at !link2', array('!link' => l(t('Gallery'), 'node/'. $node->nid), '!link2' => l(t('Add Gallery'), 'node/add/'. views_gallery_gallery_type()))));
+  
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function views_gallery_uninstall() {
+  // Remove the gallery nodes and types.
+  $result = db_query("SELECT nid FROM {node} WHERE type='%s'", views_gallery_gallery_type());
+  while ($row = db_fetch_object($result)) {
+    node_delete($row->nid);
+  }
+  node_type_delete(views_gallery_gallery_type());
+  
+  // If images have been created, we'll leave them alone,
+  // otherwise delete the image content type.
+  $count = db_result(db_query("SELECT COUNT(*) FROM {node} WHERE type='%s'", views_gallery_image_type()));
+  if (empty($count)) {
+    node_type_delete(views_gallery_image_type());
+  }
+  else {
+    drupal_set_message(t('Your Views Gallery galleries have been deleted, but there are still images with content in them, so they have not been deleted. You can delete your images at !link', array('!link' => l(t('Manage>Content'), 'admin/content/node'))));
+  }
+  
+  _views_gallery_delete_pager();
+  
+  // Delete variables.
+  variable_del('views_gallery_image_type');
+  variable_del('views_gallery_gallery_type');
+  variable_del('views_gallery_nid');
+}
+
+function views_gallery_update_6000() {
+  $ret = array();
+  if (module_exists('custom_pager')) {
+    _views_gallery_create_pager();
+  }
+  // For updates only, set these values to what
+  // we were using before so we don't break
+  // existing installations. The defaults for
+  // new installations will not use 'image'.
+  variable_set('views_gallery_image_type', 'image');
+  variable_set('views_gallery_gallery_type', 'gallery');
+  return $ret;
+}

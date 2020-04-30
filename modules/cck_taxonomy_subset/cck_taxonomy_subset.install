@@ -1,0 +1,6 @@
+<?php
+// $Id: cck_taxonomy_subset.install,v 1.1 2009/03/05 17:13:01 bwong Exp $
+
+function cck_taxonomy_subset_install() {
+}
+

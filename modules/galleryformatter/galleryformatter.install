@@ -1,0 +1,41 @@
+<?php
+
+
+/**
+  * @file
+  * Notifies CCK of our module.
+  *
+  * Implementation of hook_install().
+  */
+function galleryformatter_install() {
+  drupal_load('module', 'content');
+  content_notify('install', 'galleryformatter');
+}
+
+/**
+  * Implementation of hook_uninstall().
+  */
+function galleryformatter_uninstall() {
+  drupal_load('module', 'content');
+  content_notify('uninstall', 'galleryformatter');
+}
+
+/**
+  * Implementation of hook_enable().
+  *
+  * Notify content module when this module is enabled.
+  */
+function galleryformatter_enable() {
+  drupal_load('module', 'content');
+  content_notify('enable', 'galleryformatter');
+}
+
+/**
+  * Implementation of hook_disable().
+  *
+  * Notify content module when this module is disabled.
+  */
+function galleryformatter_disable() {
+  drupal_load('module', 'content');
+  content_notify('disable', 'galleryformatter');
+}

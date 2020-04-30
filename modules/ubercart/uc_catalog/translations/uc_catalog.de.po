@@ -1,0 +1,429 @@
+# German translation of ubercart (6.x-2.0-beta1)
+# Copyright (c) 2009 by the German translation team
+# Generated from files:
+#  uc_catalog.module,v 1.15.2.11 2008/12/11 15:53:50 islandusurper
+#  uc_catalog.admin.inc,v 1.1.2.5 2008/11/21 21:17:26 islandusurper
+#  uc_catalog.install,v 1.9.2.6 2008/12/11 15:53:50 islandusurper
+#  uc_catalog.info,v 1.6.2.2 2008/11/07 21:13:24 islandusurper
+#  uc_catalog.pages.inc,v 1.1.2.5 2008/12/09 15:20:37 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ubercart (6.x-2.0-beta1)\n"
+"POT-Creation-Date: 2009-01-18 12:36+0100\n"
+"PO-Revision-Date: 2008-05-13 22:51+0200\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_catalog/uc_catalog.module:75
+msgid "Catalog settings"
+msgstr "Katalog Einstellungen"
+
+#: uc_catalog/uc_catalog.module:115
+msgid "Find orphaned products"
+msgstr "Verwaiste Artikel finden"
+
+#: uc_catalog/uc_catalog.module:116
+msgid "Find products that have not been categorized."
+msgstr "Artikel finden die keine Kategorie zugeordnet wurden"
+
+#: uc_catalog/uc_catalog.module:282,312
+msgid "Uploaded file is not a valid image"
+msgstr "Die hochgeladene Datei ist keine gültige Bilddatei"
+
+#: uc_catalog/uc_catalog.module:350
+msgid "Term image"
+msgstr "Kategorie Bild"
+
+#: uc_catalog/uc_catalog.module:354
+msgid "Remove category image: !image"
+msgstr "Kategorie Bild löschen: !image"
+
+#: uc_catalog/uc_catalog.module:550
+msgid "Find orphaned products here."
+msgstr "Hier finden Sie verwaiste Artikel"
+
+#: uc_catalog/uc_catalog.admin.inc:265
+msgid "All products are currently listed in the catalog."
+msgstr "Alle Artikel sind momentan im Katalog gelistet."
+
+#: uc_catalog/uc_catalog.admin.inc:34
+msgid "View the catalog here."
+msgstr "Hier können Sie den Katalog ansehen."
+
+#: uc_catalog/uc_catalog.admin.inc:57
+msgid "The taxonomy vocabulary that will be considered the product catalog."
+msgstr "Das taxonomy Vokabular das als Artikel Katalog verwendet wird."
+
+#: uc_catalog/uc_catalog.admin.inc:90
+msgid "Number of columns in the grid of categories"
+msgstr "Anzahl der Spalten im Raster mit den Kategorien"
+
+#: uc_catalog/uc_catalog.module:131
+msgid "administer catalog"
+msgstr "Katalog verwalten"
+
+#: uc_catalog/uc_catalog.module:0
+msgid "uc_catalog"
+msgstr "uc_catalog"
+
+#: uc_catalog/uc_catalog.install:66
+msgid "Hold Ctrl while clicking to select multiple categories."
+msgstr ""
+"STRG während dem Klicken gedrückt halten um mehrere Kategorien "
+"auszuwählen."
+
+#: uc_catalog/uc_catalog.info:0
+msgid "Display a hierarchical product catalog page and block."
+msgstr ""
+"Eine Seite und einen Block mit einem hierarchisch gegliederten Katalog "
+"anzeigen."
+
+#: uc_catalog/uc_catalog.module:359
+msgid ""
+"A description of the term. Displayed to customers at the top of "
+"catalog pages."
+msgstr ""
+"Eine Beschreibung der Kategorie die Kunden oben in Katalog Seiten "
+"angezeigt wird."
+
+#: uc_catalog/uc_catalog.module:462
+msgid "Catalog path settings"
+msgstr "Katalog Pfad Einstellung"
+
+#: uc_catalog/uc_catalog.module:463
+msgid "Pattern for catalog pages"
+msgstr "Muster für Katalog Seiten"
+
+#: uc_catalog/uc_catalog.module:464
+msgid "catalog/[catpath-raw]"
+msgstr "katalog/[catpath-raw]"
+
+#: uc_catalog/uc_catalog.module:474
+msgid "Bulk generate aliases for catalog pages that are not aliased"
+msgstr ""
+"Massengenerierung von Aliasen für Katalog Seiten die noch keinen "
+"Alias haben"
+
+#: uc_catalog/uc_catalog.module:475
+msgid ""
+"Generate aliases for all existing catalog pages which do not already "
+"have aliases. Note: Bulk Update may not complete on large or slow "
+"sites. See the README.txt for more information."
+msgstr ""
+"Massengenerierung von Aliasen für Katalog Seiten die noch keinen "
+"Alias haben. Hinweis: Bei großen und langsamen Seiten kann es kann "
+"sein, dass die Massengenerierung nicht vollständig abgeschlossen "
+"werden kann. Schauen Sie in die  README.txt um mehr infos zu erhalten."
+
+#: uc_catalog/uc_catalog.module:557
+msgid "Unlisted products"
+msgstr "Nicht gelistete Artikel"
+
+#: uc_catalog/uc_catalog.admin.inc:113
+msgid "Catalog block settings"
+msgstr "Katalog Block Einstellungen"
+
+#: uc_catalog/uc_catalog.pages.inc:69
+msgid "More..."
+msgstr "Mehr..."
+
+#: uc_catalog/uc_catalog.module:676
+msgid "No products are available in this category."
+msgstr "Es gibt keine Artikel in dieser Kategorie"
+
+#: uc_catalog/uc_catalog.admin.inc:49
+msgid "Catalog top level"
+msgstr "Höchste Katalog Ebene"
+
+#: uc_catalog/uc_catalog.admin.inc:63
+msgid "Display the catalog breadcrumb"
+msgstr "Den Katalog Breadcrumb anzeigen"
+
+#: uc_catalog/uc_catalog.admin.inc:81
+msgid "Display subcategories in the catalog view"
+msgstr "Unter Kategorien in der Katalog Ansicht anzeigen."
+
+#: uc_catalog/uc_catalog.admin.inc:97
+msgid "Catalog products list"
+msgstr "Katalog Artikel Liste"
+
+#: uc_catalog/uc_catalog.admin.inc:105
+msgid "Product nodes per page"
+msgstr "Artikel pro Seite"
+
+#: uc_catalog/uc_catalog.admin.inc:108
+msgid ""
+"Determines how many products will be listed on every catalog category. "
+"Notice that if you are using grid display it must be multiple of the "
+"grid width value, otherwise the last row will not match."
+msgstr ""
+"Bestimmt wie viele Produkte pro Seite angezeigt werden. Beachten Sie, "
+"dass wenn Sie die Rasteranzeige verwenden, es sich bei dem Wert um ein "
+"vielfaches der Spaltenzahl handlen sollte, da die letze Zeile "
+"ansonsten nicht aufgeht."
+
+#: uc_catalog/uc_catalog.admin.inc:163
+msgid "Products grid display"
+msgstr "Artikel Raster Ansicht"
+
+#: uc_catalog/uc_catalog.admin.inc:172
+msgid "Display products in grid"
+msgstr "Artikel in einem Raster anzeigen"
+
+#: uc_catalog/uc_catalog.admin.inc:179
+msgid ""
+"Select it if you want the products to be displayed on a grid instead "
+"of a list table."
+msgstr ""
+"Wählen Sie ob ihre Produkte in einem Raster oder in einer "
+"tabelarischen Ansicht dargestellt werden sollen."
+
+#: uc_catalog/uc_catalog.admin.inc:183
+msgid "Width of grid"
+msgstr "Breite des Rasters"
+
+#: uc_catalog/uc_catalog.admin.inc:190
+msgid "Display product title"
+msgstr "Artikel Name anzeigen."
+
+#: uc_catalog/uc_catalog.admin.inc:200
+msgid "Display product model (SKU)"
+msgstr "Artikelnummer anzeigen."
+
+#: uc_catalog/uc_catalog.admin.inc:210
+msgid "Display product sell price"
+msgstr "Verkaufspreis anzeigen."
+
+#: uc_catalog/uc_catalog.admin.inc:220
+msgid "Display product add To cart"
+msgstr "\"Zum Warenkorb hinzufügen\" anzeigen."
+
+#: uc_catalog/uc_catalog.admin.inc:230
+msgid "Display attributes"
+msgstr "Eigenschaften anzeigen."
+
+#: uc_catalog/uc_catalog.admin.inc:237
+msgid "Allows displaying attributes when \"Add to cart button\" is selected."
+msgstr ""
+"Erlaubt das Einblenden von Eigenschaften falls der \"Zum Warenkorb "
+"hinzufügen\" button aktiviert ist."
+
+#: uc_catalog/uc_catalog.admin.inc:127
+msgid "If selected, the block title is a link, otherwise plain text."
+msgstr ""
+"Wenn ausgewählt ist der Blocktitel ein Link, ansonsten nur Standard "
+"Text."
+
+#: uc_catalog/uc_catalog.admin.inc:130
+msgid "Always expand categories in the catalog block"
+msgstr "Kategorien im Katalog Block immer ausgeklappt darstellen."
+
+#: uc_catalog/uc_catalog.admin.inc:139
+msgid "Display node counts in the catalog block"
+msgstr "Anzahl der Artikel der Kategorie im Katalog Block anzeigen."
+
+#: uc_catalog/uc_catalog.module:131
+msgid "view catalog"
+msgstr "Katalog ansehen"
+
+#: uc_catalog/uc_catalog.module:76
+msgid "Configure the catalog settings."
+msgstr "Katalogeinstelllungen anpassen."
+
+#: uc_catalog/uc_catalog.module:522
+msgid "catalog pages"
+msgstr "Katalog Seiten"
+
+#: uc_catalog/uc_catalog.module:351
+msgid ""
+"The image will not be resized. Consider installing <a "
+"href=\"@url\">Image cache</a>."
+msgstr ""
+"Das Bild wird in der Größe nicht angepasst. Eine Installation von <a "
+"href=\"@url\">Image cache</a> sollte in Erwägung gezogen werden."
+
+#: uc_catalog/uc_catalog.module:496
+msgid "Bulk generation of terms completed, @count alias generated."
+msgid_plural "Bulk generation of terms completed, @count aliases generated."
+msgstr[0] "Massenerzeugung von Kategorien abgeschlossen, @count Aliase erzeugt."
+msgstr[1] "Massenerzeugung von Kategorien abgeschlossen, @count Aliase erzeugt."
+
+#: uc_catalog/uc_catalog.module:546
+msgid "There is @count product not listed in the catalog."
+msgid_plural "There are @count products not listed in the catalog."
+msgstr[0] "Es gibt @count Artikel, das nicht im Katalog gelistet wird."
+msgstr[1] "Es gibt @count Artikel, die nicht im Katalog gelistet werden."
+
+#: uc_catalog/uc_catalog.admin.inc:72
+msgid "Display node counts in the catalog breadcrumb"
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:247
+msgid ""
+"Orphaned products are products that you have created but\n"
+"     not yet assigned to a category in your product catalog. All "
+"such\n"
+"     products will appear as links below that you can follow to edit\n"
+"     the product listings to assign them to categories."
+msgstr ""
+"Verwaiste Artikel sind Artikel die zwar erzeugt wurden aber keiner "
+"Kategorie des Katalogs zugeordnet sind. Diese Artikel werden hier als "
+"Links angezeigt um diese zu bearbeiten und dem Katalog hinzuzufügen."
+
+#: uc_catalog/uc_catalog.module:547
+msgid ""
+" Products are listed by assigning a category from the <a "
+"href=\"!cat_url\">Product Catalog</a> vocabulary to them."
+msgstr ""
+
+#: uc_catalog/uc_catalog.module:553
+msgid "Add terms for the products to inhabit."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:34
+msgid "Vocabulary %name is set as the product catalog."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:66
+msgid "Catalog breadcrumb is being displayed."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:67
+msgid "Catalog breadcrumb is hidden."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:75
+msgid "Node count is being displayed in the catalog breadcrumb."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:76
+msgid "Node count is not being displayed in the catalog breadcrumb."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:84
+msgid "The catalog view is displaying subcategories."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:85
+msgid "The catalog view is not displaying subcategories."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:92
+msgid "Subcategories are being displayed in @columns columns."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:106
+msgid "There are @nodes product nodes displayed per page."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:120
+msgid "Block title links to top-level catalog page"
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:123
+msgid "Block title is pointing to the top-level catalog page."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:124
+msgid "Block title is not pointing to the top-level catalog page."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:133
+msgid "Expanding categories in the catalog block."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:134
+msgid "Not expanding categories in the catalog block."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:142
+msgid ""
+"The number of nodes in a category are being shown in the catalog "
+"block."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:143
+msgid ""
+"The number of nodes in a category are not being shown in the catalog "
+"block."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:175
+msgid "Products are displayed in a grid."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:176
+msgid "Products are displayed on a list table."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:185
+msgid "The grid will be displayed in @columns columns"
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:193
+msgid "Every cell is displaying product titles."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:194
+msgid "Every cell is hiding product titles."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:203
+msgid "Every cell is displaying product model (SKU)."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:204
+msgid "Every cell is hiding product model (SKU)."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:213
+msgid "Every cell is displaying product sell price."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:214
+msgid "Every cell is hiding product sell price."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:223
+msgid "Every cell is displaying product \"Add to cart\"."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:224
+msgid "Every cell is hiding product \"Add to cart\"."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:233
+msgid ""
+"Every cell is displaying attributes when \"Add to cart button\" is "
+"selected."
+msgstr ""
+
+#: uc_catalog/uc_catalog.admin.inc:234
+msgid ""
+"Every cell is hiding attributes when \"Add to cart button\" is "
+"selected."
+msgstr ""
+
+#: uc_catalog/uc_catalog.module:540
+msgid "Vocabulary !name has been identified as the Ubercart catalog."
+msgstr ""
+
+#: uc_catalog/uc_catalog.module:566
+msgid ""
+"No vocabulary has been recognized as the Ubercart catalog. Choose one "
+"on <a href=\"!admin_catalog\">this page</a> or add one on the <a "
+"href=\"!admin_vocab\">taxonomy admin page</a> first, if needed."
+msgstr ""
+
+#: uc_catalog/uc_catalog.module:758
+msgid "Block settings:"
+msgstr ""
+
+#: uc_catalog/uc_catalog.module:106
+msgid "Product grid settings"
+msgstr ""
+

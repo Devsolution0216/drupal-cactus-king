@@ -1,0 +1,2 @@
+[16-Oct-2019 08:11:26 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'diablo'@'localhost' (using password: NO) in /home/y4gwruifsqaz/public_html/bigdump.php on line 394
+[16-Oct-2019 08:11:26 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/y4gwruifsqaz/public_html/bigdump.php on line 933

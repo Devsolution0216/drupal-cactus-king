@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * First implement hook_install() using the name of the country as the base of
+ * the function name.
+ */
+function thailand_install() {
+  // Make the entry in the country table.
+  // VALUES = Country ID, Country Name, 2-digit Code, 3-digit Code, File Version
+  db_query("INSERT INTO {uc_countries} (country_id, country_name, country_iso_code_2, country_iso_code_3, version) VALUES (764, 'Thailand', 'TH', 'THA', 2)");
+
+  // Make the entries in the zones table.
+  $zones = array(
+    array(764, '1', 'กรุงเทพมหานคร'),
+    array(764, '2', 'นนทบุรี'),
+    array(764, '3', 'สมุทรปราการ'),
+    array(764, '4', 'ปทุมธานี'),
+    array(764, '5', 'ภูเก็ต'),
+    array(764, '6', 'สมุทรสาคร'),
+    array(764, '7', 'สมุทรสงคราม'),
+    array(764, '8', 'นครปฐม'),
+    array(764, '9', 'ปัตตานี'),
+    array(764, '10', 'พระนครศรีอยุธยา'),
+    array(764, '11', 'อ่างทอง'),
+    array(764, '12', 'ชลบุรี'),
+    array(764, '13', 'สิงห์บุรี'),
+    array(764, '14', 'สงขลา'),
+    array(764, '15', 'มหาสารคาม'),
+    array(764, '16', 'สระบุรี'),
+    array(764, '17', 'สุรินทร์'),
+    array(764, '18', 'ระยอง'),
+    array(764, '19', 'ศรีสะเกษ'),
+    array(764, '20', 'ขอนแก่น'),
+    array(764, '21', 'ราชบุรี'),
+    array(764, '22', 'นราธิวาส'),
+    array(764, '23', 'ร้อยเอ็ด'),
+    array(764, '24', 'สุพรรณบุรี'),
+    array(764, '25', 'นครศรีธรรมราช'),
+    array(764, '26', 'บุรีรัมย์'),
+    array(764, '27', 'พัทลุง'),
+    array(764, '28', 'กาฬสินธุ์'),
+    array(764, '29', 'ชัยนาท'),
+    array(764, '30', 'อุดรธานี'),
+    array(764, '31', 'ยโสธร'),
+    array(764, '32', 'หนองบัวลำภู'),
+    array(764, '33', 'นครพนม'),
+    array(764, '34', 'นครราชสีมา'),
+    array(764, '35', 'ตรัง'),
+    array(764, '36', 'ฉะเชิงเทรา'),
+    array(764, '37', 'หนองคาย'),
+    array(764, '38', 'พิจิตร'),
+    array(764, '39', 'ลพบุรี'),
+    array(764, '40', 'นครนายก'),
+    array(764, '41', 'อำนาจเจริญ'),
+    array(764, '42', 'สกลนคร'),
+    array(764, '43', 'สตูล'),
+    array(764, '44', 'อุบลราชธานี'),
+    array(764, '45', 'นครสวรรค์'),
+    array(764, '46', 'เชียงราย'),
+    array(764, '47', 'ยะลา'),
+    array(764, '48', 'ปราจีนบุรี'),
+    array(764, '49', 'สุโขทัย'),
+    array(764, '50', 'ลำพูน'),
+    array(764, '51', 'ชัยภูมิ'),
+    array(764, '52', 'กระบี่'),
+    array(764, '53', 'กำแพงเพชร'),
+    array(764, '54', 'เชียงใหม่'),
+    array(764, '55', 'ชุมพร'),
+    array(764, '56', 'จันทบุรี'),
+    array(764, '57', 'เพชรบูรณ์'),
+    array(764, '58', 'ตราด'),
+    array(764, '59', 'พิษณุโลก'),
+    array(764, '60', 'ประจวบคีรีขันธ์'),
+    array(764, '61', 'มุกดาหาร'),
+    array(764, '62', 'พะเยา'),
+    array(764, '63', 'สุราษฎร์ธานี'),
+    array(764, '64', 'สระแก้ว'),
+    array(764, '65', 'เพชรบุรี'),
+    array(764, '66', 'แพร่'),
+    array(764, '67', 'ลำปาง'),
+    array(764, '68', 'อุตรดิตถ์'),
+    array(764, '69', 'พังงา'),
+    array(764, '70', 'ระนอง'),
+    array(764, '71', 'เลย'),
+    array(764, '72', 'อุทัยธานี'),
+    array(764, '73', 'กาญจนบุรี'),
+    array(764, '74', 'น่าน'),
+    array(764, '75', 'ตาก'),
+    array(764, '76', 'แม่ฮ่องสอน'),
+  );
+
+  foreach ($zones as $zone) {
+    db_query("INSERT INTO {uc_zones} (zone_country_id, zone_code, zone_name) VALUES (%d, '%s', '%s')", $zone);
+  }
+
+  // Use uc_set_address_format() with the country ID as the first argument and
+  // an address format string as the second.  Documentation on address formats
+  // is available at:
+  // http://www.ubercart.org/ubercart_users_guide/country_settings#address_format_docs
+  uc_set_address_format(764,
+    "!first_name !last_name\r\n!company\r\n!street1\r\n!street2"
+   ."\r\n!city, !zone_name !postal_code\r\n!country_name");
+}

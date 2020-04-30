@@ -1,0 +1,238 @@
+# $Id: uc_stock.ja.po,v 1.1.2.1 2009/11/26 06:39:21 pineray Exp $
+#
+# Japanese translation of Drupal (general)
+# Copyright PineRay <com.gmail@matsudaterutaka **reverse order**>
+# Generated from files:
+#  uc_stock.admin.inc,v 1.1.2.6 2009/07/21 14:37:17 islandusurper
+#  uc_stock.views.inc,v 1.1.2.1 2009/07/29 19:54:20 islandusurper
+#  uc_stock.ca.inc,v 1.1.2.9 2009/09/23 19:50:45 islandusurper
+#  uc_stock.module,v 1.12.2.19 2009/09/23 19:50:45 islandusurper
+#  uc_stock.info,v 1.3.2.6 2009/07/21 14:51:22 islandusurper
+#  uc_stock.install,v 1.6.2.8 2009/07/21 14:37:17 islandusurper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-11-06 18:09+0900\n"
+"PO-Revision-Date: 2009-11-26 14:36+0900\n"
+"Last-Translator: PineRay <com.gmail@matsudaterutaka **reverse order**>\n"
+"Language-Team: Japanese <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: uc_stock.admin.inc:18
+msgid "Send email notification when stock level reaches its threshold value"
+msgstr "在庫レベルがしきい値に達したらメールで通知"
+
+#: uc_stock.admin.inc:24
+msgid "Notification recipients"
+msgstr "通知の宛先"
+
+#: uc_stock.admin.inc:26
+msgid "The list of comma seperated email addresses that will receive the notification."
+msgstr "通知を受け取るメールアドレスのリストをコンマ区切りで入力してください。"
+
+#: uc_stock.admin.inc:31
+msgid "Message subject"
+msgstr "メッセージの件名"
+
+#: uc_stock.admin.inc:37
+msgid "Message text"
+msgstr "メッセージテキスト"
+
+#: uc_stock.admin.inc:39
+msgid "The message the user receives when the stock level reaches its threshold value (uses <a href=\"!token-help-page\">global, order, and stock tokens</a>)."
+msgstr "在庫レベルがしきい値に達したとき、ユーザーが受け取るメッセージ（<a href=\"!token-help-page\">global、order、stockのトークン</a>を利用可能）。"
+
+#: uc_stock.admin.inc:58;65;219
+#: views/uc_stock.views.inc:23
+msgid "SKU"
+msgstr ""
+
+#: uc_stock.admin.inc:59;65
+msgid "Product"
+msgstr "商品"
+
+#: uc_stock.admin.inc:60;65;220
+#: uc_stock.ca.inc:47
+#: uc_stock.module:60
+#: uc_stock.info:0
+#: views/uc_stock.views.inc:13
+msgid "Stock"
+msgstr "在庫"
+
+#: uc_stock.admin.inc:61;65;221
+#: views/uc_stock.views.inc:69
+msgid "Threshold"
+msgstr "しきい値"
+
+#: uc_stock.admin.inc:62
+msgid "Operations"
+msgstr "操作"
+
+#: uc_stock.admin.inc:76
+msgid "edit"
+msgstr "編集"
+
+#: uc_stock.admin.inc:100
+msgid "Export to CSV file"
+msgstr "CSVファイルでエクスポート"
+
+#: uc_stock.admin.inc:100
+msgid "Show paged records"
+msgstr "ページ分けされたレコードを表示"
+
+#: uc_stock.admin.inc:100
+msgid "Show all records"
+msgstr "全レコードを表示"
+
+#: uc_stock.admin.inc:113
+msgid "Only show SKUs that are below their threshold."
+msgstr "しきい値を下回っているSKUだけを表示。"
+
+#: uc_stock.admin.inc:120
+msgid "Update"
+msgstr "更新"
+
+#: uc_stock.admin.inc:159
+msgid "No SKU found."
+msgstr "SKUがありません。"
+
+#: uc_stock.admin.inc:206
+msgid "Save changes"
+msgstr "変更を保存"
+
+#: uc_stock.admin.inc:218
+#: views/uc_stock.views.inc:39;47
+msgid "Active"
+msgstr "アクティブ"
+
+#: uc_stock.admin.inc:252
+msgid "Stock settings saved."
+msgstr "在庫の設定を保存しました。"
+
+#: uc_stock.ca.inc:19
+msgid "Decrement stock upon order submission"
+msgstr "注文送信時に在庫を減らす"
+
+#: uc_stock.ca.inc:26
+msgid "Decrement stock of products in order"
+msgstr "注文に含まれる商品の在庫を減らす"
+
+#: uc_stock.ca.inc:42
+msgid "Decrement stock of products on the order with tracking activated."
+msgstr "トラッキングがアクティブな注文に含まれる商品の在庫を減らす"
+
+#: uc_stock.ca.inc:45
+msgid "Order"
+msgstr "注文"
+
+#: uc_stock.module:29
+msgid "To keep track of stock for a particular product SKU, make sure it is marked as active and enter a stock value. When the stock level drops below the threshold value, you can be notified based on your stock settings."
+msgstr "特定のSKUの在庫を追跡するには、それがアクティブになっていて在庫数が入力されているか確認してください。在庫レベルがしきい値を下回ると、設定した通知を受け取ることができます。"
+
+#: uc_stock.module:32
+msgid "This is the list of product SKUs that are currently active. Stock levels below their threshold have highlighted rows. Toggle the checkbox below to alter which stock levels are shown."
+msgstr "現在アクティブとなっている商品のSKUのリストです。しきい値を下回っている在庫レベルの行をハイライトで表示しています。どの在庫レベルを表示するか、下記のチェックボックスで切り替えることができます。"
+
+#: uc_stock.module:132
+#: views/uc_stock.views.inc:56
+msgid "The current stock level"
+msgstr "現在の在庫レベル"
+
+#: uc_stock.module:133
+#: views/uc_stock.views.inc:24
+msgid "The model or SKU of the stock level"
+msgstr "在庫レベルの型番またはSKU"
+
+#: uc_stock.module:134
+#: views/uc_stock.views.inc:70
+msgid "The threshold or warning limit of the stock level"
+msgstr "在庫レベルのしきい値または警告リミット"
+
+#: uc_stock.module:159
+msgid "[store-name]: Stock threshold limit reached"
+msgstr "[store-name]: 在庫がしきい値に達しました"
+
+#: uc_stock.module:160
+msgid "This message has been sent to let you know that the stock level for the model [stock-model] has reached [stock-level]. There may not be enough units in stock to fulfill order #[order-link]."
+msgstr "型番 [stock-model] の在庫レベルが  [stock-level] に達したことをお知らせするメッセージです。注文 #[order-link] を満たすだけの数がない可能性があります。"
+
+#: uc_stock.module:303
+msgid "The stock level for %model_name has been decreased to !qty."
+msgstr "%model_name の在庫レベルを !qty にまで減らしました。"
+
+#: uc_stock.module:264
+msgid "uc_stock"
+msgstr ""
+
+#: uc_stock.module:264
+msgid "Attempt to e-mail @email concerning stock level on sku @sku failed."
+msgstr "SKU @sku の在庫レベルを警告するメールの送信に失敗しました。"
+
+#: uc_stock.module:87
+msgid "administer product stock"
+msgstr "商品在庫の管理"
+
+#: uc_stock.module:43
+msgid "Stock settings"
+msgstr "在庫の設定"
+
+#: uc_stock.module:44
+msgid "View the stock settings."
+msgstr "在庫の設定を表示"
+
+#: uc_stock.module:52
+msgid "Stock reports"
+msgstr "在庫レポート"
+
+#: uc_stock.module:53
+msgid "View reports for product stock."
+msgstr "商品在庫のレポートを表示。"
+
+#: uc_stock.install:16
+msgid "Stock levels for Ubercart products"
+msgstr "Ubercart商品の在庫レベル"
+
+#: uc_stock.install:19
+msgid "SKU of a product"
+msgstr "商品のSKU"
+
+#: uc_stock.install:26
+msgid "Node ID of a product"
+msgstr "商品のノードID"
+
+#: uc_stock.install:40
+msgid "Level of stock"
+msgstr "在庫のレベル"
+
+#: uc_stock.install:47
+msgid "Threshold level"
+msgstr "しきい値レベル"
+
+#: uc_stock.info:0
+msgid "Manage stock levels of your Ubercart products"
+msgstr "Ubercart商品の在庫レベルを管理"
+
+#: uc_stock.info:0
+msgid "Ubercart - extra"
+msgstr ""
+
+#: views/uc_stock.views.inc:40
+msgid "Whether or not the stock level is currently being tracked"
+msgstr "在庫レベルを現在追跡しているかどうか"
+
+#: views/uc_stock.views.inc:55
+msgid "Stock Level"
+msgstr "在庫レベル"
+
+#: views/uc_stock.views.inc:83;87
+msgid "Is Below Threshold"
+msgstr "しきい値を下回っている"
+
+#: views/uc_stock.views.inc:84
+msgid "Filter the node based on whether its stock level is below the threshold for the SKU."
+msgstr "在庫レベルがSKUのしきい値を下回っているかどうかでノードを絞り込みます。"
+
